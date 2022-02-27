@@ -31,6 +31,8 @@ jobs:
           context: .
           push: true
           tags: ghcr.io/cpe35-kmutt/comcamp33:latest
+          secrets: |
+            "dotenv=${{ secrets.DOTENV }}"
 
       - name: Deploy
         uses: appleboy/ssh-action@master

@@ -7,5 +7,9 @@ insert_final_newline = true
 indent_style = space
 indent_size = 2
 
+[*.{js,jsx}]
+ij_javascript_spaces_within_imports = true
+ij_javascript_use_double_quotes = false
+
 [*.md]
 trim_trailing_whitespace = false
