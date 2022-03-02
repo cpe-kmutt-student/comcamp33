@@ -1,0 +1,84 @@
+const PostCheck = () => {
+  // Test Object
+  const out = {
+    facebook: {
+      name: "Punnawat Namowngsa",
+      email: "punn_namw@hotmail.com",
+      image: "URL",
+    },
+    info: {
+      prefix_en: "Mr.",
+      name_en: "Punnawat",
+      surname_en: "Namwongsa",
+      prefix_th: "นาย",
+      name_th: "ปุณณวัช",
+      surname_th: "นามวงเวียนแฮ่ นามวงวาน แฮ่..",
+      nickname_th: "เปปเปอร์",
+      birthdate: "2002-11-25",
+      religion: "พุทธ",
+      tel: "0875908288",
+      email: "shinnapatjr@gmail.com",
+      shirt: "XXL รอบอก 48",
+      image: "file",
+    },
+    education: {
+      name: "KMUTT",
+      province: "กรุงเทพ",
+      program: "วิทย์-คณิต",
+      level: "ปี 1",
+      gpax: 3.78,
+    },
+    address: {
+      no: "298/1",
+      moo: "-",
+      soi: "เจริญกรุง 27",
+      road: "ตรีมิตร",
+      tambol: "ตลาดน้อย",
+      amphoe: "สัมพันธวงศ์",
+      province: "กรุงเทพฯ",
+      postal: 10100,
+    },
+    parent: {
+      name: "ธีรวัจน์",
+      surname: "โกปาราเมศไตรสิน",
+      relation: "บิดา",
+      tel: "0814422999",
+      email: "pp2p@hotmail.com",
+    },
+    interest: {
+      admission: [
+        { faculty: "", department: "", university: "" },
+        { faculty: "", department: "", university: "" },
+        { faculty: "", department: "", university: "" },
+      ],
+      plan: [true, false, false, false],
+      camp: "",
+    },
+    answers: {
+      q1: "it should not be null if payload is success",
+      q2: "",
+      q3: "",
+      q4: "",
+      q5: "",
+      q6: "",
+      q7: "",
+      q8: "",
+    },
+  };
+
+  const handleClick = async () => {
+    const response = await fetch('api/data',{
+      method: 'POST',
+      body: JSON.stringify(out),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    }
+    )
+  }
+  return <div>
+    <button onClick={handleClick}>Click please</button>
+  </div>;
+};
+
+export default PostCheck;
