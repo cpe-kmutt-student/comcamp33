@@ -25,6 +25,7 @@ export function Input(props) {
         onChange={props.onChange}
         required={props.required}
         className={props.className + " " + styles.Input}
+        defaultValue={props.defaultValue}
       />
     </>
   );

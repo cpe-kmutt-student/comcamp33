@@ -102,14 +102,11 @@ export function Form1() {
   });
 
   const handleChange = (e) => {
-    let value = e.target.value;
-    let name = e.target.name;
-    if (value == null){
-      alert("please select value");
-    }
+    let valueChange = e.target.value;
+    let nameChange = e.target.name;
     setData({
       ...data,
-      [e.target.name]: e.target.value,
+      [nameChange]: valueChange,
     });
   };
 
@@ -121,12 +118,6 @@ export function Form1() {
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        {/* <select name="prefix_th" onChange={handleChange} defaultValue={null} required>
-          <option value={null}>คำนำหน้าaaaa</option>
-          <option>คำนำหน้า</option>
-          <option>คำนำหน้า</option>
-          <option>คำนำหน้า</option>
-        </select> */}
         <lable className={styles.lable}>
           {`ชื่อ (ภาษาไทย)`}
           <div>
@@ -213,7 +204,6 @@ export function Form1() {
               type="date"
               name="birthday"
               placeholder="Birthday"
-              value={data.birthday || "2003-01-01"}
               onChange={handleChange}
               required={true}
               pattern="\d{4}-\d{2}-\d{2}"
