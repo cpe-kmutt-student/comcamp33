@@ -31,7 +31,7 @@ export default function EducationForm() {
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <lable className={styles.lable}>
+        <lable>
           {`ชื่อสถาบัน`}
           <div>
             <Input
@@ -45,7 +45,7 @@ export default function EducationForm() {
           </div>
         </lable>
         <br />
-        <lable className={styles.lable}>
+        <lable>
           {`จังหวัด`}
           <div>
             <DropBox
@@ -58,7 +58,7 @@ export default function EducationForm() {
           </div>
         </lable>
         <br />
-        <lable className={styles.lable}>
+        <lable>
           {`สาขาวิชา`}
           <div>
             <Input
@@ -72,7 +72,7 @@ export default function EducationForm() {
           </div>
         </lable>
         <br />
-        <lable className={styles.lable}>
+        <lable>
           {`ระดับการศึกษา`}
           <div>
             <DropBox
@@ -85,7 +85,7 @@ export default function EducationForm() {
           </div>
         </lable>
         <br />
-        <lable className={styles.lable}>
+        <lable>
           {`เกรดเฉลี่ย`}
           <div>
             <Input

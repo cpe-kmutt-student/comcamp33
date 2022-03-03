@@ -9,27 +9,73 @@ import shirt_size from "@components/registerForm/DropBoxData/shirt_size.json";
 
 export default function InfoForm() {
   const [data, setData] = useState({
-    prefix_th: "",
-    name_th: "",
-    surname_th: "",
-    prefix_en: "",
-    name_en: "",
-    surname_en: "",
-    nickname_th: "",
-    birthday: "",
-    religion: "",
-    tel: "",
-    email: "",
-    shirt: "",
-    image: "",
+    info: {
+      prefix_th: "",
+      name_th: "",
+      surname_th: "",
+      prefix_en: "",
+      name_en: "",
+      surname_en: "",
+      nickname_th: "",
+      birthday: "",
+      religion: "",
+      tel: "",
+      email: "",
+      shirt: "",
+      image: "",
+    },
+    address: {
+      no: "",
+      moo: "",
+      soi: "",
+      road: "",
+      tambol: "",
+      amphoe: "",
+      province: "",
+      postal: 11111,
+    },
+    parent: {
+      name: "",
+      surname: "",
+      relation: "",
+      tel: "",
+      email: "",
+    },
   });
 
-  const handleChange = (e) => {
+  const handleChangeInfo = (e) => {
     let valueChange = e.target.value;
     let nameChange = e.target.name;
     setData({
       ...data,
-      [nameChange]: valueChange,
+      info: {
+        ...data.info,
+        [nameChange]: valueChange,
+      },
+    });
+  };
+
+  const handleChangeAddress = (e) => {
+    let valueChange = e.target.value;
+    let nameChange = e.target.name;
+    setData({
+      ...data,
+      address: {
+        ...data.address,
+        [nameChange]: valueChange,
+      },
+    });
+  };
+
+  const handleChangeParent = (e) => {
+    let valueChange = e.target.value;
+    let nameChange = e.target.name;
+    setData({
+      ...data,
+      parent: {
+        ...data.parent,
+        [nameChange]: valueChange,
+      },
     });
   };
 
@@ -48,7 +94,7 @@ export default function InfoForm() {
               <DropBox
                 placeholder="Prefix"
                 name="prefix_th"
-                onChange={handleChange}
+                onChange={handleChangeInfo}
                 required={true}
                 option={prefix_th}
               />
@@ -57,7 +103,7 @@ export default function InfoForm() {
                 name="name_th"
                 placeholder="First Name"
                 value={data.name_th}
-                onChange={handleChange}
+                onChange={handleChangeInfo}
                 required={true}
               />
             </div>
@@ -70,7 +116,7 @@ export default function InfoForm() {
                 name="surname_th"
                 placeholder="Last Name"
                 value={data.surname_th}
-                onChange={handleChange}
+                onChange={handleChangeInfo}
                 required={true}
               />
             </div>
@@ -83,7 +129,7 @@ export default function InfoForm() {
                 name="nickname_th"
                 placeholder="Nickname"
                 value={data.nickname}
-                onChange={handleChange}
+                onChange={handleChangeInfo}
                 required={true}
               />
             </div>
@@ -94,7 +140,7 @@ export default function InfoForm() {
               <DropBox
                 placeholder="Prefix"
                 name="prefix_en"
-                onChange={handleChange}
+                onChange={handleChangeInfo}
                 required={true}
                 option={prefix_en}
               />
@@ -103,7 +149,7 @@ export default function InfoForm() {
                 name="name_en"
                 placeholder="First Name"
                 value={data.name_en}
-                onChange={handleChange}
+                onChange={handleChangeInfo}
                 required={true}
               />
             </div>
@@ -116,7 +162,7 @@ export default function InfoForm() {
                 name="surname_en"
                 placeholder="Last Name"
                 value={data.surname_en}
-                onChange={handleChange}
+                onChange={handleChangeInfo}
                 required={true}
               />
             </div>
@@ -128,7 +174,7 @@ export default function InfoForm() {
                 type="date"
                 name="birthday"
                 placeholder="Birthday"
-                onChange={handleChange}
+                onChange={handleChangeInfo}
                 required={true}
                 pattern="\d{4}-\d{2}-\d{2}"
               />
@@ -144,7 +190,7 @@ export default function InfoForm() {
                 pattern="[0-9]{10}"
                 value={data.tel}
                 size="10"
-                onChange={handleChange}
+                onChange={handleChangeInfo}
                 required={true}
               />
             </div>
@@ -157,7 +203,7 @@ export default function InfoForm() {
                 name="email"
                 placeholder="Email"
                 value={data.email}
-                onChange={handleChange}
+                onChange={handleChangeInfo}
                 required={true}
               />
             </div>
@@ -168,7 +214,7 @@ export default function InfoForm() {
               <DropBox
                 placeholder="Shirt"
                 name="shirt"
-                onChange={handleChange}
+                onChange={handleChangeInfo}
                 required={true}
                 option={shirt_size}
               />
@@ -182,12 +228,179 @@ export default function InfoForm() {
                 name="image"
                 placeholder="Image"
                 value={data.image}
-                onChange={handleChange}
+                onChange={handleChangeInfo}
                 required={true}
               />
             </div>
           </lable>
           <br />
+          <lable>
+            {`เลขที่บ้าน`}
+            <div>
+              <Input
+                type="text"
+                name="no"
+                placeholder="เลขที่บ้าน"
+                value={data.no}
+                onChange={handleChangeAddress}
+                required={true}
+              />
+            </div>
+          </lable>
+          <br />
+          <lable>
+            {`หมู่`}
+            <div>
+              <Input
+                type="text"
+                name="moo"
+                placeholder="หมู่"
+                value={data.moo}
+                onChange={handleChangeAddress}
+                required={true}
+              />
+            </div>
+          </lable>
+          <br />
+          <lable>
+            {`ซอย`}
+            <div>
+              <Input
+                type="text"
+                name="soi"
+                placeholder="ซอย"
+                value={data.soi}
+                onChange={handleChangeAddress}
+                required={true}
+              />
+            </div>
+          </lable>
+          <br />
+          <lable>
+            {`ถนน`}
+            <div>
+              <Input
+                type="text"
+                name="road"
+                placeholder="ถนน"
+                value={data.road}
+                onChange={handleChangeAddress}
+                required={true}
+              />
+            </div>
+          </lable>
+          <br />
+          <lable>
+            {`ตำบล`}
+            <div>
+              <Input
+                type="text"
+                name="amphoe"
+                placeholder="ตำบล"
+                value={data.subdistrict}
+                onChange={handleChangeAddress}
+                required={true}
+              />
+            </div>
+          </lable>
+          <br />
+          <lable>
+            {`อำเภอ`}
+            <div>
+              <Input
+                type="text"
+                name="district"
+                placeholder="อำเภอ"
+                value={data.district}
+                onChange={handleChangeAddress}
+                required={true}
+              />
+            </div>
+          </lable>
+          <br />
+          <lable>
+            {`จังหวัด`}
+            <div>
+              <Input
+                type="text"
+                name="province"
+                placeholder="จังหวัด"
+                value={data.province}
+                onChange={handleChangeAddress}
+                required={true}
+              />
+            </div>
+          </lable>
+          <br />
+          <lable>
+            {`รหัสไปรษณีย์`}
+            <div>
+              <Input
+                type="text"
+                name="postcode"
+                placeholder="รหัสไปรษณีย์"
+                value={data.postcode}
+                onChange={handleChangeAddress}
+                required={true}
+              />
+            </div>
+          </lable>
+          <br />
+          <lable>
+            {`ชื่อจริงผู้ปรกครอง`}
+            <div>
+              <Input
+                type="text"
+                name="parent_name"
+                placeholder="ชื่อผู้ปรกครอง"
+                value={data.parent_name}
+                onChange={handleChangeInfo}
+                required={true}
+              />
+            </div>
+          </lable>
+          <br />
+          <lable>
+            {`นามสกุลผู้ปรกครอง`}
+            <div>
+              <Input
+                type="text"
+                name="parent_lastname"
+                placeholder="นามสกุลผู้ปรกครอง"
+                value={data.parent_lastname}
+                onChange={handleChangeInfo}
+                required={true}
+              />
+            </div>
+          </lable>
+          <br />
+          <lable>
+            {`เบอร์โทรศัพท์ผู้ปรกครอง`}
+            <div>
+              <Input
+                type="tel"
+                name="parent_tel"
+                placeholder="เบอร์โทรศัพท์ผู้ปรกครอง"
+                value={data.parent_tel}
+                onChange={handleChangeInfo}
+                required={true}
+              />
+            </div>
+          </lable>
+          <br />
+          <lable>
+            {`อีเมลผู้ปรกครอง`}
+            <div>
+              <Input
+                type="email"
+                name="parent_email"
+                placeholder="อีเมลผู้ปรกครอง"
+                value={data.parent_email}
+                onChange={handleChangeInfo}
+                required={true}
+              />
+            </div>
+          </lable>
           <Input type="submit" value="Submit" />
         </form>
       </div>
