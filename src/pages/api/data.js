@@ -1,9 +1,9 @@
 import mongoClientPromise from '../../libs/mongodb';
 import { getSession } from 'next-auth/react';
 
-export default async function handler(req, res) {
+const handler = async (req, res) => {
   const session = await getSession({ req });
-  // Validate client authentication session before access to restricted endpoint and database connectionjs object of function to call
+
   if (!session) {
     return res.status(401).json({
       success: false,
@@ -12,8 +12,8 @@ export default async function handler(req, res) {
     });
   }
 
-  if (req.method === 'GET') return loadData(req, res);
-  if (req.method === 'POST') return saveData(req, res);
+  if (req.method === 'GET') return loadData(req, res, session);
+  if (req.method === 'POST') return saveData(req, res, session);
 
   return res.status(405).json({
     success: false,
@@ -21,11 +21,11 @@ export default async function handler(req, res) {
     timestamp: new Date(),
   });
 };
-
-const loadData = async (req, res) => {
-  const database = await mongoClientPromise;
+const loadData = async (req, res, session) => {
   //find return cursor object need Array to call it
-  const dataList = await database.db("comcamp33").collection("data").find().toArray();
+
+  const database = await mongoClientPromise;
+  const dataList = await database.db("comcamp33").collection("data").findOne({'facebook.email': session.user.email});
   return res.status(200).json({
     success: true,
     message: dataList,
@@ -33,21 +33,21 @@ const loadData = async (req, res) => {
   });
 };
 
-const saveData = async (req, res) => {
+const saveData = async (req, res, session) => {
   const database = await mongoClientPromise;
   const data = req.body;
-  const faceEmail = data.facebook.email;
-  const findUser = await database.db("comcamp33").collection("data").findOne({"facebook.email": faceEmail}) ;
+  const findUser = await database.db("comcamp33").collection("data").findOne({"facebook.email": session.user.email}) ;
   if(!findUser){
     const save = await database.db("comcamp33").collection("data").insertOne(data)
-    return res.status(200).json({
+    return res.status(201).json({
       success: true,
       message: save,
       timestamp: new Date(),
     });
   }
   else {
-    const update = await database.db("comcamp33").collection("testQuery").update({ "facebook.email": faceEmail}, {$set: data})
+    const update = await database.db("comcamp33").collection("data").updateOne({ "facebook.email": session.user.email}, {$set: data})
+    console.log(update)
     return res.status(200).json({
       success: true,
       message: update,
@@ -55,3 +55,5 @@ const saveData = async (req, res) => {
     });
   }
 };
+
+export default handler

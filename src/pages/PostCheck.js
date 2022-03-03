@@ -3,17 +3,17 @@ const PostCheck = () => {
   const out = {
     facebook: {
       name: "Punnawat Namowngsa",
-      email: "punn_namw@hotmail.com",
+      email: "punnawat.namw@gmail.com",
       image: "URL",
     },
     info: {
       prefix_en: "Mr.",
-      name_en: "Punnawat",
+      name_en: "Damn",
       surname_en: "Namwongsa",
       prefix_th: "นาย",
       name_th: "ปุณณวัช",
       surname_th: "นามวงเวียนแฮ่ นามวงวาน แฮ่..",
-      nickname_th: "เปปเปอร์",
+      nickname_th: "UwUNiceName",
       birthdate: "2002-11-25",
       religion: "พุทธ",
       tel: "0875908288",

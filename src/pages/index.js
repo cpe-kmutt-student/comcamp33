@@ -21,6 +21,7 @@ const IndexPage = () => {
               />
             </div>
             <p>Welcome, {session.user.name}</p>
+            <p>Welcome, {session.user.email}</p>
           </div>
         )}
 
