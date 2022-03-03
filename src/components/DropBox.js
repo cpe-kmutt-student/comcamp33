@@ -15,7 +15,7 @@ export default function DropBox(props) {
     options.push(
       <option name={null} hidden value="" key="0">{optionsList[0].value}</option>
     );
-    for (let i = 0; i < optionsList.length; i++) {
+    for (let i = 1; i < optionsList.length; i++) {
       options.push(
         <option name={optionsList[i].name} key={i+1}>
           {optionsList[i].value}

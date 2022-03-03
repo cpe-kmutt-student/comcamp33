@@ -48,12 +48,13 @@ export default function EducationForm() {
         <lable>
           {`จังหวัด`}
           <div>
-            <DropBox
-              placeholder="Province"
+            <Input
+              type="text"
               name="province"
+              placeholder="Province"
+              value={data.province}
               onChange={handleChange}
               required={true}
-              option={level}
             />
           </div>
         </lable>
