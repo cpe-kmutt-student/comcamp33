@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { Input, DropBox } from "../../components/Input";
+import Input from "../../components/Input";
+import DropBox from "../../components/DropBox";
 import styles from "../../styles/register/registration-form.module.css";
 
 export default function Form() {
