@@ -1,0 +1,27 @@
+[
+  {
+    "name": "S",
+    "placeholder": "S",
+    "value": "S"
+  },
+  {
+    "name": "M",
+    "placeholder": "M",
+    "value": "M"
+  },
+  {
+    "name": "L",
+    "placeholder": "L",
+    "value": "L"
+  },
+  {
+    "name": "XL",
+    "placeholder": "XL",
+    "value": "XL"
+  },
+  {
+    "name": "XXL",
+    "placeholder": "XXL",
+    "value": "XXL"
+  }
+]

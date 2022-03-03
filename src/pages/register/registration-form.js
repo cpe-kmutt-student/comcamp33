@@ -3,89 +3,15 @@ import Input from "../../components/Input";
 import DropBox from "../../components/DropBox";
 import styles from "../../styles/register/registration-form.module.css";
 
+import prefix_en from "./DropBoxData/prefix_en.json";
+import prefix_th from "./DropBoxData/prefix_th.json";
+import shirt_size from "./DropBoxData/shirt_size.json";
+
 export default function Form() {
   return <>{Form1()}</>;
 }
 
 export function Form1() {
-  const prefix_en = [
-    {
-      name: "Prefix",
-      placeholder: "Prefix",
-      value: null,
-    },
-    {
-      name: "Mr.",
-      placeholder: "Mr.",
-      value: "Mr.",
-    },
-    {
-      name: "Ms.",
-      placeholder: "Ms.",
-      value: "Ms.",
-    },
-    {
-      name: "Mrs.",
-      placeholder: "Mrs.",
-      value: "Mrs.",
-    },
-  ];
-  const prefix_th = [
-    {
-      name: null,
-      placeholder: "คำนำหน้า",
-      value: null,
-    },
-    {
-      name: "นาย",
-      placeholder: "นาย",
-      value: "นาย",
-    },
-    {
-      name: "นาง",
-      placeholder: "นาง",
-      value: "นาง",
-    },
-    {
-      name: "นางสาว",
-      placeholder: "นางสาว",
-      value: "นางสาว",
-    },
-  ];
-
-  const shirt_size = [
-    {
-      name: "Shirt Size",
-      placeholder: "Shirt Size",
-      value: null
-    },
-    {
-      name: "S",
-      placeholder: "S",
-      value: "S"
-    },
-    {
-      name: "M",
-      placeholder: "M",
-      value: "M"
-    },
-    {
-      name: "L",
-      placeholder: "L",
-      value:"L"
-    },
-    {
-      name: "XL",
-      placeholder: "XL",
-      value:"XL"
-    },
-    {
-      name: "XXL",
-      placeholder: "XXL",
-      value:"XXL"
-    },
-  ];
-
   const [data, setData] = useState({
     prefix_th: "",
     name_th: "",
