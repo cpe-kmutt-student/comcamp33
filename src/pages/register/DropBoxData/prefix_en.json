@@ -1,17 +1,18 @@
 [
   {
+    "name": "prefix_th",
+    "value": "Prefix"
+  },
+  {
     "name": "Mr.",
-    "placeholder": "Mr.",
     "value": "Mr."
   },
   {
     "name": "Ms.",
-    "placeholder": "Ms.",
     "value": "Ms."
   },
   {
     "name": "Mrs.",
-    "placeholder": "Mrs.",
     "value": "Mrs."
   }
 ]

@@ -13,7 +13,7 @@ export default function DropBox(props) {
   const createOptions = () => {
     let options = [];
     options.push(
-      <option name={null} hidden value={null} key="0"/>
+      <option name={null} hidden value="" key="0">{optionsList[0].value}</option>
     );
     for (let i = 0; i < optionsList.length; i++) {
       options.push(

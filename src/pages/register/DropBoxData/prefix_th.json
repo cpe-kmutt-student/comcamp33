@@ -1,17 +1,18 @@
 [
   {
+    "name": "คำนำหน้า",
+    "value": "คำนำหน้า"
+  },
+  {
     "name": "นาย",
-    "placeholder": "นาย",
     "value": "นาย"
   },
   {
     "name": "นาง",
-    "placeholder": "นาง",
     "value": "นาง"
   },
   {
     "name": "นางสาว",
-    "placeholder": "นางสาว",
     "value": "นางสาว"
   }
 ]
