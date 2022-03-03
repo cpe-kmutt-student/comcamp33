@@ -23,7 +23,6 @@ const handler = async (req, res) => {
 };
 const loadData = async (req, res, session) => {
   //find return cursor object need Array to call it
-
   const database = await mongoClientPromise;
   const dataList = await database.db("comcamp33").collection("data").findOne({'facebook.email': session.user.email});
   return res.status(200).json({
@@ -35,7 +34,12 @@ const loadData = async (req, res, session) => {
 
 const saveData = async (req, res, session) => {
   const database = await mongoClientPromise;
-  const data = req.body;
+  let data = req.body;
+  data.facebook = {
+    "name": session.user.name,
+    "email": session.user.email,
+    "image": session.user.image
+  }
   const findUser = await database.db("comcamp33").collection("data").findOne({"facebook.email": session.user.email}) ;
   if(!findUser){
     const save = await database.db("comcamp33").collection("data").insertOne(data)
@@ -47,7 +51,6 @@ const saveData = async (req, res, session) => {
   }
   else {
     const update = await database.db("comcamp33").collection("data").updateOne({ "facebook.email": session.user.email}, {$set: data})
-    console.log(update)
     return res.status(200).json({
       success: true,
       message: update,
