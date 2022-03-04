@@ -1,11 +1,6 @@
 const PostCheck = () => {
   // Test Object
   const out = {
-    facebook: {
-      name: "Punnawat Namowngsa",
-      email: "punnawat.namw@gmail.com",
-      image: "URL",
-    },
     info: {
       prefix_en: "Mr.",
       name_en: "Damn",
@@ -15,7 +10,7 @@ const PostCheck = () => {
       surname_th: "นามวงเวียนแฮ่ นามวงวาน แฮ่..",
       nickname_th: "UwUNiceName",
       birthdate: "2002-11-25",
-      religion: "พุทธ",
+      religion: "พุทธโธ",
       tel: "0875908288",
       email: "shinnapatjr@gmail.com",
       shirt: "XXL รอบอก 48",
@@ -67,18 +62,19 @@ const PostCheck = () => {
   };
 
   const handleClick = async () => {
-    const response = await fetch('api/data',{
-      method: 'POST',
+    const response = await fetch("api/data", {
+      method: "POST",
       body: JSON.stringify(out),
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
-    }
-    )
-  }
-  return <div>
-    <button onClick={handleClick}>Click please</button>
-  </div>;
+    });
+  };
+  return (
+    <div>
+      <button onClick={handleClick}>Click please</button>
+    </div>
+  );
 };
 
 export default PostCheck;
