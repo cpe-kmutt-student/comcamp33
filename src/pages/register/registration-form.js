@@ -1,5 +1,6 @@
 import InfoForm from "@components/registerForm/InfoForm";
 import EducationForm from "@components/registerForm/EducationForm";
+import InterestForm from "@components/registerForm/InterestForm";
 import QuestionsForm from "@components/registerForm/QuestionsForm";
 
 export default function Form() {
@@ -7,6 +8,7 @@ export default function Form() {
     <>
       <InfoForm />
       <EducationForm />
+      <InterestForm />
       <QuestionsForm />
     </>
   );

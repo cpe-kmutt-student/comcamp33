@@ -351,10 +351,10 @@ export default function InfoForm() {
             <div>
               <Input
                 type="text"
-                name="parent_name"
+                name="name"
                 placeholder="ชื่อผู้ปรกครอง"
-                value={data.parent_name}
-                onChange={handleChangeInfo}
+                value={data.name}
+                onChange={handleChangeParent}
                 required={true}
               />
             </div>
@@ -365,10 +365,24 @@ export default function InfoForm() {
             <div>
               <Input
                 type="text"
-                name="parent_lastname"
+                name="surname"
                 placeholder="นามสกุลผู้ปรกครอง"
-                value={data.parent_lastname}
-                onChange={handleChangeInfo}
+                value={data.lastname}
+                onChange={handleChangeParent}
+                required={true}
+              />
+            </div>
+          </lable>
+          <br />
+          <lable>
+            {`ความสัมพันธ์`}
+            <div>
+              <Input
+                type="text"
+                name="relation"
+                placeholder="ความสัมพันธ์"
+                value={data.relation}
+                onChange={handleChangeParent}
                 required={true}
               />
             </div>
@@ -379,10 +393,10 @@ export default function InfoForm() {
             <div>
               <Input
                 type="tel"
-                name="parent_tel"
+                name="tel"
                 placeholder="เบอร์โทรศัพท์ผู้ปรกครอง"
-                value={data.parent_tel}
-                onChange={handleChangeInfo}
+                value={data.tel}
+                onChange={handleChangeParent}
                 required={true}
               />
             </div>
@@ -393,10 +407,10 @@ export default function InfoForm() {
             <div>
               <Input
                 type="email"
-                name="parent_email"
+                name="email"
                 placeholder="อีเมลผู้ปรกครอง"
-                value={data.parent_email}
-                onChange={handleChangeInfo}
+                value={data.email}
+                onChange={handleChangeParent}
                 required={true}
               />
             </div>
