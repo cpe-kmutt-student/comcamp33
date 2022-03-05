@@ -1,4 +1,4 @@
-import styles from "../styles/components/Input.module.css";
+// import styles from "../styles/components/Input.module.css";
 
 export default function Input(props) {
   const type = props.type;
@@ -7,7 +7,7 @@ export default function Input(props) {
       <input
         type="submit"
         value={props.value}
-        className={props.className + " " + styles.submit}
+        className={props.className}
         onClick={props.onClick}
       />
     );
@@ -24,7 +24,7 @@ export default function Input(props) {
         value={props.value}
         onChange={props.onChange}
         required={props.required}
-        className={props.className + " " + styles.Input}
+        className={'text-gray-400 border-2 border-white px-2 py-1 rounded-0 outline-none bg-transparent focus:bg-white' + " " + props.className}
         defaultValue={props.defaultValue}
         key={props.key}
         number={props.number}
@@ -32,5 +32,3 @@ export default function Input(props) {
     </>
   );
 }
-
-

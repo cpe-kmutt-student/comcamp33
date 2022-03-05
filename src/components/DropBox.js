@@ -1,4 +1,4 @@
-import styles from "../styles/components/DropBox.module.css";
+// import styles from "../styles/components/DropBox.module.css";
 
 export default function DropBox(props) {
   let optionsList = [];
@@ -33,7 +33,8 @@ export default function DropBox(props) {
         name={props.name}
         onChange={props.onChange}
         required={props.required}
-        className={props.className + " " + styles.DropBox}
+        className={'border-2 border-white bg-transparent text-gray-400 px-2 py-1'  + " " + props.className}
+        number={props.number}
       >
         {createOptions()}
       </select>

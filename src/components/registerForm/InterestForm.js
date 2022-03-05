@@ -5,7 +5,7 @@ import styles from "@styles/components/registerForm/InterestForm.module.css";
 
 import trueAndFalse from "@components/registerForm/DropBoxData/trueAndFalse.json";
 
-export default function InterestForm() {
+export default function InterestForm({ choose }) {
   const [data, setData] = useState({
     admission: [
       {
@@ -28,48 +28,45 @@ export default function InterestForm() {
     camp: "",
   });
 
-  useEffect(()=>{
+  useEffect(() => {
     console.log(data);
-  }, [data])
+  }, [data]);
 
   const handleChangeAdmission = (e) => {
     let valueChange = e.target.value;
     let nameChange = e.target.name;
-    let keyChange = e.target.getAttribute('number');
+    let keyChange = e.target.getAttribute("number");
 
     const newAdmission = data.admission;
     newAdmission[keyChange] = {
       ...newAdmission[keyChange],
-      [nameChange]: valueChange
+      [nameChange]: valueChange,
     };
     setData({
       ...data,
       admission: newAdmission,
-    })
-    console.log(keyChange);
-  }
-
+    });
+  };
 
   const handleChangePlan = (e) => {
     let valueChange = e.target.value;
     let nameChange = e.target.name;
-    let keyChange = e.target.getAttribute('number');
+    let keyChange = e.target.getAttribute("number");
 
     const newPlan = data.plan;
-    newPlan[keyChange] = {
-      ...newPlan[keyChange],
-      valueChange
-    };
+    newPlan[keyChange] = valueChange;
     setData({
       ...data,
       plan: newPlan,
-    })
-    console.log(keyChange);
+    });
   };
 
   const handleChangeCamp = (e) => {
-    const { value } = e.target;
-    console.log(value);
+    let valueChange = e.target.value;
+    setData({
+      ...data,
+      camp: valueChange,
+    });
   };
 
   const handleSubmit = (e) => {
@@ -77,157 +74,201 @@ export default function InterestForm() {
     console.log(data);
   };
 
-
   return (
     <>
-      <form onSubmit={handleSubmit}>
-        <label>
-          {`admission`}
-        </label>
-        <div>
-          <Input
-            type="text"
-            name="faculty"
-            placeholder="faculty"
-            onChange={handleChangeAdmission}
-            required={false}
-            number="0"
-          />
-          <Input
-            type="text"
-            name="department"
-            placeholder="department"
-            onChange={handleChangeAdmission}
-            required={false}
-            number="0"
-          />
-          <Input
-            type="text"
-            name="university"
-            placeholder="university"
-            onChange={handleChangeAdmission}
-            required={false}
-            number="0"
-          />
-        </div>
-        <br />
-        <div>
-          <Input
-            type="text"
-            name="faculty"
-            placeholder="faculty"
-            onChange={handleChangeAdmission}
-            required={false}
-            number="1"
-          />
-          <Input
-            type="text"
-            name="department"
-            placeholder="department"
-            onChange={handleChangeAdmission}
-            required={false}
-            number="1"
-          />
-          <Input
-            type="text"
-            name="university"
-            placeholder="university"
-            onChange={handleChangeAdmission}
-            required={false}
-            number="1"
-          />
-        </div>
-        <br />
-        <div>
-          <Input
-            type="text"
-            name="faculty"
-            placeholder="faculty"
-            onChange={handleChangeAdmission}
-            required={false}
-            number="2"
-          />
-          <Input
-            type="text"
-            name="department"
-            placeholder="department"
-            onChange={handleChangeAdmission}
-            required={false}
-            number="2"
-          />
-          <Input
-            type="text"
-            name="university"
-            placeholder="university"
-            onChange={handleChangeAdmission}
-            required={false}
-            number="2"
-          />
-        </div>
-        <br />
-        <label>
-          {`plan`}
-        </label>
-        <div>
-          <DropBox
-            placeholder="plan"
-            name="plan"
-            onChange={handleChangePlan}
-            required={false}
-            option={trueAndFalse}
-            number="0"
-          />
-        </div>
-        <br />
-        <div>
-          <DropBox
-            placeholder="plan"
-            name="plan"
-            onChange={handleChangePlan}
-            required={false}
-            option={trueAndFalse}
-            number="1"
-          />
-        </div>
-        <br />
-        <div>
-          <DropBox
-            placeholder="plan"
-            name="plan"
-            onChange={handleChangePlan}
-            required={false}
-            option={trueAndFalse}
-            number="2"
-          />
-        </div>
-        <br />
-        <div>
-          <DropBox
-            placeholder="plan"
-            name="plan"
-            onChange={handleChangePlan}
-            required={false}
-            option={trueAndFalse}
-            number="2"
-          />
-        </div>
-        <br />
-        <label>
-          {`camp`}
-        </label>
-        <div>
-          <Input
-            type="text"
-            name="camp"
-            placeholder="camp"
-            value={data.camp}
-            onChange={handleChangeCamp}
-            required={false}
-          />
-        </div>
-        <br />
-        <Input type="submit">Submit</Input>
-      </form>
+      <div className={choose != 3 ? "hidden" : ""}>
+        <form onSubmit={handleSubmit}>
+          <div className="flex justify-center">
+            <h1 className="flex w-fit justify-center text-3xl font-bold text-white bg-[#9600FF] px-4 py-3 rounded-3xl m-5">
+              ความสนใจ
+            </h1>
+          </div>
+          <div className="flex flex-row justify-between gap-5">
+            <div className="flex flex-col mb-2 w-full">
+              <label className="text-white mb-2">
+                มหาวิทยาลัยลำดับที่หนึ่ง
+              </label>
+              <Input
+                type="text"
+                name="faculty"
+                placeholder="faculty"
+                onChange={handleChangeAdmission}
+                required={true}
+                number="0"
+                className="w-full"
+              />
+            </div>
+            <div className="flex flex-col mb-2 w-full">
+              <label className="text-white mb-2">คณะลำดับที่หนึ่ง</label>
+              <Input
+                type="text"
+                name="department"
+                placeholder="department"
+                onChange={handleChangeAdmission}
+                required={true}
+                number="0"
+                className="w-full"
+              />
+            </div>
+            <div className="flex flex-col mb-2 w-full">
+              <label className="text-white mb-2">ภาควิชาลำดับที่หนึ่ง</label>
+              <Input
+                type="text"
+                name="university"
+                placeholder="university"
+                onChange={handleChangeAdmission}
+                required={true}
+                number="0"
+                className="w-full"
+              />
+            </div>
+          </div>
+          <br />
+          <div className="flex flex-row justify-between gap-5">
+            <div className="flex flex-col mb-2 w-full">
+              <label className="text-white mb-2">มหาวิทยาลัยลำดับที่สอง</label>
+              <Input
+                type="text"
+                name="faculty"
+                placeholder="faculty"
+                onChange={handleChangeAdmission}
+                required={true}
+                number="1"
+              />
+            </div>
+            <div className="flex flex-col mb-2 w-full">
+              <label className="text-white mb-2">คณะลำดับที่สอง</label>
+              <Input
+                type="text"
+                name="department"
+                placeholder="department"
+                onChange={handleChangeAdmission}
+                required={true}
+                number="1"
+              />
+            </div>
+            <div className="flex flex-col mb-2 w-full">
+              <label className="text-white mb-2">ภาควิชาลำดับที่สอง</label>
+              <Input
+                type="text"
+                name="university"
+                placeholder="university"
+                onChange={handleChangeAdmission}
+                required={true}
+                number="1"
+              />
+            </div>
+          </div>
+          <br />
+          <div className="flex flex-row justify-between gap-5">
+            <div className="flex flex-col mb-2 w-full">
+              <label className="text-white mb-2">มหาวิทยาลัยลำดับที่สาม</label>
+              <Input
+                type="text"
+                name="faculty"
+                placeholder="faculty"
+                onChange={handleChangeAdmission}
+                required={true}
+                number="2"
+                className="w-full"
+              />
+            </div>
+            <div className="flex flex-col mb-2 w-full">
+              <label className="text-white mb-2">คณะลำดับที่สาม</label>
+              <Input
+                type="text"
+                name="department"
+                placeholder="department"
+                onChange={handleChangeAdmission}
+                required={true}
+                number="2"
+              />
+            </div>
+            <div className="flex flex-col mb-2 w-full">
+              <label className="text-white mb-2">ภาควิชาลำดับที่สาม</label>
+              <Input
+                type="text"
+                name="university"
+                placeholder="university"
+                onChange={handleChangeAdmission}
+                required={true}
+                number="2"
+              />
+            </div>
+          </div>
+          <br />
+          <h2 className="text-white bg-[#DD517E] rounded-full justify-center w-fit p-2 pl-4 pr-4 text-lg">
+            หลักสูตรที่สนใจ
+          </h2>
+          <div className="mt-2">
+            <DropBox
+              placeholder="plan"
+              name="plan"
+              onChange={handleChangePlan}
+              required={true}
+              option={trueAndFalse}
+              number="0"
+            />
+            <label className="ml-5 text-white mb-2">หลักสูตรปกติ</label>
+          </div>
+          <br />
+          <div>
+            <DropBox
+              placeholder="plan"
+              name="plan"
+              onChange={handleChangePlan}
+              required={true}
+              option={trueAndFalse}
+              number="1"
+            />
+            <label className="ml-5 text-white mb-2">หลักสูตรนานาชาติ</label>
+          </div>
+          <br />
+          <div>
+            <DropBox
+              placeholder="plan"
+              name="plan"
+              onChange={handleChangePlan}
+              required={true}
+              option={trueAndFalse}
+              number="2"
+            />
+            <label className="ml-5 text-white mb-2">
+              หลักสูตรวิทยาศาสตร์สุขภาพ
+            </label>
+          </div>
+          <br />
+          <div>
+            <DropBox
+              placeholder="plan"
+              name="plan"
+              onChange={handleChangePlan}
+              required={true}
+              option={trueAndFalse}
+              number="3"
+            />
+            <label className="ml-5 text-white mb-2">
+              หลักสูตร Residential College
+            </label>
+          </div>
+          <br />
+          <h2 className="text-white bg-[#DD517E] rounded-full justify-center w-fit p-2 pl-4 pr-4 text-lg">
+            ค่ายที่เคยเข้าร่วม
+          </h2>
+          <div className="mt-2">
+            <textarea
+              type="textarea"
+              name="camp"
+              placeholder="camp"
+              value={data.q1}
+              onChange={handleChangeCamp}
+              className="h-36 rounded-0 w-full p-2"
+            />
+          </div>
+          <br />
+          <Input type="submit">Submit</Input>
+        </form>
+      </div>
     </>
   );
 }
