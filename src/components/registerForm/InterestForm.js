@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Input from "@components/Input";
 import DropBox from "@components/DropBox";
 import styles from "@styles/components/registerForm/InterestForm.module.css";
@@ -28,14 +28,43 @@ export default function InterestForm() {
     camp: "",
   });
 
+  useEffect(()=>{
+    console.log(data);
+  }, [data])
+
   const handleChangeAdmission = (e) => {
-    const { name, value } = e.target;
-    console.log(name, value);
-  };
+    let valueChange = e.target.value;
+    let nameChange = e.target.name;
+    let keyChange = e.target.getAttribute('number');
+
+    const newAdmission = data.admission;
+    newAdmission[keyChange] = {
+      ...newAdmission[keyChange],
+      [nameChange]: valueChange
+    };
+    setData({
+      ...data,
+      admission: newAdmission,
+    })
+    console.log(keyChange);
+  }
+
 
   const handleChangePlan = (e) => {
-    const { name, value } = e.target;
-    console.log(name, value);
+    let valueChange = e.target.value;
+    let nameChange = e.target.name;
+    let keyChange = e.target.getAttribute('number');
+
+    const newPlan = data.plan;
+    newPlan[keyChange] = {
+      ...newPlan[keyChange],
+      valueChange
+    };
+    setData({
+      ...data,
+      plan: newPlan,
+    })
+    console.log(keyChange);
   };
 
   const handleChangeCamp = (e) => {
@@ -47,150 +76,164 @@ export default function InterestForm() {
     e.preventDefault();
     console.log(data);
   };
+
+
   return (
     <>
       <form onSubmit={handleSubmit}>
         <lable>
           {`admission`}
-          <div>
-            <Input
-              type="text"
-              name="faculty"
-              placeholder="faculty"
-              value={data.admission[0].faculty}
-              onChange={handleChangeAdmission}
-              required={false}
-            />
-            <Input
-              type="text"
-              name="department"
-              placeholder="department"
-              value={data.admission[0].department}
-              onChange={handleChangeAdmission}
-              required={false}
-            />
-            <Input
-              type="text"
-              name="university"
-              placeholder="university"
-              value={data.admission[0].university}
-              onChange={handleChangeAdmission}
-              required={false}
-            />
-          </div>
-          <br />
-          <div>
-            <Input
-              type="text"
-              name="faculty"
-              placeholder="faculty"
-              value={data.admission[1].faculty}
-              onChange={handleChangeAdmission}
-              required={false}
-            />
-            <Input
-              type="text"
-              name="department"
-              placeholder="department"
-              value={data.admission[1].department}
-              onChange={handleChangeAdmission}
-              required={false}
-            />
-            <Input
-              type="text"
-              name="university"
-              placeholder="university"
-              value={data.admission[1].university}
-              onChange={handleChangeAdmission}
-              required={false}
-            />
-          </div>
-          <br />
-          <div>
-            <Input
-              type="text"
-              name="faculty"
-              placeholder="faculty"
-              value={data.admission[2].faculty}
-              onChange={handleChangeAdmission}
-              required={false}
-            />
-            <Input
-              type="text"
-              name="department"
-              placeholder="department"
-              value={data.admission[2].department}
-              onChange={handleChangeAdmission}
-              required={false}
-            />
-            <Input
-              type="text"
-              name="university"
-              placeholder="university"
-              value={data.admission[2].university}
-              onChange={handleChangeAdmission}
-              required={false}
-            />
-          </div>
-          <br />
         </lable>
+        <div>
+          <Input
+            type="text"
+            name="faculty"
+            placeholder="faculty"
+            onChange={handleChangeAdmission}
+            required={false}
+            number="0"
+          />
+          <Input
+            type="text"
+            name="department"
+            placeholder="department"
+            onChange={handleChangeAdmission}
+            required={false}
+            number="0"
+          />
+          <Input
+            type="text"
+            name="university"
+            placeholder="university"
+            onChange={handleChangeAdmission}
+            required={false}
+            number="0"
+          />
+        </div>
+        <br />
+        <div>
+          <Input
+            type="text"
+            name="faculty"
+            placeholder="faculty"
+            onChange={handleChangeAdmission}
+            required={false}
+            number="1"
+          />
+          <Input
+            type="text"
+            name="department"
+            placeholder="department"
+            onChange={handleChangeAdmission}
+            required={false}
+            number="1"
+          />
+          <Input
+            type="text"
+            name="university"
+            placeholder="university"
+            onChange={handleChangeAdmission}
+            required={false}
+            number="1"
+          />
+        </div>
+        <br />
+        <div>
+          <Input
+            type="text"
+            name="faculty"
+            placeholder="faculty"
+            onChange={handleChangeAdmission}
+            required={false}
+            number="2"
+          />
+          <Input
+            type="text"
+            name="department"
+            placeholder="department"
+            onChange={handleChangeAdmission}
+            required={false}
+            number="2"
+          />
+          <Input
+            type="text"
+            name="university"
+            placeholder="university"
+            onChange={handleChangeAdmission}
+            required={false}
+            number="2"
+          />
+        </div>
+        <br />
         <lable>
           {`plan`}
-          <div>
-            <DropBox
-              placeholder="plan"
-              name="plan"
-              onChange={handleChangePlan}
-              required={false}
-              option={trueAndFalse}
-            />
-          </div>
-          <br />
-          <div>
-            <DropBox
-              placeholder="plan"
-              name="plan"
-              onChange={handleChangePlan}
-              required={false}
-              option={trueAndFalse}
-            />
-          </div>
-          <br />
-          <div>
-            <DropBox
-              placeholder="plan"
-              name="plan"
-              onChange={handleChangePlan}
-              required={false}
-              option={trueAndFalse}
-            />
-          </div>
-          <br />
-          <div>
-            <DropBox
-              placeholder="plan"
-              name="plan"
-              onChange={handleChangePlan}
-              required={false}
-              option={trueAndFalse}
-            />
-          </div>
-          <br />
         </lable>
+        <div>
+          <DropBox
+            placeholder="plan"
+            name="plan"
+            onChange={handleChangePlan}
+            required={false}
+            option={trueAndFalse}
+            number="0"
+          />
+        </div>
+        <br />
+        <div>
+          <DropBox
+            placeholder="plan"
+            name="plan"
+            onChange={handleChangePlan}
+            required={false}
+            option={trueAndFalse}
+            number="1"
+          />
+        </div>
+        <br />
+        <div>
+          <DropBox
+            placeholder="plan"
+            name="plan"
+            onChange={handleChangePlan}
+            required={false}
+            option={trueAndFalse}
+            number="2"
+          />
+        </div>
+        <br />
+        <div>
+          <DropBox
+            placeholder="plan"
+            name="plan"
+            onChange={handleChangePlan}
+            required={false}
+            option={trueAndFalse}
+            number="2"
+          />
+          <Input
+            type="checkbox"
+            name="plan"
+            placeholder="plan"
+            onChange={handleChangePlan}
+            required={false}
+            number="2"
+          />
+        </div>
+        <br />
         <lable>
           {`camp`}
-          <div>
-            <Input
-              type="text"
-              name="camp"
-              placeholder="camp"
-              value={data.camp}
-              onChange={handleChangeCamp}
-              required={false}
-            />
-          </div>
-          <br />
         </lable>
+        <div>
+          <Input
+            type="text"
+            name="camp"
+            placeholder="camp"
+            value={data.camp}
+            onChange={handleChangeCamp}
+            required={false}
+          />
+        </div>
+        <br />
         <Input type="submit">Submit</Input>
       </form>
     </>

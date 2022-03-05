@@ -11,7 +11,7 @@ export default function Input(props) {
         onClick={props.onClick}
       />
     );
-  } 
+  }
   return (
     <>
       <input
@@ -26,6 +26,8 @@ export default function Input(props) {
         required={props.required}
         className={props.className + " " + styles.Input}
         defaultValue={props.defaultValue}
+        key={props.key}
+        number={props.number}
       />
     </>
   );
