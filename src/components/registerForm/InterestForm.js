@@ -81,9 +81,9 @@ export default function InterestForm() {
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <lable>
+        <label>
           {`admission`}
-        </lable>
+        </label>
         <div>
           <Input
             type="text"
@@ -165,9 +165,9 @@ export default function InterestForm() {
           />
         </div>
         <br />
-        <lable>
+        <label>
           {`plan`}
-        </lable>
+        </label>
         <div>
           <DropBox
             placeholder="plan"
@@ -210,19 +210,11 @@ export default function InterestForm() {
             option={trueAndFalse}
             number="2"
           />
-          <Input
-            type="checkbox"
-            name="plan"
-            placeholder="plan"
-            onChange={handleChangePlan}
-            required={false}
-            number="2"
-          />
         </div>
         <br />
-        <lable>
+        <label>
           {`camp`}
-        </lable>
+        </label>
         <div>
           <Input
             type="text"

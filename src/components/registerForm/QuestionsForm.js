@@ -32,7 +32,7 @@ export default function QuestionsForm() {
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <lable className={styles.lable}>
+        <label className={styles.label}>
           <h2>{`คำถามข้อที่ 1 :`}</h2>
           <p>
             {`ถ้าวันหนึ่งน้องต้องย้อนไปในยุค 80 - 90s
@@ -51,8 +51,8 @@ export default function QuestionsForm() {
             onChange={handleChange}
             required={true}
           />
-        </lable>
-        <lable className={styles.lable}>
+        </label>
+        <label className={styles.label}>
           <h2>{`คำถามข้อที่ 2 :`}</h2>
           <p>
             {`ถ้าวันหนึ่งน้องได้รับเลือกเป็นผู้กล้าต้องย้อนไปในปี 1980
@@ -70,8 +70,8 @@ export default function QuestionsForm() {
             onChange={handleChange}
             required={true}
           />
-        </lable>
-        <lable className={styles.lable}>
+        </label>
+        <label className={styles.label}>
           <h2>{`คำถามข้อที่ 3 :`}</h2>
           <p>
             {`น้องวางแผนไว้ว่าจะนั่งรถไฟออกเดินทางไปเที่ยวพักผ่อน
@@ -105,8 +105,8 @@ export default function QuestionsForm() {
             onChange={handleChange}
             required={true}
           />
-        </lable>
-        <lable className={styles.lable}>
+        </label>
+        <label className={styles.label}>
           <h2>{`คำถามข้อที่ 4 :`}</h2>
           <p>
             {`ขณะนี้น้องยืนอยู่ในห้องแห่งความลับ
@@ -127,8 +127,8 @@ export default function QuestionsForm() {
             onChange={handleChange}
             required={true}
           />
-        </lable>
-        <lable className={styles.lable}>
+        </label>
+        <label className={styles.label}>
           <h2>{`คำถามข้อที่ 5 :`}</h2>
           <p>
             {`ร้านไอติมแห่งหนึ่ง ขายไอติมราคาแท่งละ 15 บาท แต่ถ้าซื้อมากกว่า 15
@@ -145,8 +145,8 @@ export default function QuestionsForm() {
             onChange={handleChange}
             required={true}
           />
-        </lable>
-        <lable className={styles.lable}>
+        </label>
+        <label className={styles.label}>
           <h2>{`คำถามข้อที่ 6 :`}</h2>
           <p>
             {`น้องเป็นผู้ผ่านการคัดเลือกให้เข้าค่าย Comcamp#33
@@ -162,8 +162,8 @@ export default function QuestionsForm() {
             onChange={handleChange}
             required={true}
           />
-        </lable>
-        <lable className={styles.lable}>
+        </label>
+        <label className={styles.label}>
           <h2>{`คำถามข้อที่ 7 :`}</h2>
           <p>
             {`ถ้าน้องกำลังเล่นเกมทายภาพ
@@ -181,8 +181,8 @@ export default function QuestionsForm() {
             onChange={handleChange}
             required={true}
           />
-        </lable>
-        <lable className={styles.lable}>
+        </label>
+        <label className={styles.label}>
           <h2>{`คำถามข้อที่ 8 :`}</h2>
           <p>
             {`หากน้องได้มีโอกาสเข้ามาเป็นนักศึกษาคณะวิศวกรรมศาสตร์
@@ -200,7 +200,7 @@ export default function QuestionsForm() {
             onChange={handleChange}
             required={true}
           />
-        </lable>
+        </label>
       </form>
     </>
   );

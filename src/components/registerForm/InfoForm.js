@@ -88,7 +88,7 @@ export default function InfoForm() {
     <>
       <div>
         <form onSubmit={handleSubmit}>
-          <lable className={styles.lable}>
+          <label className={styles.label}>
             {`ชื่อ (ภาษาไทย)`}
             <div>
               <DropBox
@@ -107,8 +107,8 @@ export default function InfoForm() {
                 required={true}
               />
             </div>
-          </lable>
-          <label className={styles.lable}>
+          </label>
+          <label className={styles.label}>
             {`นามสกุล (ภาษาไทย)`}
             <div>
               <Input
@@ -121,7 +121,7 @@ export default function InfoForm() {
               />
             </div>
           </label>
-          <label className={styles.lable}>
+          <label className={styles.label}>
             {`ชื่อเล่น`}
             <div>
               <Input
@@ -134,7 +134,7 @@ export default function InfoForm() {
               />
             </div>
           </label>
-          <lable className={styles.lable}>
+          <label className={styles.label}>
             {`Firstname`}
             <div>
               <DropBox
@@ -153,8 +153,8 @@ export default function InfoForm() {
                 required={true}
               />
             </div>
-          </lable>
-          <label className={styles.lable}>
+          </label>
+          <label className={styles.label}>
             {`Surname`}
             <div>
               <Input
@@ -167,7 +167,7 @@ export default function InfoForm() {
               />
             </div>
           </label>
-          <label className={styles.lable}>
+          <label className={styles.label}>
             {`วันคล้ายวันเกิด`}
             <div>
               <Input
@@ -180,7 +180,7 @@ export default function InfoForm() {
               />
             </div>
           </label>
-          <lable className={styles.lable}>
+          <label className={styles.label}>
             {`เบอร์โทรศัพท์`}
             <div>
               <Input
@@ -194,8 +194,8 @@ export default function InfoForm() {
                 required={true}
               />
             </div>
-          </lable>
-          <lable>
+          </label>
+          <label>
             {`อีเมล`}
             <div>
               <Input
@@ -207,8 +207,8 @@ export default function InfoForm() {
                 required={true}
               />
             </div>
-          </lable>
-          <lable>
+          </label>
+          <label>
             {`เสื้อ`}
             <div>
               <DropBox
@@ -219,8 +219,8 @@ export default function InfoForm() {
                 option={shirt_size}
               />
             </div>
-          </lable>
-          <lable>
+          </label>
+          <label>
             {`รูปภาพ`}
             <div>
               <Input
@@ -232,9 +232,9 @@ export default function InfoForm() {
                 required={true}
               />
             </div>
-          </lable>
+          </label>
           <br />
-          <lable>
+          <label>
             {`เลขที่บ้าน`}
             <div>
               <Input
@@ -246,9 +246,9 @@ export default function InfoForm() {
                 required={true}
               />
             </div>
-          </lable>
+          </label>
           <br />
-          <lable>
+          <label>
             {`หมู่`}
             <div>
               <Input
@@ -260,9 +260,9 @@ export default function InfoForm() {
                 required={true}
               />
             </div>
-          </lable>
+          </label>
           <br />
-          <lable>
+          <label>
             {`ซอย`}
             <div>
               <Input
@@ -274,9 +274,9 @@ export default function InfoForm() {
                 required={true}
               />
             </div>
-          </lable>
+          </label>
           <br />
-          <lable>
+          <label>
             {`ถนน`}
             <div>
               <Input
@@ -288,9 +288,9 @@ export default function InfoForm() {
                 required={true}
               />
             </div>
-          </lable>
+          </label>
           <br />
-          <lable>
+          <label>
             {`ตำบล`}
             <div>
               <Input
@@ -302,9 +302,9 @@ export default function InfoForm() {
                 required={true}
               />
             </div>
-          </lable>
+          </label>
           <br />
-          <lable>
+          <label>
             {`อำเภอ`}
             <div>
               <Input
@@ -316,9 +316,9 @@ export default function InfoForm() {
                 required={true}
               />
             </div>
-          </lable>
+          </label>
           <br />
-          <lable>
+          <label>
             {`จังหวัด`}
             <div>
               <Input
@@ -330,9 +330,9 @@ export default function InfoForm() {
                 required={true}
               />
             </div>
-          </lable>
+          </label>
           <br />
-          <lable>
+          <label>
             {`รหัสไปรษณีย์`}
             <div>
               <Input
@@ -344,9 +344,9 @@ export default function InfoForm() {
                 required={true}
               />
             </div>
-          </lable>
+          </label>
           <br />
-          <lable>
+          <label>
             {`ชื่อจริงผู้ปรกครอง`}
             <div>
               <Input
@@ -358,9 +358,9 @@ export default function InfoForm() {
                 required={true}
               />
             </div>
-          </lable>
+          </label>
           <br />
-          <lable>
+          <label>
             {`นามสกุลผู้ปรกครอง`}
             <div>
               <Input
@@ -372,9 +372,9 @@ export default function InfoForm() {
                 required={true}
               />
             </div>
-          </lable>
+          </label>
           <br />
-          <lable>
+          <label>
             {`ความสัมพันธ์`}
             <div>
               <Input
@@ -386,9 +386,9 @@ export default function InfoForm() {
                 required={true}
               />
             </div>
-          </lable>
+          </label>
           <br />
-          <lable>
+          <label>
             {`เบอร์โทรศัพท์ผู้ปรกครอง`}
             <div>
               <Input
@@ -400,9 +400,9 @@ export default function InfoForm() {
                 required={true}
               />
             </div>
-          </lable>
+          </label>
           <br />
-          <lable>
+          <label>
             {`อีเมลผู้ปรกครอง`}
             <div>
               <Input
@@ -414,7 +414,7 @@ export default function InfoForm() {
                 required={true}
               />
             </div>
-          </lable>
+          </label>
           <Input type="submit" value="Submit" />
         </form>
       </div>
