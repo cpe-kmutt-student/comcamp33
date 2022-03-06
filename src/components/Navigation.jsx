@@ -44,7 +44,7 @@ export const Navigation = () => {
 
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <nav className=" border-gray-200 px-2 sm:px-4 py-2.5 w-full sticky top-0">
+    <nav className=" border-gray-200 px-2 sm:px-4 py-2.5 w-full sticky top-0 z-10">
       <div className="container flex flex-wrap md:justify-center items-start mx-auto relative md:space-x-5 justify-between">
         <div className="h-[12vh] relative w-[12vh] min-h-[50px] min-w-[20px] mt-[-1vh] cursor-pointer">
           <Link
