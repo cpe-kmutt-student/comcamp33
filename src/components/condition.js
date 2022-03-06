@@ -14,7 +14,7 @@ const Condition = () => {
               quality={100}
               
               />
-              <div className="md:text-2xl py-4  lg:py-0 my-6 px-10 bg-[#04B1AF]">
+              <div className="text-base md:text-2xl py-4  lg:py-0 my-6 px-10 bg-[#04B1AF]">
               นักเรียนมัธยมศึกษาปีที่ 4, 5 สายวิทย์
 หรือคณิตคอม ปวช. และนักศึกษา รหัส 65
 ผู้ที่ยืนยันสิทธ์กับทาง ภาควิศวกรรมคอมพิวเตอร์ มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าธนบุรี
@@ -28,7 +28,7 @@ const Condition = () => {
               quality={100}
               
               />
-               <div className="md:text-2xl md:py-16 my-6 px-10 bg-[#556CC9]">
+               <div className="text-base py-2 md:text-2xl md:py-16 my-6 px-10 bg-[#556CC9]">
                มีความสนใจในด้านคอมพิวเตอร์
 โดยไม่จำเป็นต้องมีพื้นฐานมาก่อน
 
@@ -40,7 +40,7 @@ const Condition = () => {
               quality={100}
               
               />
-              <div className="md:text-2xl md:py-16 my-6 px-10 bg-[#DD517E]">
+              <div className="text-base py-4 md:text-2xl md:py-16 my-6 px-10 bg-[#DD517E]">
               ผู้ปกครองอนุญาตให้นักเรียนคนดังกล่าวเข้าร่วมกิจกรรม ตามระยะเวลาที่กำหนด
 
               </div>

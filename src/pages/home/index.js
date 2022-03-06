@@ -30,7 +30,7 @@ const Home = () => {
       </section>
       <section className="h-[100vh]" id="schedule"></section>
       <section className="h-[100vh]" id="faq"></section>
-      <section className="h-[100vh]" id="contact"></section>
+      <section className="h-[100vh]" id="contact"><Contact/></section>
       <section className="h-[100vh]" id="registration"></section>
     </div >
   );
