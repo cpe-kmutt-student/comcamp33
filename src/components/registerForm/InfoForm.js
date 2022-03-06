@@ -1,89 +1,22 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Input from "@components/Input";
 import DropBox from "@components/DropBox";
-import styles from "@styles/components/registerForm/InfoForm.module.css";
 
 import prefix_en from "@components/registerForm/DropBoxData/prefix_en.json";
 import prefix_th from "@components/registerForm/DropBoxData/prefix_th.json";
 import shirt_size from "@components/registerForm/DropBoxData/shirt_size.json";
 
-export default function InfoForm({ choose }) {
-  const [data, setData] = useState({
-    info: {
-      prefix_th: "",
-      name_th: "",
-      surname_th: "",
-      prefix_en: "",
-      name_en: "",
-      surname_en: "",
-      nickname_th: "",
-      birthday: "",
-      religion: "",
-      tel: "",
-      email: "",
-      shirt: "",
-      image: "",
-    },
-    address: {
-      no: "",
-      moo: "",
-      soi: "",
-      road: "",
-      tambol: "",
-      amphoe: "",
-      province: "",
-      postal: 11111,
-    },
-    parent: {
-      name: "",
-      surname: "",
-      relation: "",
-      tel: "",
-      email: "",
-    },
-  });
-
-  const handleChangeInfo = (e) => {
-    let valueChange = e.target.value;
-    let nameChange = e.target.name;
+export default function InfoForm({ data, setData, choose }) {
+  const handleChange = (e, type) => {
     setData({
       ...data,
-      info: {
-        ...data.info,
-        [nameChange]: valueChange,
-      },
+      [type]: {
+        ...data[type],
+        [e.target.name]: e.target.value,
+      }
     });
   };
-
-  const handleChangeAddress = (e) => {
-    let valueChange = e.target.value;
-    let nameChange = e.target.name;
-    setData({
-      ...data,
-      address: {
-        ...data.address,
-        [nameChange]: valueChange,
-      },
-    });
-  };
-
-  const handleChangeParent = (e) => {
-    let valueChange = e.target.value;
-    let nameChange = e.target.name;
-    setData({
-      ...data,
-      parent: {
-        ...data.parent,
-        [nameChange]: valueChange,
-      },
-    });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(data);
-  };
-
+  
   return (
     <>
       <div className={choose != 1 ? "hidden" : ""}>
@@ -92,13 +25,13 @@ export default function InfoForm({ choose }) {
             ข้อมูลส่วนตัว
           </h1>
         </div>
-        <form onSubmit={handleSubmit} className="space-y-8">
+        <form className="space-y-8">
           <div className="flex flex-row items-end justify-between gap-10">
             <div className="flex">
               <DropBox
                 placeholder="Prefix"
                 name="prefix_th"
-                onChange={handleChangeInfo}
+                onChange={(e) => handleChange(e, 'info')}
                 required={true}
                 option={prefix_th}
               />
@@ -110,8 +43,8 @@ export default function InfoForm({ choose }) {
                   type="text"
                   name="name_th"
                   placeholder="First Name"
-                  value={data.name_th}
-                  onChange={handleChangeInfo}
+                  value={data.info ? data.info.name_th : ''}
+                  onChange={(e) => handleChange(e, 'info')}
                   required={true}
                   className="w-full"
                 />
@@ -123,8 +56,8 @@ export default function InfoForm({ choose }) {
                 type="text"
                 name="surname_th"
                 placeholder="Last Name"
-                value={data.surname_th}
-                onChange={handleChangeInfo}
+                value={data.info ? data.info.surname_th : ''}
+                onChange={(e) => handleChange(e, 'info')}
                 required={true}
                 className="w-full"
               />
@@ -136,8 +69,8 @@ export default function InfoForm({ choose }) {
                   type="text"
                   name="nickname_th"
                   placeholder="Nickname"
-                  value={data.nickname}
-                  onChange={handleChangeInfo}
+                  value={data.info ? data.info.nickname_th : ''}
+                  onChange={(e) => handleChange(e, 'info')}
                   required={true}
                   className="w-full"
                 />
@@ -150,7 +83,7 @@ export default function InfoForm({ choose }) {
               <DropBox
                 placeholder="Name prefix"
                 name="prefix_en"
-                onChange={handleChangeInfo}
+                onChange={(e) => handleChange(e, 'info')}
                 required={true}
                 option={prefix_en}
               />
@@ -161,8 +94,8 @@ export default function InfoForm({ choose }) {
                 type="text"
                 name="name_en"
                 placeholder="First Name"
-                value={data.name_en}
-                onChange={handleChangeInfo}
+                value={data.info ? data.info.name_en : ''}
+                onChange={(e) => handleChange(e, 'info')}
                 required={true}
                 className="w-full"
               />
@@ -173,8 +106,8 @@ export default function InfoForm({ choose }) {
                 type="text"
                 name="surname_en"
                 placeholder="Last Name"
-                value={data.surname_en}
-                onChange={handleChangeInfo}
+                value={data.info ? data.info.surname_en : ''}
+                onChange={(e) => handleChange(e, 'info')}
                 required={true}
                 className="w-full"
               />
@@ -187,7 +120,7 @@ export default function InfoForm({ choose }) {
                 type="date"
                 name="birthday"
                 placeholder="Birthday"
-                onChange={handleChangeInfo}
+                onChange={(e) => handleChange(e, 'info')}
                 required={true}
                 pattern="\d{4}-\d{2}-\d{2}"
                 className="w-full"
@@ -207,9 +140,9 @@ export default function InfoForm({ choose }) {
                     name="tel"
                     placeholder="Tel"
                     pattern="[0-9]{10}"
-                    value={data.tel}
+                    value={data.info ? data.info.tel : ''}
                     size="10"
-                    onChange={handleChangeInfo}
+                    onChange={(e) => handleChange(e, 'info')}
                     required={true}
                   />
                 </div>
@@ -218,7 +151,7 @@ export default function InfoForm({ choose }) {
                   <DropBox
                     placeholder="ระบุขนาดเสื้อ"
                     name="shirt"
-                    onChange={handleChangeInfo}
+                    onChange={(e) => handleChange(e, 'info')}
                     required={true}
                     option={shirt_size}
                   />
@@ -236,8 +169,8 @@ export default function InfoForm({ choose }) {
                       type="file"
                       name="image"
                       placeholder="Image"
-                      value={data.image}
-                      onChange={handleChangeInfo}
+                      value={data.info ? data.info.image : ''}
+                      onChange={(e) => handleChange(e, 'info')}
                       required={true}
                     />
                   </div>
@@ -258,8 +191,8 @@ export default function InfoForm({ choose }) {
                   type="text"
                   name="no"
                   placeholder="เลขที่บ้าน"
-                  value={data.no}
-                  onChange={handleChangeAddress}
+                  value={data.address ? data.address.no : ''}
+                  onChange={(e) => handleChange(e, 'address')}
                   required={true}
                   className="w-full"
                 />
@@ -272,8 +205,8 @@ export default function InfoForm({ choose }) {
                   type="text"
                   name="moo"
                   placeholder="หมู่"
-                  value={data.moo}
-                  onChange={handleChangeAddress}
+                  value={data.address ? data.address.moo : ''}
+                  onChange={(e) => handleChange(e, 'address')}
                   required={true}
                   className="w-full"
                 />
@@ -286,8 +219,8 @@ export default function InfoForm({ choose }) {
                   type="text"
                   name="soi"
                   placeholder="ซอย"
-                  value={data.soi}
-                  onChange={handleChangeAddress}
+                  value={data.address ? data.address.soi : ''}
+                  onChange={(e) => handleChange(e, 'address')}
                   required={true}
                   className="w-full"
                 />
@@ -300,8 +233,8 @@ export default function InfoForm({ choose }) {
                   type="text"
                   name="road"
                   placeholder="ถนน"
-                  value={data.road}
-                  onChange={handleChangeAddress}
+                  value={data.address ? data.address.road : ''}
+                  onChange={(e) => handleChange(e, 'address')}
                   required={true}
                   className="w-full"
                 />
@@ -317,8 +250,8 @@ export default function InfoForm({ choose }) {
                   type="text"
                   name="amphoe"
                   placeholder="ตำบล"
-                  value={data.subdistrict}
-                  onChange={handleChangeAddress}
+                  value={data.address ? data.subdistrict.no : ''}
+                  onChange={(e) => handleChange(e, 'address')}
                   required={true}
                   className="w-full"
                 />
@@ -331,8 +264,8 @@ export default function InfoForm({ choose }) {
                   type="text"
                   name="district"
                   placeholder="อำเภอ"
-                  value={data.district}
-                  onChange={handleChangeAddress}
+                  value={data.address ? data.address.district : ''}
+                  onChange={(e) => handleChange(e, 'address')}
                   required={true}
                   className="w-full"
                 />
@@ -345,8 +278,8 @@ export default function InfoForm({ choose }) {
                   type="text"
                   name="province"
                   placeholder="จังหวัด"
-                  value={data.province}
-                  onChange={handleChangeAddress}
+                  value={data.address ? data.address.province : ''}
+                  onChange={(e) => handleChange(e, 'address')}
                   required={true}
                   className="w-full"
                 />
@@ -359,8 +292,8 @@ export default function InfoForm({ choose }) {
                   type="text"
                   name="postcode"
                   placeholder="รหัสไปรษณีย์"
-                  value={data.postcode}
-                  onChange={handleChangeAddress}
+                  value={data.address ? data.address.postcode : ''}
+                  onChange={(e) => handleChange(e, 'address')}
                   required={true}
                   className="w-full"
                 />
@@ -377,7 +310,7 @@ export default function InfoForm({ choose }) {
               <DropBox
                 placeholder="Prefix"
                 name="prefix_th"
-                onChange={handleChangeInfo}
+                onChange={(e) => handleChange(e, 'info')}
                 required={true}
                 option={prefix_th}
               />
@@ -390,8 +323,8 @@ export default function InfoForm({ choose }) {
                     type="text"
                     name="name"
                     placeholder="ชื่อผู้ปกครอง"
-                    value={data.name}
-                    onChange={handleChangeParent}
+                    value={data.parent ? data.parent.name : ''}
+                    onChange={(e) => handleChange(e, 'parent')}
                     required={true}
                     className="w-full"
                   />
@@ -405,8 +338,8 @@ export default function InfoForm({ choose }) {
                   type="text"
                   name="surname"
                   placeholder="นามสกุลผู้ปกครอง"
-                  value={data.lastname}
-                  onChange={handleChangeParent}
+                  value={data.parent ? data.parent.lastname : ''}
+                  onChange={(e) => handleChange(e, 'parent')}
                   required={true}
                   className="w-full"
                 />
@@ -419,8 +352,8 @@ export default function InfoForm({ choose }) {
                   type="text"
                   name="relation"
                   placeholder="ความสัมพันธ์"
-                  value={data.relation}
-                  onChange={handleChangeParent}
+                  value={data.parent ? data.parent.relation : ''}
+                  onChange={(e) => handleChange(e, 'parent')}
                   required={true}
                   className="w-full"
                 />
@@ -436,8 +369,8 @@ export default function InfoForm({ choose }) {
                   type="tel"
                   name="tel"
                   placeholder="เบอร์โทรศัพท์ผู้ปกครอง"
-                  value={data.tel}
-                  onChange={handleChangeParent}
+                  value={data.parent ? data.parent.tel : ''}
+                  onChange={(e) => handleChange(e, 'parent')}
                   required={true}
                   className="w-full"
                 />
@@ -450,15 +383,14 @@ export default function InfoForm({ choose }) {
                   type="email"
                   name="email"
                   placeholder="อีเมลผู้ปกครอง"
-                  value={data.email}
-                  onChange={handleChangeParent}
+                  value={data.parent ? data.parent.email : ''}
+                  onChange={(e) => handleChange(e, 'parent')}
                   required={true}
                   className="w-full"
                 />
               </div>
             </div>
           </div>
-          <Input type="submit" value="Submit" />
         </form>
       </div>
     </>
