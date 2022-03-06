@@ -6,44 +6,38 @@ import Condition from "../../components/condition";
 import { Navigation } from "../../components/Navigation";
 const Home = () => {
   return (
-    <div className="bg-slate-900">
-      <Navigation/>
-        
-        <div className="container mx-auto lg:px-24">
-       <Image src="/assets/logo.png" quality={100}  width={2679} height={1933}/>
-       </div>
-       <div className="bg-no-repeat bg-center">
-       
-       
-       <div className=" hidden lg:block">
-        <Image src="/assets/first/FIRST_WEB/2.png"
-              width={8027}
-              height={2037}
-                quality={100}
-              />
+    <div className="bg-bg-primary">
+      <Navigation />
+      <section className="container mx-auto lg:px-24 h-[100vh]">
+        <div className="h-[60vh] relative mt-3 mx-5">
+          <Image src="/assets/logo.png" quality={100} layout="fill" objectFit="contain" alt="com camp logo" />
         </div>
-        <div className=" hidden sm:block lg:hidden">
-        <Image src="/assets/first/FIRST_WEB_IPAD/2.png"
-              width={3216}
-              height={2036}
-                quality={100}
-              />
+        <div className="absolute bottom-0 right-0 w-[100%] md:h-[35vh] h-[40vh]">
+          <Image src="/assets/first/FIRST_WEB/2.png"
+            layout="fill"
+            objectFit="cover"
+            quality={100}
+            alt="background town"
+          />
         </div>
+      </section>
+      <div className="bg-no-repeat bg-center">
+
         <div className="block sm:hidden">
-        <Image src="/assets/first/FIRST_WEB_IPHONE/2.png"
-              width={1566}
-              height={1592}
-                quality={100}
-              />
+          <Image src="/assets/first/FIRST_WEB_IPHONE/2.png"
+            width={1566}
+            height={1592}
+            quality={100}
+          />
         </div>
-       
-      
-       </div>
-       
-       <About/>
-       <Condition/>
-       
+
+
       </div>
+
+      <About />
+      <Condition />
+
+    </div >
   );
 };
 

@@ -83,7 +83,7 @@ export const Navigation = () => {
           className={`w-full md:block md:w-auto ${isOpen ? "" : "hidden"}`}
           id="mobile-menu"
         >
-          <ul className="flex flex-col w-full h-10 md:flex-row md:space-x-6 md:mt-0 md:text-xl md:font-medium">
+          <ul className="flex flex-col w-full h-10 md:flex-row md:space-x-6 md:mt-0 md:text-md md:font-medium">
             {links.map((link) => (
               <li key={link}>
                 <a
