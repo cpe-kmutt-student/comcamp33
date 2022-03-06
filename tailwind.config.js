@@ -6,7 +6,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        'pixel': ['upheavtt']
+        'pixel': ['upheavtt'],
+        'thai': ['Taviraj', "serif"]
       },
       colors: {
         'bg-primary': '#11033E'
