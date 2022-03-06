@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Input from "@components/Input";
 import DropBox from "@components/DropBox";
-import TextArea from "@components/registerForm/TextArea";
+
+import TextArea from "@components/TextArea";
 import CheckBox from "@components/CheckBox";
 import styles from "@styles/components/registerForm/InterestForm.module.css";
 

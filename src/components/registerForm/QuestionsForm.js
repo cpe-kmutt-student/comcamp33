@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import TextArea from "@components/registerForm/TextArea";
+import TextArea from "@components/TextArea";
 import styles from "@styles/components/registerForm/QuestionsForm.module.css";
 
 export default function QuestionsForm({ choose }) {
