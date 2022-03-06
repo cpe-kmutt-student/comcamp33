@@ -86,21 +86,22 @@ export default function InfoForm({ choose }) {
 
   return (
     <>
-      <div className={choose != 1 ? "hidden" : ""}>
+      <div className={choose != 2 ? "hidden" : ""}>
         <div className="flex justify-center">
-          <h1 className="flex w-fit justify-center text-3xl font-bold text-white bg-[#9600FF] px-4 py-3 rounded-2xl">
+          <h1 className="flex w-fit justify-center text-3xl font-bold text-white bg-[#9600FF] px-4 py-3 my-8 rounded-2xl">
             ข้อมูลส่วนตัว
           </h1>
         </div>
         <form onSubmit={handleSubmit} className="space-y-8">
           <div className="flex flex-row items-end justify-between gap-10">
-            <div className="flex">
+            <div className="flex w-full">
               <DropBox
                 placeholder="Prefix"
                 name="prefix_th"
                 onChange={handleChangeInfo}
                 required={true}
                 option={prefix_th}
+                className="w-full"
               />
             </div>
             <div className="flex flex-col w-full">
@@ -146,13 +147,14 @@ export default function InfoForm({ choose }) {
           </div>
 
           <div className="flex flex-row items-end justify-between gap-10">
-            <div className="flex">
+            <div className="flex w-full">
               <DropBox
                 placeholder="Name prefix"
                 name="prefix_en"
                 onChange={handleChangeInfo}
                 required={true}
                 option={prefix_en}
+                className="w-full"
               />
             </div>
             <div className="flex flex-col w-full">
@@ -197,7 +199,7 @@ export default function InfoForm({ choose }) {
 
           <div>
             <div className="flex flex-row justify-between gap-10">
-              <div className="flex flex-col w-full">
+              <div className="flex flex-col flex-1 gap-10">
                 <div className="flex flex-col">
                   <label className="text-white mb-2">
                     เบอร์โทรศัพท์ส่วนตัว
@@ -211,6 +213,7 @@ export default function InfoForm({ choose }) {
                     size="10"
                     onChange={handleChangeInfo}
                     required={true}
+                    className="w-full block"
                   />
                 </div>
                 <div className="flex flex-col">
@@ -221,17 +224,19 @@ export default function InfoForm({ choose }) {
                     onChange={handleChangeInfo}
                     required={true}
                     option={shirt_size}
+                    className="w-full block"
                   />
                 </div>
               </div>
               <div className="flex flex-col">
-                <label>ภาพถ่ายอิสระ</label>
-                <div className="w-[300px] h-[300px] bg-black"></div>
+                <label className="text-white mb-2">ภาพถ่ายอิสระ</label>
+                <div className="w-[300px] aspect-square bg-black"></div>
               </div>
-              <div className="flex flex-col">
+              <div className="flex flex-col flex-1">
                 <div>
-                  <label className="text-white mb-2">{`ภาพถ่ายอิสระ`}</label>
-                  <div>
+                  <label className="text-white mb-2 block">{`ภาพถ่ายอิสระ`}</label>
+                  <label className="text-gray-400 border-2 border-white px-2 py-1 rounded-0 outline-none bg-transparent focus:bg-white block w-full">
+                    อัพโหลดภาพ
                     <Input
                       type="file"
                       name="image"
@@ -239,8 +244,9 @@ export default function InfoForm({ choose }) {
                       value={data.image}
                       onChange={handleChangeInfo}
                       required={true}
+                      className="hidden"
                     />
-                  </div>
+                  </label>
                 </div>
               </div>
             </div>

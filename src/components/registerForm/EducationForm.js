@@ -30,7 +30,7 @@ export default function EducationForm({ choose }) {
 
   return (
     <>
-      <div className={choose != 2 ? "hidden" : ""}>
+      <div className={choose != 3 ? "hidden" : ""}>
         <div className="flex justify-center">
           <h1 className="flex w-fit justify-center text-3xl font-bold text-white bg-[#9600FF] px-4 py-3 rounded-2xl">
             ประวัติการศึกษา

@@ -1,20 +1,9 @@
-// import styles from "../styles/components/Input.module.css";
+import React from 'react'
 
-export default function Input(props) {
-  const type = props.type;
-  if (type === "submit") {
-    return (
-      <input
-        type="submit"
-        value={props.value}
-        className={props.className}
-        onClick={props.onClick}
-      />
-    );
-  }
+export default function TextArea(props) {
   return (
     <>
-      <input
+      <textarea
         name={props.name}
         ref={props.ref}
         placeholder={props.placeholder}
@@ -30,5 +19,5 @@ export default function Input(props) {
         number={props.number}
       />
     </>
-  );
+  )
 }
