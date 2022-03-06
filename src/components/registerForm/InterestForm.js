@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Input from "@components/Input";
 import DropBox from "@components/DropBox";
+import TextArea from "@components/registerForm/TextArea";
 import styles from "@styles/components/registerForm/InterestForm.module.css";
 
 import trueAndFalse from "@components/registerForm/DropBoxData/trueAndFalse.json";
@@ -76,7 +77,7 @@ export default function InterestForm({ choose }) {
 
   return (
     <>
-      <div className={choose != 3 ? "hidden" : ""}>
+      <div className={choose != 4 ? "hidden" : ""}>
         <form onSubmit={handleSubmit}>
           <div className="flex justify-center">
             <h1 className="flex w-fit justify-center text-3xl font-bold text-white bg-[#9600FF] px-4 py-3 rounded-3xl m-5">
@@ -256,8 +257,8 @@ export default function InterestForm({ choose }) {
             ค่ายที่เคยเข้าร่วม
           </h2>
           <div className="mt-2">
-            <textarea
-              type="textarea"
+            <TextArea
+              type="text"
               name="camp"
               placeholder="camp"
               value={data.q1}

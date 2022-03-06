@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import Input from "@components/Input";
-import DropBox from "@components/DropBox";
+import TextArea from "@components/registerForm/TextArea";
 import styles from "@styles/components/registerForm/QuestionsForm.module.css";
 
 export default function QuestionsForm({ choose }) {
@@ -31,7 +30,7 @@ export default function QuestionsForm({ choose }) {
 
   return (
     <>
-      <div className={choose != 4 ? "hidden" : ""}>
+      <div className={choose != 5 ? "hidden" : ""}>
         <form onSubmit={handleSubmit}>
           <label className="flex justify-center">
             <h2 className="flex w-fit justify-center text-2xl font-bold text-white bg-[#9600FF] px-8 py-2 rounded-3xl">{`คำถาม`}</h2>
@@ -46,8 +45,8 @@ export default function QuestionsForm({ choose }) {
             น้องสามารถนำอุปกรณ์ในช่วงยุค 80 - 90s กลับมาได้ 1 ชิ้น
             น้องจะนำอะไรกลับมาและเพราะเหตุใดน้องจึงเลือกอุปกรณ์ชิ้นนี้`}
             </p>
-            <textarea
-              type="textarea"
+            <TextArea
+              type="text"
               name="q1"
               placeholder="คำถามข้อที่ 1 :"
               value={data.q1}
@@ -69,7 +68,7 @@ export default function QuestionsForm({ choose }) {
             น้องจะประยุกต์เทคโนโลยีที่มีในสมัยนั้น
             มาใช้แก้ปัญหาโรคระบาดนี้อย่างไร`}
             </p>
-            <textarea
+            <TextArea
               type="text"
               name="q2"
               placeholder="คำถามข้อที่ 2 :"
@@ -107,7 +106,7 @@ export default function QuestionsForm({ choose }) {
               </div>
             </p>
 
-            <textarea
+            <TextArea
               type="text"
               name="q3"
               placeholder="คำถามข้อที่ 3 :"
@@ -132,7 +131,7 @@ export default function QuestionsForm({ choose }) {
               {`ถ้าน้องรู้ว่าข้อความหน้ากล่องมีข้อความที่เป็นจริงเพียงแค่ข้อความเดียวเท่านั้น
             น้องจะเลือกเปิดหีบไหน เพราะอะไร อธิบายเหตุผลมาพอสังเขป`}
             </p>
-            <textarea
+            <TextArea
               type="text"
               name="q4"
               placeholder="คำถามข้อที่ 4 :"
@@ -153,7 +152,7 @@ export default function QuestionsForm({ choose }) {
             จงเขียน Pseudo Code อธิบายวิธีการคำนวนราคาไอติม และมีการใช้  If-else
             Statement`}
             </p>
-            <textarea
+            <TextArea
               type="text"
               name="q5"
               placeholder="คำถามข้อที่ 5 :"
@@ -173,7 +172,7 @@ export default function QuestionsForm({ choose }) {
             แต่สมาชิกในกลุ่มน้องไม่มีใครเปิดกล้องเลย
             น้องจะทำอย่างไรกับสถานการณ์นี้`}
             </p>
-            <textarea
+            <TextArea
               type="text"
               name="q6"
               placeholder="คำถามข้อที่ 6 :"
@@ -195,7 +194,7 @@ export default function QuestionsForm({ choose }) {
             ให้อธิบายเพื่อการวาดภาพเท่านั้น
             จงอธิบายขั้นตอนที่น้องจะใบ้เพื่อนที่กำลังวาดรูป`}
             </p>
-            <textarea
+            <TextArea
               type="text"
               name="q7"
               placeholder="คำถามข้อที่ 7 :"
@@ -217,13 +216,14 @@ export default function QuestionsForm({ choose }) {
             น้องจะมีวิธีการใช้คำพูดอย่างไร เพื่อให้น้องรุ่นต่อ ๆ
             ไปมีความชื่นชอบสนใจและอยากมาค่าย Comcamp #33 นี้`}
             </p>
-            <textarea
+            <TextArea
               type="text"
               name="q8"
               placeholder="คำถามข้อที่ 8 :"
               value={data.q8}
               onChange={handleChange}
               required={true}
+              className="h-36 rounded-xl text-gray-400 border-2 border-white px-2 py-1 rounded-0 outline-none bg-transparent focus:bg-white"
             />
           </div>
         </form>

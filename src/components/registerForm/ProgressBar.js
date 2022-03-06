@@ -38,8 +38,8 @@ export default function ProgressBar({ currentStep }) {
           return (
             <>
               <div className="flex flex-col">
-                <span className="text-white">{step}</span>
-                <div className="flex flex-row justify-center gap-2" key={index}>
+                <span key={index} className="text-white">{step}</span>
+                <div className="flex flex-row justify-center gap-2" >
                   <div
                     className={
                       index >= currentStep

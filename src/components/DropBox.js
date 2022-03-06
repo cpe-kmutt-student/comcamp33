@@ -19,7 +19,7 @@ export default function DropBox(props) {
     );
     for (let i = 1; i < optionsList.length; i++) {
       options.push(
-        <option name={optionsList[i].name} key={i + 1} className="text-black">
+        <option name={optionsList[i].name} key={i + 1} className="text-black bg-transparent">
           {optionsList[i].value}
         </option>
       );
