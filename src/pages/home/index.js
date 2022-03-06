@@ -21,14 +21,17 @@ const Home = () => {
           />
         </div>
       </section>
-      <section className="container h-[100vh]" id="about">
+      <section className="h-[100vh] w-[100vw]" id="about">
         <About />
       </section>
-
-
-
-      <Condition />
-
+      <section className="h-[100vh]" id="learning"></section>
+      <section className="h-[100vh]" id="condition">
+        <Condition />
+      </section>
+      <section className="h-[100vh]" id="schedule"></section>
+      <section className="h-[100vh]" id="faq"></section>
+      <section className="h-[100vh]" id="contact"></section>
+      <section className="h-[100vh]" id="registration"></section>
     </div >
   );
 };
