@@ -52,7 +52,7 @@ export default function Form() {
         <ProgressBar currentStep={chooseForm} />
 
         <div className="p-[20%] pt-0 pb-0">
-          <PolicyForm choose={chooseForm}/>
+          <PolicyForm choose={chooseForm} />
           <InfoForm choose={chooseForm} />
           <EducationForm choose={chooseForm} />
           <InterestForm choose={chooseForm} />
@@ -61,7 +61,7 @@ export default function Form() {
 
         <div className="flex justify-around my-5">
           <button onClick={prevForm}>
-            <AiFillCaretLeft size="4.5rem" color="rgb(236,72,153)" />
+            <AiFillCaretLeft size="4.5rem" color="rgb(236,72,153)" style={{ display: chooseForm === 1 ? 'none' : 'block' }} />
           </button>
           <button onClick={nextForm}>
             <AiFillCaretRight size="4.5rem" color="rgb(236,72,153)" />
