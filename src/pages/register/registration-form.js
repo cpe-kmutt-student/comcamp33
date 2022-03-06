@@ -51,8 +51,8 @@ export default function Form() {
 
         <ProgressBar currentStep={chooseForm} />
 
-        <div className="p-[20%] pt-0 pb-0">
-          <PolicyForm choose={chooseForm}/>
+        <div className="p-[20%] pt-0 pb-0 font-thai">
+          <PolicyForm choose={chooseForm} />
           <InfoForm choose={chooseForm} />
           <EducationForm choose={chooseForm} />
           <InterestForm choose={chooseForm} />
