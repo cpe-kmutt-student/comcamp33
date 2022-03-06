@@ -52,7 +52,6 @@ export default function QuestionsForm({ choose }) {
               value={data.q1}
               onChange={handleChange}
               required={true}
-              className="h-36 rounded-xl"
             />
           </div>
 
@@ -75,7 +74,7 @@ export default function QuestionsForm({ choose }) {
               value={data.q2}
               onChange={handleChange}
               required={true}
-              className="h-36 rounded-xl"
+              
             />
           </div>
 
@@ -113,7 +112,7 @@ export default function QuestionsForm({ choose }) {
               value={data.q3}
               onChange={handleChange}
               required={true}
-              className="h-36 rounded-xl"
+              
             />
           </div>
           <label className={styles.label}>
@@ -138,7 +137,7 @@ export default function QuestionsForm({ choose }) {
               value={data.q4}
               onChange={handleChange}
               required={true}
-              className="h-36 rounded-xl"
+              
             />
           </div>
           <label className={styles.label}>
@@ -159,7 +158,7 @@ export default function QuestionsForm({ choose }) {
               value={data.q5}
               onChange={handleChange}
               required={true}
-              className="h-36 rounded-xl"
+              
             />
           </div>
           <label className={styles.label}>
@@ -179,7 +178,7 @@ export default function QuestionsForm({ choose }) {
               value={data.q6}
               onChange={handleChange}
               required={true}
-              className="h-36 rounded-xl"
+              
             />
           </div>
           <label className={styles.label}>
@@ -201,7 +200,7 @@ export default function QuestionsForm({ choose }) {
               value={data.q7}
               onChange={handleChange}
               required={true}
-              className="h-36 rounded-xl"
+              
             />
           </div>
           <label className={styles.label}>

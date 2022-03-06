@@ -30,7 +30,7 @@ export default function InterestForm({ choose }) {
   });
 
   useEffect(() => {
-    console.log(data);
+    //console.log(data);
   }, [data]);
 
   const handleChangeAdmission = (e) => {
@@ -261,9 +261,10 @@ export default function InterestForm({ choose }) {
               type="text"
               name="camp"
               placeholder="camp"
-              value={data.q1}
+              value={data.camp}
               onChange={handleChangeCamp}
-              className="h-36 rounded-0 w-full p-2"
+              required={true}
+              className="h-36 w-full rounded-xl"
             />
           </div>
           <br />

@@ -13,7 +13,7 @@ export default function TextArea(props) {
         value={props.value}
         onChange={props.onChange}
         required={props.required}
-        className={'text-gray-400 border-2 border-white px-2 py-1 rounded-0 outline-none bg-transparent valid:bg-white valid:text-black focus:bg-white' + " " + props.className}
+        className={'h-36 rounded-xl text-gray-400 border-2 border-white px-2 py-1 rounded-0 outline-none bg-transparent valid:bg-white valid:text-black focus:bg-white' + " " + props.className}
         defaultValue={props.defaultValue}
         key={props.key}
         number={props.number}

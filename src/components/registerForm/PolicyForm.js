@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Input from "@components/Input";
+import CheckBox from "@components/CheckBox";
 
 export default function PolicyForm({ choose }) {
   const [data, setData] = useState({
@@ -50,7 +50,7 @@ export default function PolicyForm({ choose }) {
               </li>
             </ul>
             <label className="text-xl">
-              <input
+              <CheckBox
                 type="checkbox"
                 required={true}
                 onChange={handleChange}
@@ -90,11 +90,12 @@ export default function PolicyForm({ choose }) {
               </li>
             </ol>
             <label className="text-xl">
-              <input
+              <CheckBox
                 type="checkbox"
                 required={true}
                 onChange={handleChange}
                 name="box2"
+                checked={data.box2}
               />
               ข้าพเจ้าได้อ่านข้อมูลการสมัครทั้งหมดแล้ว
             </label>
