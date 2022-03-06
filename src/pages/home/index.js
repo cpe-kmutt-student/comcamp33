@@ -8,7 +8,7 @@ const Home = () => {
   return (
     <div className="bg-bg-primary">
       <Navigation />
-      <section className="container mx-auto lg:px-24 h-[100vh]">
+      <section className="container mx-auto lg:px-24 h-[90vh]" id="home" >
         <div className="h-[60vh] relative mt-3 mx-5">
           <Image src="/assets/logo.png" quality={100} layout="fill" objectFit="contain" alt="com camp logo" />
         </div>
@@ -21,20 +21,12 @@ const Home = () => {
           />
         </div>
       </section>
-      <div className="bg-no-repeat bg-center">
-
-        <div className="block sm:hidden">
-          <Image src="/assets/first/FIRST_WEB_IPHONE/2.png"
-            width={1566}
-            height={1592}
-            quality={100}
-          />
-        </div>
+      <section className="container h-[100vh]" id="about">
+        <About />
+      </section>
 
 
-      </div>
 
-      <About />
       <Condition />
 
     </div >

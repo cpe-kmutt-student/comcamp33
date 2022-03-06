@@ -52,7 +52,7 @@ export const Navigation = () => {
       >
         <div className="h-[12vh] relative w-[12vh] min-h-[50px] min-w-[20px] cursor-pointer">
           <Link
-            href="/"
+            href="/home"
             passHref
             onClick={() => {
               setIsOpen(!isOpen);
