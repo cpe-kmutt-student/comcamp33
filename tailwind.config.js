@@ -4,7 +4,15 @@ module.exports = {
     './src/components/**/*.{js,jsx}',
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        'pixel': ['upheavtt'],
+        'thai': ['Taviraj', "serif"]
+      },
+      colors: {
+        'bg-primary': '#11033E'
+      },
+    },
   },
   plugins: [],
 }
