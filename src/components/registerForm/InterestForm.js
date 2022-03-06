@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
+import { AiOutlineCheck } from "react-icons/ai";
 import Input from "@components/Input";
 import DropBox from "@components/DropBox";
-
 import TextArea from "@components/TextArea";
 import CheckBox from "@components/CheckBox";
 import styles from "@styles/components/registerForm/InterestForm.module.css";
@@ -32,7 +32,7 @@ export default function InterestForm({ choose }) {
   });
 
   useEffect(() => {
-    //console.log(data);
+    console.log(data.plan);
   }, [data]);
 
   const handleChangeAdmission = (e) => {
@@ -52,7 +52,6 @@ export default function InterestForm({ choose }) {
   };
 
   const handleChangePlan = (e) => {
-    let valueChange = e.target.value;
     let nameChange = e.target.name;
     let keyChange = e.target.getAttribute("number");
     let checkValue = e.target.checked;
@@ -63,7 +62,6 @@ export default function InterestForm({ choose }) {
       ...data,
       plan: newPlan,
     });
-    console.log(data);
   };
 
   const handleChangeCamp = (e) => {
@@ -214,14 +212,22 @@ export default function InterestForm({ choose }) {
               option={trueAndFalse}
               number="0"
             /> */}
-            <label className="ml-5 text-white mb-2">
+            <label className="flex items-center ml-5 text-white mb-2 w-fit">
               <input
                 type="checkbox"
                 onChange={handleChangePlan}
                 number="0"
                 checked={data.plan[0]}
-                styles={{ display: data.plan[0] == true ? "block" : "none" }}
+                className="appearance-none border-2 h-4 aspect-square relative mr-2 checked:bg-[rgb(0,0,0)] unchecked:bg-transparent"
               />
+              {data.plan[0] == true ? (
+                <AiOutlineCheck
+                  size={14}
+                  className="aspect-square absolute translate-x-[0.1rem]"
+                />
+              ) : (
+                ""
+              )}
               หลักสูตรปกติ
             </label>
           </div>
@@ -235,14 +241,22 @@ export default function InterestForm({ choose }) {
               option={trueAndFalse}
               number="1"
             /> */}
-            <label className="ml-5 text-white mb-2">
+            <label className="flex items-center ml-5 text-white mb-2 w-fit">
               <input
                 type="checkbox"
                 onChange={handleChangePlan}
                 number="1"
                 checked={data.plan[1]}
-                styles={{ display: data.plan[1] == true ? "block" : "none" }}
+                className="appearance-none border-2 h-4 aspect-square relative mr-2 checked:bg-[rgb(0,0,0)] unchecked:bg-transparent"
               />
+              {data.plan[1] == true ? (
+                <AiOutlineCheck
+                  size={14}
+                  className="aspect-square absolute translate-x-[0.1rem]"
+                />
+              ) : (
+                ""
+              )}
               หลักสูตรนานาชาติ
             </label>
           </div>
@@ -256,14 +270,22 @@ export default function InterestForm({ choose }) {
               option={trueAndFalse}
               number="2"
             /> */}
-            <label className="ml-5 text-white mb-2">
+            <label className="flex items-center ml-5 text-white mb-2 w-fit">
               <input
                 type="checkbox"
                 onChange={handleChangePlan}
                 number="2"
                 checked={data.plan[2]}
-                styles={{ display: data.plan[2] == true ? "block" : "none" }}
+                className="appearance-none border-2 h-4 aspect-square relative mr-2 checked:bg-[rgb(0,0,0)] unchecked:bg-transparent"
               />
+              {data.plan[2] == true ? (
+                <AiOutlineCheck
+                  size={14}
+                  className="aspect-square absolute translate-x-[0.1rem]"
+                />
+              ) : (
+                ""
+              )}
               หลักสูตรวิทยาศาสตร์สุขภาพ
             </label>
           </div>
@@ -277,14 +299,22 @@ export default function InterestForm({ choose }) {
               option={trueAndFalse}
               number="3"
             /> */}
-            <label className="ml-5 text-white mb-2">
+            <label className="flex items-center ml-5 text-white mb-2 w-fit">
               <input
                 type="checkbox"
                 onChange={handleChangePlan}
                 number="3"
                 checked={data.plan[3]}
-                styles={{ display: data.plan[3] == true ? "block" : "none" }}
+                className="appearance-none border-2 h-4 aspect-square relative mr-2 checked:bg-[rgb(0,0,0)] unchecked:bg-transparent"
               />
+              {data.plan[3] == true ? (
+                <AiOutlineCheck
+                  size={14}
+                  className="aspect-square absolute translate-x-[0.1rem]"
+                />
+              ) : (
+                ""
+              )}
               หลักสูตร Residential College
             </label>
           </div>
