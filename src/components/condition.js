@@ -8,24 +8,28 @@ const Condition = () => {
             
         </section>
         <div className="flex justify-center flex-col md:flex-row">
-            <div className="flex justify-center"><Image src="/assets/condition/Studying.svg"
+            <div className="flex flex-col justify-center"><Image src="/assets/condition/Studying.svg"
               width={460}
               height={540}
               quality={100}
               
               />
-              <div>
-
+              <div className="py-5 mx-10 bg-[#04B1AF]">
+                test
 
               </div>
               </div>
-            <div className="flex justify-center">
+            <div className="flex flex-col justify-center">
             <Image src="/assets/condition/Parent.svg"
               width={460}
               height={540}
               quality={100}
               
               />
+               <div className="py-5 mx-10 bg-[#04B1AF]">
+                test
+
+              </div>
             </div>
             <div className="flex justify-center"><Image src="/assets/condition/piccom.svg"
               width={460}

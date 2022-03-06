@@ -45,7 +45,7 @@ export const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <nav className=" border-gray-200 px-2 sm:px-4 py-2.5 w-full sticky top-0 z-10">
-      <div className="container flex flex-wrap md:justify-center items-start mx-auto relative md:space-x-5 justify-between">
+      <div className="container md:bg-transparent  bg-bg-primary flex flex-wrap md:justify-center items-start mx-auto relative md:space-x-5 justify-between">
         <div className="h-[12vh] relative w-[12vh] min-h-[50px] min-w-[20px] mt-[-1vh] cursor-pointer">
           <Link
             href="/"
@@ -79,7 +79,7 @@ export const Navigation = () => {
           className={`w-full md:block md:w-auto ${isOpen ? "" : "hidden"}`}
           id="mobile-menu"
         >
-          <ul className="flex flex-col w-full h-10 md:flex-row md:space-x-6 md:mt-0 md:text-sm md:font-medium">
+          <ul className="flex flex-col w-full h-10 md:flex-row md:space-x-6 md:mt-0 md:text-xl md:font-medium">
             {links.map((link) => (
               <li key={link}>
                 <a

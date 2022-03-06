@@ -3,10 +3,11 @@ import Contact from "../../components/contact";
 import { ParallaxBanner } from "react-scroll-parallax";
 import About from "../../components/about";
 import Condition from "../../components/condition";
+import { Navigation } from "../../components/Navigation";
 const Home = () => {
   return (
     <div className="bg-slate-900">
-      
+      <Navigation/>
         
         <div className="container mx-auto lg:px-24">
        <Image src="/assets/logo.png" quality={100}  width={2679} height={1933}/>
