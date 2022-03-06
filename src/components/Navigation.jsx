@@ -44,9 +44,13 @@ export const Navigation = () => {
 
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <nav className=" border-gray-200 px-2 sm:px-4 py-2.5 w-full sticky top-0 z-10">
-      <div className="container md:bg-transparent  bg-bg-primary flex flex-wrap md:justify-center items-start mx-auto relative md:space-x-5 justify-between">
-        <div className="h-[12vh] relative w-[12vh] min-h-[50px] min-w-[20px] mt-[-1vh] cursor-pointer">
+    <nav className="w-full sticky top-0 z-10 bg-bg-primary h-[8vh] pt-1">
+      <div
+        className={`container md:bg-transparent flex flex-wrap md:justify-center items-start mx-auto relative md:space-x-5 justify-between ${
+          isOpen ? "bg-bg-primary" : ""
+        }`}
+      >
+        <div className="h-[12vh] relative w-[12vh] min-h-[50px] min-w-[20px] cursor-pointer">
           <Link
             href="/"
             passHref
