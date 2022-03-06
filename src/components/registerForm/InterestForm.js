@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Input from "@components/Input";
 import DropBox from "@components/DropBox";
 import TextArea from "@components/registerForm/TextArea";
+import CheckBox from "@components/CheckBox";
 import styles from "@styles/components/registerForm/InterestForm.module.css";
 
 import trueAndFalse from "@components/registerForm/DropBoxData/trueAndFalse.json";
@@ -53,13 +54,15 @@ export default function InterestForm({ choose }) {
     let valueChange = e.target.value;
     let nameChange = e.target.name;
     let keyChange = e.target.getAttribute("number");
+    let checkValue = e.target.checked;
 
     const newPlan = data.plan;
-    newPlan[keyChange] = valueChange;
+    newPlan[keyChange] = checkValue;
     setData({
       ...data,
       plan: newPlan,
     });
+    console.log(data);
   };
 
   const handleChangeCamp = (e) => {
@@ -202,53 +205,85 @@ export default function InterestForm({ choose }) {
             หลักสูตรที่สนใจ
           </h2>
           <div className="mt-2">
-            <DropBox
+            {/* <DropBox
               placeholder="plan"
               name="plan"
               onChange={handleChangePlan}
               required={true}
               option={trueAndFalse}
               number="0"
-            />
-            <label className="ml-5 text-white mb-2">หลักสูตรปกติ</label>
+            /> */}
+            <label className="ml-5 text-white mb-2">
+              <input
+                type="checkbox"
+                onChange={handleChangePlan}
+                number="0"
+                checked={data.plan[0]}
+                styles={{ display: data.plan[0] == true ? "block" : "none" }}
+              />
+              หลักสูตรปกติ
+            </label>
           </div>
           <br />
           <div>
-            <DropBox
+            {/* <DropBox
               placeholder="plan"
               name="plan"
               onChange={handleChangePlan}
               required={true}
               option={trueAndFalse}
               number="1"
-            />
-            <label className="ml-5 text-white mb-2">หลักสูตรนานาชาติ</label>
+            /> */}
+            <label className="ml-5 text-white mb-2">
+              <input
+                type="checkbox"
+                onChange={handleChangePlan}
+                number="1"
+                checked={data.plan[1]}
+                styles={{ display: data.plan[1] == true ? "block" : "none" }}
+              />
+              หลักสูตรนานาชาติ
+            </label>
           </div>
           <br />
           <div>
-            <DropBox
+            {/* <DropBox
               placeholder="plan"
               name="plan"
               onChange={handleChangePlan}
               required={true}
               option={trueAndFalse}
               number="2"
-            />
+            /> */}
             <label className="ml-5 text-white mb-2">
+              <input
+                type="checkbox"
+                onChange={handleChangePlan}
+                number="2"
+                checked={data.plan[2]}
+                styles={{ display: data.plan[2] == true ? "block" : "none" }}
+              />
               หลักสูตรวิทยาศาสตร์สุขภาพ
             </label>
           </div>
           <br />
           <div>
-            <DropBox
+            {/* <DropBox
               placeholder="plan"
               name="plan"
               onChange={handleChangePlan}
               required={true}
               option={trueAndFalse}
               number="3"
-            />
+            /> */}
             <label className="ml-5 text-white mb-2">
+              <input
+                type="checkbox"
+                onChange={handleChangePlan}
+                number="3"
+                checked={data.plan[3]}
+                styles={{ display: data.plan[3] == true ? "block" : "none" }}
+              />
               หลักสูตร Residential College
             </label>
           </div>

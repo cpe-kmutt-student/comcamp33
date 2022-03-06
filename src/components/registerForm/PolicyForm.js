@@ -56,6 +56,7 @@ export default function PolicyForm({ choose, setState, error }) {
                 required={true}
                 onChange={handleChange}
                 name="box1"
+                checked={data.box1}
               />
               ข้าพเจ้าได้อ่านข้อมูลการสมัครทั้งหมดแล้ว
             </label>
