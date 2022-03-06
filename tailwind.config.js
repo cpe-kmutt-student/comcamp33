@@ -10,7 +10,8 @@ module.exports = {
         'thai': ['Taviraj', "serif"]
       },
       colors: {
-        'bg-primary': '#11033E'
+        'bg-primary': '#11033E',
+        'text-highlight': '#FF00C6'
       },
     },
   },
