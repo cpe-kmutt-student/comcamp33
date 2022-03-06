@@ -1,3 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=Taviraj:wght@100;400;600&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: "upheavtt";
+    src: url("/assets/fonts/upheavtt.ttf") format("truetype");
+  }
+}

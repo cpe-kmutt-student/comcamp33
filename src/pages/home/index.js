@@ -2,12 +2,13 @@ import Image from "next/image";
 import Contact from "../../components/contact";
 import { ParallaxBanner } from "react-scroll-parallax";
 import About from "../../components/about";
+import Condition from "../../components/condition";
 const Home = () => {
   return (
-    <div>
+    <div className="bg-slate-900">
       
         
-        <div className="mx-4 lg:mx-36">
+        <div className="container mx-auto lg:px-24">
        <Image src="/assets/logo.png" quality={100}  width={2679} height={1933}/>
        </div>
        <div className="bg-no-repeat bg-center">
@@ -35,10 +36,11 @@ const Home = () => {
               />
         </div>
        
-       
+      
        </div>
-       <About/>
        
+       <About/>
+       <Condition/>
        
       </div>
   );

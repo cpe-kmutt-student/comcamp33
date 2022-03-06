@@ -1,8 +1,7 @@
-import Image from 'next/image';
+
 import Header from '../components/Header';
 import { signIn, signOut, useSession } from 'next-auth/react';
-import Contact from '../components/contact';
-import Learning from '../components/learning';
+
 import Link from 'next/link';
 
 const IndexPage = () => {
