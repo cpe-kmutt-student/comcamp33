@@ -5,21 +5,14 @@ import styles from "@styles/components/registerForm/EducationForm.module.css";
 
 import level from "@components/registerForm/DropBoxData/level.json";
 
-export default function EducationForm({ choose }) {
-  const [data, setData] = useState({
-    name: "",
-    province: "",
-    program: "",
-    level: "",
-    gpax: "",
-  });
-
-  const handleChange = (e) => {
-    let valueChange = e.target.value;
-    let nameChange = e.target.name;
+export default function EducationForm({ data, setData, choose }) {
+  const handleChange = (e, type) => {
     setData({
       ...data,
-      [nameChange]: valueChange,
+      [type]: {
+        ...data[type],
+        [e.target.name]: e.target.value,
+      },
     });
   };
 
@@ -43,8 +36,8 @@ export default function EducationForm({ choose }) {
               type="text"
               name="name"
               placeholder="Name"
-              value={data.name}
-              onChange={handleChange}
+              value={data.education ? data.education.name : ""}
+              onChange={(e) => handleChange(e, "education")}
               required={true}
               className="w-full"
             />
@@ -57,8 +50,8 @@ export default function EducationForm({ choose }) {
                 type="text"
                 name="province"
                 placeholder="Province"
-                value={data.province}
-                onChange={handleChange}
+                value={data.education ? data.education.province : ""}
+                onChange={(e) => handleChange(e, "education")}
                 required={true}
                 className="w-full"
               />
@@ -69,7 +62,7 @@ export default function EducationForm({ choose }) {
               <DropBox
                 name="program"
                 placeholder="Program"
-                onChange={handleChange}
+                onChange={(e) => handleChange(e, "education")}
                 required={true}
                 option={level}
                 className="w-full"
@@ -81,7 +74,7 @@ export default function EducationForm({ choose }) {
               <DropBox
                 placeholder="Level"
                 name="level"
-                onChange={handleChange}
+                onChange={(e) => handleChange(e, "education")}
                 required={true}
                 option={level}
                 className="w-full"
@@ -94,8 +87,8 @@ export default function EducationForm({ choose }) {
                 type="number"
                 name="gpax"
                 placeholder="GPAX"
-                value={data.gpax}
-                onChange={handleChange}
+                value={data.education ? data.education.gpax : ""}
+                onChange={(e) => handleChange(e, "education")}
                 required={true}
                 className="w-full"
               />

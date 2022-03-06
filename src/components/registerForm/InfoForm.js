@@ -254,9 +254,9 @@ export default function InfoForm({ data, setData, choose }) {
               <div>
                 <Input
                   type="text"
-                  name="amphoe"
+                  name="tambol"
                   placeholder="ตำบล"
-                  value={data.address ? data.subdistrict.no : ''}
+                  value={data.address ? data.address.tambol : ''}
                   onChange={(e) => handleChange(e, 'address')}
                   required={true}
                   className="w-full"
@@ -268,9 +268,9 @@ export default function InfoForm({ data, setData, choose }) {
               <div>
                 <Input
                   type="text"
-                  name="district"
+                  name="amphoe"
                   placeholder="อำเภอ"
-                  value={data.address ? data.address.district : ''}
+                  value={data.address ? data.address.amphoe : ''}
                   onChange={(e) => handleChange(e, 'address')}
                   required={true}
                   className="w-full"
