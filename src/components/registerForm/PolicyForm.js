@@ -1,20 +1,21 @@
 import React, { useState } from "react";
 import Input from "@components/Input";
 
-export default function PolicyForm({ choose }) {
+export default function PolicyForm({ choose, setState, error }) {
   const [data, setData] = useState({
     box1: false,
     box2: false,
   });
 
   const handleChange = (e) => {
-    let checkValue = e.target.checked;
+    let checkValue = e.target.checked
     let nameChange = e.target.name;
-    setData({
+    let currentStatus = {
       ...data,
-      [nameChange]: checkValue,
-    });
-    console.log(data);
+      [nameChange]: checkValue
+    }
+    setData(currentStatus)
+    setState(currentStatus.box1 && currentStatus.box2)
   };
 
   return (
@@ -98,6 +99,7 @@ export default function PolicyForm({ choose }) {
               />
               ข้าพเจ้าได้อ่านข้อมูลการสมัครทั้งหมดแล้ว
             </label>
+            <p className={`text-[#FEFE2D] ${error && (!data.box1 || !data.box2) ? '' : 'hidden'}`}>กรุณาอ่านข้อมูลการสมัครให้ครบถ้วน</p>
           </div>
         </div>
       </form>

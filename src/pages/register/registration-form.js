@@ -12,17 +12,20 @@ import Bg1 from "@public/formBg/unknown1.png";
 
 export default function Form() {
   const [chooseForm, setChooseForm] = useState(1);
+  const [checked, setChecked] = useState(false)
+  const [error, setError] = useState(false)
 
   const nextForm = () => {
-    if (chooseForm < 6) {
-      setChooseForm(chooseForm + 1);
-    }
+    if ((chooseForm === 1 && checked) || (chooseForm > 1 && chooseForm < 6)) setChooseForm(chooseForm + 1)
+    else setError(true)
   };
+
   const prevForm = () => {
     if (chooseForm > 1) {
       setChooseForm(chooseForm - 1);
     }
   };
+
   return (
     <div className="relative flex flex-col bg-[#11033E] min-h-screen">
       <div className="fixed w-[100vw] h-[100vh] top-0">
@@ -52,7 +55,7 @@ export default function Form() {
         <ProgressBar currentStep={chooseForm} />
 
         <div className="p-[20%] pt-0 pb-0">
-          <PolicyForm choose={chooseForm} />
+          <PolicyForm choose={chooseForm} setState={setChecked} error={error} />
           <InfoForm choose={chooseForm} />
           <EducationForm choose={chooseForm} />
           <InterestForm choose={chooseForm} />
