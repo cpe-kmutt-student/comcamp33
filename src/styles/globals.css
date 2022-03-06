@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: "upheavtt";
+    src: url("/assets/fonts/upheavtt.ttf") format("truetype");
+  }
+}
