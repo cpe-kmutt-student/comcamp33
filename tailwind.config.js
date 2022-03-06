@@ -1,3 +1,5 @@
+const defaultTheme = require('tailwindcss/defaultTheme');
+
 module.exports = {
   content: [
     './src/pages/**/*.{js,jsx}',
@@ -7,7 +9,7 @@ module.exports = {
     extend: {
       fontFamily: {
         'pixel': ['upheavtt'],
-        'thai': ['Taviraj', "serif"]
+        'sans': ['Taviraj', ...defaultTheme.fontFamily.sans],
       },
       colors: {
         'bg-primary': '#11033E'
