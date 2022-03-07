@@ -2,21 +2,16 @@ import Image from "next/image";
 
 const Learning = () => {
   return (
-    <div>
-        <div className="absolute invisible md:visible">
-        <Image src="/assets/learning.png"
-              width={1920}
-              height={1080}
-                quality={100}
-              />
-        </div>
-        <div className="visible md:invisible">
-        <Image src="/assets/weblearning.png"
-              width={1080}
-              height={1920}
-              quality={100}
-              />
-        </div>
+    <div className="flex flex-col md:items-start lg:items-start justify-center items-center relative w-full h-full text-center px-10">
+      <h1 className="text-white font-pixel text-4xl sm:text-2xl md:text-6xl lg:text-6xl relative md:ml-20 lg:ml-20">Learning</h1>
+      <div className="h-[70%] w-full relative">
+        <Image src="/assets/pc_learning.svg"
+          layout="fill"
+          objectFit="contain"
+          alt="learning topics"
+          quality={100}
+        />
+      </div>
     </div>
   );
 };

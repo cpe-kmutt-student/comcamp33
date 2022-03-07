@@ -394,7 +394,7 @@ base64-js@^1.3.1:
 
 bezier-easing@^2.1.0:
   version "2.1.0"
-  resolved "https://registry.npmjs.org/bezier-easing/-/bezier-easing-2.1.0.tgz"
+  resolved "https://registry.yarnpkg.com/bezier-easing/-/bezier-easing-2.1.0.tgz#c04dfe8b926d6ecaca1813d69ff179b7c2025d86"
   integrity sha1-wE3+i5JtbsrKGBPWn/F5t8ICXYY=
 
 binary-extensions@^2.0.0:
@@ -1634,7 +1634,7 @@ p-try@^1.0.0:
 
 parallax-controller@^1.3.4:
   version "1.3.4"
-  resolved "https://registry.npmjs.org/parallax-controller/-/parallax-controller-1.3.4.tgz"
+  resolved "https://registry.yarnpkg.com/parallax-controller/-/parallax-controller-1.3.4.tgz#967928980a349790ffbfe13b7aaeeed9d0cf1208"
   integrity sha512-rcrRQ+u/houINYaa5EGpuw5kIhoFIAg/eQRN8Ia10sZN8Uo+568X/hdGpdbumReJf2TBd/fka9UFZbGkGTHhLg==
   dependencies:
     bezier-easing "^2.1.0"
@@ -1811,7 +1811,7 @@ react-is@^16.13.1:
 
 react-scroll-parallax@^3.0.4:
   version "3.0.4"
-  resolved "https://registry.npmjs.org/react-scroll-parallax/-/react-scroll-parallax-3.0.4.tgz"
+  resolved "https://registry.yarnpkg.com/react-scroll-parallax/-/react-scroll-parallax-3.0.4.tgz#fa47ebc1b45912cfb17bcfafa8cb4d12ffd62ad2"
   integrity sha512-afVibxTLBl/CnDCXVSTmQ2JneB2oI1THZw4goePQb+6gvAI+n4AKup7XEdbg90i19g9fbMUcfsN0uMAWiTG+Rg==
   dependencies:
     parallax-controller "^1.3.4"
