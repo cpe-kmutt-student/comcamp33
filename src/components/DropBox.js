@@ -35,6 +35,7 @@ export default function DropBox(props) {
         required={props.required}
         className={'border-2 border-white bg-transparent text-gray-400 px-2 py-1'  + " " + props.className}
         number={props.number}
+        value={props.value}
       >
         {createOptions()}
       </select>

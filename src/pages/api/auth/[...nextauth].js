@@ -11,7 +11,7 @@ export default NextAuth({
   },
   callbacks: {
     redirect({ url, baseUrl   }) {
-      return baseUrl;
+      return baseUrl + '/registration';
     }
   },
   providers: [

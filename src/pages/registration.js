@@ -12,8 +12,9 @@ import Image from "next/image";
 import BgStar from "@public/formBg/unknown.png";
 import Bg1 from "@public/formBg/unknown1.png";
 import Header from "@components/Header";
+import { getSession } from 'next-auth/react';
 
-export default function Form() {
+export default function RegistrationPage() {
   const [chooseForm, setChooseForm] = useState(1); // 1
   const [data, setData] = useState({});
 
@@ -35,16 +36,15 @@ export default function Form() {
   useEffect(() => {
     const loadInitialData = async () => {
       const result = await loadData();
-
       if (result.message) {
-        setData(result.message.data);
+        setData(result.message);
       }
     };
     loadInitialData();
   }, []);
 
   return (
-    <div className="relative flex flex-col bg-[#11033E] min-h-screen">
+    <div className="relative w-[100vw] flex flex-col bg-[#11033E] min-h-screen">
       <Header />
 
       <div className="fixed w-[100vw] h-[100vh] top-0 z-0">
@@ -68,9 +68,7 @@ export default function Form() {
           />
         </div>
       </div>
-      <h1 className="font-bold font-pixel text-white text-2xl mx-auto">
-        REGISTRATION
-      </h1>
+      <h1 className="self-center m-2 text-white font-pixel text-2xl sm:text-2xl md:text-6xl lg:text-6xl">REGISTRATION</h1>
 
       <ProgressBar currentStep={chooseForm} />
 
@@ -107,3 +105,17 @@ export default function Form() {
     </div>
   );
 }
+
+export const getServerSideProps = async (context) => {
+  const session = await getSession(context);
+
+  if (session) return { props: {} };
+
+  return {
+    redirect: {
+      permanent: false,
+      destination: '/auth',
+    },
+    props: {},
+  };
+};
