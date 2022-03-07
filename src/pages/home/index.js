@@ -34,7 +34,7 @@ const Home = () => {
         <Learning />
       </section>
       <section className="bg-[#380644] h-[100vh]" id="condition">
-
+        <Condition/>
       </section>
       <section className="bg-[#590949] h-[93vh]" id="schedule">
         <Timeline />
