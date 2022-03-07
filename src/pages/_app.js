@@ -1,5 +1,6 @@
 import '../styles/globals.css';
 import { SessionProvider } from 'next-auth/react';
+import { ParallaxProvider } from 'react-scroll-parallax';
 
 const App = ({
   Component,
@@ -7,7 +8,9 @@ const App = ({
 }) => {
   return (
     <SessionProvider session={session}>
+      <ParallaxProvider>
       <Component {...pageProps} />
+      </ParallaxProvider>
     </SessionProvider>
   );
 };

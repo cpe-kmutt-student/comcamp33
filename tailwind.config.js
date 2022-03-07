@@ -12,8 +12,15 @@ module.exports = {
         'sans': ['Taviraj', ...defaultTheme.fontFamily.sans],
       },
       colors: {
-        'bg-primary': '#11033E'
+        'bg-primary': '#11033E',
+        'text-highlight': '#FF00C6'
       },
+    },
+    screens: {
+      'se': '321px',
+      'sm': '640px',
+      'md': '768px',
+      'lg': '1024px',
     },
   },
   plugins: [],
