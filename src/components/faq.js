@@ -2,6 +2,7 @@ import Image from "next/image";
 import React, { useState } from 'react';
 import { Data } from './faq-question'
 import { FiPlus, FiMinus } from 'react-icons/fi';
+import { Fragment } from "react";
 const Faqs = () => {
 
   const [clicked, setClicked] = useState(false);
@@ -22,7 +23,7 @@ const Faqs = () => {
         <div className="container mx-auto ">
           {Data.map((item, index) => {
             return (
-              <>
+              <Fragment key={index}>
                 <div className="text-white flex flex-row justify-between items-center cursor-pointer hover:bg-pink-600/50 transition-all duration-300 ease-linear border-white/50 border-b-2 text-xl" onClick={() => toggle(index)} key={index}>
                   <div className="pl-6 pr-4" >{item.question}</div>
                   <span className=" py-5 px-4 cursor-pointer">{clicked === index ? <FiMinus /> : <FiPlus />}</span>
@@ -30,10 +31,10 @@ const Faqs = () => {
                
                 {clicked === index ? (
                   <div className="">
-                    <div className="text-white p-4 pl-6 bg-rose-600/40 text-white text-xl ">{item.answer}</div>
+                    <div className="text-white p-4 pl-6 bg-rose-600/40 text-xl ">{item.answer}</div>
                   </div>
                 ) : null}
-              </>
+              </Fragment>
             )
           })}
         </div>
