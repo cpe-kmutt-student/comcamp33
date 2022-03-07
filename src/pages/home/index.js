@@ -24,17 +24,17 @@ const Home = () => {
           />
         </div>
       </section>
-      <section className="h-[100vh] w-[100vw]" id="about">
+      <section className="bg-[#11033E] h-[100vh] w-[100vw]" id="about">
         <About />
       </section>
-      <section className="h-[100vh]" id="learning"></section>
-      <section className="h-[100vh]" id="condition">
+      <section className="bg-[#200440] h-[100vh]" id="learning"></section>
+      <section className="bg-[#380644] h-[100vh]" id="condition">
         <Condition />
       </section>
-      <section className="h-[100vh]" id="schedule"></section>
-      <section className="h-[100vh]" id="faq"></section>
-      <section className="h-[100vh]" id="contact"><Contact /></section>
-      <section className="h-[100vh]" id="registration"></section>
+      <section className="bg-[#590949] h-[100vh]" id="schedule"></section>
+      <section className="bg-[#840D4F] h-[100vh]" id="faq"></section>
+      <section className="bg-[#B61157] h-[100vh]" id="contact"><Contact /></section>
+      <section className="bg-[] h-[100vh]" id="registration"></section>
     </div >
   );
 };
