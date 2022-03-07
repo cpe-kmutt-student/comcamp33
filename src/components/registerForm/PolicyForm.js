@@ -36,7 +36,7 @@ export default function PolicyForm({ data, setData, setState, choose, error }) {
       }
     >
       <form>
-        <div className="flex flex-col bg-[#9600FF] text-white rounded-xl mt-6 pl-[10%] pr-[10%]">
+        <div className="flex flex-col bg-[#9600FF] text-white rounded-xl mt-6 pl-[10%] pr-[10%] pt-[1rem]">
           <div className="flex justify-center content-center">
             <h1 className="text-3xl">เอกสารประกอบการสมัคร</h1>
           </div>
@@ -76,7 +76,7 @@ export default function PolicyForm({ data, setData, setState, choose, error }) {
           </div>
         </div>
 
-        <div className="flex flex-col bg-[#9600FF] text-white rounded-xl mt-6 pl-[10%] pr-[10%]">
+        <div className="flex flex-col bg-[#DD517E] text-white rounded-xl mt-6 pl-[10%] pr-[10%] pt-[1rem]">
           <div className="flex justify-center content-center">
             <h1 className="text-3xl">นโยบายข้อมูลส่วนบุคคล</h1>
           </div>
@@ -93,6 +93,9 @@ export default function PolicyForm({ data, setData, setState, choose, error }) {
                     เว็บไซต์ ” ) นโยบายความเป็นส่วนตัวนี้
                     เพื่อกำหนดความมุ่งมั่นของโครงการต่อความเป็นส่วนตัวของผู้ใช้ของท่าน
                     ( ซึ่งต่อไปนี้จะเรียกว่า “ ผู้ใช้ ” หรือ “ ท่าน ” )
+                  </li>
+                  <br />
+                  <li>
                     และวิธีที่โครงการเก็บและใช้ข้อมูลส่วนตัวของท่าน
                     กรุณาอ่านนโยบายความเป็นส่วนตัวนี้โดยละเอียด
                     การเข้าใช้งานเว็บไซต์ของโครงการโดยใช้บริการของโครงการ
@@ -105,14 +108,14 @@ export default function PolicyForm({ data, setData, setState, choose, error }) {
               </li>
               <li className={styles.listItem}>
                 ข้อมูลที่โครงการเก็บรวบรวมเกี่ยวกับผู้ใช้
+                <li>
+                  ข้อมูลส่วนบุคคล หรือ ข้อความส่วนบุคคล หมายถึง
+                  ข้อมูลเกี่ยวกับบุคคลที่สามารถระบุบุคคลนั้น อาจทำการรวบรวม ใช้
+                  เก็บ และถ่ายโอนข้อมูลส่วนบุคคลประเภทต่าง ๆ
+                  ที่เกี่ยวกับผู้ใช้ตามที่โครงการได้จัดกลุ่มไว้ด้วยกัน
+                  ดังต่อไปนี้
+                </li>
                 <ol className={styles.orderList}>
-                  <li>
-                    ข้อมูลส่วนบุคคล หรือ ข้อความส่วนบุคคล หมายถึง
-                    ข้อมูลเกี่ยวกับบุคคลที่สามารถระบุบุคคลนั้น อาจทำการรวบรวม
-                    ใช้ เก็บ และถ่ายโอนข้อมูลส่วนบุคคลประเภทต่าง ๆ
-                    ที่เกี่ยวกับผู้ใช้ตามที่โครงการได้จัดกลุ่มไว้ด้วยกัน
-                    ดังต่อไปนี้
-                  </li>
                   <li className={styles.listItem}>
                     ข้อมูลส่วนตัว
                     <li>
@@ -138,7 +141,7 @@ export default function PolicyForm({ data, setData, setState, choose, error }) {
                   <li className={styles.listItem}>
                     ข้อมูลอื่น ๆ
                     <li>
-                      ได่แก่ ความสนใจส่วนบุคคล ความสามารถพิเศษและผลงาน
+                      ได้แก่ ความสนใจส่วนบุคคล ความสามารถพิเศษและผลงาน
                       ช่องทางที่รู้จักโครงการ ข้อมูลการใช้งานเว็บไซต์ ได้แก่
                       เครื่องมือที่ใช้เข้าถึงเว็บไซต์ ลักษณะการใช้งานบนเว็บไซต์
                       โดยไม่ระบุตัวตน และ ข้อมูลอุปกรณ์การเรียน
@@ -154,6 +157,9 @@ export default function PolicyForm({ data, setData, setState, choose, error }) {
                   ตัวอย่างเช่น ท่านอาจให้ข้อมูลส่วนตัว ข้อมูลการศึกษา
                   โดยการกรอกแบบฟอร์มบนเว็บไซต์รับสมัครของโครงการ
                   เพื่อทำการสมัครเข้าร่วมโครงการ
+                </li>
+                <br />
+                <li>
                   เทคโนโลยีอัตโนมัติหรือปฏิสัมพันธ์
                   ในขณะที่ท่านโต้ตอบกับเว็บไซต์ของโครงการ
                   ระบบเทคโนโลยีอัตโนมัตที่โครงการใช้งานบนเว็บไซต์อาจรวบรวมข้อมูลทางเทคนิค
