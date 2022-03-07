@@ -1,3 +1,5 @@
+import styles from "@styles/components/Progress.module.css";
+
 const steps = [
   "เอกสาร",
   "ข้อมูลทั่วไป",
@@ -38,13 +40,15 @@ export default function ProgressBar({ currentStep }) {
           return (
             <>
               <div className="flex flex-col">
-                <span key={index} className="text-white font-thai">{step}</span>
-                <div className="flex flex-row justify-center gap-2" >
+                <span key={index} className="text-white font-thai">
+                  {step}
+                </span>
+                <div className="flex flex-row justify-center gap-2">
                   <div
                     className={
                       index >= currentStep
                         ? "w-10 h-10 border-[10px] border-white rounded-full mx-auto"
-                        : "w-10 h-10 border-[10px] border-purple-500 rounded-full mx-auto"
+                        : styles.box1 + " " + ""
                     }
                   />
                 </div>

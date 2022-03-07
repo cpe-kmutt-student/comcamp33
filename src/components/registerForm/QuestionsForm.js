@@ -2,25 +2,18 @@ import React, { useState } from "react";
 import TextArea from "@components/TextArea";
 import styles from "@styles/components/registerForm/QuestionsForm.module.css";
 
-export default function QuestionsForm({ choose }) {
-  const [data, setData] = useState({
-    q1: "",
-    q2: "",
-    q3: "",
-    q4: "",
-    q5: "",
-    q6: "",
-    q7: "",
-    q8: "",
-  });
+export default function QuestionsForm({ data, setData, choose }) {
 
-  const handleChange = (e) => {
-    let valueChange = e.target.value;
-    let nameChange = e.target.name;
+  const handleChange = (e, type) => {
     setData({
       ...data,
-      [nameChange]: valueChange,
+      [type]: {
+        ...data[type],
+        [e.target.name]: e.target.value,
+      }
     });
+
+    console.log(data)
   };
 
   const handleSubmit = (e) => {
@@ -49,8 +42,8 @@ export default function QuestionsForm({ choose }) {
               type="text"
               name="q1"
               placeholder="คำถามข้อที่ 1 :"
-              value={data.q1}
-              onChange={handleChange}
+              value={data.answers ? data.answers.q1 : ""}
+              onChange={(e) => handleChange(e, 'answers')}
               required={true}
             />
           </div>
@@ -71,10 +64,9 @@ export default function QuestionsForm({ choose }) {
               type="text"
               name="q2"
               placeholder="คำถามข้อที่ 2 :"
-              value={data.q2}
-              onChange={handleChange}
+              value={data.answers ? data.answers.q2 : ""}
+              onChange={(e) => handleChange(e, 'answers')}
               required={true}
-              
             />
           </div>
 
@@ -109,8 +101,8 @@ export default function QuestionsForm({ choose }) {
               type="text"
               name="q3"
               placeholder="คำถามข้อที่ 3 :"
-              value={data.q3}
-              onChange={handleChange}
+              value={data.answers ? data.answers.q3 : ""}
+              onChange={(e) => handleChange(e, 'answers')}
               required={true}
               
             />
@@ -134,8 +126,8 @@ export default function QuestionsForm({ choose }) {
               type="text"
               name="q4"
               placeholder="คำถามข้อที่ 4 :"
-              value={data.q4}
-              onChange={handleChange}
+              value={data.answers ? data.answers.q4 : ""}
+              onChange={(e) => handleChange(e, 'answers')}
               required={true}
               
             />
@@ -155,10 +147,9 @@ export default function QuestionsForm({ choose }) {
               type="text"
               name="q5"
               placeholder="คำถามข้อที่ 5 :"
-              value={data.q5}
-              onChange={handleChange}
-              required={true}
-              
+              value={data.answers ? data.answers.q5 : ""}
+              onChange={(e) => handleChange(e, 'answers')}
+              required={true} 
             />
           </div>
           <label className={styles.label}>
@@ -175,8 +166,8 @@ export default function QuestionsForm({ choose }) {
               type="text"
               name="q6"
               placeholder="คำถามข้อที่ 6 :"
-              value={data.q6}
-              onChange={handleChange}
+              value={data.answers ? data.answers.q6 : ""}
+              onChange={(e) => handleChange(e, 'answers')}
               required={true}
               
             />
@@ -197,8 +188,8 @@ export default function QuestionsForm({ choose }) {
               type="text"
               name="q7"
               placeholder="คำถามข้อที่ 7 :"
-              value={data.q7}
-              onChange={handleChange}
+              value={data.answers ? data.answers.q7 : ""}
+              onChange={(e) => handleChange(e, 'answers')}
               required={true}
               
             />
@@ -219,8 +210,8 @@ export default function QuestionsForm({ choose }) {
               type="text"
               name="q8"
               placeholder="คำถามข้อที่ 8 :"
-              value={data.q8}
-              onChange={handleChange}
+              value={data.answers ? data.answers.q8 : ""}
+              onChange={(e) => handleChange(e, 'answers')}
               required={true}
               className="h-36 rounded-xl text-gray-400 border-2 border-white px-2 py-1 rounded-0 outline-none bg-transparent focus:bg-white"
             />
