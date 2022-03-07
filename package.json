@@ -24,5 +24,8 @@
     "eslint-config-next": "12.1.0",
     "postcss": "^8.4.6",
     "tailwindcss": "^3.0.23"
+  },
+  "engines": {
+    "npm": "please-use-yarn"
   }
 }
