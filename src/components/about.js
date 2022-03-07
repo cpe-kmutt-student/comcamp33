@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const About = () => {
   return (
-    <div className="flex flex-col justify-center items-center relative w-full h-full text-center px-10 md:px-[10vw] pt-[8vh] md:pt-[5vh] ">
+    <div className="flex flex-col justify-center items-center relative w-full h-full text-center px-10 md:px-[10vw] pt-[8vh] md:pt-[15vh] ">
       <div className="absolute top-0 right-0 w-full h-[25vh] z-1">
         <Image src="/assets/about/about_bg.png"
           layout="fill"
