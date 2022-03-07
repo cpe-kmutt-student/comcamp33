@@ -39,7 +39,7 @@ const Home = () => {
       <section className="bg-[#590949] h-[93vh]" id="schedule">
         <Timeline />
       </section>
-      <section className="bg-[#840D4F] h-[100vh]" id="faq">
+      <section className="bg-[#840D4F] h-[100vh] flex flex-col justify-center " id="faq">
         <Faqs/>
       </section>
       <section className="bg-[#B61157] h-[100vh]" id="contact"><Contact /></section>
