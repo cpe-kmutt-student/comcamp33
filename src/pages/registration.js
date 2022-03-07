@@ -80,8 +80,10 @@ export default function Form() {
           choose={chooseForm}
           setState={setChecked}
           error={error}
+          setData={setData}
         />
 
+        {data && data.verify == true ? setChooseForm(2) : ""}
         <InfoForm data={data} setData={setData} choose={chooseForm} />
         <EducationForm data={data} setData={setData} choose={chooseForm} />
         <InterestForm data={data} setData={setData} choose={chooseForm} />

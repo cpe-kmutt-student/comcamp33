@@ -1,29 +1,38 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import CheckBox from "@components/CheckBox";
 import styles from "@styles/register/PolicyForm.module.css";
 import Link from "next/link";
 
-export default function PolicyForm({ choose, setState, error }) {
-  const [data, setData] = useState({
+export default function PolicyForm({ data, setData, setState, choose, error }) {
+  const [value, setValue] = useState({
     box1: false,
     box2: false,
   });
+
+  //TODO: Check if the user check 2 boxes
+  /* useEffect(() => {
+    value.box1 === true && value.box2 === true
+      ? setData({ ...data, verify: true })
+      : setData({ ...data, verify: false });
+    console.log(data);
+  }, [value]); */
 
   const handleChange = (e) => {
     let checkValue = e.target.checked;
     let nameChange = e.target.name;
     let currentStatus = {
-      ...data,
+      ...value,
       [nameChange]: checkValue,
     };
-    setData(currentStatus);
+    setValue(currentStatus);
     setState(currentStatus.box1 && currentStatus.box2);
+    console.log(data);
   };
 
   return (
     <div
       className={
-        choose != 1 && data.box1 == true && data.box2 == true ? "hidden" : ""
+        choose != 1 && value.box1 == true && value.box2 == true ? "hidden" : ""
       }
     >
       <form>
@@ -60,7 +69,7 @@ export default function PolicyForm({ choose, setState, error }) {
                 required={true}
                 onChange={handleChange}
                 name="box1"
-                checked={data.box1}
+                checked={value.box1}
               />
               ข้าพเจ้าได้อ่านข้อมูลการสมัครทั้งหมดแล้ว
             </label>
@@ -227,13 +236,13 @@ export default function PolicyForm({ choose, setState, error }) {
                 required={true}
                 onChange={handleChange}
                 name="box2"
-                checked={data.box2}
+                checked={value.box2}
               />
               ข้าพเจ้าได้อ่านข้อมูลการสมัครทั้งหมดแล้ว
             </label>
             <p
               className={`text-[#FEFE2D] ${
-                error && (!data.box1 || !data.box2) ? "" : "hidden"
+                error && (!value.box1 || !value.box2) ? "" : "hidden"
               }`}
             >
               กรุณาอ่านข้อมูลการสมัครให้ครบถ้วน
