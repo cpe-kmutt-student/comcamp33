@@ -58,7 +58,7 @@ const saveData = async (req, res, session) => {
   const database = await mongoClientPromise;
 
   const mainKeys = ['info', 'education', 'address', 'parent', 'interest', 'answers']
-  const infoKeys = ['prefix_en', 'name_en', 'surname_en', 'prefix_th','name_th', 'surname_th', 'nickname_th', 'birthdate', 'religion', 'tel', 'email', 'shirt', 'image'];
+  const infoKeys = ['prefix_en', 'name_en', 'surname_en', 'prefix_th', 'name_th', 'surname_th', 'nickname_th', 'birthdate', 'tel', 'email', 'shirt', 'image'];
   const edKeys = ['name', 'province', 'program', 'level', 'gpax'];
   const addressKeys = ['no', 'moo', 'soi', 'road', 'tambol', 'amphoe', 'province', 'postal'];
   const parentKeys = ['name', 'surname', 'relation', 'tel', 'email'];
@@ -67,7 +67,18 @@ const saveData = async (req, res, session) => {
   const answersKeys = ['q1', 'q2', 'q3', 'q4', 'q5', 'q6', 'q7', 'q8'];
   const dateLate = new Date('3/29/2022 23:59:59').getTime();
   const dateNow = new Date().getTime();
-  const someKeyNotSame = !isSameKey(req.body, mainKeys) || !isSameKey(req.body.info, infoKeys) || !isSameKey(req.body.education, edKeys) || !isSameKey(req.body.address, addressKeys) || !isSameKey(req.body.parent, parentKeys) || !isSameKey(req.body.interest, interestKeys) || arrayIsSameKey(req.body.interest.admission, admissionKeys) || !isSameKey(req.body.answers, answersKeys) || arrayIsSameKey(req.body.interest.admission, admissionKeys);
+
+  const someKeyNotSame = !isSameKey(req.body, mainKeys) 
+    || !isSameKey(req.body.info, infoKeys) 
+    || !isSameKey(req.body.education, edKeys) 
+    || !isSameKey(req.body.address, addressKeys) 
+    || !isSameKey(req.body.parent, parentKeys) 
+    || !isSameKey(req.body.interest, interestKeys) 
+    || arrayIsSameKey(req.body.interest.admission, admissionKeys) 
+    || !isSameKey(req.body.answers, answersKeys) 
+    || arrayIsSameKey(req.body.interest.admission, admissionKeys)
+    || req.body.complete;
+  
   if (dateNow > dateLate || someKeyNotSame) {
     return res.status(400).json({
       success: false,
@@ -82,6 +93,7 @@ const saveData = async (req, res, session) => {
     "email": session.user.email,
     "image": session.user.image
   }
+  data.update_timestamp = new Date();
   
   const findUser = await database.db("comcamp33").collection("data").findOne({"facebook.email": session.user.email}) ;
   if(!findUser){
