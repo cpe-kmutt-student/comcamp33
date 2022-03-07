@@ -1,87 +1,86 @@
 import React, { useState, useEffect } from "react";
+import { AiOutlineCheck } from "react-icons/ai";
 import Input from "@components/Input";
 import DropBox from "@components/DropBox";
-import TextArea from "@components/registerForm/TextArea";
+import TextArea from "@components/TextArea";
 import CheckBox from "@components/CheckBox";
 import styles from "@styles/components/registerForm/InterestForm.module.css";
 
 import trueAndFalse from "@components/registerForm/DropBoxData/trueAndFalse.json";
 
-export default function InterestForm({ choose }) {
-  const [data, setData] = useState({
-    admission: [
-      {
-        faculty: "",
-        department: "",
-        university: "",
-      },
-      {
-        faculty: "",
-        department: "",
-        university: "",
-      },
-      {
-        faculty: "",
-        department: "",
-        university: "",
-      },
-    ],
-    plan: [false, false, false, false],
-    camp: "",
-  });
+export default function InterestForm({ data, setData, choose }) {
+  // const [data, setData] = useState({
+  //   admission: [
+  //     {
+  //       faculty: "",
+  //       department: "",
+  //       university: "",
+  //     },
+  //     {
+  //       faculty: "",
+  //       department: "",
+  //       university: "",
+  //     },
+  //     {
+  //       faculty: "",
+  //       department: "",
+  //       university: "",
+  //     },
+  //   ],
+  //   plan: [false, false, false, false],
+  //   camp: "",
+  // });
 
-  useEffect(() => {
-    //console.log(data);
-  }, [data]);
 
   const handleChangeAdmission = (e) => {
-    let valueChange = e.target.value;
-    let nameChange = e.target.name;
+    let name = e.target.name;
     let keyChange = e.target.getAttribute("number");
+    const newAdmissions = (data.interest && data.interest.admission) ? data.interest.admission : [] ;
+    newAdmissions[keyChange] = (data.interest && data.interest.admission) ? {
+      ...data.interest.admission[keyChange],
+      [name]: e.target.value,
+    } : { [name]: e.target.value}  ;
 
-    const newAdmission = data.admission;
-    newAdmission[keyChange] = {
-      ...newAdmission[keyChange],
-      [nameChange]: valueChange,
-    };
     setData({
       ...data,
-      admission: newAdmission,
+      "interest" : {
+        ...data.interest,
+        admission: newAdmissions,
+      },
     });
+    //console.log(data);
   };
 
   const handleChangePlan = (e) => {
-    let valueChange = e.target.value;
-    let nameChange = e.target.name;
     let keyChange = e.target.getAttribute("number");
-    let checkValue = e.target.checked;
-
-    const newPlan = data.plan;
-    newPlan[keyChange] = checkValue;
+    const newPlans = (data.interest && data.interest.plan) ? data.interest.plan : [];
+    newPlans[keyChange] = e.target.checked;
+    console.log(newPlans)
     setData({
       ...data,
-      plan: newPlan,
+      interest: {
+        ...data.interest,
+        plan: newPlans,
+      },
     });
-    console.log(data);
+    console.log(data)
   };
 
-  const handleChangeCamp = (e) => {
-    let valueChange = e.target.value;
+  const handleChangeCourse = (e) => {
     setData({
       ...data,
-      camp: valueChange,
+      interest: {
+        ...data.interest,
+        camp: e.target.value,
+      },
     });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(data);
-  };
+    console.log(data)
+  }
 
   return (
     <>
       <div className={choose != 4 ? "hidden" : ""}>
-        <form onSubmit={handleSubmit}>
+        <form>
           <div className="flex justify-center">
             <h1 className="flex w-fit justify-center text-3xl font-bold text-white bg-[#9600FF] px-4 py-3 rounded-3xl m-5">
               ความสนใจ
@@ -94,12 +93,21 @@ export default function InterestForm({ choose }) {
               </label>
               <Input
                 type="text"
-                name="faculty"
-                placeholder="faculty"
-                onChange={handleChangeAdmission}
+                name="university"
+                placeholder="university"
+                onChange={(e) => {
+                  handleChangeAdmission(e);
+                }}
                 required={true}
                 number="0"
                 className="w-full"
+                value={
+                  (data.interest &&
+                    data.interest.admission &&
+                    data.interest.admission[0] &&
+                    data.interest.admission[0].university) ||
+                  ""
+                }
               />
             </div>
             <div className="flex flex-col mb-2 w-full">
@@ -108,22 +116,40 @@ export default function InterestForm({ choose }) {
                 type="text"
                 name="department"
                 placeholder="department"
-                onChange={handleChangeAdmission}
+                onChange={(e) => {
+                  handleChangeAdmission(e);
+                }}
                 required={true}
                 number="0"
                 className="w-full"
+                value={
+                  (data.interest &&
+                    data.interest.admission &&
+                    data.interest.admission[0] &&
+                    data.interest.admission[0].department) ||
+                  ""
+                }
               />
             </div>
             <div className="flex flex-col mb-2 w-full">
               <label className="text-white mb-2">ภาควิชาลำดับที่หนึ่ง</label>
               <Input
                 type="text"
-                name="university"
-                placeholder="university"
-                onChange={handleChangeAdmission}
+                name="faculty"
+                placeholder="faculty"
+                onChange={(e) => {
+                  handleChangeAdmission(e);
+                }}
                 required={true}
                 number="0"
                 className="w-full"
+                value={
+                  (data.interest &&
+                    data.interest.admission &&
+                    data.interest.admission[0] &&
+                    data.interest.admission[0].faculty) ||
+                  ""
+                }
               />
             </div>
           </div>
@@ -133,11 +159,20 @@ export default function InterestForm({ choose }) {
               <label className="text-white mb-2">มหาวิทยาลัยลำดับที่สอง</label>
               <Input
                 type="text"
-                name="faculty"
-                placeholder="faculty"
-                onChange={handleChangeAdmission}
+                name="unsiversity"
+                placeholder="unsiversity"
+                onChange={(e) => {
+                  handleChangeAdmission(e);
+                }}
                 required={true}
                 number="1"
+                value={
+                  (data.interest &&
+                    data.interest.admission &&
+                    data.interest.admission[1] &&
+                    data.interest.admission[1].unsiversity) ||
+                  ""
+                }
               />
             </div>
             <div className="flex flex-col mb-2 w-full">
@@ -146,20 +181,38 @@ export default function InterestForm({ choose }) {
                 type="text"
                 name="department"
                 placeholder="department"
-                onChange={handleChangeAdmission}
+                onChange={(e) => {
+                  handleChangeAdmission(e);
+                }}
                 required={true}
                 number="1"
+                value={
+                  (data.interest &&
+                    data.interest.admission &&
+                    data.interest.admission[1] &&
+                    data.interest.admission[1].department) ||
+                  ""
+                }
               />
             </div>
             <div className="flex flex-col mb-2 w-full">
               <label className="text-white mb-2">ภาควิชาลำดับที่สอง</label>
               <Input
                 type="text"
-                name="university"
-                placeholder="university"
-                onChange={handleChangeAdmission}
+                name="faculty"
+                placeholder="faculty"
+                onChange={(e) => {
+                  handleChangeAdmission(e);
+                }}
                 required={true}
                 number="1"
+                value={
+                  (data.interest &&
+                    data.interest.admission &&
+                    data.interest.admission[1] &&
+                    data.interest.admission[1].faculty) ||
+                  ""
+                }
               />
             </div>
           </div>
@@ -169,12 +222,21 @@ export default function InterestForm({ choose }) {
               <label className="text-white mb-2">มหาวิทยาลัยลำดับที่สาม</label>
               <Input
                 type="text"
-                name="faculty"
-                placeholder="faculty"
-                onChange={handleChangeAdmission}
+                name="university"
+                placeholder="university"
+                onChange={(e) => {
+                  handleChangeAdmission(e);
+                }}
                 required={true}
                 number="2"
                 className="w-full"
+                value={
+                  (data.interest &&
+                    data.interest.admission &&
+                    data.interest.admission[2] &&
+                    data.interest.admission[2].university) ||
+                  ""
+                }
               />
             </div>
             <div className="flex flex-col mb-2 w-full">
@@ -183,20 +245,38 @@ export default function InterestForm({ choose }) {
                 type="text"
                 name="department"
                 placeholder="department"
-                onChange={handleChangeAdmission}
+                onChange={(e) => {
+                  handleChangeAdmission(e);
+                }}
                 required={true}
                 number="2"
+                value={
+                  (data.interest &&
+                    data.interest.admission &&
+                    data.interest.admission[2] &&
+                    data.interest.admission[2].department) ||
+                  ""
+                }
               />
             </div>
             <div className="flex flex-col mb-2 w-full">
               <label className="text-white mb-2">ภาควิชาลำดับที่สาม</label>
               <Input
                 type="text"
-                name="university"
-                placeholder="university"
-                onChange={handleChangeAdmission}
+                name="faculty"
+                placeholder="faculty"
+                onChange={(e) => {
+                  handleChangeAdmission(e);
+                }}
                 required={true}
                 number="2"
+                value={
+                  (data.interest &&
+                    data.interest.admission &&
+                    data.interest.admission[2] &&
+                    data.interest.admission[2].faculty) ||
+                  ""
+                }
               />
             </div>
           </div>
@@ -205,85 +285,114 @@ export default function InterestForm({ choose }) {
             หลักสูตรที่สนใจ
           </h2>
           <div className="mt-2">
-            {/* <DropBox
-              placeholder="plan"
-              name="plan"
-              onChange={handleChangePlan}
-              required={true}
-              option={trueAndFalse}
-              number="0"
-            /> */}
-            <label className="ml-5 text-white mb-2">
+            <label className="flex items-center ml-5 text-white mb-2 w-fit">
               <input
                 type="checkbox"
-                onChange={handleChangePlan}
+                onChange={(e) => handleChangePlan(e)}
                 number="0"
-                checked={data.plan[0]}
-                styles={{ display: data.plan[0] == true ? "block" : "none" }}
+                name="plan"
+                checked={
+                  (data.interest &&
+                    data.interest.plan &&
+                    data.interest.plan[0]) ||
+                  false
+                }
+                className="appearance-none border-2 h-4 aspect-square relative mr-2 checked:bg-[rgb(0,0,0)] unchecked:bg-transparent"
               />
+              {data.interest &&
+              data.interest.plan &&
+              data.interest.plan[0] == true ? (
+                <AiOutlineCheck
+                  size={14}
+                  className="aspect-square absolute translate-x-[0.1rem]"
+                />
+              ) : (
+                ""
+              )}
               หลักสูตรปกติ
             </label>
           </div>
           <br />
           <div>
-            {/* <DropBox
-              placeholder="plan"
-              name="plan"
-              onChange={handleChangePlan}
-              required={true}
-              option={trueAndFalse}
-              number="1"
-            /> */}
-            <label className="ml-5 text-white mb-2">
+            <label className="flex items-center ml-5 text-white mb-2 w-fit">
               <input
                 type="checkbox"
-                onChange={handleChangePlan}
+                onChange={(e) => handleChangePlan(e)}
                 number="1"
-                checked={data.plan[1]}
-                styles={{ display: data.plan[1] == true ? "block" : "none" }}
+                checked={
+                  (data.interest &&
+                    data.interest.plan &&
+                    data.interest.plan[1]) ||
+                  false
+                }
+                className="appearance-none border-2 h-4 aspect-square relative mr-2 checked:bg-[rgb(0,0,0)] unchecked:bg-transparent"
               />
+              {data.interest &&
+              data.interest.plan &&
+              data.interest.plan[1] == true ? (
+                <AiOutlineCheck
+                  size={14}
+                  className="aspect-square absolute translate-x-[0.1rem]"
+                />
+              ) : (
+                ""
+              )}
               หลักสูตรนานาชาติ
             </label>
           </div>
           <br />
           <div>
-            {/* <DropBox
-              placeholder="plan"
-              name="plan"
-              onChange={handleChangePlan}
-              required={true}
-              option={trueAndFalse}
-              number="2"
-            /> */}
-            <label className="ml-5 text-white mb-2">
+            <label className="flex items-center ml-5 text-white mb-2 w-fit">
               <input
                 type="checkbox"
-                onChange={handleChangePlan}
+                onChange={(e) => handleChangePlan(e)}
                 number="2"
-                checked={data.plan[2]}
-                styles={{ display: data.plan[2] == true ? "block" : "none" }}
+                checked={
+                  (data.interest &&
+                    data.interest.plan &&
+                    data.interest.plan[2]) ||
+                  false
+                }
+                className="appearance-none border-2 h-4 aspect-square relative mr-2 checked:bg-[rgb(0,0,0)] unchecked:bg-transparent"
               />
+              {data.interest &&
+              data.interest.plan &&
+              data.interest.plan[2] == true ? (
+                <AiOutlineCheck
+                  size={14}
+                  className="aspect-square absolute translate-x-[0.1rem]"
+                />
+              ) : (
+                ""
+              )}
               หลักสูตรวิทยาศาสตร์สุขภาพ
             </label>
           </div>
           <br />
           <div>
-            {/* <DropBox
-              placeholder="plan"
-              name="plan"
-              onChange={handleChangePlan}
-              required={true}
-              option={trueAndFalse}
-              number="3"
-            /> */}
-            <label className="ml-5 text-white mb-2">
+            <label className="flex items-center ml-5 text-white mb-2 w-fit">
               <input
                 type="checkbox"
-                onChange={handleChangePlan}
+                onChange={(e) => handleChangePlan(e)}
                 number="3"
-                checked={data.plan[3]}
-                styles={{ display: data.plan[3] == true ? "block" : "none" }}
+                checked={
+                  (data.interest &&
+                    data.interest.plan &&
+                    data.interest.plan[3]) ||
+                  false
+                }
+                className="appearance-none border-2 h-4 aspect-square relative mr-2 checked:bg-[rgb(0,0,0)] unchecked:bg-transparent"
               />
+              {data.interest &&
+              data.interest.plan &&
+              data.interest.plan[3] == true ? (
+                <AiOutlineCheck
+                  size={14}
+                  className="aspect-square absolute translate-x-[0.1rem]"
+                />
+              ) : (
+                ""
+              )}
               หลักสูตร Residential College
             </label>
           </div>
@@ -296,8 +405,10 @@ export default function InterestForm({ choose }) {
               type="text"
               name="camp"
               placeholder="camp"
-              value={data.camp}
-              onChange={handleChangeCamp}
+              value={(data.interest &&
+                data.interest.camp) ||
+              ""}
+              onChange={(e) => handleChangeCourse(e)}
               required={true}
               className="h-36 w-full rounded-xl"
             />

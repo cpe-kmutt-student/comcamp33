@@ -1,0 +1,35 @@
+.gradientBorder {
+  border-style: solid;
+  border-width: 0.75rem;
+  border-radius: 9999px;
+  border-image: conic-gradient(blue, blue, magenta, magenta, blue) 1;
+}
+
+.box1 {
+  position: relative;
+  padding: 1.3rem;
+  display: inline-block;
+  font-size: 30px;
+}
+.box1::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 100%;
+  padding: 10px;
+  background: linear-gradient(
+    45deg,
+    #00fffb,
+    #00fffb,
+    #c03fd3,
+    #c03fd3,
+    #ff00c6,
+    #ff5c56
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}

@@ -1,3 +1,6 @@
+import styles from "@styles/components/Progress.module.css";
+import { Fragment } from "react";
+
 const steps = [
   "เอกสาร",
   "ข้อมูลทั่วไป",
@@ -36,15 +39,17 @@ export default function ProgressBar({ currentStep }) {
       <div className="flex flex-row justify-between content-center mx-auto w-4/5">
         {steps.map((step, index) => {
           return (
-            <>
+            <Fragment key={index}>
               <div className="flex flex-col">
-                <span key={index} className="text-white font-thai">{step}</span>
-                <div className="flex flex-row justify-center gap-2" >
+                <span key={index} className="text-white font-thai">
+                  {step}
+                </span>
+                <div className="flex flex-row justify-center gap-2">
                   <div
                     className={
                       index >= currentStep
                         ? "w-10 h-10 border-[10px] border-white rounded-full mx-auto"
-                        : "w-10 h-10 border-[10px] border-purple-500 rounded-full mx-auto"
+                        : styles.box1 + " " + ""
                     }
                   />
                 </div>
@@ -54,7 +59,7 @@ export default function ProgressBar({ currentStep }) {
                   <div className="w-3 h-3 bg-white rounded-full" />
                 </div>
               )}
-            </>
+            </Fragment>
           );
         })}
       </div>
