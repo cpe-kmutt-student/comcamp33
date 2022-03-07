@@ -26,7 +26,7 @@ export default function InfoForm({ data, setData, choose }) {
           </h1>
         </div>
         <form className="space-y-8">
-          <div className="flex flex-row items-end justify-between gap-10">
+          <div className="flex flex-wrap md:flex-nowrap flex-row items-end justify-between gap-10">
             <div className="flex w-full">
               <DropBox
                 placeholder="Prefix"
@@ -34,22 +34,19 @@ export default function InfoForm({ data, setData, choose }) {
                 onChange={(e) => handleChange(e, 'info')}
                 required={true}
                 option={prefix_th}
-                className="w-full"
+                value={(data && data.info) ? data.info.prefix_th : ''}
               />
             </div>
             <div className="flex flex-col w-full">
-              <div className="flex flex-col">
                 <label className="text-white mb-2">ชื่อ (ภาษาไทย)</label>
                 <Input
                   type="text"
                   name="name_th"
                   placeholder="First Name"
-                  value={data.info ? data.info.name_th : ''}
+                  value={(data && data.info) ? data.info.name_th : ''}
                   onChange={(e) => handleChange(e, 'info')}
                   required={true}
-                  className="w-full"
                 />
-              </div>
             </div>
             <div className="flex flex-col w-full">
               <label className="text-white mb-2">นามสกุล (ภาษาไทย)</label>
@@ -57,7 +54,7 @@ export default function InfoForm({ data, setData, choose }) {
                 type="text"
                 name="surname_th"
                 placeholder="Last Name"
-                value={data.info ? data.info.surname_th : ''}
+                value={(data && data.info) ? data.info.surname_th : ''}
                 onChange={(e) => handleChange(e, 'info')}
                 required={true}
                 className="w-full"
@@ -70,7 +67,7 @@ export default function InfoForm({ data, setData, choose }) {
                   type="text"
                   name="nickname_th"
                   placeholder="Nickname"
-                  value={data.info ? data.info.nickname_th : ''}
+                  value={(data && data.info) ? data.info.nickname_th : ''}
                   onChange={(e) => handleChange(e, 'info')}
                   required={true}
                   className="w-full"
@@ -79,7 +76,7 @@ export default function InfoForm({ data, setData, choose }) {
             </div>
           </div>
 
-          <div className="flex flex-row items-end justify-between gap-10">
+          <div className="flex flex-wrap md:flex-nowrap flex-row items-end justify-between gap-10">
             <div className="flex w-full">
               <DropBox
                 placeholder="Name prefix"
@@ -87,6 +84,7 @@ export default function InfoForm({ data, setData, choose }) {
                 onChange={(e) => handleChange(e, 'info')}
                 required={true}
                 option={prefix_en}
+                value={(data && data.info) ? data.info.prefix_en : ''}
                 className="w-full"
               />
             </div>
@@ -96,7 +94,7 @@ export default function InfoForm({ data, setData, choose }) {
                 type="text"
                 name="name_en"
                 placeholder="First Name"
-                value={data.info ? data.info.name_en : ''}
+                value={(data && data.info) ? data.info.name_en : ''}
                 onChange={(e) => handleChange(e, 'info')}
                 required={true}
                 className="w-full"
@@ -108,7 +106,7 @@ export default function InfoForm({ data, setData, choose }) {
                 type="text"
                 name="surname_en"
                 placeholder="Last Name"
-                value={data.info ? data.info.surname_en : ''}
+                value={(data && data.info) ? data.info.surname_en : ''}
                 onChange={(e) => handleChange(e, 'info')}
                 required={true}
                 className="w-full"
@@ -126,13 +124,13 @@ export default function InfoForm({ data, setData, choose }) {
                 required={true}
                 pattern="\d{4}-\d{2}-\d{2}"
                 className="w-full"
+                value={(data && data.info) ? data.info.birthday : ''}
               />
             </div>
           </div>
 
           <div>
-            <div className="flex flex-row justify-between gap-10">
-              <div className="flex flex-col flex-1 gap-10">
+            <div className="flex flex-wrap md:flex-nowrap flex-row gap-10">
                 <div className="flex flex-col">
                   <label className="text-white mb-2">
                     เบอร์โทรศัพท์ส่วนตัว
@@ -142,7 +140,7 @@ export default function InfoForm({ data, setData, choose }) {
                     name="tel"
                     placeholder="Tel"
                     pattern="[0-9]{10}"
-                    value={data.info ? data.info.tel : ''}
+                    value={(data && data.info) ? data.info.tel : ''}
                     size="10"
                     onChange={(e) => handleChange(e, 'info')}
                     required={true}
@@ -157,31 +155,10 @@ export default function InfoForm({ data, setData, choose }) {
                     onChange={(e) => handleChange(e, 'info')}
                     required={true}
                     option={shirt_size}
+                    value={(data && data.info) ? data.info.shirt : ''}
                     className="w-full block"
                   />
                 </div>
-              </div>
-              <div className="flex flex-col">
-                <label className="text-white mb-2">ภาพถ่ายอิสระ</label>
-                <div className="w-[300px] aspect-square bg-black"></div>
-              </div>
-              <div className="flex flex-col flex-1">
-                <div>
-                  <label className="text-white mb-2 block">{`ภาพถ่ายอิสระ`}</label>
-                  <label className="text-gray-400 border-2 border-white px-2 py-1 rounded-0 outline-none bg-transparent focus:bg-white block w-full">
-                    อัพโหลดภาพ
-                    <Input
-                      type="file"
-                      name="image"
-                      placeholder="Image"
-                      value={data.info ? data.info.image : ''}
-                      onChange={(e) => handleChange(e, 'info')}
-                      required={true}
-                      className="hidden"
-                    />
-                  </label>
-                </div>
-              </div>
             </div>
           </div>
 
@@ -189,7 +166,7 @@ export default function InfoForm({ data, setData, choose }) {
             ที่อยู่ปัจจุบัน
           </h2>
 
-          <div className="flex flex-row justify-between gap-10">
+          <div className="flex flex-wrap md:flex-nowrap flex-row justify-between gap-10">
             <div className="flex flex-col w-full">
               <label className="text-white mb-2">{`เลขที่บ้าน`}</label>
               <div>
@@ -197,7 +174,7 @@ export default function InfoForm({ data, setData, choose }) {
                   type="text"
                   name="no"
                   placeholder="เลขที่บ้าน"
-                  value={data.address ? data.address.no : ''}
+                  value={(data && data.adress) ? data.address.no : ''}
                   onChange={(e) => handleChange(e, 'address')}
                   required={true}
                   className="w-full"
@@ -211,7 +188,7 @@ export default function InfoForm({ data, setData, choose }) {
                   type="text"
                   name="moo"
                   placeholder="หมู่"
-                  value={data.address ? data.address.moo : ''}
+                  value={(data && data.adress)  ? data.address.moo : ''}
                   onChange={(e) => handleChange(e, 'address')}
                   required={true}
                   className="w-full"
@@ -225,7 +202,7 @@ export default function InfoForm({ data, setData, choose }) {
                   type="text"
                   name="soi"
                   placeholder="ซอย"
-                  value={data.address ? data.address.soi : ''}
+                  value={(data && data.adress) ? data.address.soi : ''}
                   onChange={(e) => handleChange(e, 'address')}
                   required={true}
                   className="w-full"
@@ -239,7 +216,7 @@ export default function InfoForm({ data, setData, choose }) {
                   type="text"
                   name="road"
                   placeholder="ถนน"
-                  value={data.address ? data.address.road : ''}
+                  value={(data && data.adress) ? data.address.road : ''}
                   onChange={(e) => handleChange(e, 'address')}
                   required={true}
                   className="w-full"
@@ -248,7 +225,7 @@ export default function InfoForm({ data, setData, choose }) {
             </div>
           </div>
 
-          <div className="flex flex-row justify-between gap-10">
+          <div className="flex flex-wrap md:flex-nowrap flex-row justify-between gap-10">
             <div className="flex flex-col w-full">
               <label className="text-white mb-2">{`ตำบล`}</label>
               <div>
@@ -256,7 +233,7 @@ export default function InfoForm({ data, setData, choose }) {
                   type="text"
                   name="tambol"
                   placeholder="ตำบล"
-                  value={data.address ? data.address.tambol : ''}
+                  value={(data && data.adress) ? data.address.tambol : ''}
                   onChange={(e) => handleChange(e, 'address')}
                   required={true}
                   className="w-full"
@@ -270,7 +247,7 @@ export default function InfoForm({ data, setData, choose }) {
                   type="text"
                   name="amphoe"
                   placeholder="อำเภอ"
-                  value={data.address ? data.address.amphoe : ''}
+                  value={(data && data.adress) ? data.address.amphoe : ''}
                   onChange={(e) => handleChange(e, 'address')}
                   required={true}
                   className="w-full"
@@ -284,7 +261,7 @@ export default function InfoForm({ data, setData, choose }) {
                   type="text"
                   name="province"
                   placeholder="จังหวัด"
-                  value={data.address ? data.address.province : ''}
+                  value={(data && data.adress) ? data.address.province : ''}
                   onChange={(e) => handleChange(e, 'address')}
                   required={true}
                   className="w-full"
@@ -298,7 +275,7 @@ export default function InfoForm({ data, setData, choose }) {
                   type="text"
                   name="postcode"
                   placeholder="รหัสไปรษณีย์"
-                  value={data.address ? data.address.postcode : ''}
+                  value={(data && data.adress) ? data.address.postcode : ''}
                   onChange={(e) => handleChange(e, 'address')}
                   required={true}
                   className="w-full"
@@ -311,14 +288,15 @@ export default function InfoForm({ data, setData, choose }) {
             ข้อมูลผู้ปกครอง
           </h2>
 
-          <div className="flex flex-row items-end justify-between gap-10">
+          <div className="flex flex-wrap md:flex-nowrap flex-row items-end justify-between gap-10">
             <div className="flex">
               <DropBox
                 placeholder="Prefix"
                 name="prefix_th"
-                onChange={(e) => handleChange(e, 'info')}
+                onChange={(e) => handleChange(e, 'parent')}
                 required={true}
                 option={prefix_th}
+                value={(data && data.parent) ? data.parent.prefix_th : ''}
               />
             </div>
             <div className="flex flex-col w-full">
@@ -329,7 +307,7 @@ export default function InfoForm({ data, setData, choose }) {
                     type="text"
                     name="name"
                     placeholder="ชื่อผู้ปกครอง"
-                    value={data.parent ? data.parent.name : ''}
+                    value={(data && data.parent) ? data.parent.name : ''}
                     onChange={(e) => handleChange(e, 'parent')}
                     required={true}
                     className="w-full"
@@ -344,7 +322,7 @@ export default function InfoForm({ data, setData, choose }) {
                   type="text"
                   name="surname"
                   placeholder="นามสกุลผู้ปกครอง"
-                  value={data.parent ? data.parent.lastname : ''}
+                  value={(data && data.parent) ? data.parent.lastname : ''}
                   onChange={(e) => handleChange(e, 'parent')}
                   required={true}
                   className="w-full"
@@ -358,7 +336,7 @@ export default function InfoForm({ data, setData, choose }) {
                   type="text"
                   name="relation"
                   placeholder="ความสัมพันธ์"
-                  value={data.parent ? data.parent.relation : ''}
+                  value={(data && data.parent) ? data.parent.relation : ''}
                   onChange={(e) => handleChange(e, 'parent')}
                   required={true}
                   className="w-full"
@@ -367,7 +345,7 @@ export default function InfoForm({ data, setData, choose }) {
             </div>
           </div>
 
-          <div className="flex flex-row items-end justify-between gap-20">
+          <div className="flex flex-wrap md:flex-nowrap flex-row items-end justify-between gap-10">
             <div className="flex flex-col w-full">
               <label className="text-white mb-2">{`เบอร์โทรศัพท์ผู้ปกครอง`}</label>
               <div>
@@ -375,7 +353,7 @@ export default function InfoForm({ data, setData, choose }) {
                   type="tel"
                   name="tel"
                   placeholder="เบอร์โทรศัพท์ผู้ปกครอง"
-                  value={data.parent ? data.parent.tel : ''}
+                  value={(data && data.parent) ? data.parent.tel : ''}
                   onChange={(e) => handleChange(e, 'parent')}
                   required={true}
                   className="w-full"
@@ -389,7 +367,7 @@ export default function InfoForm({ data, setData, choose }) {
                   type="email"
                   name="email"
                   placeholder="อีเมลผู้ปกครอง"
-                  value={data.parent ? data.parent.email : ''}
+                  value={(data && data.parent) ? data.parent.email : ''}
                   onChange={(e) => handleChange(e, 'parent')}
                   required={true}
                   className="w-full"

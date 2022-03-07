@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import CheckBox from "@components/CheckBox";
 
-export default function PolicyForm({ choose, setState, error }) {
+export default function PolicyForm({ /*data, setData,*/ choose, setState, error }) {
   const [data, setData] = useState({
     box1: false,
     box2: false,

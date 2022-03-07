@@ -28,6 +28,8 @@ export default function Input(props) {
         defaultValue={props.defaultValue}
         key={props.key}
         number={props.number}
+        min={props.min}
+        max={props.max}
       />
     </>
   );

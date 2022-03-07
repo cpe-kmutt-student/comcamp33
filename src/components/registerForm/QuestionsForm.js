@@ -26,7 +26,7 @@ export default function QuestionsForm({ data, setData, choose }) {
       <div className={choose != 5 ? "hidden" : ""}>
         <form onSubmit={handleSubmit}>
           <label className="flex justify-center">
-            <h2 className="flex w-fit justify-center text-2xl font-bold text-white bg-[#9600FF] px-8 py-2 rounded-3xl">{`คำถาม`}</h2>
+            <h2 className="flex w-fit justify-center text-3xl font-bold text-white bg-[#9600FF] px-4 py-3 my-8 rounded-2xl">{`คำถาม`}</h2>
           </label>
           <div className="flex flex-col gap-5 mb-5">
             <p className="flex w-fit justify-center text-base text-white bg-[#DD517E] px-5 py-3 mt-5 rounded-3xl">
@@ -42,7 +42,7 @@ export default function QuestionsForm({ data, setData, choose }) {
               type="text"
               name="q1"
               placeholder="คำถามข้อที่ 1 :"
-              value={data.answers ? data.answers.q1 : ""}
+              value={(data && data.answers) ? data.answers.q1 : ""}
               onChange={(e) => handleChange(e, 'answers')}
               required={true}
             />
@@ -64,7 +64,7 @@ export default function QuestionsForm({ data, setData, choose }) {
               type="text"
               name="q2"
               placeholder="คำถามข้อที่ 2 :"
-              value={data.answers ? data.answers.q2 : ""}
+              value={(data && data.answers) ? data.answers.q2 : ""}
               onChange={(e) => handleChange(e, 'answers')}
               required={true}
             />
@@ -101,7 +101,7 @@ export default function QuestionsForm({ data, setData, choose }) {
               type="text"
               name="q3"
               placeholder="คำถามข้อที่ 3 :"
-              value={data.answers ? data.answers.q3 : ""}
+              value={(data && data.answers) ? data.answers.q3 : ""}
               onChange={(e) => handleChange(e, 'answers')}
               required={true}
               
@@ -126,7 +126,7 @@ export default function QuestionsForm({ data, setData, choose }) {
               type="text"
               name="q4"
               placeholder="คำถามข้อที่ 4 :"
-              value={data.answers ? data.answers.q4 : ""}
+              value={(data && data.answers) ? data.answers.q4 : ""}
               onChange={(e) => handleChange(e, 'answers')}
               required={true}
               
@@ -147,7 +147,7 @@ export default function QuestionsForm({ data, setData, choose }) {
               type="text"
               name="q5"
               placeholder="คำถามข้อที่ 5 :"
-              value={data.answers ? data.answers.q5 : ""}
+              value={(data && data.answers) ? data.answers.q5 : ""}
               onChange={(e) => handleChange(e, 'answers')}
               required={true} 
             />
@@ -166,7 +166,7 @@ export default function QuestionsForm({ data, setData, choose }) {
               type="text"
               name="q6"
               placeholder="คำถามข้อที่ 6 :"
-              value={data.answers ? data.answers.q6 : ""}
+              value={(data && data.answers) ? data.answers.q6 : ""}
               onChange={(e) => handleChange(e, 'answers')}
               required={true}
               
@@ -188,7 +188,7 @@ export default function QuestionsForm({ data, setData, choose }) {
               type="text"
               name="q7"
               placeholder="คำถามข้อที่ 7 :"
-              value={data.answers ? data.answers.q7 : ""}
+              value={(data && data.answers) ? data.answers.q7 : ""}
               onChange={(e) => handleChange(e, 'answers')}
               required={true}
               
@@ -210,7 +210,7 @@ export default function QuestionsForm({ data, setData, choose }) {
               type="text"
               name="q8"
               placeholder="คำถามข้อที่ 8 :"
-              value={data.answers ? data.answers.q8 : ""}
+              value={(data && data.answers) ? data.answers.q8 : ""}
               onChange={(e) => handleChange(e, 'answers')}
               required={true}
               className="h-36 rounded-xl text-gray-400 border-2 border-white px-2 py-1 rounded-0 outline-none bg-transparent focus:bg-white"

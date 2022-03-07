@@ -24,8 +24,8 @@ export default function EducationForm({ data, setData, choose }) {
   return (
     <>
       <div className={choose != 3 ? "hidden" : ""}>
-        <div className="flex justify-center">
-          <h1 className="flex w-fit justify-center text-3xl font-bold text-white bg-[#9600FF] px-4 py-3 rounded-2xl">
+        <div className="flex justify-center mt-2">
+          <h1 className="flex w-fit justify-center text-3xl font-bold text-white bg-[#9600FF] px-4 py-3 my-8 rounded-2xl">
             ประวัติการศึกษา
           </h1>
         </div>
@@ -36,27 +36,26 @@ export default function EducationForm({ data, setData, choose }) {
               type="text"
               name="name"
               placeholder="Name"
-              value={data.education ? data.education.name : ""}
+              value={(data && data.education) ? data.education.name : ""}
               onChange={(e) => handleChange(e, "education")}
               required={true}
               className="w-full"
             />
           </div>
           <br />
-          <div className="flex flex-row items-end justify-between gap-10">
+          <div className="flex flex-wrap md:flex-nowrap flex-row justify-between gap-10">
             <div className="flex flex-col w-full">
               <label className="text-white mb-2">{`จังหวัด`}</label>
               <Input
                 type="text"
                 name="province"
                 placeholder="Province"
-                value={data.education ? data.education.province : ""}
+                value={(data && data.education) ? data.education.province : ""}
                 onChange={(e) => handleChange(e, "education")}
                 required={true}
                 className="w-full"
               />
             </div>
-            <br />
             <div className="flex flex-col w-full">
               <label className="text-white mb-2">{`สาขาวิชา`}</label>
               <DropBox
@@ -65,10 +64,10 @@ export default function EducationForm({ data, setData, choose }) {
                 onChange={(e) => handleChange(e, "education")}
                 required={true}
                 option={level}
+                value={(data && data.education) ? data.education.program : ""}
                 className="w-full"
               />
             </div>
-            <br />
             <div className="flex flex-col w-full">
               <label className="text-white mb-2">{`ระดับการศึกษา`}</label>
               <DropBox
@@ -77,25 +76,25 @@ export default function EducationForm({ data, setData, choose }) {
                 onChange={(e) => handleChange(e, "education")}
                 required={true}
                 option={level}
+                value={(data && data.education) ? data.education.level : ""}
                 className="w-full"
               />
             </div>
-            <br />
             <div className="flex flex-col w-full">
               <label className="text-white mb-2">{`เกรดเฉลี่ย`}</label>
               <Input
                 type="number"
                 name="gpax"
                 placeholder="GPAX"
-                value={data.education ? data.education.gpax : ""}
+                value={(data && data.education) ? data.education.gpax : ""}
                 onChange={(e) => handleChange(e, "education")}
                 required={true}
                 className="w-full"
+                min="1"
+                max="4"
               />
             </div>
           </div>
-
-          <br />
           <Input type="submit">Submit</Input>
         </form>
       </div>
