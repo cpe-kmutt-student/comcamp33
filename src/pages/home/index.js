@@ -3,9 +3,10 @@ import Contact from "../../components/contact";
 import { ParallaxBanner } from "react-scroll-parallax";
 import About from "../../components/about";
 import Condition from "../../components/condition";
+import Timeline from "../../components/Timeline";
+import Faqs from "../../components/faq";
 import { Navigation } from "../../components/Navigation";
 import Learning from "../../components/learning";
-import Timeline from "../../components/Timeline";
 const Home = () => {
   return (
     <div className="bg-bg-primary">
@@ -14,7 +15,7 @@ const Home = () => {
         <div className="absolute h-full w-screen top-0 right-0">
           <Image src="/assets/first/radiant.svg" quality={100} layout="fill" objectFit="contain" alt="light" />
         </div>
-        <div className="h-[60vh] relative  mx-5">
+        <div className="h-[60vh] relative mx-5">
           <Image src="/assets/logo.png" quality={100} layout="fill" objectFit="contain" alt="com camp logo" />
         </div>
         <div className="absolute bottom-0 right-0 w-[100%] md:h-[35vh] h-[40vh]">
@@ -38,7 +39,9 @@ const Home = () => {
       <section className="bg-[#590949] h-[93vh]" id="schedule">
         <Timeline />
       </section>
-      <section className="bg-[#840D4F] h-[93vh]" id="faq"></section>
+      <section className="bg-[#840D4F] h-[93vh]" id="faq">
+        <Faqs />
+      </section>
       <section className="bg-[#B61157] h-[93vh]" id="contact"><Contact /></section>
       <section className="bg-[] h-[93vh]" id="registration"></section>
     </div >

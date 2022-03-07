@@ -4,12 +4,13 @@ const Header = () => {
   return (
     <Head>
       <title>Comcamp 33</title>
+      <link rel="icon" type="image/png" href="assets/comcamp.png" />
 
       <meta property="og:type" content="website" />
-      <meta property="og:url" content="" />
+      <meta property="og:url" content="https://comcamp.kmutt.in.th" />
       <meta property="og:title" content="Comcamp33" />
       <meta property="og:description" content="Comcamp33 ..." />
-      <meta property="og:image" content="" />
+      <meta property="og:image" content="https://comcamp.kmutt.in.th/assets/comcmap.png" />
     </Head>
   );
 };
