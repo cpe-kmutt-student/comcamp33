@@ -11,6 +11,7 @@ import AutoSave from "@components/AutoSave";
 import Image from "next/image";
 import BgStar from "@public/formBg/unknown.png";
 import Bg1 from "@public/formBg/unknown1.png";
+import Header from "@components/Header";
 
 export default function Form() {
   const [chooseForm, setChooseForm] = useState(1); // 1
@@ -43,6 +44,8 @@ export default function Form() {
 
   return (
     <div className="relative flex flex-col bg-[#11033E] min-h-screen">
+      <Header />
+
       <div className="fixed w-[100vw] h-[100vh] top-0 z-0">
         <Image
           alt="BgStar"
