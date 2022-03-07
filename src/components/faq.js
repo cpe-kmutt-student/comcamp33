@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React, { useState } from 'react';
-import { Data } from './Data'
+import { Data } from './faq-question'
 import { FiPlus, FiMinus } from 'react-icons/fi';
 const Faqs = () => {
 
@@ -30,7 +30,7 @@ const Faqs = () => {
                
                 {clicked === index ? (
                   <div className="">
-                    <div className="text-white p-4 pl-6 bg-slate-300/90 text-black text-xl ">{item.answer}</div>
+                    <div className="text-white p-4 pl-6 bg-white/30 text-black text-xl ">{item.answer}</div>
                   </div>
                 ) : null}
               </>

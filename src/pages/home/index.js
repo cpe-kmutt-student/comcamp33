@@ -3,9 +3,10 @@ import Contact from "../../components/contact";
 import { ParallaxBanner } from "react-scroll-parallax";
 import About from "../../components/about";
 import Condition from "../../components/condition";
+import Timeline from "../../components/timeline";
+import Faqs from "../../components/faq";
 import { Navigation } from "../../components/Navigation";
 import Learning from "../../components/learning";
-import Timeline from "../../components/Timeline";
 const Home = () => {
   return (
     <div className="bg-bg-primary">
@@ -38,9 +39,12 @@ const Home = () => {
       <section className="bg-[#590949] h-[93vh]" id="schedule">
         <Timeline />
       </section>
-      <section className="bg-[#840D4F] h-[100vh]" id="faq"></section>
+      <section className="bg-[#840D4F] h-[100vh]" id="faq">
+        <Faqs/>
+      </section>
       <section className="bg-[#B61157] h-[100vh]" id="contact"><Contact /></section>
       <section className="bg-[] h-[100vh]" id="registration"></section>
+     
     </div >
   );
 };
