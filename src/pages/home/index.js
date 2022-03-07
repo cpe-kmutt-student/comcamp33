@@ -8,7 +8,10 @@ const Home = () => {
   return (
     <div className="bg-bg-primary">
       <Navigation />
-      <section className="container mx-auto lg:px-24 h-[90vh]" id="home" >
+      <section className="mx-auto lg:px-24 h-[90vh] bg-gradient-to-t from-[#E5155E] to-[#11033E]" id="home" >
+        <div className="absolute h-full w-full top-0 right-0">
+          <Image src="/assets/first/radiant.svg" quality={100} layout="fill" objectFit="contain" alt="light" />
+        </div>
         <div className="h-[60vh] relative mt-3 mx-5">
           <Image src="/assets/logo.png" quality={100} layout="fill" objectFit="contain" alt="com camp logo" />
         </div>
@@ -30,7 +33,7 @@ const Home = () => {
       </section>
       <section className="h-[100vh]" id="schedule"></section>
       <section className="h-[100vh]" id="faq"></section>
-      <section className="h-[100vh]" id="contact"><Contact/></section>
+      <section className="h-[100vh]" id="contact"><Contact /></section>
       <section className="h-[100vh]" id="registration"></section>
     </div >
   );
