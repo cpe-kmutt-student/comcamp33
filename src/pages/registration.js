@@ -17,12 +17,13 @@ export default function Form() {
   const [chooseForm, setChooseForm] = useState(1); // 1
   const [data, setData] = useState({});
 
-  const [checked, setChecked] = useState(false)
-  const [error, setError] = useState(false)
+  const [checked, setChecked] = useState(false);
+  const [error, setError] = useState(false);
 
   const nextForm = () => {
-    if ((chooseForm === 1 && checked) || (chooseForm > 1 && chooseForm < 6)) setChooseForm(chooseForm + 1)
-    else setError(true)
+    if ((chooseForm === 1 && checked) || (chooseForm > 1 && chooseForm < 6))
+      setChooseForm(chooseForm + 1);
+    else setError(true);
   };
 
   const prevForm = () => {
@@ -67,12 +68,19 @@ export default function Form() {
           />
         </div>
       </div>
-      <h1 className="font-bold font-pixel text-white text-2xl mx-auto">REGISTRATION</h1>
+      <h1 className="font-bold font-pixel text-white text-2xl mx-auto">
+        REGISTRATION
+      </h1>
 
-      <ProgressBar currentStep={chooseForm}/>
+      <ProgressBar currentStep={chooseForm} />
 
       <div className="p-[20%] pt-0 pb-0 z-10">
-        <PolicyForm choose={chooseForm} setState={setChecked} error={error} />
+        <PolicyForm
+          data={data}
+          choose={chooseForm}
+          setState={setChecked}
+          error={error}
+        />
 
         <InfoForm data={data} setData={setData} choose={chooseForm} />
         <EducationForm data={data} setData={setData} choose={chooseForm} />

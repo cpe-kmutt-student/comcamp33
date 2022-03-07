@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import CheckBox from "@components/CheckBox";
+import styles from "@styles/register/PolicyForm.module.css";
+import Link from "next/link";
 
 export default function PolicyForm({ choose, setState, error }) {
   const [data, setData] = useState({
@@ -8,14 +10,14 @@ export default function PolicyForm({ choose, setState, error }) {
   });
 
   const handleChange = (e) => {
-    let checkValue = e.target.checked
+    let checkValue = e.target.checked;
     let nameChange = e.target.name;
     let currentStatus = {
       ...data,
-      [nameChange]: checkValue
-    }
-    setData(currentStatus)
-    setState(currentStatus.box1 && currentStatus.box2)
+      [nameChange]: checkValue,
+    };
+    setData(currentStatus);
+    setState(currentStatus.box1 && currentStatus.box2);
   };
 
   return (
@@ -50,6 +52,8 @@ export default function PolicyForm({ choose, setState, error }) {
                 x 6 นิ้ว พร้อมเขียนระบุชื่อจริง นามสกุลของผู้สมัคร
               </li>
             </ul>
+          </div>
+          <div className="pt-[1rem] pb-[1rem]">
             <label className="text-xl">
               <CheckBox
                 type="checkbox"
@@ -67,11 +71,11 @@ export default function PolicyForm({ choose, setState, error }) {
           <div className="flex justify-center content-center">
             <h1 className="text-3xl">นโยบายข้อมูลส่วนบุคคล</h1>
           </div>
-          <div>
-            <ol className="list-decimal">
-              <li>
+          <div className="overflow-auto max-h-[16rem] bg-white text-black pt-[1rem] pr-[2rem] pl-[2rem]">
+            <ol className={styles.orderList}>
+              <li className={styles.listItem}>
                 ข้อมูลสำคัญเกี่ยวกับโครงการ
-                <ol className="list-decimal">
+                <ol className={styles.orderList}>
                   <li>
                     โครงการฝึกอบรมเชิงปฏิบัติการคอมพิวเตอร์ ครั้งที่ 33 หรือ
                     Comcamp#33 ( ซึ่งต่อไปนี้จะเรียกว่า “ โครงการ ” )
@@ -90,7 +94,133 @@ export default function PolicyForm({ choose, setState, error }) {
                   </li>
                 </ol>
               </li>
+              <li className={styles.listItem}>
+                ข้อมูลที่โครงการเก็บรวบรวมเกี่ยวกับผู้ใช้
+                <ol className={styles.orderList}>
+                  <li>
+                    ข้อมูลส่วนบุคคล หรือ ข้อความส่วนบุคคล หมายถึง
+                    ข้อมูลเกี่ยวกับบุคคลที่สามารถระบุบุคคลนั้น อาจทำการรวบรวม
+                    ใช้ เก็บ และถ่ายโอนข้อมูลส่วนบุคคลประเภทต่าง ๆ
+                    ที่เกี่ยวกับผู้ใช้ตามที่โครงการได้จัดกลุ่มไว้ด้วยกัน
+                    ดังต่อไปนี้
+                  </li>
+                  <li className={styles.listItem}>
+                    ข้อมูลส่วนตัว
+                    <li>
+                      ได้แก่ ชื่อ นามสกุล ชื่อเล่น เพศ วันเดือนปีเกิด กรุ๊ปเลือด
+                      ศาสนา เบอร์โทรศัพท์ของท่าน อีเมลเพื่อใช้สำหรับการติดต่อ
+                      และขนาดไซส์เสื้อ
+                    </li>
+                  </li>
+                  <li className={styles.listItem}>
+                    ข้อมูลการศึกษา
+                    <li>
+                      ด้แก่ ระดับการศึกษา ชื่อสถานศึกษา จังหวัด
+                      และเกรดเฉลี่ยสะสม
+                    </li>
+                  </li>
+                  <li className={styles.listItem}>
+                    ข้อมูลที่อยู่
+                    <li>
+                      ได้แก่ ที่อยู่ปัจจุบัน ที่อยู่ตามทะเบียนบ้าน
+                      และที่อยู่ตามทะเบียนผู้ปกครอง
+                    </li>
+                  </li>
+                  <li className={styles.listItem}>
+                    ข้อมูลอื่น ๆ
+                    <li>
+                      ได่แก่ ความสนใจส่วนบุคคล ความสามารถพิเศษและผลงาน
+                      ช่องทางที่รู้จักโครงการ ข้อมูลการใช้งานเว็บไซต์ ได้แก่
+                      เครื่องมือที่ใช้เข้าถึงเว็บไซต์ ลักษณะการใช้งานบนเว็บไซต์
+                      โดยไม่ระบุตัวตน และ ข้อมูลอุปกรณ์การเรียน
+                    </li>
+                  </li>
+                </ol>
+              </li>
+              <li className={styles.listItem}>
+                การจัดเก็บข้อมูลส่วนบุคคลของผู้ใช้
+                <li>
+                  โครงการอาจรวบรวมข้อมูลเกี่ยวกับผู้ใช้ได้หลายวิธี ได้แก่
+                  ปฏิสัมพันธ์โดยตรง โครงการจะเก็บรวบรวมข้อมูลส่วนบุคคลของผู้ใช้
+                  ตัวอย่างเช่น ท่านอาจให้ข้อมูลส่วนตัว ข้อมูลการศึกษา
+                  โดยการกรอกแบบฟอร์มบนเว็บไซต์รับสมัครของโครงการ
+                  เพื่อทำการสมัครเข้าร่วมโครงการ
+                  เทคโนโลยีอัตโนมัติหรือปฏิสัมพันธ์
+                  ในขณะที่ท่านโต้ตอบกับเว็บไซต์ของโครงการ
+                  ระบบเทคโนโลยีอัตโนมัตที่โครงการใช้งานบนเว็บไซต์อาจรวบรวมข้อมูลทางเทคนิค
+                  เช่น ข้อมูลเกี่ยวกับเบราเซอร์ของท่านโดยอัตโนมัติ
+                  ว่าท่านเข้าเยี่ยมชมพื้นที่ใดในเว็บไซต์ของโครงการและลิงก์ที่ท่านคลิกดูการกระทำและรูปแบบการเรียกดู
+                  ช่วยให้โครงการสามารถให้ประสบการณ์ที่ดีแก่ท่านเมื่อท่านเข้าชมเว็บไซต์ของโครงการ
+                  และยังช่วยให้โครงการสามารถปรับปรุงพัฒนาเว็บไซต์ให้ดีขึ้น
+                </li>
+                <br />
+                <li>
+                  บุคคลที่สาม หรือ แหล่งข้อมูลสาธารณะ
+                  โครงการจะเก็บข้อมูลของผู้ใช้ผ่านการเข้าสู่ระบบโดยใช้สื่อสังคม
+                  ทำให้โครงการอาจจะเก็บรวบรวมข้อมูลการติดต่อ อัตลักษณ์
+                  และข้อมูลทางเทคนิค รวมไปถึง ชื่อผู้ใช้งาน/ชื่อผู้ใช้
+                  รูปประจำตัวผู้ใช้งาน ที่อยู่อีเมล และวันเดือนปีเกิดของท่าน
+                  ข้อมูลเกี่ยวกับสื่อสังคมออนไลน์ที่ท่านยินยอมเปิดเผยกับโครงการจะไปรวมกับข้อมูลอื่น
+                  ๆ ที่ผู้ใช้ให้กับโครงการไว้ หรือที่โครงการรวบรวมเกี่ยวกับท่าน
+                </li>
+              </li>
+
+              <li className={styles.listItem}>
+                วัตถุประสงค์ของการใช้ข้อมูลส่วนบุคคล
+                <ol className={styles.orderList}>
+                  โครงการมีวัตถุประสงค์ในการใช้ข้อมูล ดังต่อไปนี้
+                  <li className={styles.listItem}>
+                    โครงการใช้ข้อมูลส่วนบุคคลเพื่อยืนยันคุณสมบัติและคัดเลือกผู้เข้าร่วมโครงการ
+                  </li>
+                  <li className={styles.listItem}>
+                    โครงการใช้ข้อมูลส่วนบุคคลเพื่อจัดกลุ่มผู้เข้าร่วมโครงการ
+                  </li>
+                  <li className={styles.listItem}>
+                    โครงการใช้ข้อมูลส่วนบุคคลเพื่อจัดกิจกรรมในโครงการ
+                  </li>
+                  <li className={styles.listItem}>
+                    โครงการใช้ข้อมูลส่วนบุคคลเพื่อจัดส่งของรางวัลในโครงการ
+                  </li>
+                  <li className={styles.listItem}>
+                    โครงการใช้ข้อมูลส่วนบุคคลเพื่อจัดส่งใบประกาศนียบัตรสำหรับผู้ที่เข้าร่วมโครงการ
+                  </li>
+                  <li className={styles.listItem}>
+                    โครงการใช้ข้อมูลส่วนบุคคลเพื่อให้สามารถติดต่อผู้ปกครองได้ในกรณีฉุกเฉิน
+                  </li>
+                  <li className={styles.listItem}>
+                    โครงการใช้ข้อมูลแบบไม่ระบุตัวตน
+                    และข้อมูลเทคโนโลยีอัตโนมัติเพื่อใช้ในการวิเคราะห์ข้อมูลทางสถิติ
+                  </li>
+                </ol>
+              </li>
+              <li className={styles.listItem}>
+                ระยะเวลาในการเก็บข้อมูลส่วนบุคคล
+                <li>
+                  โครงการจะเก็บข้อมูลส่วนบุคคลของท่านเท่าที่จำเป็นในการจัดโครงการครั้งปัจจุบัน
+                  และสำหรับโครงการครั้งต่อไป แต่ไม่เกิน 4 ปี
+                </li>
+              </li>
+              <li className={styles.listItem}>
+                สิทธิของท่านเกี่ยวกับข้อมูลส่วนบุคคล
+                <li>
+                  ท่านสามารถใช้สิทธิที่ท่านมีอยู่ตามกฎหมายคุ้มครองข้อมูลส่วนบุคคล
+                  ยังรวมถึงการเข้าถึง การแก้ไข การลบระงับการประมวลผลข้อมูล
+                  ขอให้โครงการส่งสำเนาข้อมูลส่วนบุคคลของท่าน
+                  ขอให้องค์กรคัดค้านการประมวลผลข้อมูล หรือถอนความยินยอม
+                  โครงการได้ทำการแต่งตั้งเจ้าหน้าที่คุ้มครองข้อมูลส่วนบุคคล
+                  เพื่อกำกับดูแลคุ้มครองข้อมูลส่วนบุคคลของค่าย
+                  และท่านสามารถติดต่อผู้ดูแลข้อมูลของโครงการ ได้ที่อีเมล
+                  <Link
+                    href="mailto:comcamp33.kmutt@gmail.com"
+                    className={styles.Link}
+                  >
+                    {` comcamp33.kmutt@gmail.com`}
+                  </Link>
+                </li>
+              </li>
             </ol>
+          </div>
+          <div className="pt-[1rem] pb-[1rem]">
             <label className="text-xl">
               <CheckBox
                 type="checkbox"
@@ -101,7 +231,13 @@ export default function PolicyForm({ choose, setState, error }) {
               />
               ข้าพเจ้าได้อ่านข้อมูลการสมัครทั้งหมดแล้ว
             </label>
-            <p className={`text-[#FEFE2D] ${error && (!data.box1 || !data.box2) ? '' : 'hidden'}`}>กรุณาอ่านข้อมูลการสมัครให้ครบถ้วน</p>
+            <p
+              className={`text-[#FEFE2D] ${
+                error && (!data.box1 || !data.box2) ? "" : "hidden"
+              }`}
+            >
+              กรุณาอ่านข้อมูลการสมัครให้ครบถ้วน
+            </p>
           </div>
         </div>
       </form>
