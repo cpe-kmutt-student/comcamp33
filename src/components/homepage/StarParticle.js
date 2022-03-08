@@ -20,10 +20,10 @@ const particleConfig = {
             }
         },
         "number": {
-            "value": 60,
+            "value": 100,
             "density": {
                 "enable": true,
-                "value_area": 600
+                "value_area": 500
             }
         },
         "interactivity": {
@@ -70,8 +70,8 @@ const particleConfig = {
             "random": true,
             "anim": {
                 "enable": true,
-                "speed": 0.2,
-                "opacity_min": 0,
+                "speed": 1.5,
+                "opacity_min": 0.2,
                 "sync": false
             }
         },
@@ -88,7 +88,7 @@ const particleConfig = {
             "type": "image"
         },
         "size": {
-            "value": 10,
+            "value": 6,
             "random": true,
             "animation": {
                 "enable": true,
