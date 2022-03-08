@@ -96,22 +96,24 @@ export const Navigation = () => {
                 </a>
               </li>
             ))}
-            <li>
-              <a
-                href="/register"
-                className="block lg:mt-3 py-3 text-center w-[100%] bg-[#FF00C6] lg:hidden text-white font-pixel lg:hover:text-text-highlight border-b-text-highlight border-b-[1px]"
-                onClick={() => {
-                  setIsOpen(!isOpen);
-                }}
-              >
+            <Link
+              href="/registration"
+              passHref
+              onClick={() => {
+                setIsOpen(!isOpen);
+              }}
+            >
+              <li className="block lg:mt-3 py-3 text-center w-[100%] bg-[#FF00C6] lg:hidden text-white font-pixel lg:hover:text-text-highlight border-b-text-highlight border-b-[1px] cursor-pointer">
                 Registration
-              </a>
-            </li>
+              </li>
+            </Link>
           </ul>
         </div>
       </div>
       <button className="absolute top-0 bg-[#FF00C6] right-3 font-pixel text-lg text-white px-4 py-1 rounded mt-[1.5vh] hidden lg:block">
-        <a href="/register">Registration</a>
+        <Link href="/registration" passHref>
+          Registration
+        </Link>
       </button>
     </nav>
   );
