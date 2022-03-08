@@ -1,31 +1,14 @@
+import Header from "@components/Header";
+import { About, Condition, Contact, Faqs, First, Learning, Navigation, Timeline } from "@components/homepage";
 import Image from "next/image";
-import Contact from "../../components/contact";
-import { ParallaxBanner } from "react-scroll-parallax";
-import About from "../../components/about";
-import Condition from "../../components/condition";
-import Timeline from "../../components/Timeline";
-import Faqs from "../../components/faq";
-import { Navigation } from "../../components/Navigation";
-import Learning from "../../components/learning";
+
 const Home = () => {
   return (
     <div className="bg-bg-primary">
+      <Header />
       <Navigation />
-      <section className="lg:px-24 h-[90vh] bg-gradient-to-t from-[#E5155E] to-[#11033E] top-0 pt-5" id="home" >
-        <div className="absolute h-full w-screen top-0 right-0">
-          <Image src="/assets/first/radiant.svg" quality={100} layout="fill" objectFit="contain" alt="light" />
-        </div>
-        <div className="h-[60vh] relative mx-5">
-          <Image src="/assets/logo.png" quality={100} layout="fill" objectFit="contain" alt="com camp logo" />
-        </div>
-        <div className="absolute bottom-0 right-0 w-[100%] md:h-[35vh] h-[40vh]">
-          <Image src="/assets/first/FIRST_WEB/2.png"
-            layout="fill"
-            objectFit="cover"
-            quality={100}
-            alt="background town"
-          />
-        </div>
+      <section className="lg:px-24 h-[92vh] bg-gradient-to-t from-[#E5155E] to-[#11033E] top-0 pt-5" id="home" >
+        <First />
       </section>
       <section className="bg-[#11033E] h-[93vh]" id="about">
         <About />
