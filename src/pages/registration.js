@@ -12,7 +12,7 @@ import Image from "next/image";
 import BgStar from "@public/formBg/unknown.png";
 import Bg1 from "@public/formBg/unknown1.png";
 import Header from "@components/Header";
-import { getSession } from 'next-auth/react';
+import { getSession } from "next-auth/react";
 
 export default function RegistrationPage() {
   const [chooseForm, setChooseForm] = useState(1); // 1
@@ -32,7 +32,6 @@ export default function RegistrationPage() {
       setChooseForm(chooseForm - 1);
     }
   };
-
   useEffect(() => {
     const loadInitialData = async () => {
       const result = await loadData();
@@ -43,8 +42,21 @@ export default function RegistrationPage() {
     loadInitialData();
   }, []);
 
+  // {data && data.verify == true ? setChooseForm(2) : ""}
+  useEffect(() => {
+    if (data && data.verify == true) {
+      setChooseForm(2);
+    }
+  }, [data.verify]);
+
+  useEffect(() => {
+    if (data && data.verify == true) {
+      setChooseForm(2);
+    }
+  }, []);
+
   return (
-    <div className="relative w-[100vw] flex flex-col bg-[#11033E] min-h-screen">
+    <div className="relative flex flex-col bg-[#11033E] min-h-screen overflow-x-hidden">
       <Header />
 
       <div className="fixed w-[100vw] h-[100vh] top-0 z-0">
@@ -68,11 +80,13 @@ export default function RegistrationPage() {
           />
         </div>
       </div>
-      <h1 className="self-center m-2 text-white font-pixel text-2xl sm:text-2xl md:text-6xl lg:text-6xl">REGISTRATION</h1>
+      <h1 className="self-center m-2 text-white font-pixel text-2xl sm:text-2xl md:text-6xl lg:text-6xl">
+        REGISTRATION
+      </h1>
 
       <ProgressBar currentStep={chooseForm} />
 
-      <div className="p-[20%] pt-0 pb-0 z-10">
+      <div className="p-[20%] flex justify-center all pt-0 pb-0 z-10">
         <PolicyForm
           data={data}
           choose={chooseForm}
@@ -81,7 +95,6 @@ export default function RegistrationPage() {
           setData={setData}
         />
 
-        {data && data.verify == true ? setChooseForm(2) : ""}
         <InfoForm data={data} setData={setData} choose={chooseForm} />
         <EducationForm data={data} setData={setData} choose={chooseForm} />
         <InterestForm data={data} setData={setData} choose={chooseForm} />
@@ -95,7 +108,7 @@ export default function RegistrationPage() {
           <AiFillCaretLeft
             size="4.5rem"
             color="rgb(236,72,153)"
-            style={{ display: chooseForm === 1 ? "none" : "block" }}
+            style={{ display: [1,2].includes(chooseForm) ? "none" : "block" }}
           />
         </button>
         <button onClick={nextForm}>
@@ -114,7 +127,7 @@ export const getServerSideProps = async (context) => {
   return {
     redirect: {
       permanent: false,
-      destination: '/auth',
+      destination: "/auth",
     },
     props: {},
   };

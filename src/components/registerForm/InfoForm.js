@@ -174,7 +174,7 @@ export default function InfoForm({ data, setData, choose }) {
                   type="text"
                   name="no"
                   placeholder="เลขที่บ้าน"
-                  value={(data && data.adress) ? data.address.no : ''}
+                  value={(data && data.address) ? data.address.no : ''}
                   onChange={(e) => handleChange(e, 'address')}
                   required={true}
                   className="w-full"
@@ -188,7 +188,7 @@ export default function InfoForm({ data, setData, choose }) {
                   type="text"
                   name="moo"
                   placeholder="หมู่"
-                  value={(data && data.adress)  ? data.address.moo : ''}
+                  value={(data && data.address)  ? data.address.moo : ''}
                   onChange={(e) => handleChange(e, 'address')}
                   required={true}
                   className="w-full"
@@ -202,7 +202,7 @@ export default function InfoForm({ data, setData, choose }) {
                   type="text"
                   name="soi"
                   placeholder="ซอย"
-                  value={(data && data.adress) ? data.address.soi : ''}
+                  value={(data && data.address) ? data.address.soi : ''}
                   onChange={(e) => handleChange(e, 'address')}
                   required={true}
                   className="w-full"
@@ -216,7 +216,7 @@ export default function InfoForm({ data, setData, choose }) {
                   type="text"
                   name="road"
                   placeholder="ถนน"
-                  value={(data && data.adress) ? data.address.road : ''}
+                  value={(data && data.address) ? data.address.road : ''}
                   onChange={(e) => handleChange(e, 'address')}
                   required={true}
                   className="w-full"
@@ -233,7 +233,7 @@ export default function InfoForm({ data, setData, choose }) {
                   type="text"
                   name="tambol"
                   placeholder="ตำบล"
-                  value={(data && data.adress) ? data.address.tambol : ''}
+                  value={(data && data.address) ? data.address.tambol : ''}
                   onChange={(e) => handleChange(e, 'address')}
                   required={true}
                   className="w-full"
@@ -247,7 +247,7 @@ export default function InfoForm({ data, setData, choose }) {
                   type="text"
                   name="amphoe"
                   placeholder="อำเภอ"
-                  value={(data && data.adress) ? data.address.amphoe : ''}
+                  value={(data && data.address) ? data.address.amphoe : ''}
                   onChange={(e) => handleChange(e, 'address')}
                   required={true}
                   className="w-full"
@@ -261,7 +261,7 @@ export default function InfoForm({ data, setData, choose }) {
                   type="text"
                   name="province"
                   placeholder="จังหวัด"
-                  value={(data && data.adress) ? data.address.province : ''}
+                  value={(data && data.address) ? data.address.province : ''}
                   onChange={(e) => handleChange(e, 'address')}
                   required={true}
                   className="w-full"
@@ -275,7 +275,7 @@ export default function InfoForm({ data, setData, choose }) {
                   type="text"
                   name="postcode"
                   placeholder="รหัสไปรษณีย์"
-                  value={(data && data.adress) ? data.address.postcode : ''}
+                  value={(data && data.address) ? data.address.postcode : ''}
                   onChange={(e) => handleChange(e, 'address')}
                   required={true}
                   className="w-full"

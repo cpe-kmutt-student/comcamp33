@@ -10,12 +10,10 @@ export default function PolicyForm({ data, setData, setState, choose, error }) {
   });
 
   //TODO: Check if the user check 2 boxes
-  /* useEffect(() => {
-    value.box1 === true && value.box2 === true
-      ? setData({ ...data, verify: true })
-      : setData({ ...data, verify: false });
-    console.log(data);
-  }, [value]); */
+  useEffect(() => {
+    const isVerify = value.box1 === true && value.box2 === true
+    setData({ ...data, verify: isVerify })
+  }, [value]);
 
   const handleChange = (e) => {
     let checkValue = e.target.checked;
@@ -32,7 +30,7 @@ export default function PolicyForm({ data, setData, setState, choose, error }) {
   return (
     <div
       className={
-        choose != 1 && value.box1 == true && value.box2 == true ? "hidden" : ""
+        choose != 1 && data?.verify == true ? "hidden" : ""
       }
     >
       <form>
@@ -40,7 +38,7 @@ export default function PolicyForm({ data, setData, setState, choose, error }) {
           <div className="flex justify-center content-center">
             <h1 className="text-3xl">เอกสารประกอบการสมัคร</h1>
           </div>
-          <div>
+          <div className="text-sm md:text-[1.2rem]">
             <ul className="list-disc">
               <li>สำเนาบัตรประจำตัวประชาชน หรือ สำเนาบัตรนักเรียน</li>
               <li>
@@ -62,8 +60,8 @@ export default function PolicyForm({ data, setData, setState, choose, error }) {
               </li>
             </ul>
           </div>
-          <div className="pt-[1rem] pb-[1rem]">
-            <label className="text-xl">
+          <div className="pt-[1rem] pb-[1rem] ">
+            <label className="md:text-[1.2rem]">
               <CheckBox
                 type="checkbox"
                 required={true}
@@ -80,7 +78,7 @@ export default function PolicyForm({ data, setData, setState, choose, error }) {
           <div className="flex justify-center content-center">
             <h1 className="text-3xl">นโยบายข้อมูลส่วนบุคคล</h1>
           </div>
-          <div className="overflow-auto max-h-[16rem] bg-white text-black pt-[1rem] pr-[2rem] pl-[2rem]">
+          <div className="overflow-auto max-h-[16rem] bg-white text-black pt-[1rem] pr-[2rem] pl-[2rem] text-[0.9rem] md:text-[1.2rem]">
             <ol className={styles.orderList}>
               <li className={styles.listItem}>
                 ข้อมูลสำคัญเกี่ยวกับโครงการ
@@ -236,7 +234,7 @@ export default function PolicyForm({ data, setData, setState, choose, error }) {
             </ol>
           </div>
           <div className="pt-[1rem] pb-[1rem]">
-            <label className="text-xl">
+            <label className="md:text-[1.2rem]">
               <CheckBox
                 type="checkbox"
                 required={true}

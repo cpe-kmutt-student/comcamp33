@@ -24,7 +24,7 @@ export default function CheckBox(props) {
         number={props.number}
       />
       {props.checked == true ? (
-        <AiOutlineCheck size={14} className="aspect-square absolute translate-x-[0.05rem] -translate-y-[1.3rem]" />
+        <AiOutlineCheck size={14} className="aspect-square absolute translate-x-[0.09rem] -translate-y-[1.5rem]" />
       ) : (
         ""
       )}

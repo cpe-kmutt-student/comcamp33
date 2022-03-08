@@ -4,6 +4,7 @@ import DropBox from "@components/DropBox";
 import styles from "@styles/components/registerForm/EducationForm.module.css";
 
 import level from "@components/registerForm/DropBoxData/level.json";
+import education from "@components/registerForm/DropBoxData/education.json";
 
 export default function EducationForm({ data, setData, choose }) {
   const handleChange = (e, type) => {
@@ -63,7 +64,7 @@ export default function EducationForm({ data, setData, choose }) {
                 placeholder="Program"
                 onChange={(e) => handleChange(e, "education")}
                 required={true}
-                option={level}
+                option={education}
                 value={(data && data.education) ? data.education.program : ""}
                 className="w-full"
               />
