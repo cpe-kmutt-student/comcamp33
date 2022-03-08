@@ -27,9 +27,6 @@ const Home = () => {
         <Faqs />
       </section>
       <section className="bg-[#B61157] h-[93vh]" id="contact"><Contact /></section>
-      <section className="bg-[] h-[93vh]" id="registration">
-
-      </section>
     </div >
   );
 };
