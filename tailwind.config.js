@@ -13,7 +13,7 @@ module.exports = {
       },
       colors: {
         'bg-primary': '#11033E',
-        'text-highlight': '#FF00C6'
+        'text-highlight': '#DD517E'
       },
     },
     screens: {
