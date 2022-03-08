@@ -32,8 +32,6 @@ const HamburgerIcon = () => (
 );
 
 export const Navigation = () => {
-
-
   const links = [
     "about",
     "learning",
@@ -98,19 +96,6 @@ export const Navigation = () => {
                 </a>
               </li>
             ))}
-<<<<<<< HEAD
-            <li>
-              <Link
-                href="/register"
-                className="block lg:mt-3 py-3 text-center w-[100%] bg-[#FF00C6] lg:hidden text-white font-pixel lg:hover:text-text-highlight border-b-text-highlight border-b-[1px]"
-                onClick={() => {
-                  setIsOpen(!isOpen);
-                }}
-              >
-                Registration
-              </Link>
-            </li>
-=======
             <Link
               href="/registration"
               passHref
@@ -122,7 +107,6 @@ export const Navigation = () => {
                 Registration
               </li>
             </Link>
->>>>>>> 34acf9af4d9e2d03c89bc0314fda7dc567c22760
           </ul>
         </div>
       </div>
