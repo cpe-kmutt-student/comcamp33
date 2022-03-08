@@ -1,8 +1,11 @@
+import { Parallax,ParallaxLayer } from "@react-spring/parallax";
 import Image from "next/image";
 
 const Condition = () => {
   return (
-    <div className="container mx-auto ">
+    
+  <div className="container mx-auto  ">
+    
       <section className="text-white py-4 sm:pt-24 md:pt-36 lg:py-10 flex justify-center text-center font-pixel text-4xl sm:text-5xl md:text-5xl lg:text-6xl">
         Condition
 
