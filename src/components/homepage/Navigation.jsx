@@ -45,7 +45,7 @@ export const Navigation = () => {
   return (
     <nav className="w-full sticky top-0 z-[100] bg-bg-primary h-[8vh] pt-1">
       <div
-        className={`lg:bg-transparent items-center flex flex-wrap lg:justify-center lg:items-start mx-auto relative lg:space-x-5 justify-between ${
+        className={`lg:bg-transparent items-center flex flex-wrap lg:justify-center mx-auto relative lg:space-x-5 justify-between ${
           isOpen ? "bg-bg-primary" : ""
         }`}
       >
@@ -82,7 +82,7 @@ export const Navigation = () => {
           className={`w-full lg:block lg:w-auto ${isOpen ? "" : "hidden"}`}
           id="mobile-menu"
         >
-          <ul className="flex flex-col w-full h-10 lg:flex-row lg:space-x-6 lg:mt-0 lg:text-xl lg:font-medium">
+          <ul className="flex flex-col w-full h-10 lg:flex-row lg:space-x-6 lg:text-xl lg:font-medium lg:mt-[-2.5vh] md:mt-[15vh]">
             {links.map((link) => (
               <li key={link}>
                 <a
@@ -110,7 +110,7 @@ export const Navigation = () => {
           </ul>
         </div>
       </div>
-      <button className="absolute top-0 bg-[#FF00C6] right-3 font-pixel text-lg text-white px-4 py-1 rounded mt-[1.5vh] hidden lg:block">
+      <button className="absolute top-0 bg-gradient-to-b from-[#F054F3]/95 to-[#9600FF]/95 right-3 font-pixel text-md text-white px-3 py-1 rounded mt-[2vh] hidden lg:block border-2 border-[#B3E7F8]">
         <Link href="/registration" passHref>
           Registration
         </Link>
