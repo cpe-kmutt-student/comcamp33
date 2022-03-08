@@ -24,9 +24,9 @@ const Faqs = () => {
         {Data.map((item, index) => {
           return (
             <Fragment key={index} className="z-10">
-              <div className="text-white flex flex-row justify-between items-center cursor-pointer hover:bg-pink-600/50 transition-all duration-300 ease-linear border-white/50 border-b-2 text-xl z-10" onClick={() => toggle(index)} key={index}>
-                <div className="pl-6 pr-4 z-10" >{item.question}</div>
-                <span className=" py-5 px-4 z-10 cursor-pointer">{clicked === index ? <FiMinus /> : <FiPlus />}</span>
+              <div className="text-white flex flex-row items-center cursor-pointer hover:bg-pink-600/50 transition-all duration-300 ease-linear border-white/50 border-b-2 text-xl z-10" onClick={() => toggle(index)} key={index}>
+                <div className="pl-6 pr-4 z-10 w-[90%]" >{item.question}</div>
+                <span className=" py-5 px-4 z-10 cursor-pointer w-[10%]">{clicked === index ? <FiMinus /> : <FiPlus />}</span>
               </div>
 
               {clicked === index ? (

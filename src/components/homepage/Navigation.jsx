@@ -44,7 +44,7 @@ export const Navigation = () => {
 
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <nav className="w-full sticky top-0 z-10 bg-bg-primary h-[8vh] pt-1">
+    <nav className="w-full sticky top-0 z-[100] bg-bg-primary h-[8vh] pt-1">
       <div
         className={`lg:bg-transparent flex flex-wrap lg:justify-center items-start mx-auto relative lg:space-x-5 justify-between ${
           isOpen ? "bg-bg-primary" : ""
