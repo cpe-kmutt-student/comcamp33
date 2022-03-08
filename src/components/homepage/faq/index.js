@@ -16,7 +16,7 @@ const Faqs = () => {
 
   return (
 
-    <div className="mim-w-full relative h-full">
+    <div className="mim-w-full pb-6 relative h-full">
       <section className="text-white pt-16 flex justify-center text-center font-pixel text-4xl sm:text-5xl md:text-5xl lg:text-6xl cursor-default">
         FAQ
       </section>
@@ -24,14 +24,14 @@ const Faqs = () => {
         {Data.map((item, index) => {
           return (
             <Fragment key={index} className="z-10">
-              <div className="text-white flex flex-row items-center cursor-pointer hover:bg-pink-600/50 transition-all duration-300 ease-linear border-white/50 border-b-2 text-xl z-10" onClick={() => toggle(index)} key={index}>
+              <div className="text-white flex flex-row items-center cursor-pointer hover:bg-pink-600/50 transition-all duration-300 ease-linear border-white/50 border-b-2 md:text-xl z-10" onClick={() => toggle(index)} key={index}>
                 <div className="pl-6 pr-4 z-10 w-[90%]" >{item.question}</div>
                 <span className=" py-5 px-4 z-10 cursor-pointer w-[10%]">{clicked === index ? <FiMinus /> : <FiPlus />}</span>
               </div>
 
               {clicked === index ? (
                 <div className="z-10">
-                  <div className="text-white p-4 pl-6 bg-rose-600/40 text-xl z-10">{item.answer}</div>
+                  <div className="text-white p-4 pl-6 bg-rose-600/40 md:text-xl z-10">{item.answer}</div>
                 </div>
               ) : null}
             </Fragment>
