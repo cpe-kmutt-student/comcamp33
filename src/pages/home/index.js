@@ -1,8 +1,13 @@
 import Header from "@components/Header";
 import { About, Condition, Contact, Faqs, First, Learning, Navigation, Timeline } from "@components/homepage";
 import { StarParticle } from "@components/homepage/StarParticle";
-
+import Aos from 'aos';
+import 'aos/dist/aos.css';
+import { useEffect } from "react";
 const Home = () => {
+  useEffect(()=>{
+    Aos.init({duration: 1000});
+  }, []);
   return (
     <div className="bg-bg-primary">
       <Header />
