@@ -1,12 +1,13 @@
 import Header from "@components/Header";
 import { About, Condition, Contact, Faqs, First, Learning, Navigation, Timeline } from "@components/homepage";
-import Image from "next/image";
+import { StarParticle } from "@components/homepage/StarParticle";
 
 const Home = () => {
   return (
     <div className="bg-bg-primary">
       <Header />
       <Navigation />
+      <StarParticle />
       <section className="lg:px-24 h-[92vh] bg-gradient-to-t from-[#E5155E] to-[#11033E] top-0 pt-5" id="home" >
         <First />
       </section>
@@ -26,7 +27,9 @@ const Home = () => {
         <Faqs />
       </section>
       <section className="bg-[#B61157] h-[93vh]" id="contact"><Contact /></section>
-      <section className="bg-[] h-[93vh]" id="registration"></section>
+      <section className="bg-[] h-[93vh]" id="registration">
+
+      </section>
     </div >
   );
 };
