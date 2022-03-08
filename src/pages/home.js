@@ -1,15 +1,17 @@
 import Image from "next/image";
-import Contact from "../../components/contact";
+import Contact from "../components/contact";
 import { ParallaxBanner } from "react-scroll-parallax";
-import About from "../../components/about";
-import Condition from "../../components/condition";
-import Timeline from "../../components/Timeline";
-import Faqs from "../../components/faq";
-import { Navigation } from "../../components/Navigation";
-import Learning from "../../components/learning";
+import About from "../components/about";
+import Condition from "../components/condition";
+import Timeline from "../components/Timeline";
+import Faqs from "../components/faq";
+import { Navigation } from "../components/Navigation";
+import Learning from "../components/learning";
+import Header from "@components/Header";
 const Home = () => {
   return (
     <div className="bg-bg-primary">
+      <Header />
       <Navigation />
       <section className="lg:px-24 h-[90vh] bg-gradient-to-t from-[#E5155E] to-[#11033E] top-0 pt-5" id="home" >
         <div className="absolute h-full w-screen top-0 right-0">
