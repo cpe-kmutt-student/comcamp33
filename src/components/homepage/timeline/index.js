@@ -19,7 +19,7 @@ const Timeline = () => {
   return (
     <div className="flex flex-col justify-center items-center relative w-full h-full text-center md:space-y-20 lg:space-y-20  sm:pt-20 md:mt-0 lg:pt-0 pt-10">
       <h1 className="text-white font-pixel text-4xl sm:text-5xl md:text-5xl lg:text-6xl">Timeline</h1>
-      <PC_Timeline />
+      <PC_Timeline current={period} />
       <Phone_Timeline />
     </div>
   );
