@@ -5,7 +5,7 @@ import { useState } from "react";
 const HamburgerIcon = () => (
   <>
     <svg
-      className="w-6 h-6"
+      className="w-[4vh] h-[4vh]"
       fill="white"
       viewBox="0 0 20 20"
       xmlns="http://www.w3.org/2000/svg"
@@ -45,11 +45,11 @@ export const Navigation = () => {
   return (
     <nav className="w-full sticky top-0 z-[100] bg-bg-primary h-[8vh] pt-1">
       <div
-        className={`lg:bg-transparent flex flex-wrap lg:justify-center items-start mx-auto relative lg:space-x-5 justify-between ${
+        className={`lg:bg-transparent items-center flex flex-wrap lg:justify-center lg:items-start mx-auto relative lg:space-x-5 justify-between ${
           isOpen ? "bg-bg-primary" : ""
         }`}
       >
-        <div className="h-[12vh] relative w-[12vh] min-h-[50px] min-w-[20px] cursor-pointer">
+        <div className="h-[10vh] relative w-[10vh] min-h-[50px] min-w-[20px] cursor-pointer mt-[-1.5vh]">
           <Link
             href="/home"
             passHref
@@ -68,7 +68,7 @@ export const Navigation = () => {
         <button
           data-collapse-toggle="mobile-menu"
           type="button"
-          className="inline-flex items-center p-2 ml-3 text-sm text-white rounded-lg lg:hidden"
+          className="inline-flex items-center px-4 ml-3 text-sm text-white rounded-lg lg:hidden mt-[-1.5vh]"
           aria-controls="mobile-menu-2"
           aria-expanded="false"
           onClick={(e) => {
