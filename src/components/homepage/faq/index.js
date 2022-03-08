@@ -16,8 +16,8 @@ const Faqs = () => {
 
   return (
 
-    <div className="mim-w-full pb-6 relative h-full">
-      <section className="text-white pt-16 flex justify-center text-center font-pixel text-4xl sm:text-5xl md:text-5xl lg:text-6xl cursor-default">
+    <div className="mim-w-full pb-6 relative h-[93vh]">
+      <section className="text-white pt-16 lg:pt-14 flex justify-center text-center font-pixel text-4xl sm:text-5xl md:text-5xl lg:text-6xl cursor-default">
         FAQ
       </section>
       <div className="w-[70%] z-10 mx-auto">
@@ -31,7 +31,7 @@ const Faqs = () => {
 
               {clicked === index ? (
                 <div className="z-10">
-                  <div className="text-white p-4 pl-6 bg-rose-600/40 md:text-xl z-10">{item.answer}</div>
+                  <div className="text-[#840D4F] p-4 pl-6 bg-white md:text-xl z-10">{item.answer}</div>
                 </div>
               ) : null}
             </Fragment>

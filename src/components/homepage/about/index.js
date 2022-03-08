@@ -1,8 +1,20 @@
 import Image from "next/image";
+import { BGAnimation } from "./BGAnimation";
 
 const About = () => {
+
+
   return (
-    <div className="flex flex-col justify-center items-center relative w-full h-full text-center px-10 md:px-[10vw] pt-[15vh] md:pt-[15vh] ">
+    <div className="flex flex-col justify-center items-center relative w-full h-full text-center px-8 md:px-[10vw] pt-[15vh] md:pt-[15vh] ">
+      <BGAnimation />
+      <div className="absolute top-0 right-0 w-full h-[25vh] z-1">
+        <Image src="/assets/about/about_bg.png"
+          layout="fill"
+          objectFit="cover"
+          quality={100}
+          alt="background town"
+        />
+      </div>
       <div className="absolute top-0 right-0 w-full h-[25vh] z-1">
         <Image src="/assets/about/about_bg.png"
           layout="fill"

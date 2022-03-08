@@ -2,7 +2,7 @@ import Particles from "react-tsparticles"
 
 const particleConfig = {
     "fullScreen": {
-        "zIndex": 0
+        "zIndex": 12
     },
     "particles": {
         "move": {
@@ -23,7 +23,7 @@ const particleConfig = {
             "value": 100,
             "density": {
                 "enable": true,
-                "value_area": 500
+                "value_area": 520
             }
         },
         "interactivity": {
@@ -88,7 +88,7 @@ const particleConfig = {
             "type": "image"
         },
         "size": {
-            "value": 6,
+            "value": 7,
             "random": true,
             "animation": {
                 "enable": true,
