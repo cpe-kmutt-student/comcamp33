@@ -32,6 +32,8 @@ const HamburgerIcon = () => (
 );
 
 export const Navigation = () => {
+
+
   const links = [
     "about",
     "learning",
@@ -71,7 +73,7 @@ export const Navigation = () => {
           className="inline-flex items-center p-2 ml-3 text-sm text-white rounded-lg lg:hidden"
           aria-controls="mobile-menu-2"
           aria-expanded="false"
-          onClick={() => {
+          onClick={(e) => {
             setIsOpen(!isOpen);
           }}
         >
@@ -97,7 +99,7 @@ export const Navigation = () => {
               </li>
             ))}
             <li>
-              <a
+              <Link
                 href="/register"
                 className="block lg:mt-3 py-3 text-center w-[100%] bg-[#FF00C6] lg:hidden text-white font-pixel lg:hover:text-text-highlight border-b-text-highlight border-b-[1px]"
                 onClick={() => {
@@ -105,7 +107,7 @@ export const Navigation = () => {
                 }}
               >
                 Registration
-              </a>
+              </Link>
             </li>
           </ul>
         </div>

@@ -16,22 +16,22 @@ const Faqs = () => {
 
   return (
 
-    <div className="mim-w-full pb-6 relative h-full">
-      <section className="text-white pt-16 flex justify-center text-center font-pixel text-4xl sm:text-5xl md:text-5xl lg:text-6xl cursor-default">
+    <div className="mim-w-full flex flex-col justify-center relative h-full">
+      <section className="text-white py-10 flex justify-center text-center font-pixel text-4xl sm:text-5xl md:text-5xl lg:text-6xl cursor-default">
         FAQ
       </section>
       <div className="w-[70%] z-10 mx-auto">
         {Data.map((item, index) => {
           return (
             <Fragment key={index} className="z-10">
-              <div className="text-white flex flex-row items-center cursor-pointer hover:bg-pink-600/50 transition-all duration-300 ease-linear border-white/50 border-b-2 md:text-xl z-10" onClick={() => toggle(index)} key={index}>
+              <div className=" flex flex-row items-center cursor-pointer bg-[#E5E5E5] hover:bg-pink-600/50 hover:text-white transition-all duration-300 ease-linear border-black border-b-2 md:text-xl z-10" onClick={() => toggle(index)} key={index}>
                 <div className="pl-6 pr-4 z-10 w-[90%]" >{item.question}</div>
                 <span className=" py-5 px-4 z-10 cursor-pointer w-[10%]">{clicked === index ? <FiMinus /> : <FiPlus />}</span>
               </div>
 
               {clicked === index ? (
                 <div className="z-10">
-                  <div className="text-white p-4 pl-6 bg-rose-600/40 md:text-xl z-10">{item.answer}</div>
+                  <div className="text-white p-4 pl-6 bg-[#000000] md:text-xl z-10">{item.answer}</div>
                 </div>
               ) : null}
             </Fragment>
