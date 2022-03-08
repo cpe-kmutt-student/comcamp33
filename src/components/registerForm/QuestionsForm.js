@@ -16,21 +16,16 @@ export default function QuestionsForm({ data, setData, choose }) {
     console.log(data)
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(data);
-  };
-
   return (
     <>
       <div className={choose != 5 ? "hidden" : ""}>
-        <form onSubmit={handleSubmit}>
+        <form>
           <label className="flex justify-center">
             <h2 className="flex w-fit justify-center text-3xl font-bold text-white bg-[#9600FF] px-4 py-3 my-8 rounded-2xl">{`คำถาม`}</h2>
           </label>
           <div className="flex flex-col gap-5 mb-5">
             <p className="flex w-fit justify-center text-base text-white bg-[#DD517E] px-5 py-3 mt-5 rounded-3xl">
-              {`1.ถ้าวันหนึ่งน้องต้องย้อนไปในยุค 80 - 90s
+              {`ถ้าวันหนึ่งน้องต้องย้อนไปในยุค 80 - 90s
             ที่เป็นจุดเริ่มต้นของเทคโนโลยี ได้ 1 วัน
             และสามารถเลือกอุปกรณ์หรือเทคโนโลยีในยุคปัจจุบันติดตัวไป1ชิ้น
             น้องจะทำอะไรให้เกิดประโยชน์ที่สุด
@@ -53,7 +48,7 @@ export default function QuestionsForm({ data, setData, choose }) {
           </label>
           <div className="flex flex-col gap-5 mb-5">
             <p className="flex w-fit justify-center text-base text-white bg-[#DD517E] px-5 py-3 mt-5 rounded-3xl">
-              {`2.ถ้าวันหนึ่งน้องได้รับเลือกเป็นผู้กล้าต้องย้อนไปในปี 1980
+              {`ถ้าวันหนึ่งน้องได้รับเลือกเป็นผู้กล้าต้องย้อนไปในปี 1980
             เพื่อแก้ปัญหาวิกฤตการณ์ขาดแคลนอาหารซึ่งมีสาเหตุมาจากโรคระบาดที่ชื่อว่า
             “BEEtree35” ซึ่งเป็นโรคระบาดที่ติดต่อกันในฝูงผึ้ง
             ทำให้ผึ้งไม่สามารถผสมเกสรได้ ส่งผลให้เกิดภาาวะการขาดแคลนอาหาร
@@ -112,7 +107,7 @@ export default function QuestionsForm({ data, setData, choose }) {
           </label>
           <div className="flex flex-col gap-5 mb-5">
             <p className=" w-fit  text-base  text-white bg-[#DD517E] px-5 py-3 mt-5 rounded-3xl">
-              {`4.ขณะนี้น้องยืนอยู่ในห้องแห่งความลับ
+              {`ขณะนี้น้องยืนอยู่ในห้องแห่งความลับ
             ในห้องนั้นเต็มไปด้วยของเก่ามากมายแต่สิ่งที่ดึงดูดใจน้อง ๆ คือ
             หีบสมบัติขนาดใหญ่ 2 กล่อง ตรงกลางห้อง ประกอบไปด้วยหีบ A และ หีบ B 
             และมีข้อความดังรูป`}
@@ -137,7 +132,7 @@ export default function QuestionsForm({ data, setData, choose }) {
           </label>
           <div className="flex flex-col gap-5 mb-5">
             <p className=" w-fit  text-base  text-white bg-[#DD517E] px-5 py-3 mt-5 rounded-3xl">
-              {`5.ร้านไอติมแห่งหนึ่ง ขายไอติมราคาแท่งละ 15 บาท แต่ถ้าซื้อมากกว่า 15
+              {`ร้านไอติมแห่งหนึ่ง ขายไอติมราคาแท่งละ 15 บาท แต่ถ้าซื้อมากกว่า 15
             แท่ง ร้านจะขายไอติมให้ในราคาแท่งละ 10 บาท น้องและเพื่อนๆ
             ชอบกินไอติมมาก น้องจึงซื้อไอติมรสวนิลาไปแจกเพื่อนๆ ทั้งหมด 30 แท่ง
             จงเขียน Pseudo Code อธิบายวิธีการคำนวนราคาไอติม และมีการใช้  If-else
@@ -157,7 +152,7 @@ export default function QuestionsForm({ data, setData, choose }) {
           </label>
           <div className="flex flex-col gap-5 mb-5">
             <p className=" w-fit  text-base  text-white bg-[#DD517E] px-5 py-3 mt-5 rounded-3xl">
-              {`6.น้องเป็นผู้ผ่านการคัดเลือกให้เข้าค่าย Comcamp#33
+              {`น้องเป็นผู้ผ่านการคัดเลือกให้เข้าค่าย Comcamp #33
             ภายในค่ายน้องต้องทำกิจกรรมร่วมกับเพื่อนในกลุ่มและกิจกรรมนั้นจำเป็นต้องเปิดกล้องทุกคน
             แต่สมาชิกในกลุ่มน้องไม่มีใครเปิดกล้องเลย
             น้องจะทำอย่างไรกับสถานการณ์นี้`}
@@ -201,8 +196,8 @@ export default function QuestionsForm({ data, setData, choose }) {
             <p className=" w-fit  text-base  text-white bg-[#DD517E] px-5 py-3 mt-5 rounded-3xl">
               {`หากน้องได้มีโอกาสเข้ามาเป็นนักศึกษาคณะวิศวกรรมศาสตร์
             ภาควิชาวิศวกรรมคอมพิวเตอร์ ที่มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าธนบุรี
-            และน้องได้ร่วมกิจกรรมการจัดค่าย Comcamp#33 โดยน้องนั้นรับหน้าที่เป็น
-            Admin page Facebook ของทางค่าย Comcamp#33
+            และน้องได้ร่วมกิจกรรมการจัดค่าย Comcamp #33 โดยน้องนั้นรับหน้าที่เป็น
+            Admin page Facebook ของทางค่าย Comcamp #33
             น้องจะมีวิธีการใช้คำพูดอย่างไร เพื่อให้น้องรุ่นต่อ ๆ
             ไปมีความชื่นชอบสนใจและอยากมาค่าย Comcamp #33 นี้`}
             </p>

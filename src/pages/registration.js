@@ -5,6 +5,7 @@ import InterestForm from "@components/registerForm/InterestForm";
 import QuestionsForm from "@components/registerForm/QuestionsForm";
 import PolicyForm from "@components/registerForm/PolicyForm";
 import ProgressBar from "@components/registerForm/ProgressBar";
+import ModalAsk from "@components/registerForm/ModalAsk";
 import { AiFillCaretLeft, AiFillCaretRight } from "react-icons/ai";
 import { loadData } from "@src/utils/clientUtils";
 import AutoSave from "@components/AutoSave";
@@ -21,8 +22,14 @@ export default function RegistrationPage() {
   const [checked, setChecked] = useState(false);
   const [error, setError] = useState(false);
 
+  const [modal, setModal] = useState(false);
   const nextForm = () => {
-    if ((chooseForm === 1 && checked) || (chooseForm > 1 && chooseForm < 6))
+    if (chooseForm === 5) {
+      setModal(true);
+    } else if (
+      (chooseForm === 1 && checked) ||
+      (chooseForm > 1 && chooseForm < 6)
+    )
       setChooseForm(chooseForm + 1);
     else setError(true);
   };
@@ -58,7 +65,6 @@ export default function RegistrationPage() {
   return (
     <div className="relative flex flex-col bg-[#11033E] min-h-screen overflow-x-hidden">
       <Header />
-
       <div className="fixed w-[100vw] h-[100vh] top-0 z-0">
         <Image
           alt="BgStar"
@@ -80,41 +86,56 @@ export default function RegistrationPage() {
           />
         </div>
       </div>
+
       <h1 className="self-center m-2 text-white font-pixel text-2xl sm:text-2xl md:text-6xl lg:text-6xl">
         REGISTRATION
       </h1>
-
-      <ProgressBar currentStep={chooseForm} />
-
-      <div className="p-[20%] flex justify-center all pt-0 pb-0 z-10">
-        <PolicyForm
-          data={data}
-          choose={chooseForm}
-          setState={setChecked}
-          error={error}
-          setData={setData}
-        />
-
-        <InfoForm data={data} setData={setData} choose={chooseForm} />
-        <EducationForm data={data} setData={setData} choose={chooseForm} />
-        <InterestForm data={data} setData={setData} choose={chooseForm} />
-        <QuestionsForm data={data} setData={setData} choose={chooseForm} />
-      </div>
-
-      <AutoSave data={data} />
-
-      <div className="flex justify-around my-5 z-30">
-        <button onClick={prevForm}>
-          <AiFillCaretLeft
-            size="4.5rem"
-            color="rgb(236,72,153)"
-            style={{ display: [1,2].includes(chooseForm) ? "none" : "block" }}
+      <form>
+        <ProgressBar currentStep={chooseForm} />
+        <div className="p-[20%] flex justify-center all pt-0 pb-0 z-10">
+          <PolicyForm
+            data={data}
+            choose={chooseForm}
+            setState={setChecked}
+            error={error}
+            setData={setData}
           />
-        </button>
-        <button onClick={nextForm}>
-          <AiFillCaretRight size="4.5rem" color="rgb(236,72,153)" />
-        </button>
-      </div>
+          <InfoForm data={data} setData={setData} choose={chooseForm} />
+          <EducationForm data={data} setData={setData} choose={chooseForm} />
+          <InterestForm data={data} setData={setData} choose={chooseForm} />
+          <QuestionsForm data={data} setData={setData} choose={chooseForm} />
+        </div>
+
+        <AutoSave data={data} />
+
+        <div className="flex justify-around my-5 z-20">
+          <button onClick={prevForm}>
+            <AiFillCaretLeft
+              size="4.5rem"
+              color="rgb(236,72,153)"
+              style={{
+                display: [1, 2].includes(chooseForm) ? "none" : "block",
+              }}
+            />
+          </button>
+          <button
+            onClick={[5].includes(chooseForm) ? nextForm : nextForm}
+            type="submit"
+          >
+            <AiFillCaretRight
+              size="4.5rem"
+              color={[5].includes(chooseForm) ? "#00FF00" : "rgb(236,72,153)"}
+              style={{ display: [5].includes(chooseForm) ? "none" : "block" }}
+            />
+            <div
+              className="z-40"
+              style={{ display: [5].includes(chooseForm) ? "block" : "none" }}
+            >
+              <ModalAsk modal={modal} setModal={setModal} />
+            </div>
+          </button>
+        </div>
+      </form>
     </div>
   );
 }

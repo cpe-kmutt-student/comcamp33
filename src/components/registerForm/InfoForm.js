@@ -1,6 +1,8 @@
 import React from "react";
 import Input from "@components/Input";
 import DropBox from "@components/DropBox";
+import { saveData } from "@src/utils/clientUtils";
+
 
 import prefix_en from "@components/registerForm/DropBoxData/prefix_en.json";
 import prefix_th from "@components/registerForm/DropBoxData/prefix_th.json";
@@ -16,6 +18,14 @@ export default function InfoForm({ data, setData, choose }) {
       }
     });
   };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    saveData({
+      ...data, 
+    });
+    console.log(data);
+  };
   
   return (
     <>
@@ -25,7 +35,7 @@ export default function InfoForm({ data, setData, choose }) {
             ข้อมูลส่วนตัว
           </h1>
         </div>
-        <form className="space-y-8">
+        <form onSubmit={handleSubmit} className="space-y-8">
           <div className="flex flex-wrap md:flex-nowrap flex-row items-end justify-between gap-10">
             <div className="flex w-full">
               <DropBox
