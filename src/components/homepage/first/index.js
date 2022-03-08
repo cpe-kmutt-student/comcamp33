@@ -2,8 +2,8 @@ const { default: Image } = require("next/image");
 
 const First = () => (
     <>
-        <div className="absolute h-full w-screen top-0 right-0">
-            <Image src="/assets/first/radiant.svg" quality={100} layout="fill" objectFit="contain" alt="light" />
+        <div className="absolute h-screen w-screen top-5 right-0">
+            <Image src="/assets/first/radiant.svg" quality={100} layout="fill" objectFit="cover" alt="light" />
         </div>
         <div className="h-[60vh] relative mx-5">
             <Image src="/assets/logo.png" quality={100} layout="fill" objectFit="contain" alt="com camp logo" />
