@@ -1,4 +1,6 @@
+import Image from "next/image";
 import { PC_Timeline } from "./PC_Timeline";
+import { Phone_Timeline } from "./Phone_Timeline";
 
 const Timeline = () => {
   const currentDate = new Date()
@@ -15,11 +17,10 @@ const Timeline = () => {
   else if (currentDate >= closeCampDate) period = 5
 
   return (
-    <div className="flex flex-col justify-center items-center relative w-full h-full text-center space-y-12">
-      <h1 className="text-white font-pixel text-2xl sm:text-2xl md:text-6xl lg:text-6xl">Timeline</h1>
-      <div className="w-[80%]">
-        <PC_Timeline current={period} />
-      </div>
+    <div className="flex flex-col justify-center items-center relative w-full h-full text-center md:space-y-20 lg:space-y-20  sm:pt-20 md:mt-0 lg:pt-0 pt-10">
+      <h1 className="text-white font-pixel text-4xl sm:text-5xl md:text-5xl lg:text-6xl">Timeline</h1>
+      <PC_Timeline />
+      <Phone_Timeline />
     </div>
   );
 };
