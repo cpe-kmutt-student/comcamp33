@@ -26,7 +26,7 @@ const loadData = async (req, res, session) => {
   const dataList = await database
     .db("comcamp33")
     .collection("data")
-    .findOne({ "facebook.email": session.user.email }, {_id: 0})
+    .findOne({ "facebook.email": session.user.email }, { projection: { _id: false}})
   return res.status(200).json({
     success: true,
     message: dataList,
