@@ -7,10 +7,10 @@ const Header = () => {
       <link rel="icon" type="image/png" href="assets/comcamp.png" />
 
       <meta property="og:type" content="website" />
-      <meta property="og:url" content="https://comcamp.kmutt.in.th" />
+      <meta property="og:url" content="https://comcamp.io" />
       <meta property="og:title" content="Comcamp33" />
       <meta property="og:description" content="Comcamp33 ..." />
-      <meta property="og:image" content="https://comcamp.kmutt.in.th/assets/comcmap.png" />
+      <meta property="og:image" content="https://comcamp.io/assets/comcmap.png" />
     </Head>
   );
 };
