@@ -58,7 +58,7 @@ export default function RegistrationPage() {
   }, [data.verify]);
 
   useEffect(() => {
-    if (data.success == true) {
+    if (data.complete == true) {
       router.push("/thankyou");
     }
     if (data && data.verify && !isNext) {

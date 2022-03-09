@@ -65,7 +65,7 @@ export default function ModalAsk({ data, open, setOpen }) {
                         setShowModal(false);
                         saveData({
                             ...data, 
-                            success: true
+                            complete: true
                         });
                         console.log(data);
                         router.push('/thankyou');
