@@ -2,34 +2,38 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { Link as Smooth } from "react-scroll/modules";
-const HamburgerIcon = () => (
-  <>
+import { useSpring, animated, config } from "react-spring";
+
+const HamburgerIcon = ({ state }) => {
+  const { x } = useSpring({
+    from: { x: 0 },
+    x: state ? -5 : 0,
+    config: { duration: 500 },
+  });
+
+  return (
     <svg
-      className="w-[4vh] h-[4vh]"
-      fill="white"
-      viewBox="0 0 20 20"
+      width="30"
+      height="15"
+      viewBox="0 0 20 15"
+      fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <path
-        fillRule="evenodd"
-        d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-        clipRule="evenodd"
-      ></path>
+      <line y1="1.5" x2="20" y2="1.5" stroke="white" strokeWidth="3" />
+      <animated.line
+        y1="7.5"
+        x2="20"
+        y2="7.5"
+        stroke="white"
+        strokeWidth="3"
+        style={{
+          translateX: x,
+        }}
+      />
+      <line y1="13.5" x2="20" y2="13.5" stroke="white" strokeWidth="3" />
     </svg>
-    <svg
-      className="hidden w-6 h-6"
-      fill="currentColor"
-      viewBox="0 0 20 20"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        fillRule="evenodd"
-        d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-        clipRule="evenodd"
-      ></path>
-    </svg>
-  </>
-);
+  );
+};
 
 export const Navigation = () => {
   const links = [
@@ -76,7 +80,8 @@ export const Navigation = () => {
           }}
         >
           <span className="sr-only">Open main menu</span>
-          <HamburgerIcon />
+          {/*<Toggle toggle={isOpen} />*/}
+          <HamburgerIcon state={isOpen} />
         </button>
         <div
           className={`w-full lg:block lg:w-auto ${isOpen ? "" : "hidden"}`}
@@ -89,7 +94,6 @@ export const Navigation = () => {
                   to={`${link}`}
                   smooth={true}
                   duration={1500}
-                  
                   className="block cursor-pointer lg:mt-3 py-3 text-center w-[100%] bg-bg-primary lg:bg-transparent lg:p-0 text-white font-pixel lg:hover:text-text-highlight border-b-text-highlight border-b-[1px] lg:border-b-0"
                   onClick={() => {
                     setIsOpen(!isOpen);
