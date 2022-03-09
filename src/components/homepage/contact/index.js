@@ -17,8 +17,8 @@ const Contact = () => {
           Contact
         </section>
 
-        <div className="flex justify-center flex-col items-center lg:flex-row bg-white/60 w-[80%] z-10 rounded-3xl relative space-x-5 px-5 lg:pt-0 pt-8">
-          <div className="relative flex flex-col items-center lg:w-[35%] w-[80%] space-y-5 lg:space-y-0">
+        <div className="flex justify-center flex-col items-center lg:flex-row bg-white/60 w-[80%] z-10 rounded-3xl relative lg:space-x-5 px-5 lg:pt-0 pt-8">
+          <div className="relative flex flex-col items-center lg:w-[35%] w-[90%] space-y-5 lg:space-y-0">
             <div className="flex justify-center h-[25vh] w-[100%] relative">
               <Image
                 src="/assets/contact/Ticket_Address.png"
@@ -36,7 +36,7 @@ const Contact = () => {
               />
             </div>
           </div>
-          <div className="flex justify-center scale-[0.8] lg:scale-[0.8] lg:w-[30%]">
+          <div className="flex justify-center scale-[0.7] lg:scale-[0.8] lg:w-[30%] ml-4">
             <iframe
               src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FKMUTTcomcamp&tabs=timeline&width=320&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=323404429809727"
               width={340}
@@ -48,7 +48,7 @@ const Contact = () => {
               allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
             />
           </div>
-          <div className="flex justify-center scale-[0.80] lg:scale-[0.8] lg:w-[35%]">
+          <div className="flex justify-center scale-[0.7] lg:scale-[0.8] lg:w-[35%]">
             <iframe
               width={320}
               height={440}
