@@ -9,7 +9,12 @@ module.exports = {
     extend: {
       animation: {
         wiggle: 'wiggle 2s infinite',
-        float: 'floating 3s infinite ease-in-out'
+        float: 'floating 3s infinite ease-in-out',
+        expand1: 'expand 1s infinite',
+        expand2: 'expand 2s infinite',
+        expand3: 'expand 3s infinite',
+        expand4: 'expand 4s infinite',
+        expand5: 'expand 5s infinite',
       },
       keyframes:{
         wiggle: {
@@ -18,6 +23,14 @@ module.exports = {
           },
           '50%': {
             transform: 'scale(0.9) rotate(-3deg)',
+          }
+        },
+        expand: {
+          '0%, 100%': {
+            transform: 'scale(1.005)',
+          },
+          '50%': {
+            transform: 'scale(0.995)',
           }
         },
         floating: {
