@@ -16,7 +16,7 @@ const Faqs = () => {
 
   return (
 
-    <div className="mim-w-full flex flex-col justify-center pb-6 relative h-[93vh]">
+    <div className="mim-w-full justify-center pb-6 relative h-[93vh]">
       <section className="text-white pt-16 lg:pt-14 flex justify-center text-center font-pixel text-4xl sm:text-5xl md:text-5xl lg:text-6xl cursor-default">
         FAQ
       </section>

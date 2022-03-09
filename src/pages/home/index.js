@@ -9,7 +9,7 @@ const Home = () => {
     Aos.init({ duration: 1000 });
   }, []);
   return (
-    <div className="bg-bg-primary">
+    <div className="bg-bg-primary overflow-clip">
       <Header />
       <Navigation />
 
@@ -35,7 +35,7 @@ const Home = () => {
         <Timeline />
       </section>
       
-      <section className="bg-[#840D4F] md:h-[93vh]" id="faq">
+      <section className="bg-[#840D4F] h-screen md:h-[93vh]" id="faq">
         <Faqs />
       </section>
       

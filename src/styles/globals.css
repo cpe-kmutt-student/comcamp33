@@ -10,3 +10,24 @@
     src: url("/assets/fonts/upheavtt.ttf") format("truetype");
   }
 }
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+
+::-webkit-scrollbar-track {
+  background: black;
+  border-radius: 5px;
+}
+
+
+::-webkit-scrollbar-thumb {
+  background: #FF00C6;
+  border-radius: 5px;
+}
+
+
+::-webkit-scrollbar-thumb:hover {
+  background: #9600FF;
+}
