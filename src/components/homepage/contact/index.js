@@ -3,7 +3,7 @@ import Image from "next/image";
 const Contact = () => {
   return (
     <>
-    
+      
       <div className="absolute h-[93vh] w-screen right-0 bottom-0 z-1">
         <Image
           src="/assets/contact/contactbg.png"
@@ -18,7 +18,7 @@ const Contact = () => {
           Contact
         </section>
 
-        <div className="flex justify-center flex-col items-center lg:flex-row bg-white/60 w-[80%] z-10 rounded-3xl relative lg:space-x-5 px-5 lg:pt-0 pt-8">
+        <div className="flex justify-center flex-col items-center lg:flex-row bg-white/60 w-[80%] z-10 rounded-3xl relative lg:space-x-5 px-5 lg:pt-5 pt-8 pb-8">
           <div data-aos="fade-up" className="relative flex flex-col items-center lg:w-[35%] w-[90%] space-y-5 lg:space-y-0">
             <div className="flex justify-center h-[25vh] w-[100%] relative">
               <Image

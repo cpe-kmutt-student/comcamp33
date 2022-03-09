@@ -49,7 +49,7 @@ export const Navigation = () => {
   return (
     <nav className="w-full sticky top-0 z-[100] bg-bg-primary h-[8vh] pt-1">
       <div
-        className={`lg:bg-transparent items-center flex flex-wrap lg:justify-center mx-auto relative lg:space-x-5 justify-between ${
+        className={`lg:bg-transparent h-full items-center flex flex-wrap lg:justify-center mx-auto relative lg:space-x-5 justify-between  ${
           isOpen ? "bg-bg-primary" : ""
         }`}
       >
@@ -80,25 +80,36 @@ export const Navigation = () => {
           }}
         >
           <span className="sr-only">Open main menu</span>
-          {/*<Toggle toggle={isOpen} />*/}
           <HamburgerIcon state={isOpen} />
         </button>
         <div
-          className={`w-full lg:block lg:w-auto ${isOpen ? "" : "hidden"}`}
+          className={`w-full lg:block lg:w-auto mt-[-1.5vh] ${
+            isOpen ? "" : "hidden"
+          }`}
           id="mobile-menu"
         >
-          <ul className="flex flex-col w-full h-10 lg:flex-row lg:space-x-6 lg:text-xl lg:font-medium lg:mt-[-2.5vh] md:mt-[15vh]">
-            {links.map((link) => (
+          <ul className="flex flex-col w-full h-10 lg:flex-row lg:space-x-6 lg:text-xl lg:font-medium lg:mt-[-1.5vh] ">
+            {links.map((link, index) => (
               <li key={link}>
                 <Smooth
                   to={`${link}`}
                   smooth={true}
                   duration={1500}
-                  className="block cursor-pointer lg:mt-3 py-3 text-center w-[100%] bg-bg-primary lg:bg-transparent lg:p-0 text-white font-pixel lg:hover:text-text-highlight border-b-text-highlight border-b-[1px] lg:border-b-0"
+                  className="flex justify-center relative text-lg cursor-pointer lg:mt-3 py-3 text-center w-[100%] bg-bg-primary/80 lg:bg-transparent lg:p-0 text-white font-pixel lg:hover:text-text-highlight text-shadow"
                   onClick={() => {
                     setIsOpen(!isOpen);
                   }}
                 >
+                  {index != 5 && (
+                    <div className="w-[90%] h-full position absolute bottom-0 mb-[-2.5vh] lg:hidden">
+                      <Image
+                        src="/assets/separator.svg"
+                        layout="fill"
+                        alt="separator"
+                        objectFit="contain"
+                      />
+                    </div>
+                  )}
                   {link}
                 </Smooth>
               </li>
@@ -110,7 +121,7 @@ export const Navigation = () => {
                 setIsOpen(!isOpen);
               }}
             >
-              <li className="block lg:mt-3 py-3 text-center w-[100%] bg-[#FF00C6] lg:hidden text-white font-pixel lg:hover:text-text-highlight border-b-text-highlight border-b-[1px] cursor-pointer">
+              <li className="block lg:mt-3 py-3 text-center w-[100%] bg-[#B61157] lg:hidden text-white font-pixel lg:hover:text-text-highlight text-lg cursor-pointer text-shadow">
                 Registration
               </li>
             </Link>
