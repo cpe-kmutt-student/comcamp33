@@ -95,13 +95,13 @@ export const Navigation = () => {
                   to={`${link}`}
                   smooth={true}
                   duration={1500}
-                  className="flex justify-center relative text-lg cursor-pointer lg:mt-3 py-3 text-center w-[100%] bg-bg-primary/80 lg:bg-transparent lg:p-0 text-white font-pixel lg:hover:text-text-highlight text-shadow transition-all duration-200 ease-linear"
+                  className="flex justify-center relative text-lg cursor-pointer lg:mt-3 py-3 text-center w-[100%] bg-bg-primary/80 lg:bg-transparent lg:p-0 text-white font-pixel lg:hover:text-text-highlight text-shadow hover:bg-[#11033E]/60 transition-all duration-200 ease-linear"
                   onClick={() => {
                     setIsOpen(!isOpen);
                   }}
                 >
                   {index != 5 && (
-                    <div className="w-[90%] h-full position absolute bottom-0 mb-[-2.5vh] lg:hidden">
+                    <div className="w-[90%] h-full position absolute bottom-0 mb-[-2.5vh] lg:hidden ">
                       <Image
                         src="/assets/separator.svg"
                         layout="fill"
@@ -121,7 +121,7 @@ export const Navigation = () => {
                 setIsOpen(!isOpen);
               }}
             >
-              <li className="block lg:mt-3 py-3 text-center w-[100%] bg-[#B61157] lg:hidden text-white font-pixel lg:hover:text-text-highlight text-lg cursor-pointer text-shadow">
+              <li className="block lg:mt-3 py-3 text-center w-[100%] bg-[#B61157] hover:bg-[#ff2480] lg:hidden text-white font-pixel lg:hover:text-text-highlight text-lg cursor-pointer text-shadow transition-all duration-200 ease-linear">
                 Registration
               </li>
             </Link>
