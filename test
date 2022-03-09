@@ -1,0 +1,80 @@
+* [33m4af4b55[m[33m ([m[1;36mHEAD -> [m[1;32mhome[m[33m, [m[1;31morigin/home[m[33m)[m chore: packages
+*   [33m0bb0fbe[m Merge branch 'home' of https://github.com/CPE35-KMUTT/comcamp33 into home
+[32m|[m[33m\[m  
+[32m|[m * [33mf68b5eb[m add animation and parallax
+* [33m|[m [33m0a55f2d[m fix: faq back to normal
+* [33m|[m [33m13d24a6[m Merge branch 'home' of https://github.com/CPE35-KMUTT/comcamp33 into home
+[34m|[m[33m\[m[33m|[m 
+[34m|[m *   [33m98bfc78[m faq question
+[34m|[m [36m|[m[1;31m\[m  
+[34m|[m * [1;31m|[m [33mbfdc4bd[m faq question
+* [1;31m|[m [1;31m|[m [33m4108088[m feat: about animation
+[1;31m|[m [1;31m|[m[1;31m/[m  
+[1;31m|[m[1;31m/[m[1;31m|[m   
+* [1;31m|[m [33m34acf9a[m fix: link to registration
+[1;31m|[m[1;31m/[m  
+*   [33m40f7681[m responsive contact condition
+[1;32m|[m[1;33m\[m  
+[1;32m|[m * [33m60c6f3d[m feat: add registration button
+[1;32m|[m * [33m529b5c0[m fix: stars
+* [1;33m|[m [33m9c21dcf[m responsive condition and contact
+[1;33m|[m[1;33m/[m  
+* [33ma0d3e95[m feat: add stars
+* [33m6ef6b4a[m fix: nav bar layer and faq click area
+* [33mb9ea100[m feat: bg in faqs
+* [33m5db66d1[m fix: current color for pc
+* [33m115f13b[m feat: timeline phone but the line is still gone
+* [33m4607657[m feat: learning responsive
+* [33m6117e8c[m fix: responsive for about
+* [33mc007291[m fix: first section radiant
+* [33mce59f6b[m refactor: files and assets
+*   [33m38c2beb[m Merge branch 'dev' of https://github.com/CPE35-KMUTT/comcamp33 into home
+[1;34m|[m[1;35m\[m  
+[1;34m|[m *   [33ma72b976[m Merge pull request #10 from CPE35-KMUTT/firstpage
+[1;34m|[m [1;36m|[m[31m\[m  
+[1;34m|[m [1;36m|[m *   [33m33d1772[m[33m ([m[1;31morigin/firstpage[m[33m)[m Merge branch 'main' of https://github.com/CPE35-KMUTT/comcamp33 into firstpage
+[1;34m|[m [1;36m|[m [32m|[m[1;36m\[m  
+[1;34m|[m [1;36m|[m [32m|[m[1;36m/[m  
+[1;34m|[m [1;36m|[m[1;36m/[m[32m|[m   
+[1;34m|[m [1;36m|[m * [33m1a62f89[m feat: pc learning
+[1;34m|[m [1;36m|[m * [33mc37daf6[m fix: overflow
+[1;34m|[m [1;36m|[m * [33m3aa5ce7[m feat: timeline for pc
+[1;34m|[m [1;36m|[m * [33m2dc8ce5[m fix: overflow issues
+[1;34m|[m [1;36m|[m *   [33mf7c12e8[m Merge branch 'firstpage' of https://github.com/CPE35-KMUTT/comcamp33 into firstpage
+[1;34m|[m [1;36m|[m [34m|[m[35m\[m  
+[1;34m|[m [1;36m|[m [34m|[m * [33m5a565ce[m add bgcolor and need parallax
+[1;34m|[m [1;36m|[m * [35m|[m [33mfd12e6c[m feat: first section bg
+[1;34m|[m [1;36m|[m [35m|[m[35m/[m  
+[1;34m|[m [1;36m|[m * [33ma932bab[m condition but have rsponsive ploblem
+[1;34m|[m [1;36m|[m * [33m4abbfad[m show contact
+[1;34m|[m [1;36m|[m * [33m42699b3[m fix: navbar size
+[1;34m|[m [1;36m|[m * [33m1a99b67[m config
+[1;34m|[m [1;36m|[m * [33m0a0ea84[m feat: home sections
+[1;34m|[m [1;36m|[m * [33m811d1e5[m fix: about
+[1;34m|[m [1;36m|[m * [33mc55ab30[m fix: first section
+[1;34m|[m [1;36m|[m * [33mc86289b[m fix: navbar
+[1;34m|[m [1;36m|[m * [33m2d53e64[m need learning condition sponsor faq
+[1;34m|[m [1;36m|[m * [33ma3fc66b[m fix: navbar z index
+[1;34m|[m [1;36m|[m *   [33mb3d57e9[m Merge pull request #5 from CPE35-KMUTT/feat/navigation-bar
+[1;34m|[m [1;36m|[m [36m|[m[1;31m\[m  
+[1;34m|[m [1;36m|[m [36m|[m * [33m37c8ccf[m feat: back to top
+[1;34m|[m [1;36m|[m [36m|[m * [33m926009e[m feat: responsive
+[1;34m|[m [1;36m|[m [36m|[m * [33ma7413d7[m feat: laptop nav bar
+[1;34m|[m [1;36m|[m [36m|[m * [33mbb34698[m chore: git ignore
+[1;34m|[m [1;36m|[m * [1;31m|[m   [33m137877f[m add about contact condition(in progress) navbar(inprogress)
+[1;34m|[m [1;36m|[m [1;32m|[m[1;33m\[m [1;31m\[m  
+[1;34m|[m [1;36m|[m [1;32m|[m * [1;31m|[m [33mf86d6ec[m feat: thai font
+[1;34m|[m [1;36m|[m [1;32m|[m * [1;31m|[m [33mc07d16d[m chore: git ignore
+[1;34m|[m [1;36m|[m [1;32m|[m [1;31m|[m[1;31m/[m  
+[1;34m|[m [1;36m|[m [1;32m|[m * [33ma367a3b[m feat: extend theme and add font
+[1;34m|[m [1;36m|[m * [1;33m|[m [33me290768[m welcome page and firstweb
+[1;34m|[m [1;36m|[m [1;33m|[m[1;33m/[m  
+* [1;36m|[m [1;33m/[m [33m35f7262[m will fix condition problem
+[1;36m|[m[1;36m/[m [1;33m/[m  
+* [1;33m|[m [33m4c9859f[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m fix: case-sensitive issue on timeline component
+* [1;33m|[m [33mbb707c6[m feat: add first page and registration page with autosave/load #9
+* [1;33m|[m [33m9768601[m feat: add input component for usability on form (#3)
+[1;33m|[m[1;33m/[m  
+* [33m160e009[m feat: add codebase of database connection/authentication/api
+* [33m77cce73[m feat: initial commit
+* [33me14ddfc[m Initial commit from Create Next App
