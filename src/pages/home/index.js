@@ -24,7 +24,8 @@ const Home = () => {
        
       </section>
     
-      <section className="bg-[#200440] h-[93vh]" id="learning">
+      <section className="bg-[#200440] h-[150vh]" id="learning">
+
         <Learning />
       </section>
       <section className="bg-[#380644] " id="condition">
