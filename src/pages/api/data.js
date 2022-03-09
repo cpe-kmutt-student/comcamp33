@@ -119,7 +119,8 @@ const DATABASE_STRUCTURE = {
 const saveData = async (req, res, session) => {
   const database = await mongoClientPromise;
   
-  const { body } = req;
+  const data = req.body;
+  const copiedData = JSON.parse(JSON.stringify(data));
 
   const isSubset = (superSet, subset) => {
     return Object.keys(subset).every((element) => {
@@ -137,7 +138,7 @@ const saveData = async (req, res, session) => {
   const dateLate = new Date('3/29/2022 23:59:59').getTime();
   const dateNow = new Date().getTime();
 
-  if (dateNow > dateLate || !isSubset(DATABASE_STRUCTURE, body)) {
+  if (dateNow > dateLate || !isSubset(DATABASE_STRUCTURE, copiedData)) {
     return res.status(400).json({
       success: false,
       message: "Bad request",
@@ -145,7 +146,6 @@ const saveData = async (req, res, session) => {
     });
   }
 
-  let data = req.body;
   data.facebook = {
     name: session.user.name,
     email: session.user.email,
@@ -162,6 +162,9 @@ const saveData = async (req, res, session) => {
       .db("comcamp33")
       .collection("data")
       .insertOne(data);
+
+    console.log(`${session.user.email} save data ${new Date().toISOString()}`);
+
     return res.status(201).json({
       success: true,
       message: save,
@@ -172,6 +175,9 @@ const saveData = async (req, res, session) => {
       .db("comcamp33")
       .collection("data")
       .updateOne({ "facebook.email": session.user.email }, { $set: data });
+    
+    console.log(`${session.user.email} save data ${new Date().toISOString()}`);
+    
     return res.status(200).json({
       success: true,
       message: update,
