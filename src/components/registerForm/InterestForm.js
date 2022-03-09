@@ -5,10 +5,11 @@ import DropBox from "@components/DropBox";
 import TextArea from "@components/TextArea";
 import CheckBox from "@components/CheckBox";
 import styles from "@styles/components/registerForm/InterestForm.module.css";
+import { AiFillCaretLeft, AiFillCaretRight } from "react-icons/ai";
 
 import trueAndFalse from "@components/registerForm/DropBoxData/trueAndFalse.json";
 
-export default function InterestForm({ data, setData, choose }) {
+export default function InterestForm({ data, setData, choose, prev, next }) {
   // const [data, setData] = useState({
   //   admission: [
   //     {
@@ -413,8 +414,32 @@ export default function InterestForm({ data, setData, choose }) {
               className="h-36 w-full rounded-xl"
             />
           </div>
-          <br />
-          <Input type="submit">Submit</Input>
+          <div className="flex justify-between my-5 z-20">
+          <button onClick={prev}>
+            <AiFillCaretLeft
+              size="4.5rem"
+              color="rgb(236,72,153)"
+              style={{
+                display: [1, 2].includes(choose) ? "none" : "block",
+              }}
+            />
+          </button>
+          <button
+            onClick={[5].includes(choose) ? next : next}
+            type="submit"
+          >
+            <AiFillCaretRight
+              size="4.5rem"
+              color={[5].includes(choose) ? "#00FF00" : "rgb(236,72,153)"}
+              style={{ display: [5].includes(choose) ? "none" : "block" }}
+            />
+            <div
+              className="z-40"
+              style={{ display: [5].includes(choose) ? "block" : "none" }}
+            >
+            </div>
+          </button>
+        </div>
         </form>
       </div>
     </>

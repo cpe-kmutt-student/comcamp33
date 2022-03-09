@@ -2,13 +2,13 @@ import React from "react";
 import Input from "@components/Input";
 import DropBox from "@components/DropBox";
 import { saveData } from "@src/utils/clientUtils";
-
+import { AiFillCaretLeft, AiFillCaretRight } from "react-icons/ai";
 
 import prefix_en from "@components/registerForm/DropBoxData/prefix_en.json";
 import prefix_th from "@components/registerForm/DropBoxData/prefix_th.json";
 import shirt_size from "@components/registerForm/DropBoxData/shirt_size.json";
 
-export default function InfoForm({ data, setData, choose }) {
+export default function InfoForm({ data, setData, choose, error, setError }) {
   const handleChange = (e, type) => {
     setData({
       ...data,
@@ -21,10 +21,15 @@ export default function InfoForm({ data, setData, choose }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (
+      (chooseForm === 1 && checked) ||
+      (chooseForm > 1 && chooseForm < 6)
+    )
+      setChooseForm(chooseForm + 1);
+    else setError(true);
     saveData({
       ...data, 
     });
-    console.log(data);
   };
   
   return (
@@ -35,7 +40,7 @@ export default function InfoForm({ data, setData, choose }) {
             ข้อมูลส่วนตัว
           </h1>
         </div>
-        <form onSubmit={handleSubmit} className="space-y-8">
+        <form onSubmit={(e)=>{handleSubmit}} className="space-y-8">
           <div className="flex flex-wrap md:flex-nowrap flex-row items-end justify-between gap-10">
             <div className="flex w-full">
               <DropBox
@@ -332,7 +337,7 @@ export default function InfoForm({ data, setData, choose }) {
                   type="text"
                   name="surname"
                   placeholder="นามสกุลผู้ปกครอง"
-                  value={(data && data.parent) ? data.parent.lastname : ''}
+                  value={(data && data.parent) ? data.parent.surname : ''}
                   onChange={(e) => handleChange(e, 'parent')}
                   required={true}
                   className="w-full"
@@ -385,6 +390,31 @@ export default function InfoForm({ data, setData, choose }) {
               </div>
             </div>
           </div>
+          <div className="flex justify-between my-5 z-20">
+          <button>
+            <AiFillCaretLeft
+              size="4.5rem"
+              color="rgb(236,72,153)"
+              style={{
+                display: [1, 2].includes(choose) ? "none" : "block",
+              }}
+            />
+          </button>
+          <button
+            type="submit"
+          >
+            <AiFillCaretRight
+              size="4.5rem"
+              color={[5].includes(choose) ? "#00FF00" : "rgb(236,72,153)"}
+              style={{ display: [5].includes(choose) ? "none" : "block" }}
+            />
+            <div
+              className="z-40"
+              style={{ display: [5].includes(choose) ? "block" : "none" }}
+            >
+            </div>
+          </button>
+        </div>
         </form>
       </div>
     </>

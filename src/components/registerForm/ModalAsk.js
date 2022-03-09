@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { saveData } from "@src/utils/clientUtils";
 
-export default function ModalAsk({ data, modal, setModal }) {
+export default function ModalAsk({ data }) {
   const [showModal, setShowModal] = useState(false);
   return (
     <>

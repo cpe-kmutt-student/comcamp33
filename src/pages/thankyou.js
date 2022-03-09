@@ -1,4 +1,5 @@
 import ThankYou_BG from "@public/formBg/ThankYou_BG.png";
+import Link from "next/link";
 import Image from "next/image";
 // import Header from "@components/Header";
 
@@ -20,12 +21,11 @@ export default function thankyou() {
             Thank you <br /> for registration
           </h>
         </div>
-        <button
-          className="flex p-5 w-fit rounded-md bg-[#842988] text-lg hover:bg-[#9600ff] text-white ease-in-out duration-[400ms] hover:-translate-y-2 hover:scale-[1.1] z-10"
-          href="/home"
-        >
-          Back to home
-        </button>
+        <Link href="/home">
+          <button className="flex p-5 w-fit rounded-md bg-[#842988] text-lg hover:bg-[#9600ff] text-white ease-in-out duration-[400ms] hover:-translate-y-2 hover:scale-[1.1] z-10">
+            Back to home
+          </button>
+        </Link>
       </div>
     </>
   );

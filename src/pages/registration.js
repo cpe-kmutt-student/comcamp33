@@ -22,11 +22,8 @@ export default function RegistrationPage() {
   const [checked, setChecked] = useState(false);
   const [error, setError] = useState(false);
 
-  const [modal, setModal] = useState(false);
   const nextForm = () => {
-    if (chooseForm === 5) {
-      setModal(true);
-    } else if (
+    if (
       (chooseForm === 1 && checked) ||
       (chooseForm > 1 && chooseForm < 6)
     )
@@ -35,7 +32,7 @@ export default function RegistrationPage() {
   };
 
   const prevForm = () => {
-    if (chooseForm > 1) {
+    if (chooseForm > 2) {
       setChooseForm(chooseForm - 1);
     }
   };
@@ -90,7 +87,6 @@ export default function RegistrationPage() {
       <h1 className="self-center m-2 text-white font-pixel text-2xl sm:text-2xl md:text-6xl lg:text-6xl">
         REGISTRATION
       </h1>
-      <form>
         <ProgressBar currentStep={chooseForm} />
         <div className="p-[20%] flex justify-center all pt-0 pb-0 z-10">
           <PolicyForm
@@ -100,15 +96,15 @@ export default function RegistrationPage() {
             error={error}
             setData={setData}
           />
-          <InfoForm data={data} setData={setData} choose={chooseForm} />
-          <EducationForm data={data} setData={setData} choose={chooseForm} />
-          <InterestForm data={data} setData={setData} choose={chooseForm} />
-          <QuestionsForm data={data} setData={setData} choose={chooseForm} />
+          <InfoForm data={data} setData={setData} choose={chooseForm} next={nextForm} error={error} setError={setError}/>
+          <EducationForm data={data} setData={setData} choose={chooseForm}  prev={prevForm} next={nextForm}/>
+          <InterestForm data={data} setData={setData} choose={chooseForm}  prev={prevForm} next={nextForm}/>
+          <QuestionsForm data={data} setData={setData} choose={chooseForm}  prev={prevForm}/>
         </div>
 
         <AutoSave data={data} />
 
-        <div className="flex justify-around my-5 z-20">
+        {/* <div className="flex justify-around my-5 z-20">
           <button onClick={prevForm}>
             <AiFillCaretLeft
               size="4.5rem"
@@ -131,11 +127,10 @@ export default function RegistrationPage() {
               className="z-40"
               style={{ display: [5].includes(chooseForm) ? "block" : "none" }}
             >
-              <ModalAsk modal={modal} setModal={setModal} />
+              <ModalAsk />
             </div>
           </button>
-        </div>
-      </form>
+        </div> */}
     </div>
   );
 }

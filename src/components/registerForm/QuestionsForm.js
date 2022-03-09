@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import TextArea from "@components/TextArea";
 import styles from "@styles/components/registerForm/QuestionsForm.module.css";
+import { AiFillCaretLeft, AiFillCaretRight } from "react-icons/ai";
 
-export default function QuestionsForm({ data, setData, choose }) {
+export default function QuestionsForm({ data, setData, choose, prev }) {
 
   const handleChange = (e, type) => {
     setData({
@@ -210,7 +211,32 @@ export default function QuestionsForm({ data, setData, choose }) {
               required={true}
               className="h-36 rounded-xl text-gray-400 border-2 border-white px-2 py-1 rounded-0 outline-none bg-transparent focus:bg-white"
             />
-          </div>
+          </div><div className="flex justify-between my-5 z-20">
+          <button onClick={prev}>
+            <AiFillCaretLeft
+              size="4.5rem"
+              color="rgb(236,72,153)"
+              style={{
+                display: [1, 2].includes(choose) ? "none" : "block",
+              }}
+            />
+          </button>
+          <button
+            onClick={[5].includes(choose) ? "next" : "next"}
+            type="submit"
+          >
+            <AiFillCaretRight
+              size="4.5rem"
+              color={[5].includes(choose) ? "#00FF00" : "rgb(236,72,153)"}
+              style={{ display: [5].includes(choose) ? "none" : "block" }}
+            />
+            <div
+              className="z-40"
+              style={{ display: [5].includes(choose) ? "block" : "none" }}
+            >
+            </div>
+          </button>
+        </div>
         </form>
       </div>
     </>

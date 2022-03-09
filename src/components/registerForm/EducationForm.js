@@ -2,11 +2,12 @@ import React, { useState, useEffect } from "react";
 import Input from "@components/Input";
 import DropBox from "@components/DropBox";
 import styles from "@styles/components/registerForm/EducationForm.module.css";
+import { AiFillCaretLeft, AiFillCaretRight } from "react-icons/ai";
 
 import level from "@components/registerForm/DropBoxData/level.json";
 import education from "@components/registerForm/DropBoxData/education.json";
 
-export default function EducationForm({ data, setData, choose }) {
+export default function EducationForm({ data, setData, choose, prev, next }) {
   const handleChange = (e, type) => {
     setData({
       ...data,
@@ -30,7 +31,7 @@ export default function EducationForm({ data, setData, choose }) {
             ประวัติการศึกษา
           </h1>
         </div>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={()=>{handleSubmit}}>
           <label className="text-white mb-2">{`ชื่อสถานศึกษา`}</label>
           <div>
             <Input
@@ -96,7 +97,32 @@ export default function EducationForm({ data, setData, choose }) {
               />
             </div>
           </div>
-          <Input type="submit">Submit</Input>
+          <div className="flex justify-between my-5 z-20">
+          <button onClick={prev}>
+            <AiFillCaretLeft
+              size="4.5rem"
+              color="rgb(236,72,153)"
+              style={{
+                display: [1, 2].includes(choose) ? "none" : "block",
+              }}
+            />
+          </button>
+          <button
+            onClick={[5].includes(choose) ? next : next}
+            type="submit"
+          >
+            <AiFillCaretRight
+              size="4.5rem"
+              color={[5].includes(choose) ? "#00FF00" : "rgb(236,72,153)"}
+              style={{ display: [5].includes(choose) ? "none" : "block" }}
+            />
+            <div
+              className="z-40"
+              style={{ display: [5].includes(choose) ? "block" : "none" }}
+            >
+            </div>
+          </button>
+        </div>
         </form>
       </div>
     </>
