@@ -14,9 +14,14 @@ const SubjectDetail = ({ name, highlight, detail }) => (
 
 const Learning = () => {
   return (
+<<<<<<< HEAD
     <div className="flex flex-col lg:items-start justify-center items-center relative w-full h-full text-center md:px-10 lg:px-10 sm:space-y-10 lg:space-y-0 md:space-y-5">
 
       <h1 data-aos="fade-right" className="text-white font-pixel text-3xl sm:text-4xl md:text-6xl lg:text-6xl relative lg:ml-32 lg:mt-10">Learning</h1>
+=======
+    <div className="flex flex-col justify-center items-center relative w-full h-full text-center md:px-10 lg:px-10 sm:space-y-10 lg:space-y-5 md:space-y-5 lg:pt-[-3vh]">
+      <h1 data-aos="fade-right" className="text-white font-pixel text-3xl sm:text-4xl md:text-6xl lg:text-6xl relative ">Learning</h1>
+>>>>>>> a2beeb2a41d9db9dd649c1d160f681c0deddbe1c
       <div data-aos="fade-up" className="h-[70%] w-full relative hidden lg:block  animate-float">
         <Image src="/assets/learning/pc_learning.svg"
           layout="fill"
@@ -33,7 +38,7 @@ const Learning = () => {
           quality={100}
         />
       </div>
-      <div className="flex sm:flex-row flex-col lg:hidden block w-screen sm:px-8 sm:space-x-5 items-center px-8 mt-[1vw] space-y-3">
+      <div className="flex sm:flex-row flex-col lg:hidden w-screen sm:px-8 sm:space-x-5 items-center px-8 mt-[5vw] lg:space-y-3">
         <div className="sm:w-[50%] sm:space-y-8 space-y-3">
           <SubjectDetail name="Pre-Programming" highlight="จะเริ่มต้นเขียนโปรแกรมทั้งทีเราต้องรู้อะไรบ้าง?" detail="มาทำความรู้จักกับ Flow Chart เพื่อการออกแบบการลำดับการทำงานของ
 โปรแกรมอย่างมีประสิทธิภาพ" />
