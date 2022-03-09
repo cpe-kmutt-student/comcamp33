@@ -23,8 +23,9 @@ const Condition = () => {
             <p className="text-white py-6  text-center">
             กำลังศึกษาอยู่ในระดับชั้นมัธยมศึกษาตอนปลายปีที่ 4 และ 5 
           <div className="text-[#C54776]"> สายวิทย์-คณิต วิทย์-คอม , ปวช.</div>
-น้องๆ TCAS 65 ที่ได้ทำการ <div className="text-[#C54776]">ยืนยันสิทธิ์กับทาง</div> 
-CPE KMUTT เป็นที่เรียบร้อยแล้ว
+          <div className="flex justify-center">
+น้องๆ TCAS 65 ที่ได้ทำการ<p className="text-[#C54776]">ยืนยันสิทธิ์</p>
+</div>กับทาง CPE KMUTT เป็นที่เรียบร้อย
           </p>
           </div>
 

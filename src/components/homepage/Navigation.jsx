@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-
+import { Link as Smooth } from "react-scroll/modules";
 const HamburgerIcon = () => (
   <>
     <svg
@@ -85,15 +85,18 @@ export const Navigation = () => {
           <ul className="flex flex-col w-full h-10 lg:flex-row lg:space-x-6 lg:text-xl lg:font-medium lg:mt-[-2.5vh] md:mt-[15vh]">
             {links.map((link) => (
               <li key={link}>
-                <a
-                  href={`#${link}`}
-                  className="block lg:mt-3 py-3 text-center w-[100%] bg-bg-primary lg:bg-transparent lg:p-0 text-white font-pixel lg:hover:text-text-highlight border-b-text-highlight border-b-[1px] lg:border-b-0"
+                <Smooth
+                  to={`${link}`}
+                  smooth={true}
+                  duration={1500}
+                  
+                  className="block cursor-pointer lg:mt-3 py-3 text-center w-[100%] bg-bg-primary lg:bg-transparent lg:p-0 text-white font-pixel lg:hover:text-text-highlight border-b-text-highlight border-b-[1px] lg:border-b-0"
                   onClick={() => {
                     setIsOpen(!isOpen);
                   }}
                 >
                   {link}
-                </a>
+                </Smooth>
               </li>
             ))}
             <Link

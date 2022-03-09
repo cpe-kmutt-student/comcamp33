@@ -21,19 +21,24 @@ const Home = () => {
 
       <section className="bg-[#11033E] h-[100vh]" id="about">
         <About />
+       
       </section>
+    
       <section className="bg-[#200440] h-[93vh]" id="learning">
         <Learning />
       </section>
       <section className="bg-[#380644] " id="condition">
         <Condition />
       </section>
+      
       <section className="bg-[#590949] h-[93vh]" id="schedule">
         <Timeline />
       </section>
+      
       <section className="bg-[#840D4F] md:h-[93vh]" id="faq">
         <Faqs />
       </section>
+      
       <section className="bg-[#B61157] lg:h-[93vh]" id="contact">
         <Contact />
       </section>

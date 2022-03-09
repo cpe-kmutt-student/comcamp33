@@ -24,7 +24,7 @@ const Learning = () => {
           quality={100}
         />
       </div>
-      <div className="h-[30%] w-full relative lg:hidden block">
+      <div className="h-[30%] animate-float w-full relative lg:hidden block">
         <Image src="/assets/learning/learning.svg"
           layout="fill"
           objectFit="contain"
