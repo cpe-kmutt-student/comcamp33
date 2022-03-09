@@ -20,10 +20,10 @@ const particleConfig = {
             }
         },
         "number": {
-            "value": 100,
+            "value": 80,
             "density": {
                 "enable": true,
-                "value_area": 520
+                "value_area": 750
             }
         },
         "interactivity": {

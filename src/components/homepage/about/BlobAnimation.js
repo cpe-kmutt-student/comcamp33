@@ -35,7 +35,7 @@ export const BlobAnimation = ({ initx, inity, children, speed }) => {
                 setSpeedY(ORIGSPEEDY);
             }
 
-            if (y >= (window.innerHeight * 0.93) - 100) {
+            if (y >= (window.innerHeight * 0.93)) {
                 setSpeedY(-ORIGSPEEDY);
             }
         }}

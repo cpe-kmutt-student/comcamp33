@@ -16,7 +16,7 @@ const About = () => {
   return (
     <div className="flex flex-col justify-center items-center relative w-full h-full text-center px-10 md:px-[10vw] pt-[15vh] md:pt-[15vh] ">
       <BGAnimation />
-      <div className="absolute top-[-17px] right-0 w-full h-[25vh] z-1" style={{ transform: `translateY(${offsetY * 0.1}px)` }}>
+      <div className="absolute top-[-17px] right-0 w-full h-[25vh] z-20" style={{ transform: `translateY(${offsetY * 0.1}px)` }}>
         <Image src="/assets/about/about_bg.png"
           layout="fill"
           objectFit="cover"
@@ -33,7 +33,7 @@ const About = () => {
           {`น้อง ๆ ที่สงสัยว่าวิศวะ ฯ คอมเรียนเกี่ยวกับอะไร ? วิศวะ ฯ คอมจบไปแล้วทำอะไร ? อะไรคือสิ่งที่เป็นเสน่ห์ ของวิศวะ ฯ คอม ? วิศวะ ฯ คอม เรียนสนุกไหม ? ยินดีต้อนรับเข้าสู่โครงการฝึกอบรมเชิงปฏิบัติการ คอมพิวเตอร์เบื้องต้น ครั้งที่ 33 หรือ ComCamp#33 ค่ายที่เปิดโอกาสให้น้อง ๆ เข้ามาสัมผัสประสบการณ์ใน ภาควิชาวิศวกรรมคอมพิวเตอร์ สมัครกันเข้ามาได้เลย ! น้อง ๆ จะได้รับประสบการณ์สุดเอ็กซ์คลูซีฟจากพี่ ๆ ภาควิศวะ ฯ คอมตัวจริง ! น้อง ๆ จะได้เข้ามาลองเรียน ลองทำ และลองสัมผัสประสบการณ์ชีวิตนักศึกษา ภาควิศวะคอม กับเพื่อน ๆ กว่าอีก 100 คน !! และที่สำคัญคือค่ายนี้ ฟรีทั้งค่าย !! พี่ ๆ กำลังรอน้อง ๆ มาเป็นส่วนหนึ่งของค่ายอยู่ เพราะงั้น รีบสมัครกันเข้ามา เยอะ ๆ น้าาาาา <3`}
         </p>
       </div>
-      
+
     </div>
   );
 };
