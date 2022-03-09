@@ -14,14 +14,8 @@ const SubjectDetail = ({ name, highlight, detail }) => (
 
 const Learning = () => {
   return (
-<<<<<<< HEAD
-    <div className="flex flex-col lg:items-start justify-center items-center relative w-full h-full text-center md:px-10 lg:px-10 sm:space-y-10 lg:space-y-0 md:space-y-5">
-
-      <h1 data-aos="fade-right" className="text-white font-pixel text-3xl sm:text-4xl md:text-6xl lg:text-6xl relative lg:ml-32 lg:mt-10">Learning</h1>
-=======
     <div className="flex flex-col justify-center items-center relative w-full h-full text-center md:px-10 lg:px-10 sm:space-y-10 lg:space-y-5 md:space-y-5 lg:pt-[-3vh]">
       <h1 data-aos="fade-right" className="text-white font-pixel text-3xl sm:text-4xl md:text-6xl lg:text-6xl relative ">Learning</h1>
->>>>>>> a2beeb2a41d9db9dd649c1d160f681c0deddbe1c
       <div data-aos="fade-up" className="h-[70%] w-full relative hidden lg:block  animate-float">
         <Image src="/assets/learning/pc_learning.svg"
           layout="fill"
@@ -49,6 +43,12 @@ const Learning = () => {
           <SubjectDetail name="Python" highlight="ภาษายอดฮิตที่ทุกคนต้องได้ลอง!" detail="สนุกกับการเขียนภาษา Python ซึ่งสามารถนำไปประยุกต์ใช้ได้หลากหลาย" />
         </div>
       </div>
+
+          {/* <div className="absolute bottom-0 left-0 w-[100%] overflow-hidden leading-[0] rotate-180">
+              <svg className="relative block w-[clac(157%+1.3px)] h-[169px]" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                  <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill" fill="#FFFFFF"></path>
+              </svg>
+          </div> */}
     </div>
   );
 };

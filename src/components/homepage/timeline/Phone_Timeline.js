@@ -1,6 +1,6 @@
 export const Phone_Timeline = ({ current }) => {
     return (
-        <div className="w-[40vh] sm:w-[50%] md:w-[50%] block md:hidden lg:hidden ml-[-3vh] mt-[2vh]">
+        <div data-aos="fade-up" className="w-[40vh] sm:w-[50%] md:w-[50%] block md:hidden lg:hidden ml-[-3vh] mt-[2vh]">
             <svg viewBox="0 0 365 581" fill="none" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
                 <rect x="-9" width="127" height="476" fill="url(#patternP)" />
                 <mask id="mask0_489_69" style={{ maskType: 'alpha' }} maskUnits="userSpaceOnUse" x="16" y="493" width="127" height="88">
