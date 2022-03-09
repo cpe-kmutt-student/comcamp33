@@ -33,12 +33,12 @@ const Learning = () => {
         />
       </div>
       <div className="flex sm:flex-row flex-col lg:hidden w-screen sm:px-8 sm:space-x-5 items-center px-8 mt-[5vw] lg:space-y-3">
-        <div className="sm:w-[50%] sm:space-y-8 space-y-3">
+        <div data-aos="fade-right" className="sm:w-[50%] sm:space-y-8 space-y-3">
           <SubjectDetail name="Pre-Programming" highlight="จะเริ่มต้นเขียนโปรแกรมทั้งทีเราต้องรู้อะไรบ้าง?" detail="มาทำความรู้จักกับ Flow Chart เพื่อการออกแบบการลำดับการทำงานของ
 โปรแกรมอย่างมีประสิทธิภาพ" />
           <SubjectDetail name="C-Programming" highlight="เริ่มเขียนโปรแกรมกันเลยดีกว่า!" detail="เรียนภาษาซีตั้งแต่พื้นฐานไปจนเข้าใจการตั้งชื่อเงื่อนไขและการวนซ้ำ" />
         </div>
-        <div className="sm:w-[50%] sm:space-y-8 space-y-3">
+        <div data-aos="fade-left" className="sm:w-[50%] sm:space-y-8 space-y-3">
           <SubjectDetail name="Website" highlight="เว็บไซต์สวยๆสร้างกันอย่างไร?" detail={`มาเรียนรู้ภาษาในการเขียนเว็บไซต์พื้นฐานอย่าง HTML และการตกแต่งเว็บไซต์ด้วย CSS & Javascript`} />
           <SubjectDetail name="Python" highlight="ภาษายอดฮิตที่ทุกคนต้องได้ลอง!" detail="สนุกกับการเขียนภาษา Python ซึ่งสามารถนำไปประยุกต์ใช้ได้หลากหลาย" />
         </div>
