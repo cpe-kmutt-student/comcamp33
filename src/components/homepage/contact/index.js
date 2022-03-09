@@ -13,7 +13,7 @@ const Contact = () => {
         />
       </div>
       <div className="md:px-10 space-y-4 flex items-center flex-col">
-        <section className="text-white pt-4 sm:pt-10 md:pt-10 lg:pt-10 flex justify-center text-center font-pixel text-4xl sm:text-5xl md:text-5xl lg:text-6xl">
+        <section data-aos="fade-up" className="text-white pt-4 sm:pt-10 md:pt-10 lg:pt-10 flex justify-center text-center font-pixel text-4xl sm:text-5xl md:text-5xl lg:text-6xl">
           Contact
         </section>
 

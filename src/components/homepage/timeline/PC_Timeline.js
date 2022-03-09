@@ -1,6 +1,6 @@
 export const PC_Timeline = ({ current }) => {
     return (
-        <div className="w-[80%] hidden md:block lg:block">
+        <div data-aos="fade-up" className="w-[80%] hidden md:block lg:block">
             <svg viewBox="0 0 1665 552" fill="none" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
                 <rect y="131" width="1400" height="416" fill="url(#patternPC)" />
 

@@ -17,10 +17,10 @@ const Faqs = () => {
   return (
 
     <div className="mim-w-full justify-center pb-6 relative h-[93vh]">
-      <section className="text-white pt-16 lg:pt-14 flex justify-center text-center font-pixel text-4xl sm:text-5xl md:text-5xl lg:text-6xl cursor-default">
+      <section data-aos="slide-right" className="text-white pt-16 lg:pt-14 flex justify-center text-center font-pixel text-4xl sm:text-5xl md:text-5xl lg:text-6xl cursor-default">
         FAQ
       </section>
-      <div className="w-[70%] z-10 mx-auto">
+      <div data-aos="fade-up" className="w-[70%] z-10 mx-auto">
         {Data.map((item, index) => {
           return (
             <Fragment key={index} className="z-10">
