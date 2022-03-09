@@ -23,7 +23,7 @@ export default function PolicyForm({ data, setData, setState, choose, error }) {
     };
     setValue(currentStatus);
     setState(currentStatus.box1 && currentStatus.box2);
-    console.log(data);
+    // console.log(data);
   };
 
   return (

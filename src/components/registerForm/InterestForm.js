@@ -35,7 +35,7 @@ export default function InterestForm({ data, setData, choose, prev, next }) {
     let keyChange = e.target.getAttribute("number");
     const newPlans = (data.interest && data.interest.plan) ? data.interest.plan : [];
     newPlans[keyChange] = e.target.checked;
-    console.log(newPlans)
+
     setData({
       ...data,
       interest: {
@@ -43,7 +43,7 @@ export default function InterestForm({ data, setData, choose, prev, next }) {
         plan: newPlans,
       },
     });
-    console.log(data)
+    // console.log(data)
   };
 
   const handleChangeCourse = (e) => {
@@ -54,7 +54,7 @@ export default function InterestForm({ data, setData, choose, prev, next }) {
         camp: e.target.value,
       },
     });
-    console.log(data)
+    // console.log(data)
   }
 
   const handleSubmit = (e) => {
@@ -63,7 +63,7 @@ export default function InterestForm({ data, setData, choose, prev, next }) {
     saveData({
       ...data, 
     });
-    console.log(data);
+    // console.log(data);
   };
 
   return (

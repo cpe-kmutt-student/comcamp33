@@ -67,7 +67,7 @@ export default function ModalAsk({ data, open, setOpen }) {
                             ...data, 
                             complete: true
                         });
-                        console.log(data);
+                        // console.log(data);
                         router.push('/thankyou');
                     }}
                   >

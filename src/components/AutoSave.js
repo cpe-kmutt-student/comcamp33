@@ -5,7 +5,6 @@ const AutoSave = ({ data }) => {
   const debounceSave = useMemo(() => 
     debounce(async (data) => {
       const result = await saveData(data);
-      console.log(result);
     }, 1000 * 2)
   , []);
 

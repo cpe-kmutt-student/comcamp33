@@ -19,7 +19,7 @@ export default function QuestionsForm({ data, setData, choose, prev, setOpen, op
         [e.target.name]: e.target.value,
       },
     });
-    console.log(data);
+    // console.log(data);
     setOpen(true);
   };
 
@@ -28,7 +28,7 @@ export default function QuestionsForm({ data, setData, choose, prev, setOpen, op
     saveData({
       ...data,
     });
-    console.log(data);
+    // console.log(data);
   };
 
   return (

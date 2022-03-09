@@ -129,13 +129,13 @@ export default function InfoForm({ data, setData, choose, next }) {
               </label>
               <Input
                 type="date"
-                name="birthday"
+                name="birthdate"
                 placeholder="Birthday"
                 onChange={(e) => handleChange(e, 'info')}
                 required={true}
                 pattern="\d{4}-\d{2}-\d{2}"
                 className="w-full"
-                value={(data && data.info) ? data.info.birthday : ''}
+                value={(data && data.info) ? data.info.birthdate : ''}
               />
             </div>
           </div>
