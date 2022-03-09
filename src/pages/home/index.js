@@ -3,6 +3,7 @@ import { About, Condition, Contact, Faqs, First, Learning, Navigation, Timeline 
 import { StarParticle } from "@components/homepage/StarParticle";
 import Aos from 'aos';
 import 'aos/dist/aos.css';
+import Image from "next/image";
 import { useEffect } from "react";
 const Home = () => {
   useEffect(() => {
@@ -21,25 +22,25 @@ const Home = () => {
 
       <section className="bg-[#11033E] h-[100vh]" id="about">
         <About />
-       
+
       </section>
-    
+
       <section className="bg-[#200440] h-[93vh]" id="learning">
         <Learning />
       </section>
       <section className="bg-[#380644] " id="condition">
         <Condition />
       </section>
-      
+
       <section className="bg-[#590949] h-[93vh]" id="schedule">
         <Timeline />
       </section>
-      
-      <section className="bg-[#840D4F] h-screen md:h-[93vh]" id="faq">
+
+      <section className="bg-[#840D4F] h-[93vh]" id="faq">
         <Faqs />
       </section>
-      
-      <section className="bg-[#B61157] lg:h-[93vh]" id="contact">
+
+      <section className="bg-[#B61157] lg:h-[93vh] relative pb-8 lg:pb-0" id="contact">
         <Contact />
       </section>
 
