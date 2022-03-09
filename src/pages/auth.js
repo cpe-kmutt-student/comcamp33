@@ -1,3 +1,4 @@
+import Header from '@components/Header';
 import { getProviders, signIn } from 'next-auth/react';
 import Image from 'next/image';
 
@@ -8,6 +9,8 @@ const authLogoPath = {
 const AuthPage = ({ providers }) => {
   return (
     <div className="flex justify-center items-center h-screen bg-slate-200">
+      <Header />
+
       <div className="flex flex-col items-center bg-white p-8">
         <h1 className="font-bold text-2xl">Log in to Comcamp 33</h1>
 
