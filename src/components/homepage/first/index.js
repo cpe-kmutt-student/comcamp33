@@ -27,7 +27,7 @@ const First = () => {
                 <div className="h-[58vh] relative ml-6 ">
                     <Image src="/assets/sun.svg" quality={100} layout="fill" objectFit='contain' alt="sun" />
                 </div>
-                <Image className='animate-wiggle' src="/assets/comcamp.png" quality={100} layout="fill" objectFit='contain' alt="comcamp logo" />
+                <Image className='animate-wiggle' src="/assets/comcamplogo.png" quality={100} layout="fill" objectFit='contain' alt="comcamp logo" />
             </div>
             <div className="absolute bottom-0 right-0 w-[100%] md:h-[35vh] h-[40vh]" style={{ transform: `translateY(${offsetY * 0.1}px)` }}>
                 <Image src="/assets/first/town.png"
