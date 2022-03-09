@@ -3,6 +3,11 @@ import Image from "next/image";
 const Contact = () => {
   return (
     <>
+      <div className="absolute top-0 left-0 w-[100%] overflow-hidden leading-[0]">
+          <svg className="relative block w-[calc(169% + 1.3px)] h-[210px]" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+              <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill" fill="#840D4F"></path>
+          </svg>
+      </div>
       <div className="absolute h-[93vh] w-screen right-0 bottom-0 z-1">
         <Image
           src="/assets/contact/contactbg.png"
@@ -18,7 +23,7 @@ const Contact = () => {
         </section>
 
         <div className="flex justify-center flex-col items-center lg:flex-row bg-white/60 w-[80%] z-10 rounded-3xl relative lg:space-x-5 px-5 lg:pt-0 pt-8">
-          <div className="relative flex flex-col items-center lg:w-[35%] w-[90%] space-y-5 lg:space-y-0">
+          <div data-aos="fade-up" className="relative flex flex-col items-center lg:w-[35%] w-[90%] space-y-5 lg:space-y-0">
             <div className="flex justify-center h-[25vh] w-[100%] relative">
               <Image
                 src="/assets/contact/Ticket_Address.png"
@@ -36,7 +41,7 @@ const Contact = () => {
               />
             </div>
           </div>
-          <div className="flex justify-center scale-[0.7] lg:scale-[0.8] lg:w-[30%] ml-4">
+          <div data-aos="fade-up" className="flex justify-center scale-[0.7] lg:scale-[0.8] lg:w-[30%] ml-4">
             <iframe
               src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FKMUTTcomcamp&tabs=timeline&width=320&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=323404429809727"
               width={340}
@@ -48,7 +53,7 @@ const Contact = () => {
               allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
             />
           </div>
-          <div className="flex justify-center scale-[0.7] lg:scale-[0.8] lg:w-[35%]">
+          <div data-aos="fade-up" className="flex justify-center scale-[0.7] lg:scale-[0.8] lg:w-[35%]">
             <iframe
               width={320}
               height={440}

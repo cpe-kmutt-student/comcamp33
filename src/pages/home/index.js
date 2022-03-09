@@ -20,19 +20,17 @@ const Home = () => {
         <First />
       </section>
 
-      <section className="bg-[#11033E] h-[100vh]" id="about">
+      <section className="bg-[#11033E] h-[110vh]" id="about">
         <About />
-
       </section>
-
-      <section className="bg-[#200440] h-[93vh]" id="learning">
+      <section className="bg-[#200440] h-[120vh]" id="learning">
         <Learning />
       </section>
       <section className="bg-[#380644] " id="condition">
         <Condition />
       </section>
 
-      <section className="bg-[#590949] h-[93vh]" id="schedule">
+      <section className="bg-[#590949] h-[120vh]" id="schedule">
         <Timeline />
       </section>
 
@@ -40,7 +38,7 @@ const Home = () => {
         <Faqs />
       </section>
 
-      <section className="bg-[#B61157] lg:h-[93vh] relative pb-8 lg:pb-0" id="contact">
+      <section className="bg-[#B61157] lg:h-[113vh] relative pb-8 lg:pb-0" id="contact">
         <Contact />
       </section>
       <Footer />
