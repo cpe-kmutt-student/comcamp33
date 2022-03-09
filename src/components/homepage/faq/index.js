@@ -20,12 +20,12 @@ const Faqs = () => {
       <section data-aos="slide-right" className="text-white pt-16 lg:pt-14 flex justify-center text-center font-pixel text-4xl sm:text-5xl md:text-5xl lg:text-6xl cursor-default">
         FAQ
       </section>
-      <div data-aos="fade-up" className="w-[70%] z-10 mx-auto">
+      <div className="w-[70%] z-10 mx-auto">
         {Data.map((item, index) => {
           return (
             <Fragment key={index} className="z-10">
               <div className=" flex flex-row items-center cursor-pointer bg-transparent hover:bg-pink-600/50 text-white transition-all duration-300 ease-linear border-white/50 border-b-2 md:text-xl z-10" onClick={() => toggle(index)} key={index}>
-                <div className="pl-6 pr-4 z-10 w-[90%]" >{item.question}</div>
+                <div data-aos="fade-up" className="pl-6 pr-4 z-10 w-[90%]" >{item.question}</div>
                 <span className=" py-5 px-4 z-10 cursor-pointer w-[10%]">{clicked === index ? <FiMinus /> : <FiPlus />}</span>
               </div>
 

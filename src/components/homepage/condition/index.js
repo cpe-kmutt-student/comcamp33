@@ -73,6 +73,7 @@ const Condition = () => {
             </p>
 
           </div>
+         
         </div>
 
       </div>

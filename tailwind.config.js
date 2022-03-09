@@ -8,7 +8,7 @@ module.exports = {
   theme: {
     extend: {
       animation: {
-        wiggle: 'wiggle 2s infinite',
+        wiggle: 'wiggle 3s infinite',
         float: 'floating 3s infinite ease-in-out',
         expand1: 'expand 1s infinite',
         expand2: 'expand 2s infinite',
@@ -19,10 +19,10 @@ module.exports = {
       keyframes:{
         wiggle: {
           '0%, 100%': {
-            transform: 'scale(1.05) rotate(3deg)',
+            transform: 'scale(1.05) rotate(1deg)',
           },
           '50%': {
-            transform: 'scale(0.9) rotate(-3deg)',
+            transform: 'scale(0.95) rotate(-1deg)',
           }
         },
         expand: {
