@@ -1,12 +1,8 @@
 
 import Header from '../components/Header';
-import { signIn, signOut, useSession } from 'next-auth/react';
-
 import Link from 'next/link';
 
 const IndexPage = () => {
-  const { data: session } = useSession();
-
   return (
     <div>
       <Header />

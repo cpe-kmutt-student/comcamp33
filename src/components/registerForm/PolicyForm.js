@@ -59,7 +59,7 @@ export default function PolicyForm({ data, setData, setState, choose, error }) {
               </li>
             </ul>
           </div>
-          <div className="pt-[1rem] pb-[1rem] ">
+          <div className="mt-4 pt-[1rem] pb-[1rem] ">
             <label className="md:text-[1.2rem]">
               <CheckBox
                 type="checkbox"
@@ -232,7 +232,7 @@ export default function PolicyForm({ data, setData, setState, choose, error }) {
               </li>
             </ol>
           </div>
-          <div className="pt-[1rem] pb-[1rem]">
+          <div className="mt-2 pt-[1rem] pb-[1rem]">
             <label className="md:text-[1.2rem]">
               <CheckBox
                 type="checkbox"

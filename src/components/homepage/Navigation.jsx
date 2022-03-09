@@ -1,8 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { useState } from "react";
 import { Link as Smooth } from "react-scroll/modules";
 import { useSpring, animated, config } from "react-spring";
+import { signIn, signOut, useSession } from 'next-auth/react';
 
 const HamburgerIcon = ({ state }) => {
   const { x } = useSpring({
@@ -36,6 +38,9 @@ const HamburgerIcon = ({ state }) => {
 };
 
 export const Navigation = () => {
+  const { data: session } = useSession();
+  const router = useRouter();
+
   const links = [
     "about",
     "learning",
@@ -128,11 +133,35 @@ export const Navigation = () => {
           </ul>
         </div>
       </div>
-      <button className="absolute top-0 bg-gradient-to-b from-[#F054F3]/90 to-[#9600FF]/90 right-3 font-pixel text-xl text-white px-3 py-1 rounded mt-[2vh] hidden lg:block border-2 border-[#B3E7F8] hover:shadow-[0_0px_15px_-2px_rgba(150,0,255,1)] hover:shadow-[#9600FF] transition-all duration-100 ease-linear">
-        <Link href="/registration" passHref>
-          Registration
-        </Link>
-      </button>
+
+      <div className="flex flex-row absolute top-0 right-0 space-x-4">
+        <button className="relative top-0 bg-gradient-to-b from-[#F054F3]/90 to-[#9600FF]/90 right-3 font-pixel text-xl text-white px-3 py-1 rounded mt-[2vh] hidden lg:block border-2 border-[#B3E7F8] hover:shadow-[0_0px_15px_-2px_rgba(150,0,255,1)] hover:shadow-[#9600FF] transition-all duration-100 ease-linear">
+          <button
+            type="button"
+            onClick={() => {
+              if (session) {
+                router.push('/registration')
+              } else {
+                signIn('facebook');
+              } 
+            }}
+          >
+            Registration
+          </button>
+        </button>
+
+        {session && (
+          <button
+            className="relative top-0 bg-gradient-to-b from-[#dd517e]/90 to-[#E5155E]/90 right-3 font-pixel text-xl text-white px-3 py-1 rounded mt-[2vh] hidden lg:block border-2 border-[#B3E7F8] hover:shadow-[0_0px_15px_-2px_rgba(150,0,255,1)] hover:shadow-[#7a374e] transition-all duration-100 ease-linear"
+            onClick={async () => {
+              await signOut({ redirect: false });
+              router.push('/home');
+            }}
+          >
+            Sign out
+          </button>
+        )}
+      </div>
     </nav>
   );
 };
