@@ -5,32 +5,12 @@ import DropBox from "@components/DropBox";
 import TextArea from "@components/TextArea";
 import CheckBox from "@components/CheckBox";
 import styles from "@styles/components/registerForm/InterestForm.module.css";
+import { AiFillCaretLeft, AiFillCaretRight } from "react-icons/ai";
+import { saveData } from "@src/utils/clientUtils";
 
 import trueAndFalse from "@components/registerForm/DropBoxData/trueAndFalse.json";
 
-export default function InterestForm({ data, setData, choose }) {
-  // const [data, setData] = useState({
-  //   admission: [
-  //     {
-  //       faculty: "",
-  //       department: "",
-  //       university: "",
-  //     },
-  //     {
-  //       faculty: "",
-  //       department: "",
-  //       university: "",
-  //     },
-  //     {
-  //       faculty: "",
-  //       department: "",
-  //       university: "",
-  //     },
-  //   ],
-  //   plan: [false, false, false, false],
-  //   camp: "",
-  // });
-
+export default function InterestForm({ data, setData, choose, prev, next }) {
 
   const handleChangeAdmission = (e) => {
     let name = e.target.name;
@@ -77,16 +57,25 @@ export default function InterestForm({ data, setData, choose }) {
     console.log(data)
   }
 
+  const handleSubmit = (e) => {
+    next();
+    e.preventDefault();
+    saveData({
+      ...data, 
+    });
+    console.log(data);
+  };
+
   return (
     <>
       <div className={choose != 4 ? "hidden" : ""}>
-        <form>
+        <form onSubmit={handleSubmit}>
           <div className="flex justify-center">
-            <h1 className="flex w-fit justify-center text-3xl font-bold text-white bg-[#9600FF] px-4 py-3 rounded-3xl m-5">
+            <h1 className="flex w-fit justify-center text-3xl font-bold text-white bg-[#9600FF] px-4 py-3 my-8 rounded-2xl">
               ความสนใจ
             </h1>
           </div>
-          <div className="flex flex-row justify-between gap-5">
+          <div className="flex flex-wrap md:flex-nowrap flex-row justify-between gap-5">
             <div className="flex flex-col mb-2 w-full">
               <label className="text-white mb-2">
                 มหาวิทยาลัยลำดับที่หนึ่ง
@@ -102,7 +91,7 @@ export default function InterestForm({ data, setData, choose }) {
                 number="0"
                 className="w-full"
                 value={
-                  (data.interest &&
+                  (data && data.interest &&
                     data.interest.admission &&
                     data.interest.admission[0] &&
                     data.interest.admission[0].university) ||
@@ -123,7 +112,7 @@ export default function InterestForm({ data, setData, choose }) {
                 number="0"
                 className="w-full"
                 value={
-                  (data.interest &&
+                  (data && data.interest &&
                     data.interest.admission &&
                     data.interest.admission[0] &&
                     data.interest.admission[0].department) ||
@@ -144,7 +133,7 @@ export default function InterestForm({ data, setData, choose }) {
                 number="0"
                 className="w-full"
                 value={
-                  (data.interest &&
+                  (data && data.interest &&
                     data.interest.admission &&
                     data.interest.admission[0] &&
                     data.interest.admission[0].faculty) ||
@@ -154,7 +143,7 @@ export default function InterestForm({ data, setData, choose }) {
             </div>
           </div>
           <br />
-          <div className="flex flex-row justify-between gap-5">
+          <div className="flex flex-wrap md:flex-nowrap flex-row justify-between gap-5">
             <div className="flex flex-col mb-2 w-full">
               <label className="text-white mb-2">มหาวิทยาลัยลำดับที่สอง</label>
               <Input
@@ -167,7 +156,7 @@ export default function InterestForm({ data, setData, choose }) {
                 required={true}
                 number="1"
                 value={
-                  (data.interest &&
+                  (data && data.interest &&
                     data.interest.admission &&
                     data.interest.admission[1] &&
                     data.interest.admission[1].unsiversity) ||
@@ -187,7 +176,7 @@ export default function InterestForm({ data, setData, choose }) {
                 required={true}
                 number="1"
                 value={
-                  (data.interest &&
+                  (data && data.interest &&
                     data.interest.admission &&
                     data.interest.admission[1] &&
                     data.interest.admission[1].department) ||
@@ -207,7 +196,7 @@ export default function InterestForm({ data, setData, choose }) {
                 required={true}
                 number="1"
                 value={
-                  (data.interest &&
+                  (data && data.interest &&
                     data.interest.admission &&
                     data.interest.admission[1] &&
                     data.interest.admission[1].faculty) ||
@@ -217,7 +206,7 @@ export default function InterestForm({ data, setData, choose }) {
             </div>
           </div>
           <br />
-          <div className="flex flex-row justify-between gap-5">
+          <div className="flex flex-wrap md:flex-nowrap flex-row justify-between gap-5">
             <div className="flex flex-col mb-2 w-full">
               <label className="text-white mb-2">มหาวิทยาลัยลำดับที่สาม</label>
               <Input
@@ -231,7 +220,7 @@ export default function InterestForm({ data, setData, choose }) {
                 number="2"
                 className="w-full"
                 value={
-                  (data.interest &&
+                  (data && data.interest &&
                     data.interest.admission &&
                     data.interest.admission[2] &&
                     data.interest.admission[2].university) ||
@@ -251,7 +240,7 @@ export default function InterestForm({ data, setData, choose }) {
                 required={true}
                 number="2"
                 value={
-                  (data.interest &&
+                  (data && data.interest &&
                     data.interest.admission &&
                     data.interest.admission[2] &&
                     data.interest.admission[2].department) ||
@@ -271,7 +260,7 @@ export default function InterestForm({ data, setData, choose }) {
                 required={true}
                 number="2"
                 value={
-                  (data.interest &&
+                  (data && data.interest &&
                     data.interest.admission &&
                     data.interest.admission[2] &&
                     data.interest.admission[2].faculty) ||
@@ -292,14 +281,14 @@ export default function InterestForm({ data, setData, choose }) {
                 number="0"
                 name="plan"
                 checked={
-                  (data.interest &&
+                  (data && data.interest &&
                     data.interest.plan &&
                     data.interest.plan[0]) ||
                   false
                 }
                 className="appearance-none border-2 h-4 aspect-square relative mr-2 checked:bg-[rgb(0,0,0)] unchecked:bg-transparent"
               />
-              {data.interest &&
+              {data && data.interest &&
               data.interest.plan &&
               data.interest.plan[0] == true ? (
                 <AiOutlineCheck
@@ -320,14 +309,14 @@ export default function InterestForm({ data, setData, choose }) {
                 onChange={(e) => handleChangePlan(e)}
                 number="1"
                 checked={
-                  (data.interest &&
+                  (data && data.interest &&
                     data.interest.plan &&
                     data.interest.plan[1]) ||
                   false
                 }
                 className="appearance-none border-2 h-4 aspect-square relative mr-2 checked:bg-[rgb(0,0,0)] unchecked:bg-transparent"
               />
-              {data.interest &&
+              {data && data.interest &&
               data.interest.plan &&
               data.interest.plan[1] == true ? (
                 <AiOutlineCheck
@@ -348,14 +337,14 @@ export default function InterestForm({ data, setData, choose }) {
                 onChange={(e) => handleChangePlan(e)}
                 number="2"
                 checked={
-                  (data.interest &&
+                  (data && data.interest &&
                     data.interest.plan &&
                     data.interest.plan[2]) ||
                   false
                 }
                 className="appearance-none border-2 h-4 aspect-square relative mr-2 checked:bg-[rgb(0,0,0)] unchecked:bg-transparent"
               />
-              {data.interest &&
+              {data && data.interest &&
               data.interest.plan &&
               data.interest.plan[2] == true ? (
                 <AiOutlineCheck
@@ -376,14 +365,14 @@ export default function InterestForm({ data, setData, choose }) {
                 onChange={(e) => handleChangePlan(e)}
                 number="3"
                 checked={
-                  (data.interest &&
+                  (data && data.interest &&
                     data.interest.plan &&
                     data.interest.plan[3]) ||
                   false
                 }
                 className="appearance-none border-2 h-4 aspect-square relative mr-2 checked:bg-[rgb(0,0,0)] unchecked:bg-transparent"
               />
-              {data.interest &&
+              {data && data.interest &&
               data.interest.plan &&
               data.interest.plan[3] == true ? (
                 <AiOutlineCheck
@@ -405,7 +394,7 @@ export default function InterestForm({ data, setData, choose }) {
               type="text"
               name="camp"
               placeholder="camp"
-              value={(data.interest &&
+              value={(data && data.interest &&
                 data.interest.camp) ||
               ""}
               onChange={(e) => handleChangeCourse(e)}
@@ -413,8 +402,31 @@ export default function InterestForm({ data, setData, choose }) {
               className="h-36 w-full rounded-xl"
             />
           </div>
-          <br />
-          <Input type="submit">Submit</Input>
+          <div className="flex justify-between my-5 z-20">
+          <button type="button" onClick={prev}>
+            <AiFillCaretLeft
+              size="4.5rem"
+              color="rgb(236,72,153)"
+              style={{
+                display: [1, 2].includes(choose) ? "none" : "block",
+              }}
+            />
+          </button>
+          <button
+            type="submit"
+          >
+            <AiFillCaretRight
+              size="4.5rem"
+              color={"rgb(236,72,153)"}
+              style={{ display: [5].includes(choose) ? "none" : "block" }}
+            />
+            <div
+              className="z-40"
+              style={{ display: [5].includes(choose) ? "block" : "none" }}
+            >
+            </div>
+          </button>
+        </div>
         </form>
       </div>
     </>

@@ -36,7 +36,7 @@ export default ProgressBar;
 export default function ProgressBar({ currentStep }) {
   return (
     <>
-      <div className="flex flex-row justify-between content-center mx-auto w-4/5">
+      <div className="md:flex flex-row justify-between content-center mx-auto w-4/5 hidden">
         {steps.map((step, index) => {
           return (
             <Fragment key={index}>

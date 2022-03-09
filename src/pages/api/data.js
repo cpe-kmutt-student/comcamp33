@@ -23,10 +23,15 @@ const handler = async (req, res) => {
 };
 const loadData = async (req, res, session) => {
   const database = await mongoClientPromise;
+  
   const dataList = await database
     .db("comcamp33")
     .collection("data")
-    .findOne({ "facebook.email": session.user.email }, { projection: { _id: false}})
+    .findOne(
+      { 'facebook.email': session.user.email },
+      { projection: { _id: false } } 
+    );
+
   return res.status(200).json({
     success: true,
     message: dataList,
@@ -113,6 +118,7 @@ const DATABASE_STRUCTURE = {
 
 const saveData = async (req, res, session) => {
   const database = await mongoClientPromise;
+  
   const { body } = req;
 
   const isSubset = (superSet, subset) => {
