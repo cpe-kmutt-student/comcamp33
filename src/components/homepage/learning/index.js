@@ -14,14 +14,8 @@ const SubjectDetail = ({ name, highlight, detail }) => (
 
 const Learning = () => {
   return (
-<<<<<<< HEAD
-    <div className="flex flex-col lg:items-start justify-center items-center relative w-full h-full text-center md:px-10 lg:px-10 sm:space-y-10 lg:space-y-0 md:space-y-5">
-
-      <h1 data-aos="fade-right" className="text-white font-pixel text-3xl sm:text-4xl md:text-6xl lg:text-6xl relative lg:ml-32 lg:mt-10">Learning</h1>
-=======
     <div className="flex flex-col justify-center items-center relative w-full h-full text-center md:px-10 lg:px-10 sm:space-y-10 lg:space-y-5 md:space-y-5 lg:pt-[-3vh]">
       <h1 data-aos="fade-right" className="text-white font-pixel text-3xl sm:text-4xl md:text-6xl lg:text-6xl relative ">Learning</h1>
->>>>>>> a2beeb2a41d9db9dd649c1d160f681c0deddbe1c
       <div data-aos="fade-up" className="h-[70%] w-full relative hidden lg:block  animate-float">
         <Image src="/assets/learning/pc_learning.svg"
           layout="fill"
