@@ -19,13 +19,13 @@ const Faqs = () => {
           <div className="hidden lg:block w-[20px] bg-[#9600FF] shadow-lg shadow-[#9600FF] ml-[20px]"> </div>
         </div>
         <div className="bg-white-700 w-full h-full flex flex-col justify-center">
-          <div className="font-pixel text-white text-center text-4xl sm:text-5xl md:text-5xl lg:text-6xl py-4 sm:py-4 ">FAQ</div>
+          <div data-aos="fade-left" className="font-pixel text-white text-center text-4xl sm:text-5xl md:text-5xl lg:text-6xl py-4 sm:py-4 ">FAQ</div>
           <div className="w-full px-4 mx-auto lg:container">
             {Data.map((item, index) => {
             return (
               <Fragment key={index} className="z-10">
                 <div className=" flex flex-row justify-between text-sm sm:text-xl lg:text-2xl xl:text-4xl  cursor-pointer bg-transparent hover:bg-pink-600/50 text-white transition-all duration-300 ease-linear border-white/50 border-b-2" onClick={() => toggle(index)} key={index}>
-                  <div className=" py-3 px-2 sm:p-5 lg:p-6" >{item.question}</div>
+                  <div data-aos="fade-up" className=" py-3 px-2 sm:p-5 lg:p-6" >{item.question}</div>
                   <span className="flex items-center px-3 sm:p-5 lg:p-6">{clicked === index ? <FiMinus /> : <FiPlus />}</span>
                 </div>
                 {clicked === index ? (
