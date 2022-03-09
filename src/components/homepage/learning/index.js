@@ -32,7 +32,7 @@ const Learning = () => {
           quality={100}
         />
       </div>
-      <div className="flex sm:flex-row flex-col lg:hidden block w-screen sm:px-8 sm:space-x-5 items-center px-8 mt-[1vw] space-y-3">
+      <div className="flex sm:flex-row flex-col lg:hidden w-screen sm:px-8 sm:space-x-5 items-center px-8 mt-[5vw] lg:space-y-3">
         <div className="sm:w-[50%] sm:space-y-8 space-y-3">
           <SubjectDetail name="Pre-Programming" highlight="จะเริ่มต้นเขียนโปรแกรมทั้งทีเราต้องรู้อะไรบ้าง?" detail="มาทำความรู้จักกับ Flow Chart เพื่อการออกแบบการลำดับการทำงานของ
 โปรแกรมอย่างมีประสิทธิภาพ" />
