@@ -12,8 +12,10 @@ import AutoSave from "@components/AutoSave";
 import Image from "next/image";
 import BgStar from "@public/formBg/unknown.png";
 import Bg1 from "@public/formBg/unknown1.png";
+import bgForm2 from "@public/formBg/bgForm2.png";
 import Header from "@components/Header";
 import { getSession } from "next-auth/react";
+import { useRouter } from "next/router";
 
 export default function RegistrationPage() {
   const [chooseForm, setChooseForm] = useState(1); // 1
@@ -22,11 +24,13 @@ export default function RegistrationPage() {
   const [checked, setChecked] = useState(false);
   const [error, setError] = useState(false);
 
+  const [isNext, setIsNext] = useState(false);
+  const [open, setOpen] = useState(false);
+
+  const router = useRouter();
+
   const nextForm = () => {
-    if (
-      (chooseForm === 1 && checked) ||
-      (chooseForm > 1 && chooseForm < 6)
-    )
+    if ((chooseForm === 1 && checked) || (chooseForm > 1 && chooseForm < 6))
       setChooseForm(chooseForm + 1);
     else setError(true);
   };
@@ -54,10 +58,14 @@ export default function RegistrationPage() {
   }, [data.verify]);
 
   useEffect(() => {
-    if (data && data.verify == true) {
-      setChooseForm(2);
+    if (data.success == true) {
+      router.push("/thankyou");
     }
-  }, []);
+    if (data && data.verify && !isNext) {
+      setChooseForm(2);
+      setIsNext(true);
+    }
+  }, [data]);
 
   return (
     <div className="relative flex flex-col bg-[#11033E] min-h-screen overflow-x-hidden">
@@ -72,11 +80,15 @@ export default function RegistrationPage() {
         />
       </div>
       <div className="fixed w-[100vw] h-[100vh] top-0">
-        <div className="h-[60%]" />
+        <div
+          className={
+            chooseForm === 2 || chooseForm === 4 ? "h-[60%]" : "h-[35%]"
+          }
+        />
         <div className="h-[40%]">
           <Image
             alt="Bg1"
-            src={Bg1}
+            src={chooseForm === 2 || chooseForm === 4 ? Bg1 : bgForm2}
             layout="responsive"
             objectFit="contain"
             quality={100}
@@ -84,27 +96,51 @@ export default function RegistrationPage() {
         </div>
       </div>
 
-      <h1 className="self-center m-2 text-white font-pixel text-2xl sm:text-2xl md:text-6xl lg:text-6xl">
+      <h1 className="my-7 self-center m-2 text-white font-pixel text-4xl md:text-6xl">
         REGISTRATION
       </h1>
-        <ProgressBar currentStep={chooseForm} />
-        <div className="p-[20%] flex justify-center all pt-0 pb-0 z-10">
-          <PolicyForm
-            data={data}
-            choose={chooseForm}
-            setState={setChecked}
-            error={error}
-            setData={setData}
-          />
-          <InfoForm data={data} setData={setData} choose={chooseForm} next={nextForm} error={error} setError={setError}/>
-          <EducationForm data={data} setData={setData} choose={chooseForm}  prev={prevForm} next={nextForm}/>
-          <InterestForm data={data} setData={setData} choose={chooseForm}  prev={prevForm} next={nextForm}/>
-          <QuestionsForm data={data} setData={setData} choose={chooseForm}  prev={prevForm}/>
-        </div>
+      <ProgressBar  currentStep={chooseForm} />
+      <div className="p-[20%] flex justify-center all pt-0 pb-0 z-10">
+        <PolicyForm
+          data={data}
+          choose={chooseForm}
+          setState={setChecked}
+          error={error}
+          setData={setData}
+        />
+        <InfoForm
+          data={data}
+          setData={setData}
+          choose={chooseForm}
+          next={nextForm}
+        />
+        <EducationForm
+          data={data}
+          setData={setData}
+          choose={chooseForm}
+          prev={prevForm}
+          next={nextForm}
+        />
+        <InterestForm
+          data={data}
+          setData={setData}
+          choose={chooseForm}
+          prev={prevForm}
+          next={nextForm}
+        />
+        <QuestionsForm
+          data={data}
+          setData={setData}
+          choose={chooseForm}
+          prev={prevForm}
+          open={open}
+          setOpen={setOpen}
+        />
+      </div>
 
-        <AutoSave data={data} />
+      <AutoSave data={data} />
 
-        {/* <div className="flex justify-around my-5 z-20">
+      {/* <div className="flex justify-around my-5 z-20">
           <button onClick={prevForm}>
             <AiFillCaretLeft
               size="4.5rem"

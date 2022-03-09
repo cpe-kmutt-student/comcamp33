@@ -30,6 +30,7 @@ export default function Input(props) {
         number={props.number}
         min={props.min}
         max={props.max}
+        step={props.step}
       />
     </>
   );

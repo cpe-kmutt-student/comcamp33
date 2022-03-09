@@ -8,7 +8,7 @@ import prefix_en from "@components/registerForm/DropBoxData/prefix_en.json";
 import prefix_th from "@components/registerForm/DropBoxData/prefix_th.json";
 import shirt_size from "@components/registerForm/DropBoxData/shirt_size.json";
 
-export default function InfoForm({ data, setData, choose, error, setError }) {
+export default function InfoForm({ data, setData, choose, next }) {
   const handleChange = (e, type) => {
     setData({
       ...data,
@@ -20,16 +20,12 @@ export default function InfoForm({ data, setData, choose, error, setError }) {
   };
 
   const handleSubmit = (e) => {
+    next();
     e.preventDefault();
-    if (
-      (chooseForm === 1 && checked) ||
-      (chooseForm > 1 && chooseForm < 6)
-    )
-      setChooseForm(chooseForm + 1);
-    else setError(true);
     saveData({
       ...data, 
     });
+    console.log(data);
   };
   
   return (
@@ -40,7 +36,7 @@ export default function InfoForm({ data, setData, choose, error, setError }) {
             ข้อมูลส่วนตัว
           </h1>
         </div>
-        <form onSubmit={(e)=>{handleSubmit}} className="space-y-8">
+        <form onSubmit={handleSubmit} className="space-y-8">
           <div className="flex flex-wrap md:flex-nowrap flex-row items-end justify-between gap-10">
             <div className="flex w-full">
               <DropBox
@@ -372,6 +368,8 @@ export default function InfoForm({ data, setData, choose, error, setError }) {
                   onChange={(e) => handleChange(e, 'parent')}
                   required={true}
                   className="w-full"
+                  size="10"
+                  pattern="[0-9]{10}"
                 />
               </div>
             </div>

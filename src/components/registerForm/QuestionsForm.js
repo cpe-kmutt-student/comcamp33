@@ -2,8 +2,14 @@ import React, { useState } from "react";
 import TextArea from "@components/TextArea";
 import styles from "@styles/components/registerForm/QuestionsForm.module.css";
 import { AiFillCaretLeft, AiFillCaretRight } from "react-icons/ai";
+import { saveData } from "@src/utils/clientUtils";
+import ModalAsk from "@components/registerForm/ModalAsk";
+import Image from "next/image";
+import imageQ1 from "@public/formBg/question1.png";
+import imageQ2 from "@public/formBg/question2.png";
 
-export default function QuestionsForm({ data, setData, choose, prev }) {
+
+export default function QuestionsForm({ data, setData, choose, prev, setOpen, open }) {
 
   const handleChange = (e, type) => {
     setData({
@@ -11,16 +17,24 @@ export default function QuestionsForm({ data, setData, choose, prev }) {
       [type]: {
         ...data[type],
         [e.target.name]: e.target.value,
-      }
+      },
     });
+    console.log(data);
+    setOpen(true);
+  };
 
-    console.log(data)
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    saveData({
+      ...data,
+    });
+    console.log(data);
   };
 
   return (
     <>
       <div className={choose != 5 ? "hidden" : ""}>
-        <form>
+        <form onSubmit={handleSubmit}>
           <label className="flex justify-center">
             <h2 className="flex w-fit justify-center text-3xl font-bold text-white bg-[#9600FF] px-4 py-3 my-8 rounded-2xl">{`คำถาม`}</h2>
           </label>
@@ -38,8 +52,8 @@ export default function QuestionsForm({ data, setData, choose, prev }) {
               type="text"
               name="q1"
               placeholder="คำถามข้อที่ 1 :"
-              value={(data && data.answers) ? data.answers.q1 : ""}
-              onChange={(e) => handleChange(e, 'answers')}
+              value={data && data.answers ? data.answers.q1 : ""}
+              onChange={(e) => handleChange(e, "answers")}
               required={true}
             />
           </div>
@@ -60,8 +74,8 @@ export default function QuestionsForm({ data, setData, choose, prev }) {
               type="text"
               name="q2"
               placeholder="คำถามข้อที่ 2 :"
-              value={(data && data.answers) ? data.answers.q2 : ""}
-              onChange={(e) => handleChange(e, 'answers')}
+              value={data && data.answers ? data.answers.q2 : ""}
+              onChange={(e) => handleChange(e, "answers")}
               required={true}
             />
           </div>
@@ -97,10 +111,9 @@ export default function QuestionsForm({ data, setData, choose, prev }) {
               type="text"
               name="q3"
               placeholder="คำถามข้อที่ 3 :"
-              value={(data && data.answers) ? data.answers.q3 : ""}
-              onChange={(e) => handleChange(e, 'answers')}
+              value={data && data.answers ? data.answers.q3 : ""}
+              onChange={(e) => handleChange(e, "answers")}
               required={true}
-              
             />
           </div>
           <label className={styles.label}>
@@ -113,7 +126,10 @@ export default function QuestionsForm({ data, setData, choose, prev }) {
             หีบสมบัติขนาดใหญ่ 2 กล่อง ตรงกลางห้อง ประกอบไปด้วยหีบ A และ หีบ B 
             และมีข้อความดังรูป`}
               <br />
-              {/* //TODO: -------->ไว้ใส่รูป */}
+              <div className="flex">
+                <Image src={imageQ1} />
+                <Image src={imageQ2} />
+              </div>
               <br />
               {`ถ้าน้องรู้ว่าข้อความหน้ากล่องมีข้อความที่เป็นจริงเพียงแค่ข้อความเดียวเท่านั้น
             น้องจะเลือกเปิดหีบไหน เพราะอะไร อธิบายเหตุผลมาพอสังเขป`}
@@ -122,10 +138,9 @@ export default function QuestionsForm({ data, setData, choose, prev }) {
               type="text"
               name="q4"
               placeholder="คำถามข้อที่ 4 :"
-              value={(data && data.answers) ? data.answers.q4 : ""}
-              onChange={(e) => handleChange(e, 'answers')}
+              value={data && data.answers ? data.answers.q4 : ""}
+              onChange={(e) => handleChange(e, "answers")}
               required={true}
-              
             />
           </div>
           <label className={styles.label}>
@@ -143,9 +158,9 @@ export default function QuestionsForm({ data, setData, choose, prev }) {
               type="text"
               name="q5"
               placeholder="คำถามข้อที่ 5 :"
-              value={(data && data.answers) ? data.answers.q5 : ""}
-              onChange={(e) => handleChange(e, 'answers')}
-              required={true} 
+              value={data && data.answers ? data.answers.q5 : ""}
+              onChange={(e) => handleChange(e, "answers")}
+              required={true}
             />
           </div>
           <label className={styles.label}>
@@ -162,10 +177,9 @@ export default function QuestionsForm({ data, setData, choose, prev }) {
               type="text"
               name="q6"
               placeholder="คำถามข้อที่ 6 :"
-              value={(data && data.answers) ? data.answers.q6 : ""}
-              onChange={(e) => handleChange(e, 'answers')}
+              value={data && data.answers ? data.answers.q6 : ""}
+              onChange={(e) => handleChange(e, "answers")}
               required={true}
-              
             />
           </div>
           <label className={styles.label}>
@@ -184,10 +198,9 @@ export default function QuestionsForm({ data, setData, choose, prev }) {
               type="text"
               name="q7"
               placeholder="คำถามข้อที่ 7 :"
-              value={(data && data.answers) ? data.answers.q7 : ""}
-              onChange={(e) => handleChange(e, 'answers')}
+              value={data && data.answers ? data.answers.q7 : ""}
+              onChange={(e) => handleChange(e, "answers")}
               required={true}
-              
             />
           </div>
           <label className={styles.label}>
@@ -206,37 +219,26 @@ export default function QuestionsForm({ data, setData, choose, prev }) {
               type="text"
               name="q8"
               placeholder="คำถามข้อที่ 8 :"
-              value={(data && data.answers) ? data.answers.q8 : ""}
-              onChange={(e) => handleChange(e, 'answers')}
+              value={data && data.answers ? data.answers.q8 : ""}
+              onChange={(e) => handleChange(e, "answers")}
               required={true}
               className="h-36 rounded-xl text-gray-400 border-2 border-white px-2 py-1 rounded-0 outline-none bg-transparent focus:bg-white"
             />
-          </div><div className="flex justify-between my-5 z-20">
-          <button onClick={prev}>
-            <AiFillCaretLeft
-              size="4.5rem"
-              color="rgb(236,72,153)"
-              style={{
-                display: [1, 2].includes(choose) ? "none" : "block",
-              }}
-            />
-          </button>
-          <button
-            onClick={[5].includes(choose) ? "next" : "next"}
-            type="submit"
-          >
-            <AiFillCaretRight
-              size="4.5rem"
-              color={[5].includes(choose) ? "#00FF00" : "rgb(236,72,153)"}
-              style={{ display: [5].includes(choose) ? "none" : "block" }}
-            />
-            <div
-              className="z-40"
-              style={{ display: [5].includes(choose) ? "block" : "none" }}
-            >
-            </div>
-          </button>
-        </div>
+          </div>
+          <div className="flex items-center justify-between my-5 z-20">
+            <button type="button" onClick={prev}>
+              <AiFillCaretLeft
+                size="4.5rem"
+                color="rgb(236,72,153)"
+                style={{
+                  display: [1, 2].includes(choose) ? "none" : "block",
+                }}
+              />
+            </button>
+            <button type="submit">
+              <ModalAsk open={open} setOpen={setOpen} data={data} />
+            </button>
+          </div>
         </form>
       </div>
     </>

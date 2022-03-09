@@ -6,32 +6,11 @@ import TextArea from "@components/TextArea";
 import CheckBox from "@components/CheckBox";
 import styles from "@styles/components/registerForm/InterestForm.module.css";
 import { AiFillCaretLeft, AiFillCaretRight } from "react-icons/ai";
+import { saveData } from "@src/utils/clientUtils";
 
 import trueAndFalse from "@components/registerForm/DropBoxData/trueAndFalse.json";
 
 export default function InterestForm({ data, setData, choose, prev, next }) {
-  // const [data, setData] = useState({
-  //   admission: [
-  //     {
-  //       faculty: "",
-  //       department: "",
-  //       university: "",
-  //     },
-  //     {
-  //       faculty: "",
-  //       department: "",
-  //       university: "",
-  //     },
-  //     {
-  //       faculty: "",
-  //       department: "",
-  //       university: "",
-  //     },
-  //   ],
-  //   plan: [false, false, false, false],
-  //   camp: "",
-  // });
-
 
   const handleChangeAdmission = (e) => {
     let name = e.target.name;
@@ -78,10 +57,19 @@ export default function InterestForm({ data, setData, choose, prev, next }) {
     console.log(data)
   }
 
+  const handleSubmit = (e) => {
+    next();
+    e.preventDefault();
+    saveData({
+      ...data, 
+    });
+    console.log(data);
+  };
+
   return (
     <>
       <div className={choose != 4 ? "hidden" : ""}>
-        <form>
+        <form onSubmit={handleSubmit}>
           <div className="flex justify-center">
             <h1 className="flex w-fit justify-center text-3xl font-bold text-white bg-[#9600FF] px-4 py-3 my-8 rounded-2xl">
               ความสนใจ
@@ -415,7 +403,7 @@ export default function InterestForm({ data, setData, choose, prev, next }) {
             />
           </div>
           <div className="flex justify-between my-5 z-20">
-          <button onClick={prev}>
+          <button type="button" onClick={prev}>
             <AiFillCaretLeft
               size="4.5rem"
               color="rgb(236,72,153)"
@@ -425,12 +413,11 @@ export default function InterestForm({ data, setData, choose, prev, next }) {
             />
           </button>
           <button
-            onClick={[5].includes(choose) ? next : next}
             type="submit"
           >
             <AiFillCaretRight
               size="4.5rem"
-              color={[5].includes(choose) ? "#00FF00" : "rgb(236,72,153)"}
+              color={"rgb(236,72,153)"}
               style={{ display: [5].includes(choose) ? "none" : "block" }}
             />
             <div

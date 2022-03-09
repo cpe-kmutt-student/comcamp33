@@ -3,6 +3,7 @@ import Input from "@components/Input";
 import DropBox from "@components/DropBox";
 import styles from "@styles/components/registerForm/EducationForm.module.css";
 import { AiFillCaretLeft, AiFillCaretRight } from "react-icons/ai";
+import { saveData } from "@src/utils/clientUtils";
 
 import level from "@components/registerForm/DropBoxData/level.json";
 import education from "@components/registerForm/DropBoxData/education.json";
@@ -19,7 +20,11 @@ export default function EducationForm({ data, setData, choose, prev, next }) {
   };
 
   const handleSubmit = (e) => {
+    next();
     e.preventDefault();
+    saveData({
+      ...data,
+    });
     console.log(data);
   };
 
@@ -31,14 +36,14 @@ export default function EducationForm({ data, setData, choose, prev, next }) {
             ประวัติการศึกษา
           </h1>
         </div>
-        <form onSubmit={()=>{handleSubmit}}>
+        <form onSubmit={handleSubmit}>
           <label className="text-white mb-2">{`ชื่อสถานศึกษา`}</label>
           <div>
             <Input
               type="text"
               name="name"
               placeholder="Name"
-              value={(data && data.education) ? data.education.name : ""}
+              value={data && data.education ? data.education.name : ""}
               onChange={(e) => handleChange(e, "education")}
               required={true}
               className="w-full"
@@ -52,7 +57,7 @@ export default function EducationForm({ data, setData, choose, prev, next }) {
                 type="text"
                 name="province"
                 placeholder="Province"
-                value={(data && data.education) ? data.education.province : ""}
+                value={data && data.education ? data.education.province : ""}
                 onChange={(e) => handleChange(e, "education")}
                 required={true}
                 className="w-full"
@@ -66,7 +71,7 @@ export default function EducationForm({ data, setData, choose, prev, next }) {
                 onChange={(e) => handleChange(e, "education")}
                 required={true}
                 option={education}
-                value={(data && data.education) ? data.education.program : ""}
+                value={data && data.education ? data.education.program : ""}
                 className="w-full"
               />
             </div>
@@ -78,7 +83,7 @@ export default function EducationForm({ data, setData, choose, prev, next }) {
                 onChange={(e) => handleChange(e, "education")}
                 required={true}
                 option={level}
-                value={(data && data.education) ? data.education.level : ""}
+                value={data && data.education ? data.education.level : ""}
                 className="w-full"
               />
             </div>
@@ -86,43 +91,34 @@ export default function EducationForm({ data, setData, choose, prev, next }) {
               <label className="text-white mb-2">{`เกรดเฉลี่ย`}</label>
               <Input
                 type="number"
+                step="0.01"
                 name="gpax"
                 placeholder="GPAX"
-                value={(data && data.education) ? data.education.gpax : ""}
+                value={data && data.education ? data.education.gpax : ""}
                 onChange={(e) => handleChange(e, "education")}
                 required={true}
                 className="w-full"
-                min="1"
-                max="4"
+                min="1.00"
+                max="4.00"
               />
             </div>
           </div>
           <div className="flex justify-between my-5 z-20">
-          <button onClick={prev}>
-            <AiFillCaretLeft
-              size="4.5rem"
-              color="rgb(236,72,153)"
-              style={{
-                display: [1, 2].includes(choose) ? "none" : "block",
-              }}
-            />
-          </button>
-          <button
-            onClick={[5].includes(choose) ? next : next}
-            type="submit"
-          >
-            <AiFillCaretRight
-              size="4.5rem"
-              color={[5].includes(choose) ? "#00FF00" : "rgb(236,72,153)"}
-              style={{ display: [5].includes(choose) ? "none" : "block" }}
-            />
-            <div
-              className="z-40"
-              style={{ display: [5].includes(choose) ? "block" : "none" }}
-            >
-            </div>
-          </button>
-        </div>
+            <button type="button" onClick={prev}>
+              <AiFillCaretLeft
+                size="4.5rem"
+                color="rgb(236,72,153)"
+              />
+            </button>
+
+            <button type="submit">
+              <AiFillCaretRight
+                size="4.5rem"
+                color={"rgb(236,72,153)"}
+                style={{ display: [5].includes(choose) ? "none" : "block" }}
+              />
+            </button>
+          </div>
         </form>
       </div>
     </>

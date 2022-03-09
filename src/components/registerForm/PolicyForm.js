@@ -9,7 +9,6 @@ export default function PolicyForm({ data, setData, setState, choose, error }) {
     box2: false,
   });
 
-  //TODO: Check if the user check 2 boxes
   useEffect(() => {
     const isVerify = value.box1 === true && value.box2 === true
     setData({ ...data, verify: isVerify })

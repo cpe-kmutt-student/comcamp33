@@ -16,13 +16,13 @@ export default function thankyou() {
             quality={100}
           />
         </div>
-        <div className="flex p-5 top-0 justify-center items-center w-screen text-center text-[4rem] text-white z-10">
+        <div className="flex p-5 top-0 font-pixel justify-center items-center w-screen text-center text-[4rem] text-white z-10">
           <h className="text-center">
             Thank you <br /> for registration
           </h>
         </div>
         <Link href="/home">
-          <button className="flex p-5 w-fit rounded-md bg-[#842988] text-lg hover:bg-[#9600ff] text-white ease-in-out duration-[400ms] hover:-translate-y-2 hover:scale-[1.1] z-10">
+          <button className="flex font-pixel p-5 w-fit rounded-md bg-[#842988] text-lg hover:bg-[#9600ff] text-white ease-in-out duration-[400ms] hover:-translate-y-2 hover:scale-[1.1] z-10">
             Back to home
           </button>
         </Link>
