@@ -1,5 +1,5 @@
 import Header from "@components/Header";
-import { About, Condition, Contact, Faqs, First, Learning, Navigation, Timeline } from "@components/homepage";
+import { About, Condition, Contact, Faqs, First, Footer, Learning, Navigation, Timeline } from "@components/homepage";
 import { StarParticle } from "@components/homepage/StarParticle";
 import Aos from 'aos';
 import 'aos/dist/aos.css';
@@ -43,7 +43,7 @@ const Home = () => {
       <section className="bg-[#B61157] lg:h-[93vh] relative pb-8 lg:pb-0" id="contact">
         <Contact />
       </section>
-
+      <Footer />
     </div >
   );
 };
