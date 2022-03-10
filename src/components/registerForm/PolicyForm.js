@@ -35,10 +35,10 @@ export default function PolicyForm({ data, setData, setState, choose, error }) {
       <form>
         <div className="flex flex-col bg-[#9600FF] text-white rounded-xl mt-6 pl-[10%] pr-[10%] pt-[1rem]">
           <div className="flex justify-center content-center">
-            <h1 className="text-3xl">เอกสารประกอบการสมัคร</h1>
+            <h1 className="text-3xl mb-2">เอกสารประกอบการสมัคร</h1>
           </div>
           <div className="text-sm md:text-[1.2rem]">
-            <ul className="list-disc">
+            <ul className="list-disc leading-snug">
               <li>สำเนาบัตรประจำตัวประชาชน หรือ สำเนาบัตรนักเรียน</li>
               <li>
                 เอกสารรับรองการเป็นนักเรียนของสถานศึกษา หรือ
@@ -75,9 +75,9 @@ export default function PolicyForm({ data, setData, setState, choose, error }) {
 
         <div className="flex flex-col bg-[#DD517E] text-white rounded-xl mt-6 pl-[10%] pr-[10%] pt-[1rem]">
           <div className="flex justify-center content-center">
-            <h1 className="text-3xl">นโยบายข้อมูลส่วนบุคคล</h1>
+            <h1 className="text-3xl mb-2">นโยบายข้อมูลส่วนบุคคล</h1>
           </div>
-          <div className="overflow-auto max-h-[16rem] bg-white text-black pt-[1rem] pr-[2rem] pl-[2rem] text-[0.9rem] md:text-[1.2rem]">
+          <div className="overflow-auto max-h-[16rem] bg-white text-black pt-[1rem] pr-[2rem] pl-[2rem] text-[0.9rem] md:text-[1.2rem] ">
             <ol className={styles.orderList}>
               <li className={styles.listItem}>
                 ข้อมูลสำคัญเกี่ยวกับโครงการ
