@@ -8,7 +8,7 @@ import prefix_en from "@components/registerForm/DropBoxData/prefix_en.json";
 import prefix_th from "@components/registerForm/DropBoxData/prefix_th.json";
 import shirt_size from "@components/registerForm/DropBoxData/shirt_size.json";
 
-export default function InfoForm({ data, setData, choose, next }) {
+export default function InfoForm({ data, setData, choose, next, prev }) {
   const handleChange = (e, type) => {
     setData({
       ...data,
@@ -38,7 +38,8 @@ export default function InfoForm({ data, setData, choose, next }) {
         </div>
         <form onSubmit={handleSubmit} className="space-y-8">
           <div className="flex flex-wrap md:flex-nowrap flex-row items-end justify-between gap-10">
-            <div className="flex w-full">
+            <div className="flex flex-col">
+              <label className="text-white mb-2">*</label>
               <DropBox
                 placeholder="Prefix"
                 name="prefix_th"
@@ -49,7 +50,7 @@ export default function InfoForm({ data, setData, choose, next }) {
               />
             </div>
             <div className="flex flex-col w-full">
-                <label className="text-white mb-2">ชื่อ (ภาษาไทย)</label>
+                <label className="text-white mb-2">ชื่อ (ภาษาไทย) * </label>
                 <Input
                   type="text"
                   name="name_th"
@@ -60,7 +61,7 @@ export default function InfoForm({ data, setData, choose, next }) {
                 />
             </div>
             <div className="flex flex-col w-full">
-              <label className="text-white mb-2">นามสกุล (ภาษาไทย)</label>
+              <label className="text-white mb-2">นามสกุล (ภาษาไทย) * </label>
               <Input
                 type="text"
                 name="surname_th"
@@ -68,12 +69,11 @@ export default function InfoForm({ data, setData, choose, next }) {
                 value={(data && data.info) ? data.info.surname_th : ''}
                 onChange={(e) => handleChange(e, 'info')}
                 required={true}
-                className="w-full"
+                // className="w-full"
               />
             </div>
             <div className="flex flex-col w-full">
-              <label className="text-white mb-2">ชื่อเล่น (ภาษาไทย)</label>
-              <div>
+              <label className="text-white mb-2">ชื่อเล่น (ภาษาไทย) * </label>
                 <Input
                   type="text"
                   name="nickname_th"
@@ -81,14 +81,14 @@ export default function InfoForm({ data, setData, choose, next }) {
                   value={(data && data.info) ? data.info.nickname_th : ''}
                   onChange={(e) => handleChange(e, 'info')}
                   required={true}
-                  className="w-full"
+                  // className="w-full"
                 />
-              </div>
             </div>
           </div>
 
           <div className="flex flex-wrap md:flex-nowrap flex-row items-end justify-between gap-10">
-            <div className="flex w-full">
+            <div className="flex flex-col">
+            <label className="text-white mb-2">*</label>
               <DropBox
                 placeholder="Name prefix"
                 name="prefix_en"
@@ -96,11 +96,10 @@ export default function InfoForm({ data, setData, choose, next }) {
                 required={true}
                 option={prefix_en}
                 value={(data && data.info) ? data.info.prefix_en : ''}
-                className="w-full"
               />
             </div>
             <div className="flex flex-col w-full">
-              <label className="text-white mb-2">Firstname</label>
+              <label className="text-white mb-2">Firstname * </label>
               <Input
                 type="text"
                 name="name_en"
@@ -112,7 +111,7 @@ export default function InfoForm({ data, setData, choose, next }) {
               />
             </div>
             <div className="flex flex-col w-full">
-              <label className="text-white mb-2">Lastname</label>
+              <label className="text-white mb-2">Lastname * </label>
               <Input
                 type="text"
                 name="surname_en"
@@ -126,7 +125,7 @@ export default function InfoForm({ data, setData, choose, next }) {
             <div className="flex flex-col w-full">
               <label className="text-white mb-2">
                 เดือน / วัน / ปี (ค.ศ.) เกิด
-              </label>
+               * </label>
               <Input
                 type="date"
                 name="birthdate"
@@ -145,7 +144,7 @@ export default function InfoForm({ data, setData, choose, next }) {
                 <div className="flex flex-col">
                   <label className="text-white mb-2">
                     เบอร์โทรศัพท์ส่วนตัว
-                  </label>
+                   * </label>
                   <Input
                     type="tel"
                     name="tel"
@@ -159,7 +158,7 @@ export default function InfoForm({ data, setData, choose, next }) {
                   />
                 </div>
                 <div className="flex flex-col">
-                  <label className="text-white mb-2">ขนาดเสื้อ</label>
+                  <label className="text-white mb-2">ขนาดเสื้อ * </label>
                   <DropBox
                     placeholder="ระบุขนาดเสื้อ"
                     name="shirt"
@@ -179,7 +178,7 @@ export default function InfoForm({ data, setData, choose, next }) {
 
           <div className="flex flex-wrap md:flex-nowrap flex-row justify-between gap-10">
             <div className="flex flex-col w-full">
-              <label className="text-white mb-2">{`เลขที่บ้าน`}</label>
+              <label className="text-white mb-2">{`เลขที่บ้าน`} * </label>
               <div>
                 <Input
                   type="text"
@@ -193,7 +192,7 @@ export default function InfoForm({ data, setData, choose, next }) {
               </div>
             </div>
             <div className="flex flex-col w-full">
-              <label className="text-white mb-2">{`หมู่`}</label>
+              <label className="text-white mb-2">{`หมู่`} * </label>
               <div>
                 <Input
                   type="text"
@@ -207,7 +206,7 @@ export default function InfoForm({ data, setData, choose, next }) {
               </div>
             </div>
             <div className="flex flex-col w-full">
-              <label className="text-white mb-2">{`ซอย`}</label>
+              <label className="text-white mb-2">{`ซอย`} * </label>
               <div>
                 <Input
                   type="text"
@@ -221,7 +220,7 @@ export default function InfoForm({ data, setData, choose, next }) {
               </div>
             </div>
             <div className="flex flex-col w-full">
-              <label className="text-white mb-2">{`ถนน`}</label>
+              <label className="text-white mb-2">{`ถนน`} * </label>
               <div>
                 <Input
                   type="text"
@@ -238,7 +237,7 @@ export default function InfoForm({ data, setData, choose, next }) {
 
           <div className="flex flex-wrap md:flex-nowrap flex-row justify-between gap-10">
             <div className="flex flex-col w-full">
-              <label className="text-white mb-2">{`ตำบล/แขวง`}</label>
+              <label className="text-white mb-2">{`ตำบล/แขวง`} * </label>
               <div>
                 <Input
                   type="text"
@@ -252,7 +251,7 @@ export default function InfoForm({ data, setData, choose, next }) {
               </div>
             </div>
             <div className="flex flex-col w-full">
-              <label className="text-white mb-2">{`อำเภอ/เขต`}</label>
+              <label className="text-white mb-2">{`อำเภอ/เขต`} * </label>
               <div>
                 <Input
                   type="text"
@@ -266,7 +265,7 @@ export default function InfoForm({ data, setData, choose, next }) {
               </div>
             </div>
             <div className="flex flex-col w-full">
-              <label className="text-white mb-2">{`จังหวัด`}</label>
+              <label className="text-white mb-2">{`จังหวัด`} * </label>
               <div>
                 <Input
                   type="text"
@@ -280,7 +279,7 @@ export default function InfoForm({ data, setData, choose, next }) {
               </div>
             </div>
             <div className="flex flex-col w-full">
-              <label className="text-white mb-2">{`ไปรษณีย์`}</label>
+              <label className="text-white mb-2">{`ไปรษณีย์`} * </label>
               <div>
                 <Input
                   type="text"
@@ -312,7 +311,7 @@ export default function InfoForm({ data, setData, choose, next }) {
             </div>
             <div className="flex flex-col w-full">
               <div className="flex flex-col">
-                <label className="text-white mb-2">{`ชื่อจริงผู้ปกครอง`}</label>
+                <label className="text-white mb-2">{`ชื่อจริงผู้ปกครอง`} * </label>
                 <div>
                   <Input
                     type="text"
@@ -327,7 +326,7 @@ export default function InfoForm({ data, setData, choose, next }) {
               </div>
             </div>
             <div className="flex flex-col w-full">
-              <label className="text-white mb-2">{`นามสกุลผู้ปกครอง`}</label>
+              <label className="text-white mb-2">{`นามสกุลผู้ปกครอง`} * </label>
               <div>
                 <Input
                   type="text"
@@ -341,7 +340,7 @@ export default function InfoForm({ data, setData, choose, next }) {
               </div>
             </div>
             <div className="flex flex-col w-full">
-              <label className="text-white mb-2">{`ความสัมพันธ์`}</label>
+              <label className="text-white mb-2">{`ความสัมพันธ์`} * </label>
               <div>
                 <Input
                   type="text"
@@ -358,7 +357,7 @@ export default function InfoForm({ data, setData, choose, next }) {
 
           <div className="flex flex-wrap md:flex-nowrap flex-row items-end justify-between gap-10">
             <div className="flex flex-col w-full">
-              <label className="text-white mb-2">{`เบอร์โทรศัพท์ผู้ปกครอง`}</label>
+              <label className="text-white mb-2">{`เบอร์โทรศัพท์ผู้ปกครอง`} * </label>
               <div>
                 <Input
                   type="tel"
@@ -374,7 +373,7 @@ export default function InfoForm({ data, setData, choose, next }) {
               </div>
             </div>
             <div className="flex flex-col w-full">
-              <label className="text-white mb-2">{`อีเมลผู้ปกครอง`}</label>
+              <label className="text-white mb-2">{`อีเมลผู้ปกครอง`} * </label>
               <div>
                 <Input
                   type="email"
@@ -389,13 +388,16 @@ export default function InfoForm({ data, setData, choose, next }) {
             </div>
           </div>
           <div className="flex justify-between my-5 z-20">
-          <button>
+          <button type="button" onClick={(e)=>{
+            prev();
+            e.preventDefault();
+            saveData({
+              ...data, 
+            });
+          }}>
             <AiFillCaretLeft
               size="4.5rem"
               color="rgb(236,72,153)"
-              style={{
-                display: [1, 2].includes(choose) ? "none" : "block",
-              }}
             />
           </button>
           <button

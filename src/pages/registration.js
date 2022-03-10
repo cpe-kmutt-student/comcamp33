@@ -5,8 +5,6 @@ import InterestForm from "@components/registerForm/InterestForm";
 import QuestionsForm from "@components/registerForm/QuestionsForm";
 import PolicyForm from "@components/registerForm/PolicyForm";
 import ProgressBar from "@components/registerForm/ProgressBar";
-import ModalAsk from "@components/registerForm/ModalAsk";
-import { AiFillCaretLeft, AiFillCaretRight } from "react-icons/ai";
 import { loadData } from "@src/utils/clientUtils";
 import AutoSave from "@components/AutoSave";
 import Image from "next/image";
@@ -30,13 +28,13 @@ export default function RegistrationPage() {
   const router = useRouter();
 
   const nextForm = () => {
-    if ((chooseForm === 1 && checked) || (chooseForm > 1 && chooseForm < 6))
+    if (chooseForm >= 1 && chooseForm < 6)
       setChooseForm(chooseForm + 1);
     else setError(true);
   };
 
   const prevForm = () => {
-    if (chooseForm > 2) {
+    if (chooseForm > 1) {
       setChooseForm(chooseForm - 1);
     }
   };
@@ -51,11 +49,11 @@ export default function RegistrationPage() {
   }, []);
 
   // {data && data.verify == true ? setChooseForm(2) : ""}
-  useEffect(() => {
-    if (data && data.verify == true) {
-      setChooseForm(2);
-    }
-  }, [data.verify]);
+  // useEffect(() => {
+  //   if (data && data.verify == true) {
+  //     setChooseForm(2);
+  //   }
+  // }, [data.verify]);
 
   useEffect(() => {
     if (data.complete == true) {
@@ -107,12 +105,14 @@ export default function RegistrationPage() {
           setState={setChecked}
           error={error}
           setData={setData}
+          next={nextForm}
         />
         <InfoForm
           data={data}
           setData={setData}
           choose={chooseForm}
           next={nextForm}
+          prev={prevForm}
         />
         <EducationForm
           data={data}
