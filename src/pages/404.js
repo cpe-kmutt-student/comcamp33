@@ -12,8 +12,9 @@ const Notfound = () => {
         quality={100}
       />
     </div>
-    <div className="flex p-5 top-0 font-pixel justify-center items-center w-screen text-center text-lg  md:text-[4rem] text-white z-10">
-      <div>404 Not Found</div>
+    <div className="flex flex-col leading-none p-5 top-0 font-pixel justify-center items-center w-screen text-centerleading-none text-white z-10">
+      <span className="text-[3rem]">404</span>
+      <span className="text-[1.75rem]">NOT FOUND</span>
     </div>
    
   </div>

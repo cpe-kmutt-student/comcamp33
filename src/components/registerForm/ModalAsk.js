@@ -9,7 +9,7 @@ export default function ModalAsk({ data, open, setOpen }) {
   return (
     <>
       <button
-        className="flex bg-gradient-to-b from-green-500/95 to-[#9600FF]/95 right-3 font-pixel text-md text-white px-3 py-1 rounded border-2 border-[#B3E7F8] hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+        className="flex bg-gradient-to-b from-[#F054F3]/90 to-[#9600FF]/90 right-3 font-pixel text-md text-white px-3 py-1 rounded border-2 border-[#B3E7F8] hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
         type="button"
         onClick={() => setShowModal(open)}
       >

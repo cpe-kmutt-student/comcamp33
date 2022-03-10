@@ -54,7 +54,7 @@ export const Navigation = () => {
   return (
     <nav className="w-full sticky top-0 z-[100] bg-bg-primary h-[8vh] pt-1">
       <div
-        className={`lg:bg-transparent h-full items-center flex flex-wrap lg:justify-center mx-auto relative lg:space-x-5 justify-between  ${
+        className={`2xl:bg-transparent h-full items-center flex flex-wrap 2xl:justify-center mx-auto relative 2xl:space-x-5 justify-between  ${
           isOpen ? "bg-bg-primary" : ""
         }`}
       >
@@ -77,7 +77,7 @@ export const Navigation = () => {
         <button
           data-collapse-toggle="mobile-menu"
           type="button"
-          className="inline-flex items-center px-4 ml-3 text-sm text-white rounded-lg lg:hidden mt-[-1.5vh]"
+          className="inline-flex items-center px-4 ml-3 text-sm text-white rounded-lg 2xl:hidden mt-[-1.5vh]"
           aria-controls="mobile-menu-2"
           aria-expanded="false"
           onClick={(e) => {
@@ -88,25 +88,25 @@ export const Navigation = () => {
           <HamburgerIcon state={isOpen} />
         </button>
         <div
-          className={`w-full lg:block lg:w-auto mt-[-1.5vh] ${
+          className={`w-full 2xl:block 2xl:w-auto mt-[-1.5vh] ${
             isOpen ? "" : "hidden"
           }`}
           id="mobile-menu"
         >
-          <ul className="flex flex-col w-full h-10 lg:flex-row lg:space-x-6 lg:text-xl lg:font-medium lg:mt-[-1.5vh] ">
+          <ul className="flex flex-col w-full h-10 2xl:flex-row 2xl:space-x-6 2xl:text-xl 2xl:font-medium 2xl:mt-[-1.5vh] ">
             {links.map((link, index) => (
               <li key={link}>
                 <Smooth
                   to={`${link}`}
                   smooth={true}
                   duration={1500}
-                  className="flex justify-center relative text-lg cursor-pointer lg:mt-3 py-3 text-center w-[100%] bg-bg-primary/80 lg:bg-transparent lg:p-0 text-white font-pixel lg:hover:text-text-highlight text-shadow hover:bg-[#11033E]/60 transition-all duration-200 ease-linear"
+                  className="flex justify-center relative text-lg cursor-pointer 2xl:mt-3 py-3 text-center w-[100%] bg-bg-primary/90 2xl:bg-transparent 2xl:p-0 text-white font-pixel 2xl:hover:text-text-highlight text-shadow hover:bg-[#11033E] transition-all duration-200 ease-linear"
                   onClick={() => {
                     setIsOpen(!isOpen);
                   }}
                 >
                   {index != 5 && (
-                    <div className="w-[90%] h-full position absolute bottom-0 mb-[-2.5vh] lg:hidden ">
+                    <div className="w-[90%] h-full position absolute bottom-0 mb-[-2.5vh] 2xl:hidden ">
                       <Image
                         src="/assets/separator.svg"
                         layout="fill"
@@ -126,33 +126,56 @@ export const Navigation = () => {
                 setIsOpen(!isOpen);
               }}
             >
-              <li className="block lg:mt-3 py-3 text-center w-[100%] bg-[#B61157] hover:bg-[#ff2480] lg:hidden text-white font-pixel lg:hover:text-text-highlight text-lg cursor-pointer text-shadow transition-all duration-200 ease-linear">
-                Registration
+              <li className="block 2xl:mt-3 py-3 text-center w-[100%] bg-gradient-to-b from-[#F054F3] to-[#9600FF] hover:bg-[#ff2480] 2xl:hidden text-white font-pixel 2xl:hover:text-text-highlight text-lg cursor-pointer text-shadow transition-all duration-200 ease-linear">
+                <button
+                  type="button"
+                  onClick={() => {
+                    if (session) {
+                      router.push('/registration')
+                    } else {
+                      signIn('facebook');
+                    } 
+                  }}
+                >
+                  Registration
+                </button>
               </li>
             </Link>
+
+            {session && (
+              <li className="block 2xl:mt-3 py-3 text-center w-[100%] bg-gradient-to-b from-[#dd517e] to-[#E5155E] hover:bg-[#ff2480] 2xl:hidden text-white font-pixel 2xl:hover:text-text-highlight text-lg cursor-pointer text-shadow transition-all duration-200 ease-linear">
+                  <button
+                    type="button"
+                    onClick={async () => {
+                      await signOut({ redirect: false });
+                      router.push('/home');
+                    }}
+                  >
+                    Sign out
+                  </button>
+                </li>
+            )}
           </ul>
         </div>
       </div>
 
       <div className="flex flex-row absolute top-0 right-0 space-x-4">
-        <button className="relative top-0 bg-gradient-to-b from-[#F054F3]/90 to-[#9600FF]/90 right-3 font-pixel text-xl text-white px-3 py-1 rounded mt-[2vh] hidden lg:block border-2 border-[#B3E7F8] hover:shadow-[0_0px_15px_-2px_rgba(150,0,255,1)] hover:shadow-[#9600FF] transition-all duration-100 ease-linear">
-          <button
-            type="button"
-            onClick={() => {
-              if (session) {
-                router.push('/registration')
-              } else {
-                signIn('facebook');
-              } 
-            }}
-          >
-            Registration
-          </button>
+        <button
+          className="relative top-0 bg-gradient-to-b from-[#F054F3]/90 to-[#9600FF]/90 right-3 font-pixel text-xl text-white px-3 py-1 rounded mt-[2vh] hidden 2xl:block border-2 border-[#B3E7F8] hover:shadow-[0_0px_15px_-2px_rgba(150,0,255,1)] hover:shadow-[#9600FF] transition-all duration-100 ease-linear"
+          onClick={() => {
+            if (session) {
+              router.push('/registration')
+            } else {
+              signIn('facebook');
+            } 
+          }}
+        >
+          Registration
         </button>
 
         {session && (
           <button
-            className="relative top-0 bg-gradient-to-b from-[#dd517e]/90 to-[#E5155E]/90 right-3 font-pixel text-xl text-white px-3 py-1 rounded mt-[2vh] hidden lg:block border-2 border-[#B3E7F8] hover:shadow-[0_0px_15px_-2px_rgba(150,0,255,1)] hover:shadow-[#7a374e] transition-all duration-100 ease-linear"
+            className="relative top-0 bg-gradient-to-b from-[#dd517e]/90 to-[#E5155E]/90 right-3 font-pixel text-xl text-white px-3 py-1 rounded mt-[2vh] hidden 2xl:block border-2 border-[#B3E7F8] hover:shadow-[0_0px_15px_-2px_rgba(150,0,255,1)] hover:shadow-[#7a374e] transition-all duration-100 ease-linear"
             onClick={async () => {
               await signOut({ redirect: false });
               router.push('/home');

@@ -125,7 +125,7 @@ export default function InfoForm({ data, setData, choose, next }) {
             </div>
             <div className="flex flex-col w-full">
               <label className="text-white mb-2">
-                วัน - เดือด - ปีศักราชที่เกิด
+                เดือน / วัน / ปี (ค.ศ.) เกิด
               </label>
               <Input
                 type="date"
