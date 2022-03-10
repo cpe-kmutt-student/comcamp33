@@ -23,14 +23,14 @@ const Faqs = () => {
           <div className="w-full px-4 mx-auto lg:container">
             {Data.map((item, index) => {
             return (
-              <Fragment key={index} className="z-10">
-                <div className=" flex flex-row justify-between text-sm sm:text-xl lg:text-2xl xl:text-4xl  cursor-pointer bg-transparent hover:bg-pink-600/50 text-white transition-all duration-300 ease-linear border-white/50 border-b-2" onClick={() => toggle(index)} key={index}>
+              <Fragment key={index}>
+                <div className="z-10 flex flex-row justify-between text-sm sm:text-xl lg:text-2xl xl:text-4xl  cursor-pointer bg-transparent hover:bg-pink-600/50 text-white transition-all duration-300 ease-linear border-white/50 border-b-2" onClick={() => toggle(index)} key={index}>
                   <div data-aos="fade-up" className=" py-3 px-2 sm:p-5 lg:p-6" >{item.question}</div>
                   <span className="flex items-center px-3 sm:p-5 lg:p-6">{clicked === index ? <FiMinus /> : <FiPlus />}</span>
                 </div>
                 {clicked === index ? (
                   
-                    <div className="px-2 py-3 text-sm sm:text-xl sm:px-5 sm:py-4 lg:p-6 lg:text-2xl xl:text-4xl  text-[#840D4F] bg-white/90 hover:bg-white transition-all duration-300 ease-linear cursor-default">{item.answer}</div>
+                    <div className="z-10 px-2 py-3 text-sm sm:text-xl sm:px-5 sm:py-4 lg:p-6 lg:text-2xl xl:text-4xl  text-[#840D4F] bg-white/90 hover:bg-white transition-all duration-300 ease-linear cursor-default">{item.answer}</div>
                 ) : null}
               </Fragment>
             )

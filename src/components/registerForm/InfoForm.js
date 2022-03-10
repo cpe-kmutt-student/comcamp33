@@ -125,7 +125,7 @@ export default function InfoForm({ data, setData, choose, next }) {
             </div>
             <div className="flex flex-col w-full">
               <label className="text-white mb-2">
-                วัน - เดือด - ปีศักราชที่เกิด
+                เดือน / วัน / ปี (ค.ศ.) เกิด
               </label>
               <Input
                 type="date"
@@ -238,12 +238,12 @@ export default function InfoForm({ data, setData, choose, next }) {
 
           <div className="flex flex-wrap md:flex-nowrap flex-row justify-between gap-10">
             <div className="flex flex-col w-full">
-              <label className="text-white mb-2">{`ตำบล`}</label>
+              <label className="text-white mb-2">{`ตำบล/แขวง`}</label>
               <div>
                 <Input
                   type="text"
                   name="tambol"
-                  placeholder="ตำบล"
+                  placeholder="ตำบล/แขวง"
                   value={(data && data.address) ? data.address.tambol : ''}
                   onChange={(e) => handleChange(e, 'address')}
                   required={true}
@@ -252,12 +252,12 @@ export default function InfoForm({ data, setData, choose, next }) {
               </div>
             </div>
             <div className="flex flex-col w-full">
-              <label className="text-white mb-2">{`อำเภอ`}</label>
+              <label className="text-white mb-2">{`อำเภอ/เขต`}</label>
               <div>
                 <Input
                   type="text"
                   name="amphoe"
-                  placeholder="อำเภอ"
+                  placeholder="อำเภอ/เขต"
                   value={(data && data.address) ? data.address.amphoe : ''}
                   onChange={(e) => handleChange(e, 'address')}
                   required={true}
