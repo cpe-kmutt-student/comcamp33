@@ -5,7 +5,6 @@ const Condition = () => {
   return (
 
     <div className="container mx-auto ">
-
       <section data-aos="fade-down" className="text-white py-4 sm:pt-10 md:pt-12 lg:py-10 flex justify-center text-center font-pixel text-4xl sm:text-5xl md:text-5xl lg:text-6xl">
         Condition
 
@@ -75,9 +74,9 @@ const Condition = () => {
           </div>
          
         </div>
-
+        </div>
       </div>
-    </div>
+    
   );
 };
 

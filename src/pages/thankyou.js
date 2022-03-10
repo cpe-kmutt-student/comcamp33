@@ -1,6 +1,7 @@
 import ThankYou_BG from "@public/formBg/ThankYou_BG.png";
 import Link from "next/link";
 import Image from "next/image";
+import { FaDownload } from "react-icons/fa";
 // import Header from "@components/Header";
 
 export default function thankyou() {
@@ -16,9 +17,9 @@ export default function thankyou() {
             quality={100}
           />
         </div>
-        <div className="flex p-5 top-0 font-pixel justify-center items-center w-screen text-center text-[4rem] text-white z-10">
+        <div className="flex p-5 top-0 font-pixel justify-center items-center w-screen text-center  md:text-[4rem] text-white z-10">
           <h className="text-center">
-            Thank you <br /> for registration
+            Thank you <br /> for registration <br/> <div className="font-sans py-4  md:text-2xl">อย่าลืมส่งใบขออนุญาตผู้ปกครองและเอกสารสำคัญมาที่มหาวิทยาลัยนะครับ <br/><div className="flex justify-center">ดาวน์โหลดเอกสารได้ที่ปุ่มนี้เลย&nbsp;<a className="cursor-pointer"><FaDownload/></a></div></div>
           </h>
         </div>
         <Link href="/home">
