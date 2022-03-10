@@ -77,6 +77,7 @@ const Condition = () => {
         </div>
 
       </div>
+
     </div>
   );
 };

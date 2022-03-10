@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
 const SubjectDetail = ({ name, highlight, detail }) => (
   <div className="sm:space-y-4 space-y-0">
@@ -13,8 +14,21 @@ const SubjectDetail = ({ name, highlight, detail }) => (
 )
 
 const Learning = () => {
+  const [offsetY, setOffsetY] = useState(0);
+  const handleScroll = () => setOffsetY(window.pageYOffset);
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    }
+  }, [])
   return (
+
     <div className="flex flex-col justify-start pt-[8vh] lg:pt-[15vh] items-center relative w-full h-full text-center md:px-10 lg:px-10 sm:space-y-10 lg:space-y-5 md:space-y-5 ">
+      <div data-aos="fade-up" className="absolute top-[-20px] left-0" style={{transform: `translate(-${(offsetY-910)*0.1}px, ${(offsetY-910)*0.2}px)`, }}>
+        <Image className="animate-float" src="/assets/cassette.png" width={480} height={270} />
+      </div>
       <h1 data-aos="fade-right" className="text-white font-pixel text-3xl sm:text-4xl md:text-6xl lg:text-6xl relative ">Learning</h1>
       <div data-aos="fade-up" className="h-[60%] w-full relative hidden lg:block  animate-float">
         <Image src="/assets/learning/pc_learning.svg"
