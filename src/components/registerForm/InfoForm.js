@@ -25,7 +25,6 @@ export default function InfoForm({ data, setData, choose, next }) {
     saveData({
       ...data, 
     });
-    console.log(data);
   };
   
   return (

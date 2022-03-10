@@ -25,7 +25,6 @@ export default function EducationForm({ data, setData, choose, prev, next }) {
     saveData({
       ...data,
     });
-    console.log(data);
   };
 
   return (

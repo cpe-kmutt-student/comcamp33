@@ -8,6 +8,7 @@
   @font-face {
     font-family: "upheavtt";
     src: url("/assets/fonts/upheavtt.ttf") format("truetype");
+    font-display: swap;
   }
 }
 

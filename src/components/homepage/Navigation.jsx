@@ -98,6 +98,7 @@ export const Navigation = () => {
               <li key={link}>
                 <Smooth
                   to={`${link}`}
+                  href={`#${link}`}
                   smooth={true}
                   duration={1500}
                   className="flex justify-center relative text-lg cursor-pointer 2xl:mt-3 py-3 text-center w-[100%] bg-bg-primary/90 2xl:bg-transparent 2xl:p-0 text-white font-pixel 2xl:hover:text-text-highlight text-shadow hover:bg-[#11033E] transition-all duration-200 ease-linear"

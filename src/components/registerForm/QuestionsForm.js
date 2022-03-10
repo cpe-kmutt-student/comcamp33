@@ -127,8 +127,8 @@ export default function QuestionsForm({ data, setData, choose, prev, setOpen, op
             และมีข้อความดังรูป`}
               <br />
               <div className="flex">
-                <Image src={imageQ1} />
-                <Image src={imageQ2} />
+                <Image src={imageQ1} alt="" />
+                <Image src={imageQ2} alt="" />
               </div>
               <br />
               {`ถ้าน้องรู้ว่าข้อความหน้ากล่องมีข้อความที่เป็นจริงเพียงแค่ข้อความเดียวเท่านั้น

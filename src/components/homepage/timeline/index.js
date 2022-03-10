@@ -12,7 +12,7 @@ const Timeline = () => {
       window.removeEventListener("scroll", handleScroll);
     }
   }, [])
-  console.log(offsetY)
+
   const currentDate = new Date()
   let period = 1
 

@@ -46,7 +46,7 @@ const Contact = () => {
               scrolling="no"
               frameBorder={0}
               title="ComCamp - Facebook Fanpage"
-              allowFullScreen="true"
+              allowFullScreen={true}
               allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
             />
           </div>
