@@ -32,6 +32,9 @@ const loadData = async (req, res, session) => {
       { projection: { _id: false } } 
     );
 
+  delete dataList.facebook;
+  delete dataList.update_timestamp;
+
   return res.status(200).json({
     success: true,
     message: dataList,
@@ -122,19 +125,6 @@ const saveData = async (req, res, session) => {
   const data = req.body;
   const copiedData = JSON.parse(JSON.stringify(data));
 
-  const isSubset = (superSet, subset) => {
-    return Object.keys(subset).every((element) => {
-      if (element === 'admission' && subset[element].length > superSet[element].length) {
-        return false;
-      }
-      if (typeof subset[element] === 'object') {
-        return isSubset(superSet[element], subset[element]);
-      }
-
-      subset[element] = '';
-      return superSet[element] === subset[element];
-    });
-  };
   const dateLate = new Date('3/29/2022 23:59:59').getTime();
   const dateNow = new Date().getTime();
 
@@ -163,7 +153,7 @@ const saveData = async (req, res, session) => {
       .collection("data")
       .insertOne(data);
 
-    console.log(`${session.user.email} save data ${new Date().toISOString()}`);
+    console.log(`[${getTimeStamp()} ${session.user.email} save initial data ${new Date().toISOString()}`);
 
     return res.status(201).json({
       success: true,
@@ -176,7 +166,7 @@ const saveData = async (req, res, session) => {
       .collection("data")
       .updateOne({ "facebook.email": session.user.email }, { $set: data });
     
-    console.log(`${session.user.email} save data ${new Date().toISOString()}`);
+    console.log(`[${getTimeStamp()}] ${session.user.email} save data`);
     
     return res.status(200).json({
       success: true,
@@ -184,6 +174,24 @@ const saveData = async (req, res, session) => {
       timestamp: new Date(),
     });
   }
+};
+
+const getTimeStamp = () => {
+  return new Date().toLocaleString('th-TH').replace(/(\d{2})-(\d{2})-(\d{4})/, '$2/$1/$3');
+};
+
+const isSubset = (superSet, subset) => {
+  return Object.keys(subset).every((element) => {
+    if (element === 'admission' && subset[element].length > superSet[element].length) {
+      return false;
+    }
+    if (typeof subset[element] === 'object') {
+      return isSubset(superSet[element], subset[element]);
+    }
+
+    subset[element] = '';
+    return superSet[element] === subset[element];
+  });
 };
 
 export default handler;

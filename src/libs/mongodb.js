@@ -26,6 +26,7 @@ if (process.env.NODE_ENV === 'development') {
   }
 
   mongoClientPromise = global._mongoClientPromise;
+  console.log('Initialized MongoDB successfully!');
 } else {
   client = new MongoClient(URI);
   mongoClientPromise = client.connect();
