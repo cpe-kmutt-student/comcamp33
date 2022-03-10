@@ -16,7 +16,7 @@ const Condition = () => {
             <Image src="/assets/condition/study.png"
               layout="fill"
               quality={100}
-
+              alt="education"
             />
           </div>
           <div data-aos="fade-up" className="flex justify-center text-sm md:text-xl">
@@ -35,7 +35,7 @@ const Condition = () => {
             <Image src="/assets/condition/com.png"
               layout="fill"
               quality={100}
-
+              alt="computer"
             />
 
           </div>
@@ -55,7 +55,7 @@ const Condition = () => {
             <Image src="/assets/condition/parent.png"
               layout="fill"
               quality={100}
-
+              alt="parent"
 
             />
           </div>

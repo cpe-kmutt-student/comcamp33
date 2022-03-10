@@ -45,6 +45,7 @@ const Contact = () => {
               style={{ border: "none", overflow: "hidden" }}
               scrolling="no"
               frameBorder={0}
+              title="ComCamp - Facebook Fanpage"
               allowFullScreen="true"
               allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
             />
@@ -55,6 +56,7 @@ const Contact = () => {
               height={440}
               src="https://www.instagram.com/p/CaRvnhkhs2v/embed"
               frameBorder={0}
+              title="ComCamp - Instagram Post"
             />
           </div>
         </div>
