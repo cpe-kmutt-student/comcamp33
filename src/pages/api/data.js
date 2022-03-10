@@ -73,9 +73,10 @@ const DATABASE_STRUCTURE = {
     tambol: "",
     amphoe: "",
     province: "",
-    postal: "",
+    postcode: "",
   },
   parent: {
+    prefix_th: "",
     name: "",
     surname: "",
     relation: "",

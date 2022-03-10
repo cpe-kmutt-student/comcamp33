@@ -148,8 +148,8 @@ export default function InterestForm({ data, setData, choose, prev, next }) {
               <label className="text-white mb-2">มหาวิทยาลัยลำดับที่สอง</label>
               <Input
                 type="text"
-                name="unsiversity"
-                placeholder="unsiversity"
+                name="university"
+                placeholder="university"
                 onChange={(e) => {
                   handleChangeAdmission(e);
                 }}
@@ -159,7 +159,7 @@ export default function InterestForm({ data, setData, choose, prev, next }) {
                   (data && data.interest &&
                     data.interest.admission &&
                     data.interest.admission[1] &&
-                    data.interest.admission[1].unsiversity) ||
+                    data.interest.admission[1].university) ||
                   ""
                 }
               />
