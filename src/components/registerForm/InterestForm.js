@@ -387,7 +387,7 @@ export default function InterestForm({ data, setData, choose, prev, next }) {
           </div>
           <br />
           <h2 className="text-white bg-[#DD517E] rounded-full justify-center w-fit p-2 pl-4 pr-4 text-lg">
-            ค่ายที่เคยเข้าร่วม * (หาไม่เคยเข้าค่ายโปรดระบุ "-" )
+            ค่ายที่เคยเข้าร่วม * (หาไม่เคยเข้าค่ายโปรดระบุ &quot;-&quot; )
           </h2>
           <div className="mt-2">
             <TextArea
