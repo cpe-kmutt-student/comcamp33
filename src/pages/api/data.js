@@ -240,7 +240,7 @@ const saveData = async (req, res, session) => {
     if (data.interest) {
       if (data.interest.plan) {
         if (!Array.isArray(data.interest.plan)
-          || (data.interest.plan.length != 4)
+          || (data.interest.plan.length > 4)
           || (data.interest.plan.some((data) => typeof data !== 'boolean'))
         ) {
           return res.status(400).json({

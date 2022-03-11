@@ -164,7 +164,7 @@ export const Navigation = () => {
 
       <div className="flex flex-row absolute top-0 right-0 space-x-4">
         <button
-          className="relative top-0 bg-gradient-to-b from-[#F054F3]/90 to-[#9600FF]/90 right-3 font-pixel text-xl text-white px-3 py-1 rounded mt-[2vh] hidden 2xl:block border-2 border-[#B3E7F8] hover:shadow-[0_0px_15px_-2px_rgba(150,0,255,1)] hover:shadow-[#9600FF] transition-all duration-100 ease-linear"
+          className="relative top-0 bg-gradient-to-b from-[#F054F3]/80 to-[#9600FF]/80 right-3 font-pixel text-xl text-white px-3 py-1 rounded mt-[2vh] hidden 2xl:block border-2 border-[#B3E7F8] hover:from-[#F054F3] hover:to-[#9600FF]/90 hover:shadow-[0_0px_15px_-2px_rgba(150,0,255,1)] hover:shadow-[#9600FF] transition-all duration-100 ease-linear"
           onClick={() => {
             if (session) {
               router.push("/registration");
@@ -173,7 +173,7 @@ export const Navigation = () => {
             }
           }}
         >
-          {!session && (<p>Login</p>)}
+          {!session && (<p className="px-3">Login</p>)}
           {session && ( <p>Registration</p> )}
         </button>
 

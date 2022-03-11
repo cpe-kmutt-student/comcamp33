@@ -43,7 +43,7 @@ export default function ModalAsk({ data, open, setOpen }) {
                 <div className="relative p-6 flex-auto">
                   <p className="my-4 text-center text-blueGray-500 text-lg leading-relaxed">
                     ยืนยันการสมัครใช่หรือไม่?
-                    <br />ปล.ไม่สามารถแก้ไขข้อมูลได้ภายหลังยืนยันข้อมูล
+                    <br /><span className="text-red-500">คำเตือน</span> ไม่สามารถแก้ไขข้อมูลได้ภายหลังยืนยันข้อมูล
                   </p>
                 </div>
                 {/*footer*/}

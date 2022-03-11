@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "@react-spring/parallax": "^9.4.3",
+    "antd": "4.18.9",
+    "antd-mask-input": "^0.1.15",
     "aos": "^2.3.4",
     "framer-motion": "^6.2.8",
     "mongodb": "^4.4.0",
