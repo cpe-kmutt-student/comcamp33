@@ -268,7 +268,7 @@ export default function PolicyForm({
           <button type="submit">
             <AiFillCaretRight
               size="4.5rem"
-              className="text-[rgb(236,72,153)] hover:text-[rgb(236,72,153)]"
+              className="text-[rgb(236,72,153)] hover:text-black"
             />
             <div
               className="z-40"

@@ -24,7 +24,7 @@ const Condition = () => {
               มีความสนใจในด้านคอมพิวเตอร์
               <div className="flex">
                 <p>โดย</p>
-                <div className="text-[#C54776]">ไม่จำเป็น</div>
+                <div className="text-[#FFD467]">ไม่จำเป็น</div>
                 <p>ต้องมีพื้นฐานมาก่อน</p>
               </div>
             </p>
@@ -43,9 +43,9 @@ const Condition = () => {
           <div data-aos="fade-up" className="flex justify-center text-sm md:text-xl">
             <p className="text-white py-6  text-center">
               กำลังศึกษาอยู่ในระดับชั้นมัธยมศึกษาตอนปลายปีที่ 4 และ 5
-              <span className="text-[#C54776]"> สายวิทย์-คณิต, วิทย์-คอม, ปวช. </span>
+              <span className="text-[#FFD467]"> สายวิทย์-คณิต, วิทย์-คอม, ปวช. </span>
               หรือน้องๆ TCAS 65 ที่ได้ทำการ
-              <span className="text-[#C54776]">ยืนยันสิทธิ์</span>
+              <span className="text-[#FFD467]">ยืนยันสิทธิ์</span>
               กับทาง CPE KMUTT เป็นที่เรียบร้อย
             </p>
           </div>
@@ -62,14 +62,14 @@ const Condition = () => {
           </div>
           <div data-aos="fade-up" className="flex justify-center text-center text-sm md:text-xl">
             <p className="text-white py-6">
-              <div className="flex">
+              <p>
                 ผู้ปกครอง
 
-                <p className="text-[#C54776]">
+                <span className="text-[#FFD467]">
                   อนุญาต
-                </p>
-                ให้นักเรียนคนดังกล่าว
-              </div>
+                </span>
+                ให้นักเรียน
+              </p>
               <p>เข้าร่วมกิจกรรม ตามระยะเวลาที่กำหนด</p>
             </p>
           </div>

@@ -131,19 +131,13 @@ export const Navigation = () => {
                                     } `109o`
                                 }}
                             >
-                                {!session && (
-
-                                    <p  className="tracking-widest">Facebook Login </p>
-
-                                )}
-
-                                {session && (<p className="tracking-wider">Register</p>)}
+                                 <p className="tracking-wider">Register</p>
 
                             </button>
                         </button>
                         {!session && (
 
-                            <p className="p-3 text-center text-white cursor-default">You have to sign up with your facebook account before register to our camp</p>
+                            <p className="p-3 text-center text-[#FFD467] cursor-default">You have to sign up with your facebook account before register to our camp</p>
 
                         )}
 
@@ -226,9 +220,9 @@ export const Navigation = () => {
                         >
                             {!session && (
                                 <div className="group">
-                                    <p >Facebook Login</p>
+                                    <p >Register</p>
                                     <div className="hidden group-hover:block  fixed right-0 rounded-lg  pt-16 top-0 min-w-fit text-black p-5 ">
-                                        <div className="py-2 px-6 rounded-lg bg-[#F054F3]/80 text-black w-[250px] text-[1rem] leading-5 border-dashed border-2">
+                                        <div className="py-2 px-6 rounded-lg bg-[#F054F3]/80 text-[#E3E7EE]tracking-widest  w-[250px] text-[1rem] leading-5 border-dashed border-2 border-[#E3E7EE]">
                                             you have to sign up with your facebook account before register to our camp
                                         </div>
 
