@@ -24,13 +24,15 @@ const Faqs = () => {
             {Data.map((item, index) => {
             return (
               <Fragment key={index}>
-                <div className="z-10 flex flex-row justify-between text-sm sm:text-xl lg:text-2xl cursor-pointer bg-transparent hover:bg-pink-600/50 text-white transition-all duration-300 ease-linear border-white/50 border-b-2" onClick={() => toggle(index)} key={index}>
-                  <div data-aos="fade-up" className=" py-3 px-2 sm:p-5 lg:p-6" >{item.question}</div>
-                  <span className="flex items-center px-3 sm:p-5 lg:p-6">{clicked === index ? <FiMinus /> : <FiPlus />}</span>
+                <div className="z-10 flex flex-row justify-between text-sm sm:text-xl lg:text-2xl cursor-pointer  text-white hover:bg-[#DD517E]/80 hover:rounded-t-md transition-all duration-300 ease-linear border-white/50 border-b-2" onClick={() => toggle(index)} key={index}>
+                  {/* data-aos="fade-up" */}
+
+                  {clicked === index ? <div  className="rounded-tl-md py-3 px-2 sm:p-5 lg:p-6 w-full bg-[#DD517E] transition-all duration-300 ease-linear" >{item.question}</div> : <div  className="py-3 px-2 sm:p-5 lg:p-6 w-full transition-all duration-300 ease-linear" >{item.question}</div> }
+                  {clicked === index ? <span className="flex items-center px-3 sm:p-6 lg:p-6 bg-[#DD517E] rounded-tr-md  transition-all duration-300 ease-linear"> <FiMinus  /></span> : <span className="flex items-center px-3 sm:p-6 lg:p-6 transition-all duration-300 ease-linear"> <FiPlus  /></span>}
                 </div>
                 {clicked === index ? (
                   
-                    <div className="z-10 px-2 py-3 text-sm sm:text-xl sm:px-5 sm:py-4 lg:p-6 lg:text-2xl text-[#840D4F] bg-white/90 hover:bg-white transition-all duration-300 ease-linear cursor-default">{item.answer}</div>
+                    <div className="z-10 px-2 py-3 text-sm sm:text-xl sm:px-5 sm:py-4 lg:p-6 lg:text-2xl text-[#DD517E] bg-white/90 rounded-b-md hover:bg-white transition-all duration-300 ease-linear cursor-default">{item.answer}</div>
                 ) : null}
               </Fragment>
             )
