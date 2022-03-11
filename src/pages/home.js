@@ -20,7 +20,7 @@ const Home = () => {
         <First />
       </section>
 
-      <section className="bg-[#11033E] h-[94vh]" id="about">
+      <section className="bg-[#11033E] h-[110vh]" id="about">
         <About />
       </section>
 
