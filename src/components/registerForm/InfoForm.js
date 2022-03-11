@@ -236,7 +236,11 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
 
           <div className="flex flex-wrap md:flex-nowrap flex-row justify-between gap-10">
             <div className="flex flex-col w-full">
+<<<<<<< HEAD
+              <label className="text-white mb-2">{`ตำบล/แขวง`}</label>
+=======
               <label className="text-white mb-2">{`ตำบล/แขวง`} * </label>
+>>>>>>> b981c78c13b84a0c608b8b130056a9c5e40bb2b9
               <div>
                 <Input
                   type="text"
@@ -250,7 +254,11 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
               </div>
             </div>
             <div className="flex flex-col w-full">
+<<<<<<< HEAD
+              <label className="text-white mb-2">{`อำเภอ/เขต`}</label>
+=======
               <label className="text-white mb-2">{`อำเภอ/เขต`} * </label>
+>>>>>>> b981c78c13b84a0c608b8b130056a9c5e40bb2b9
               <div>
                 <Input
                   type="text"

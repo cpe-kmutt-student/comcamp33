@@ -129,7 +129,12 @@ const saveData = async (req, res, session) => {
   const dateLate = new Date('3/29/2022 23:59:59').getTime();
   const dateNow = new Date().getTime();
 
-  if (dateNow > dateLate || !isSubset(DATABASE_STRUCTURE, copiedData)) {
+  const Iscomplete  = await database
+  .db("comcamp33")
+  .collection("data")
+  .findOne({ "facebook.email": session.user.email }, { projection: { complete: 1, _id: 0 }});
+
+  if (dateNow > dateLate || !isSubset(DATABASE_STRUCTURE, copiedData) || Iscomplete.complete) {
     return res.status(400).json({
       success: false,
       message: "Bad request",

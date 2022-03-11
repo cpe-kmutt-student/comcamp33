@@ -16,6 +16,7 @@ const Condition = () => {
               layout="fill"
               quality={100}
               alt="computer"
+              loading="lazy"
             />
           </div>
           <div data-aos="fade-up" className="flex justify-center text-center text-sm md:text-xl">
@@ -36,6 +37,7 @@ const Condition = () => {
               layout="fill"
               quality={100}
               alt="education"
+              loading="lazy"
             />
           </div>
           <div data-aos="fade-up" className="flex justify-center text-sm md:text-xl">
@@ -55,6 +57,7 @@ const Condition = () => {
               layout="fill"
               quality={100}
               alt="parent"
+              loading="lazy"
             />
           </div>
           <div data-aos="fade-up" className="flex justify-center text-center text-sm md:text-xl">
