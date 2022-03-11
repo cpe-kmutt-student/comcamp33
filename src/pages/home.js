@@ -10,7 +10,7 @@ const Home = () => {
     Aos.init({ duration: 1000 });
   }, []);
   return (
-    <div className="bg-bg-primary overflow-x-clip">
+    <div className="bg-bg-primary max-w-full overflow-x-clip overflow-x-hidden overflow-visible">
       <Header />
       <Navigation />
 

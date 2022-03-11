@@ -64,7 +64,7 @@ export default function EducationForm({ data, setData, choose, prev, next }) {
               />
             </div>
             <div className="flex flex-col w-full">
-              <label className="text-white mb-2">{`สาขาวิชา`} * </label>
+              <label className="text-white mb-2">{`แผนการเรียน`} * </label>
               <DropBox
                 name="program"
                 placeholder="Program"
