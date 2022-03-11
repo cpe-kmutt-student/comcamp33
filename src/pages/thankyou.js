@@ -22,10 +22,10 @@ export default function thankyou() {
             Thank you <br /> for registration <br/> <div className="font-sans py-4  md:text-2xl">อย่าลืมส่งใบขออนุญาตผู้ปกครองและเอกสารสำคัญมาที่มหาวิทยาลัยนะครับ <br/><div className="flex justify-center">ดาวน์โหลดเอกสารได้ที่ปุ่มนี้เลย&nbsp;<a className="cursor-pointer"><FaDownload/></a></div></div>
           </h>
         </div>
-        <Link href="/home">
-          <button className="flex font-pixel p-5 w-fit rounded-md bg-[#842988] text-lg hover:bg-[#9600ff] text-white ease-in-out duration-[400ms] hover:-translate-y-2 hover:scale-[1.1] z-10">
+        <Link href="/home" passHref>
+          <a className="flex font-pixel p-5 w-fit rounded-md bg-[#842988] text-lg hover:bg-[#9600ff] text-white ease-in-out duration-[400ms] hover:-translate-y-2 hover:scale-[1.1] z-10">
             Back to home
-          </button>
+          </a>
         </Link>
       </div>
     </>

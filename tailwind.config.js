@@ -52,7 +52,9 @@ module.exports = {
       'se': '321px',
       'sm': '640px',
       'md': '768px',
-      'lg': '1024px',
+      'lg': '1040px',
+      'xl': '1280px',
+      '2xl': '1536px'
     },
   },
   plugins: [],

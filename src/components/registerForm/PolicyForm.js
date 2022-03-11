@@ -2,17 +2,25 @@ import React, { useState, useEffect } from "react";
 import CheckBox from "@components/CheckBox";
 import styles from "@styles/register/PolicyForm.module.css";
 import Link from "next/link";
+import { AiFillCaretRight } from "react-icons/ai";
 
-export default function PolicyForm({ data, setData, setState, choose, error }) {
+export default function PolicyForm({
+  data,
+  setData,
+  setState,
+  choose,
+  error,
+  next,
+}) {
   const [value, setValue] = useState({
     box1: false,
     box2: false,
   });
 
-  useEffect(() => {
-    const isVerify = value.box1 === true && value.box2 === true
-    setData({ ...data, verify: isVerify })
-  }, [value]);
+  // useEffect(() => {
+  //   const isVerify = value.box1 === true && value.box2 === true;
+  //   setData({ ...data, verify: isVerify });
+  // }, [value]);
 
   const handleChange = (e) => {
     let checkValue = e.target.checked;
@@ -23,39 +31,40 @@ export default function PolicyForm({ data, setData, setState, choose, error }) {
     };
     setValue(currentStatus);
     setState(currentStatus.box1 && currentStatus.box2);
-    // console.log(data);
   };
 
   return (
-    <div
-      className={
-        choose != 1 && data?.verify == true ? "hidden" : ""
-      }
-    >
-      <form>
+    <div className={choose != 1 && data?.verify == true ? "hidden" : ""}>
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          next();
+          const isVerify = value.box1 === true && value.box2 === true;
+          setData({ ...data, verify: isVerify });
+        }}
+      >
         <div className="flex flex-col bg-[#9600FF] text-white rounded-xl mt-6 pl-[10%] pr-[10%] pt-[1rem]">
           <div className="flex justify-center content-center">
-            <h1 className="text-3xl">เอกสารประกอบการสมัคร</h1>
+            <h1 className="text-3xl mb-2">เอกสารประกอบการสมัคร</h1>
           </div>
           <div className="text-sm md:text-[1.2rem]">
-            <ul className="list-disc">
-              <li>สำเนาบัตรประจำตัวประชาชน หรือ สำเนาบัตรนักเรียน</li>
+            <ul className="list-disc leading-relaxed">
+              <li>
+                สำเนาบัตรประจำตัวประชาชน ( เฉพาะด้านหน้า ) หรือ
+                สำเนาบัตรนักเรียน
+              </li>
               <li>
                 เอกสารรับรองการเป็นนักเรียนของสถานศึกษา หรือ
                 เอกสารรับรองผลการศึกษา ( ปพ. 7 ) อย่างใดอย่างหนึ่ง
               </li>
               <li>
                 ระเบียนแสดงผลการศึกษาของระดับมัธยมศึกษาตอนปลาย ( ปพ. 1 ) หรือ
-                แบบรายงานประจำตัวนักเรียนภาคเรียนล่าสุด อย่างใดอย่างหนึ่ง (
-                อนุญาตให้ใช้สำเนาได้ )
+                แบบรายงานประจำตัวนักเรียนภาคเรียนล่าสุด ( ปพ. 6 )
+                อย่างใดอย่างหนึ่ง ( อนุญาตให้ใช้สำเนาได้ )
               </li>
               <li>เอกสารขออนุญาตผู้ปกครอง</li>
               <li>
                 สำเนาบัตรประจำตัวประชาชนของผู้ปกครองที่ให้การรับรองในเอกสารขออนุญาตผู้ปกครอง
-              </li>
-              <li>
-                ภาพถ่ายอิสระของผู้สมัครที่เห็นใบหน้าชัดเจน และมีขนาดไม่ต่ำกว่า 4
-                x 6 นิ้ว พร้อมเขียนระบุชื่อจริง นามสกุลของผู้สมัคร
               </li>
             </ul>
           </div>
@@ -66,18 +75,20 @@ export default function PolicyForm({ data, setData, setState, choose, error }) {
                 required={true}
                 onChange={handleChange}
                 name="box1"
-                checked={value.box1}
+                checked={data && data.verify || value.box1}
               />
               ข้าพเจ้าได้อ่านข้อมูลการสมัครทั้งหมดแล้ว
             </label>
           </div>
         </div>
 
-        <div className="flex flex-col bg-[#DD517E] text-white rounded-xl mt-6 pl-[10%] pr-[10%] pt-[1rem]">
+        <div className="flex flex-col bg-[#DD517E] text-white rounded-xl my-6 pl-[10%] pr-[10%] pt-[1rem]">
           <div className="flex justify-center content-center">
-            <h1 className="text-3xl">นโยบายข้อมูลส่วนบุคคล</h1>
+            <h1 className="text-3xl mb-2 leading-relaxed">
+              นโยบายข้อมูลส่วนบุคคล
+            </h1>
           </div>
-          <div className="overflow-auto max-h-[16rem] bg-white text-black pt-[1rem] pr-[2rem] pl-[2rem] text-[0.9rem] md:text-[1.2rem]">
+          <div className="overflow-auto max-h-[16rem] bg-white text-black pt-[1rem] pr-[2rem] pl-[2rem] text-[0.9rem] md:text-[1.2rem] ">
             <ol className={styles.orderList}>
               <li className={styles.listItem}>
                 ข้อมูลสำคัญเกี่ยวกับโครงการ
@@ -85,19 +96,25 @@ export default function PolicyForm({ data, setData, setState, choose, error }) {
                   <li>
                     โครงการฝึกอบรมเชิงปฏิบัติการคอมพิวเตอร์ ครั้งที่ 33 หรือ
                     Comcamp#33 ( ซึ่งต่อไปนี้จะเรียกว่า “ โครงการ ” )
+<<<<<<< HEAD
                     เป็นผู้จัดการดำเนินการเว็บไซต์ comcamp.io
+=======
+                    เป็นผู้ให้บริการเว็บไซต์ comcamp.io
+>>>>>>> b981c78c13b84a0c608b8b130056a9c5e40bb2b9
                     และเว็บไซต์อื่นที่เกี่ยวข้อง ( ซึ่งต่อไปนี้จะเรียกว่า “
-                    เว็บไซต์ ” ) นโยบายความเป็นส่วนตัวนี้
-                    เพื่อกำหนดความมุ่งมั่นของโครงการต่อความเป็นส่วนตัวของผู้ใช้ของท่าน
-                    ( ซึ่งต่อไปนี้จะเรียกว่า “ ผู้ใช้ ” หรือ “ ท่าน ” )
+                    เว็บไซต์ ” )
+                    ได้เห็นความสำคัญของการรักษาข้อมูลส่วนบุคคลของผู้ใช้
+                    จึงได้กำหนดนโยบายความเป็นส่วนตัวนี้ขึ้น
+                    เพื่อชี้แจงให้ทราบเกี่ยวกับการเก็บรวบรวม ใช้
+                    และเปิดเผยข้อมูลส่วนบุคคลของท่าน
                   </li>
                   <br />
                   <li>
-                    และวิธีที่โครงการเก็บและใช้ข้อมูลส่วนตัวของท่าน
                     กรุณาอ่านนโยบายความเป็นส่วนตัวนี้โดยละเอียด
-                    การเข้าใช้งานเว็บไซต์ของโครงการโดยใช้บริการของโครงการ
-                    และยอมรับนโยบายที่เกี่ยวข้องนี้อย่างชัดเจน ท่านรับทราบว่า
-                    ท่านได้อ่านและยอมรับข้อกำหนดนโยบายข้อมูลส่วนบุคคลนี้แล้ว
+                    โดยเมื่อเข้าใช้งานเว็บไซต์ของโครงการ
+                    และยอมรับนโยบายที่เกี่ยวข้องนี้อย่างชัดเจน
+                    จะถือว่าท่านรับทราบ
+                    และยอมรับข้อกำหนดนโยบายข้อมูลส่วนบุคคลนี้แล้ว
                     หากผู้ใช้ไม่ยอมรับนโยบายข้อมูลส่วนบุคคล
                     ผู้ใช้จะไม่สามารถทำการสมัครผ่านเว็บไซต์ของโครงการได้
                   </li>
@@ -107,8 +124,8 @@ export default function PolicyForm({ data, setData, setState, choose, error }) {
                 ข้อมูลที่โครงการเก็บรวบรวมเกี่ยวกับผู้ใช้
                 <li>
                   ข้อมูลส่วนบุคคล หรือ ข้อความส่วนบุคคล หมายถึง
-                  ข้อมูลเกี่ยวกับบุคคลที่สามารถระบุบุคคลนั้น อาจทำการรวบรวม ใช้
-                  เก็บ และถ่ายโอนข้อมูลส่วนบุคคลประเภทต่าง ๆ
+                  ข้อมูลที่ทำให้สามารถระบุตัวตนของท่านได้ อาจทำการเก็บรวบรวม ใช้
+                  และถ่ายโอนข้อมูลส่วนบุคคลประเภทต่าง ๆ
                   ที่เกี่ยวกับผู้ใช้ตามที่โครงการได้จัดกลุ่มไว้ด้วยกัน
                   ดังต่อไปนี้
                 </li>
@@ -116,7 +133,11 @@ export default function PolicyForm({ data, setData, setState, choose, error }) {
                   <li className={styles.listItem}>
                     ข้อมูลส่วนตัว
                     <li>
+<<<<<<< HEAD
                       ได้แก่ ชื่อ นามสกุล ชื่อเล่น วันเดือนปีเกิด 
+=======
+                      ได้แก่ ชื่อ นามสกุล ชื่อเล่น วันเดือนปีเกิด
+>>>>>>> b981c78c13b84a0c608b8b130056a9c5e40bb2b9
                       เบอร์โทรศัพท์ของท่าน อีเมลเพื่อใช้สำหรับการติดต่อ
                       และขนาดไซส์เสื้อ
                     </li>
@@ -137,8 +158,14 @@ export default function PolicyForm({ data, setData, setState, choose, error }) {
                   <li className={styles.listItem}>
                     ข้อมูลอื่น ๆ
                     <li>
+<<<<<<< HEAD
                       ได้แก่ มหาวิทยาลัยที่สนใจ หลักสูตรที่สนใจของทางภาควิชาวิศวกรรมคอมพิวเตอร์
                       และ ค่ายที่เคยเข้าร่วม
+=======
+                      ได้แก่ มหาวิทยาลัยที่สนใจ
+                      หลักสูตรที่สนใจของทางภาควิชาวิศวกรรมคอมพิวเตอร์ และ
+                      ค่ายที่เคยเข้าร่วม
+>>>>>>> b981c78c13b84a0c608b8b130056a9c5e40bb2b9
                     </li>
                   </li>
                 </ol>
@@ -147,12 +174,11 @@ export default function PolicyForm({ data, setData, setState, choose, error }) {
                 การจัดเก็บข้อมูลส่วนบุคคลของผู้ใช้
                 <li>
                   โครงการอาจรวบรวมข้อมูลเกี่ยวกับผู้ใช้ได้หลายวิธี ได้แก่
-                  ปฏิสัมพันธ์โดยตรง โครงการจะเก็บรวบรวมข้อมูลส่วนบุคคลของผู้ใช้
-                  ตัวอย่างเช่น ท่านอาจให้ข้อมูลส่วนตัว ข้อมูลการศึกษา
-                  โดยการกรอกแบบฟอร์มบนเว็บไซต์รับสมัครของโครงการ
-                  เพื่อทำการสมัครเข้าร่วมโครงการ
+                  ปฏิสัมพันธ์โดยตรง กรอกแบบฟอร์มบนเว็บไซต์รับสมัครของโครงการ
+                  เพื่อทำการสมัครเข้าร่วมโครงการ เป็นต้น
                 </li>
                 <br />
+<<<<<<< HEAD
                 <li>
                   เทคโนโลยีอัตโนมัติหรือปฏิสัมพันธ์
                   ในขณะที่ท่านโต้ตอบกับเว็บไซต์ของโครงการ
@@ -172,6 +198,30 @@ export default function PolicyForm({ data, setData, setState, choose, error }) {
                   ข้อมูลเกี่ยวกับสื่อสังคมออนไลน์ที่ท่านยินยอมเปิดเผยกับโครงการจะไปรวมกับข้อมูลอื่น
                   ๆ ที่ผู้ใช้ให้กับโครงการไว้ หรือที่โครงการรวบรวมเกี่ยวกับท่าน
                 </li>
+=======
+                <ol className={styles.orderList}>
+                  <li className={styles.listItem}>
+                    เทคโนโลยีอัตโนมัติหรือปฏิสัมพันธ์ <br />
+                    ในขณะที่ท่านโต้ตอบกับเว็บไซต์ของโครงการ
+                    ระบบเทคโนโลยีอัตโนมัติที่โครงการใช้งานบนเว็บไซต์อาจรวบรวมข้อมูลทางเทคนิค
+                    เช่น ข้อมูลเกี่ยวกับเบราว์เซอร์ของท่านโดยอัตโนมัติ
+                    ว่าท่านเข้าเยี่ยมชมพื้นที่ใดบนเว็บไซต์ของโครงการและลิงก์ที่ท่านคลิกดูเหตุการณ์
+                    ช่วยให้โครงการสามารถให้ประสบการณ์ที่ดีแก่ท่านเมื่อท่านเข้าชมเว็บไซต์ของโครงการ
+                    และยังช่วยให้โครงการสามารถปรับปรุงพัฒนาเว็บไซต์ให้ดีขึ้น
+                  </li>
+                  <br />
+                  <li className={styles.listItem}>
+                    บุคคลที่สาม หรือ แหล่งข้อมูลสาธารณะ <br />
+                    โครงการจะเก็บข้อมูลของผู้ใช้ผ่านการเข้าสู่ระบบโดยใช้สื่อสังคม
+                    ทำให้โครงการอาจเก็บรวบรวมข้อมูลการติดต่อ อัตลักษณ์
+                    และข้อมูลทางเทคนิค รวมไปถึง ชื่อผู้ใช้งาน/ชื่อผู้ใช้
+                    รูปประจำตัวผู้ใช้งาน ที่อยู่อีเมล และวันเดือนปีเกิดของท่าน
+                    ข้อมูลเกี่ยวกับสื่อสังคมออนไลน์ที่ท่านยินยอมเปิดเผยกับโครงการจะไปรวมกับข้อมูลอื่น
+                    ๆ ที่ผู้ใช้ให้กับโครงการไว้
+                    หรือที่โครงการรวบรวมเกี่ยวกับท่าน
+                  </li>
+                </ol>
+>>>>>>> b981c78c13b84a0c608b8b130056a9c5e40bb2b9
               </li>
 
               <li className={styles.listItem}>
@@ -206,15 +256,15 @@ export default function PolicyForm({ data, setData, setState, choose, error }) {
                 ระยะเวลาในการเก็บข้อมูลส่วนบุคคล
                 <li>
                   โครงการจะเก็บข้อมูลส่วนบุคคลของท่านเท่าที่จำเป็นในการจัดโครงการครั้งปัจจุบัน
-                  และสำหรับโครงการครั้งต่อไป แต่ไม่เกิน 4 ปี
+                  และสำหรับโครงการครั้งถัดไป โดยไม่เกิน 4 ปี
                 </li>
               </li>
               <li className={styles.listItem}>
                 สิทธิของท่านเกี่ยวกับข้อมูลส่วนบุคคล
                 <li>
                   ท่านสามารถใช้สิทธิที่ท่านมีอยู่ตามกฎหมายคุ้มครองข้อมูลส่วนบุคคล
-                  ยังรวมถึงการเข้าถึง การแก้ไข การลบระงับการประมวลผลข้อมูล
-                  ขอให้โครงการส่งสำเนาข้อมูลส่วนบุคคลของท่าน
+                  รวมถึงการเข้าถึง การแก้ไข การลบระงับการประมวลผลข้อมูล
+                  ในการขอให้โครงการส่งสำเนาข้อมูลส่วนบุคคลของท่าน
                   ขอให้องค์กรคัดค้านการประมวลผลข้อมูล หรือถอนความยินยอม
                   โครงการได้ทำการแต่งตั้งเจ้าหน้าที่คุ้มครองข้อมูลส่วนบุคคล
                   เพื่อกำกับดูแลคุ้มครองข้อมูลส่วนบุคคลของค่าย
@@ -236,9 +286,9 @@ export default function PolicyForm({ data, setData, setState, choose, error }) {
                 required={true}
                 onChange={handleChange}
                 name="box2"
-                checked={value.box2}
+                checked={data && data.verify || value.box2}
               />
-              ข้าพเจ้าได้อ่านข้อมูลการสมัครทั้งหมดแล้ว
+              ข้าพเจ้ายอมรับนโยบายคุ้มครองข้อมูลส่วนบุคคล
             </label>
             <p
               className={`text-[#FEFE2D] ${
@@ -248,6 +298,19 @@ export default function PolicyForm({ data, setData, setState, choose, error }) {
               กรุณาอ่านข้อมูลการสมัครให้ครบถ้วน
             </p>
           </div>
+        </div>
+        <div className="flex justify-between my-5 z-20">
+          <div />
+          <button type="submit">
+              <AiFillCaretRight
+                size="4.5rem"
+                className="text-[rgb(236,72,153)] hover:text-[rgb(236,72,153)]"
+              />
+            <div
+              className="z-40"
+              style={{ display: [5].includes(choose) ? "block" : "none" }}
+            ></div>
+          </button>
         </div>
       </form>
     </div>

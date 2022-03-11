@@ -79,7 +79,7 @@ export default function InterestForm({ data, setData, choose, prev, next }) {
             <div className="flex flex-col mb-2 w-full">
               <label className="text-white mb-2">
                 มหาวิทยาลัยลำดับที่หนึ่ง
-              </label>
+               * </label>
               <Input
                 type="text"
                 name="university"
@@ -100,7 +100,7 @@ export default function InterestForm({ data, setData, choose, prev, next }) {
               />
             </div>
             <div className="flex flex-col mb-2 w-full">
-              <label className="text-white mb-2">คณะลำดับที่หนึ่ง</label>
+              <label className="text-white mb-2">คณะลำดับที่หนึ่ง * </label>
               <Input
                 type="text"
                 name="department"
@@ -121,7 +121,7 @@ export default function InterestForm({ data, setData, choose, prev, next }) {
               />
             </div>
             <div className="flex flex-col mb-2 w-full">
-              <label className="text-white mb-2">ภาควิชาลำดับที่หนึ่ง</label>
+              <label className="text-white mb-2">ภาควิชาลำดับที่หนึ่ง * </label>
               <Input
                 type="text"
                 name="faculty"
@@ -145,7 +145,7 @@ export default function InterestForm({ data, setData, choose, prev, next }) {
           <br />
           <div className="flex flex-wrap md:flex-nowrap flex-row justify-between gap-5">
             <div className="flex flex-col mb-2 w-full">
-              <label className="text-white mb-2">มหาวิทยาลัยลำดับที่สอง</label>
+              <label className="text-white mb-2">มหาวิทยาลัยลำดับที่สอง * </label>
               <Input
                 type="text"
                 name="university"
@@ -165,7 +165,7 @@ export default function InterestForm({ data, setData, choose, prev, next }) {
               />
             </div>
             <div className="flex flex-col mb-2 w-full">
-              <label className="text-white mb-2">คณะลำดับที่สอง</label>
+              <label className="text-white mb-2">คณะลำดับที่สอง * </label>
               <Input
                 type="text"
                 name="department"
@@ -185,7 +185,7 @@ export default function InterestForm({ data, setData, choose, prev, next }) {
               />
             </div>
             <div className="flex flex-col mb-2 w-full">
-              <label className="text-white mb-2">ภาควิชาลำดับที่สอง</label>
+              <label className="text-white mb-2">ภาควิชาลำดับที่สอง * </label>
               <Input
                 type="text"
                 name="faculty"
@@ -208,7 +208,7 @@ export default function InterestForm({ data, setData, choose, prev, next }) {
           <br />
           <div className="flex flex-wrap md:flex-nowrap flex-row justify-between gap-5">
             <div className="flex flex-col mb-2 w-full">
-              <label className="text-white mb-2">มหาวิทยาลัยลำดับที่สาม</label>
+              <label className="text-white mb-2">มหาวิทยาลัยลำดับที่สาม * </label>
               <Input
                 type="text"
                 name="university"
@@ -229,7 +229,7 @@ export default function InterestForm({ data, setData, choose, prev, next }) {
               />
             </div>
             <div className="flex flex-col mb-2 w-full">
-              <label className="text-white mb-2">คณะลำดับที่สาม</label>
+              <label className="text-white mb-2">คณะลำดับที่สาม * </label>
               <Input
                 type="text"
                 name="department"
@@ -249,7 +249,7 @@ export default function InterestForm({ data, setData, choose, prev, next }) {
               />
             </div>
             <div className="flex flex-col mb-2 w-full">
-              <label className="text-white mb-2">ภาควิชาลำดับที่สาม</label>
+              <label className="text-white mb-2">ภาควิชาลำดับที่สาม * </label>
               <Input
                 type="text"
                 name="faculty"
@@ -299,7 +299,7 @@ export default function InterestForm({ data, setData, choose, prev, next }) {
                 ""
               )}
               หลักสูตรปกติ
-            </label>
+             </label>
           </div>
           <br />
           <div>
@@ -327,7 +327,7 @@ export default function InterestForm({ data, setData, choose, prev, next }) {
                 ""
               )}
               หลักสูตรนานาชาติ
-            </label>
+             </label>
           </div>
           <br />
           <div>
@@ -354,8 +354,8 @@ export default function InterestForm({ data, setData, choose, prev, next }) {
               ) : (
                 ""
               )}
-              หลักสูตรวิทยาศาสตร์สุขภาพ
-            </label>
+              หลักสูตรวิทยาศาสตร์ข้อมูลสุขภาพ
+             </label>
           </div>
           <br />
           <div>
@@ -383,11 +383,11 @@ export default function InterestForm({ data, setData, choose, prev, next }) {
                 ""
               )}
               หลักสูตร Residential College
-            </label>
+             </label>
           </div>
           <br />
           <h2 className="text-white bg-[#DD517E] rounded-full justify-center w-fit p-2 pl-4 pr-4 text-lg">
-            ค่ายที่เคยเข้าร่วม
+            ค่ายที่เคยเข้าร่วม * (หาไม่เคยเข้าค่ายโปรดระบุ &quot;-&quot; )
           </h2>
           <div className="mt-2">
             <TextArea
@@ -403,7 +403,12 @@ export default function InterestForm({ data, setData, choose, prev, next }) {
             />
           </div>
           <div className="flex justify-between my-5 z-20">
-          <button type="button" onClick={prev}>
+          <button type="button" onClick={()=>{
+            saveData({
+              ...data, 
+            });
+            prev();
+          }}>
             <AiFillCaretLeft
               size="4.5rem"
               color="rgb(236,72,153)"

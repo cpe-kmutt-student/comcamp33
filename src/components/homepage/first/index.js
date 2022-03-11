@@ -29,7 +29,7 @@ const First = () => {
                 </div>
                 <Image className='animate-wiggle' src="/assets/comcamplogo.png" quality={100} layout="fill" objectFit='contain' alt="comcamp logo" />
             </div>
-            <div className="absolute bottom-[-1vh] right-0 w-[100%] md:h-[35vh] h-[40vh]" style={{ transform: `translateY(${offsetY * 0.1}px)` }}>
+            <div className="absolute bottom-[-1vh] right-0 w-[100%] md:h-[35vh] h-[40vh]" style={{ transform: `translateY(${(offsetY-200) * 0.1}px)` }}>
                 <Image src="/assets/first/town.png"
                     layout="fill"
                     objectFit="cover"
