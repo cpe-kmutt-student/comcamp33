@@ -57,8 +57,23 @@ export const Navigation = () => {
 
             {/* mobile screen */}
             <div className="relative w-full bg-bg-primary h-full lg:hidden flex lfex-row justify-between">
-                <div className="lg:hidden text-white">
-                    logo big
+                {/* logo */}
+                <div className="lg:hidden h-[6vh] relative min-w-[20px] mr-[3%]  w-[20%] min-h-[50px] cursor-pointer ">
+                    <Link
+                        href="/home"
+                        passHref
+                        onClick={() => {
+                            setIsOpen(!isOpen);
+                        }}
+                    >
+                        <Image
+                            src="/assets/comcamp.png"
+                            alt="comcamp logo"
+                            layout="fill"
+                            objectFit="contain"
+                            loading="lazy"
+                        />
+                    </Link>
                 </div>
                 <button
                     data-collapse-toggle="mobile-menu"
@@ -103,9 +118,9 @@ export const Navigation = () => {
                         </div>
                     ))}
 
-                    <div className="w-full flex flex-col bg-white lg:hidden" >
+                    <div className="w-full flex flex-col bg-[#9600FF]/70 lg:hidden" >
 
-                        <button className="py-3 text-center w-[100%] bg-gradient-to-b from-[#F054F3] to-[#9600FF] hover:bg-gradient-to-t text-white font-pixel text-lg hover:text-xl cursor-pointer text-shadow transition-all duration-200 ease-linear">
+                        <button className="py-3 text-center w-[100%] bg-gradient-to-b from-[#F054F3] to-[#9600FF] hover:bg-gradient-to-t text-white font-pixel text-lg hover:text-xl cursor-pointer text-shadow transition-all duration-200 ease-linear ">
                             <button
                                 type="button"
                                 onClick={() => {
@@ -113,14 +128,24 @@ export const Navigation = () => {
                                         router.push('/registration')
                                     } else {
                                         signIn('facebook');
-                                    }
+                                    } `109o`
                                 }}
                             >
-                                {!session && (<p >Login with facebook</p>)}
-                                {session && (<p className="tracking-wider">Registration</p>)}
+                                {!session && (
+
+                                    <p  className="tracking-widest">Facebook Login </p>
+
+                                )}
+
+                                {session && (<p className="tracking-wider">Register</p>)}
 
                             </button>
                         </button>
+                        {!session && (
+
+                            <p className="p-3 text-center text-white cursor-default">You have to sign up with your facebook account before register to our camp</p>
+
+                        )}
 
                         {/* sign out button */}
                         {session && (
@@ -131,23 +156,13 @@ export const Navigation = () => {
                                     router.push('/home');
                                 }}
                             >
-                                Sign out
+                                Log out
                             </button>
                         )}
 
                     </div>
                 </div>
-
-
-
-
-
-
-
-
             </div>
-
-
             {/* wide screen */}
             <div className="hidden lg:flex w-full bg-bg-primary h-full flex-row justify-between">
 
@@ -169,7 +184,7 @@ export const Navigation = () => {
                         />
                     </Link>
                 </div>
-                
+
 
                 {/* menus */}
                 <div className="text-white">
@@ -182,7 +197,7 @@ export const Navigation = () => {
                                     href={`#${link}`}
                                     smooth={true}
                                     duration={1500}
-                                    className="font-pixel px-4 hover:text-[#E5155E] text-lg cursor-pointer transition-all ease-linear duration-200"
+                                    className="font-pixel px-4 hover:text-[#ff5496]/80 text-lg cursor-pointer transition-all ease-linear duration-200"
                                     onClick={() => {
                                         setIsOpen(!isOpen);
                                     }}
@@ -196,9 +211,9 @@ export const Navigation = () => {
                 <div className=" h-full my-auto  flex flex-row justify-end items-center w-[20%] min-w-fit " >
 
 
-                    {/* regis and signout button for window */}
+                    {/* regis and sign out button */}
 
-                    <button className="right-2 font-pixel relative text-white top-0 text-center  bg-gradient-to-b from-[#F054F3] to-[#9600FF] mx-2 px-3 py-1 mx-2 border-2 text-xl border-2 border-[#B3E7F8] hover:shadow-[0_0px_15px_-2px_rgba(150,0,255,1)] hover:shadow-[#9600FF] transition-all duration-100 ease-linear rounded-lg hover:px-5 hover:mx-0">
+                    <button className="right-2 font-pixel relative text-white top-0 text-center  bg-gradient-to-b from-[#F054F3] to-[#9600FF] px-4 py-1 mx-2 border-2 text-xl border-2 border-[#B3E7F8] hover:shadow-[0_0px_15px_-2px_rgba(150,0,255,1)] hover:shadow-[#9600FF] transition-all duration-100 ease-linear rounded-lg hover:px-6  hover:tracking-widest hover:mx-0">
                         <button
                             type="button"
                             onClick={() => {
@@ -209,8 +224,21 @@ export const Navigation = () => {
                                 }
                             }}
                         >
-                            {!session && (<p>Login with facebook</p>)}
-                            {session && (<p>Registration</p>)}
+                            {!session && (
+                                <div className="group">
+                                    <p >Facebook Login</p>
+                                    <div className="hidden group-hover:block  fixed right-0 rounded-lg  pt-16 top-0 min-w-fit text-black p-5 ">
+                                        <div className="py-2 px-6 rounded-lg bg-[#F054F3]/80 text-black w-[250px] text-[1rem] leading-5 border-dashed border-2">
+                                            you have to sign up with your facebook account before register to our camp
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+
+                            )}
+                            {session && (<p>Register</p>)}
 
                         </button>
                     </button>
@@ -224,7 +252,7 @@ export const Navigation = () => {
                                 router.push('/home');
                             }}
                         >
-                            Sign out
+                            Log out
                         </button>
                     )}
 
