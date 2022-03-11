@@ -7,6 +7,7 @@ const Header = () => {
       <link rel="icon" type="image/png" href="assets/comcamp.png" />
 
       <meta name="description" content="โครงการฝึกอบรมเชิงปฏิบัติการคอมพิวเตอร์เบื้องต้น หรือ Comcamp ครั้งที่ 33" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=0" />
         <meta property="og:url" content="https://comcamp.kmutt.me/" />
         <meta property="og:type" content="website" />
         <meta property="og:title" content="Comcamp 33" />

@@ -12,24 +12,6 @@
   }
 }
 
-::-webkit-scrollbar {
-  width: 5px;
-}
-
-::-webkit-scrollbar-track {
-  background: black;
-  border-radius: 5px;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #ff00c6;
-  border-radius: 5px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #9600ff;
-}
-
-.text-shadow {
-  text-shadow: 0px 6px 5px rgba(0, 0, 0, 0.5);
+body{
+  -webkit-overflow-scrolling: touch;
 }

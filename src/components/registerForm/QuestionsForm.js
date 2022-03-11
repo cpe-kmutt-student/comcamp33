@@ -37,7 +37,7 @@ export default function QuestionsForm({ data, setData, choose, prev, setOpen, op
         <form onSubmit={handleSubmit}>
           <label className="flex justify-center">
             <h2 className="flex w-fit justify-center text-3xl font-bold text-white bg-[#9600FF] px-4 py-3 my-8 rounded-2xl">{`คำถาม`}</h2>
-          </label>
+           * </label>
           <div className="flex flex-col gap-5 mb-5">
             <p className="flex w-fit justify-center text-base text-white bg-[#DD517E] px-5 py-3 mt-5 rounded-3xl">
               {`ถ้าวันหนึ่งน้องต้องย้อนไปในยุค 80 - 90s
@@ -60,7 +60,7 @@ export default function QuestionsForm({ data, setData, choose, prev, setOpen, op
 
           <label className={styles.label}>
             <h2>{``}</h2>
-          </label>
+           * </label>
           <div className="flex flex-col gap-5 mb-5">
             <p className="flex w-fit justify-center text-base text-white bg-[#DD517E] px-5 py-3 mt-5 rounded-3xl">
               {`ถ้าวันหนึ่งน้องได้รับเลือกเป็นผู้กล้าต้องย้อนไปในปี 1980
@@ -82,7 +82,7 @@ export default function QuestionsForm({ data, setData, choose, prev, setOpen, op
 
           <label className={styles.label}>
             <h2>{``}</h2>
-          </label>
+           * </label>
           <div className="flex flex-col gap-5 mb-5">
             <p className=" w-fit  text-base  text-white bg-[#DD517E] px-5 py-3 mt-5 rounded-3xl">
               <div>{`น้องวางแผนไว้ว่าจะนั่งรถไฟออกเดินทางไปเที่ยวพักผ่อน
@@ -118,7 +118,7 @@ export default function QuestionsForm({ data, setData, choose, prev, setOpen, op
           </div>
           <label className={styles.label}>
             <h2>{``}</h2>
-          </label>
+           * </label>
           <div className="flex flex-col gap-5 mb-5">
             <p className=" w-fit  text-base  text-white bg-[#DD517E] px-5 py-3 mt-5 rounded-3xl">
               {`ขณะนี้น้องยืนอยู่ในห้องแห่งความลับ
@@ -145,7 +145,7 @@ export default function QuestionsForm({ data, setData, choose, prev, setOpen, op
           </div>
           <label className={styles.label}>
             <h2></h2>
-          </label>
+           * </label>
           <div className="flex flex-col gap-5 mb-5">
             <p className=" w-fit  text-base  text-white bg-[#DD517E] px-5 py-3 mt-5 rounded-3xl">
               {`ร้านไอติมแห่งหนึ่ง ขายไอติมราคาแท่งละ 15 บาท แต่ถ้าซื้อมากกว่า 15
@@ -165,7 +165,7 @@ export default function QuestionsForm({ data, setData, choose, prev, setOpen, op
           </div>
           <label className={styles.label}>
             <h2></h2>
-          </label>
+           * </label>
           <div className="flex flex-col gap-5 mb-5">
             <p className=" w-fit  text-base  text-white bg-[#DD517E] px-5 py-3 mt-5 rounded-3xl">
               {`น้องเป็นผู้ผ่านการคัดเลือกให้เข้าค่าย Comcamp #33
@@ -184,7 +184,7 @@ export default function QuestionsForm({ data, setData, choose, prev, setOpen, op
           </div>
           <label className={styles.label}>
             <h2>{}</h2>
-          </label>
+           * </label>
           <div className="flex flex-col gap-5 mb-5">
             <p className=" w-fit  text-base  text-white bg-[#DD517E] px-5 py-3 mt-5 rounded-3xl">
               {`ถ้าน้องกำลังเล่นเกมทายภาพ
@@ -205,7 +205,7 @@ export default function QuestionsForm({ data, setData, choose, prev, setOpen, op
           </div>
           <label className={styles.label}>
             <h2>{``}</h2>
-          </label>
+           * </label>
           <div className="flex flex-col gap-5 mb-5">
             <p className=" w-fit  text-base  text-white bg-[#DD517E] px-5 py-3 mt-5 rounded-3xl">
               {`หากน้องได้มีโอกาสเข้ามาเป็นนักศึกษาคณะวิศวกรรมศาสตร์

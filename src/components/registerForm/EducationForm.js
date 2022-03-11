@@ -36,7 +36,7 @@ export default function EducationForm({ data, setData, choose, prev, next }) {
           </h1>
         </div>
         <form onSubmit={handleSubmit}>
-          <label className="text-white mb-2">{`ชื่อสถานศึกษา`}</label>
+          <label className="text-white mb-2">{`ชื่อสถานศึกษา`} * </label>
           <div>
             <Input
               type="text"
@@ -51,7 +51,7 @@ export default function EducationForm({ data, setData, choose, prev, next }) {
           <br />
           <div className="flex flex-wrap md:flex-nowrap flex-row justify-between gap-10">
             <div className="flex flex-col w-full">
-              <label className="text-white mb-2">{`จังหวัด`}</label>
+              <label className="text-white mb-2">{`จังหวัด`} * </label>
               <Input
                 type="text"
                 name="province"
@@ -63,7 +63,7 @@ export default function EducationForm({ data, setData, choose, prev, next }) {
               />
             </div>
             <div className="flex flex-col w-full">
-              <label className="text-white mb-2">{`สาขาวิชา`}</label>
+              <label className="text-white mb-2">{`แผนการเรียน`} * </label>
               <DropBox
                 name="program"
                 placeholder="Program"
@@ -75,7 +75,7 @@ export default function EducationForm({ data, setData, choose, prev, next }) {
               />
             </div>
             <div className="flex flex-col w-full">
-              <label className="text-white mb-2">{`ระดับการศึกษา`}</label>
+              <label className="text-white mb-2">{`ระดับการศึกษา`} * </label>
               <DropBox
                 placeholder="Level"
                 name="level"
@@ -87,7 +87,7 @@ export default function EducationForm({ data, setData, choose, prev, next }) {
               />
             </div>
             <div className="flex flex-col w-full">
-              <label className="text-white mb-2">{`เกรดเฉลี่ย`}</label>
+              <label className="text-white mb-2">{`เกรดเฉลี่ย`} * </label>
               <Input
                 type="number"
                 step="0.01"

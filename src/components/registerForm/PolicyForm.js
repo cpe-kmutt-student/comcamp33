@@ -2,17 +2,25 @@ import React, { useState, useEffect } from "react";
 import CheckBox from "@components/CheckBox";
 import styles from "@styles/register/PolicyForm.module.css";
 import Link from "next/link";
+import { AiFillCaretRight } from "react-icons/ai";
 
-export default function PolicyForm({ data, setData, setState, choose, error }) {
+export default function PolicyForm({
+  data,
+  setData,
+  setState,
+  choose,
+  error,
+  next,
+}) {
   const [value, setValue] = useState({
     box1: false,
     box2: false,
   });
 
-  useEffect(() => {
-    const isVerify = value.box1 === true && value.box2 === true;
-    setData({ ...data, verify: isVerify });
-  }, [value]);
+  // useEffect(() => {
+  //   const isVerify = value.box1 === true && value.box2 === true;
+  //   setData({ ...data, verify: isVerify });
+  // }, [value]);
 
   const handleChange = (e) => {
     let checkValue = e.target.checked;
@@ -23,12 +31,18 @@ export default function PolicyForm({ data, setData, setState, choose, error }) {
     };
     setValue(currentStatus);
     setState(currentStatus.box1 && currentStatus.box2);
-    // console.log(data);
   };
 
   return (
     <div className={choose != 1 && data?.verify == true ? "hidden" : ""}>
-      <form>
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          next();
+          const isVerify = value.box1 === true && value.box2 === true;
+          setData({ ...data, verify: isVerify });
+        }}
+      >
         <div className="flex flex-col bg-[#9600FF] text-white rounded-xl mt-6 pl-[10%] pr-[10%] pt-[1rem]">
           <div className="flex justify-center content-center">
             <h1 className="text-3xl mb-2">เอกสารประกอบการสมัคร</h1>
@@ -45,8 +59,8 @@ export default function PolicyForm({ data, setData, setState, choose, error }) {
               </li>
               <li>
                 ระเบียนแสดงผลการศึกษาของระดับมัธยมศึกษาตอนปลาย ( ปพ. 1 ) หรือ
-                แบบรายงานประจำตัวนักเรียนภาคเรียนล่าสุด อย่างใดอย่างหนึ่ง (
-                อนุญาตให้ใช้สำเนาได้ )
+                แบบรายงานประจำตัวนักเรียนภาคเรียนล่าสุด ( ปพ. 6 )
+                อย่างใดอย่างหนึ่ง ( อนุญาตให้ใช้สำเนาได้ )
               </li>
               <li>เอกสารขออนุญาตผู้ปกครอง</li>
               <li>
@@ -61,7 +75,7 @@ export default function PolicyForm({ data, setData, setState, choose, error }) {
                 required={true}
                 onChange={handleChange}
                 name="box1"
-                checked={value.box1}
+                checked={data && data.verify || value.box1}
               />
               ข้าพเจ้าได้อ่านข้อมูลการสมัครทั้งหมดแล้ว
             </label>
@@ -70,7 +84,9 @@ export default function PolicyForm({ data, setData, setState, choose, error }) {
 
         <div className="flex flex-col bg-[#DD517E] text-white rounded-xl my-6 pl-[10%] pr-[10%] pt-[1rem]">
           <div className="flex justify-center content-center">
-            <h1 className="text-3xl mb-2 leading-relaxed">นโยบายข้อมูลส่วนบุคคล</h1>
+            <h1 className="text-3xl mb-2 leading-relaxed">
+              นโยบายข้อมูลส่วนบุคคล
+            </h1>
           </div>
           <div className="overflow-auto max-h-[16rem] bg-white text-black pt-[1rem] pr-[2rem] pl-[2rem] text-[0.9rem] md:text-[1.2rem] ">
             <ol className={styles.orderList}>
@@ -235,7 +251,7 @@ export default function PolicyForm({ data, setData, setState, choose, error }) {
                 required={true}
                 onChange={handleChange}
                 name="box2"
-                checked={value.box2}
+                checked={data && data.verify || value.box2}
               />
               ข้าพเจ้ายอมรับนโยบายคุ้มครองข้อมูลส่วนบุคคล
             </label>
@@ -247,6 +263,19 @@ export default function PolicyForm({ data, setData, setState, choose, error }) {
               กรุณาอ่านข้อมูลการสมัครให้ครบถ้วน
             </p>
           </div>
+        </div>
+        <div className="flex justify-between my-5 z-20">
+          <div />
+          <button type="submit">
+              <AiFillCaretRight
+                size="4.5rem"
+                className="text-[rgb(236,72,153)] hover:text-[rgb(236,72,153)]"
+              />
+            <div
+              className="z-40"
+              style={{ display: [5].includes(choose) ? "block" : "none" }}
+            ></div>
+          </button>
         </div>
       </form>
     </div>
