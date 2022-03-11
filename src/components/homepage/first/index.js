@@ -30,7 +30,7 @@ const First = () => {
                 <Image className='animate-wiggle' src="/assets/comcamplogo.png" quality={100} layout="fill" objectFit='contain' alt="comcamp logo" />
             </div>
             <div className="absolute bottom-[-1vh] right-0 w-[100%] md:h-[35vh] h-[40vh]">
-                <Image src="/assets/first/town.png"
+                <Image src="/assets/first/longtown.png"
                     layout="fill"
                     objectFit="cover"
                     quality={100}
