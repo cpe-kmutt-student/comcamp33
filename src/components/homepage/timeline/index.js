@@ -28,7 +28,7 @@ const Timeline = () => {
   return (
     <div className="flex flex-col justify-center items-center relative w-full h-full text-center md:space-y-20 lg:space-y-20  sm:pt-20 md:mt-0 lg:pt-0 pt-5 md:pt-0">
       <div data-aos="fade-up" className=" absolute right-[0] top-[-10px]" style={{transform: `translate(${(offsetY-2400)*0.1}px, ${(offsetY-2400)*0.2}px)`, }} >
-          <Image className="animate-float" src="/assets/cd.png" width={400} height={225} alt="" />
+          <Image className="animate-float" src="/assets/cd.png" width={400} height={225} alt="" loading="lazy" />
       </div>
       <h1 data-aos="fade-left" className="text-white font-pixel text-4xl sm:text-5xl md:text-5xl lg:text-6xl">Timeline</h1>
       <PC_Timeline current={period} />

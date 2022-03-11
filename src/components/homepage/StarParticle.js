@@ -99,7 +99,7 @@ const particleConfig = {
     }
 }
 
-export const StarParticle = () => {
+const StarParticle = () => {
     const particlesInit = (main) => {
 
         // you can initialize the tsParticles instance (main) here, adding custom shapes or presets
@@ -117,3 +117,5 @@ export const StarParticle = () => {
         />
     )
 }
+
+export default StarParticle;
