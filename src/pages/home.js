@@ -44,7 +44,7 @@ const Home = () => {
       <section className="bg-[#590949] h-[92vh]" id="schedule">
         <Timeline />
       </section>
-      <section className="bg-[#840D4F] h-[93vh]" id="faq">
+      <section className="bg-[#840D4F] h-[160vh] lg:h-[93vh] " id="faq">
         <Faqs />
       </section>
       <section className="bg-[#B61157] lg:h-[113vh] relative pb-8 lg:pb-0" id="contact">
