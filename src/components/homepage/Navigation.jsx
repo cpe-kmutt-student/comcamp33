@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 import { useState } from "react";
 import { Link as Smooth } from "react-scroll/modules";
 import { useSpring, animated, config } from "react-spring";
-import { signIn, signOut, useSession } from 'next-auth/react';
+import { signIn, signOut, useSession } from "next-auth/react";
 
 const HamburgerIcon = ({ state }) => {
   const { x } = useSpring({
@@ -52,7 +52,7 @@ export const Navigation = () => {
 
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <nav className="w-full fixed top-0 z-[100] bg-bg-primary h-[8vh] pt-1">
+    <nav className="w-full sticky top-0 z-[100] bg-bg-primary h-[8vh] pt-1">
       <div
         className={`2xl:bg-transparent h-full items-center flex flex-wrap 2xl:justify-center mx-auto relative 2xl:space-x-5 justify-between  ${
           isOpen ? "bg-bg-primary" : ""
@@ -133,10 +133,10 @@ export const Navigation = () => {
                   type="button"
                   onClick={() => {
                     if (session) {
-                      router.push('/registration')
+                      router.push("/registration");
                     } else {
-                      signIn('facebook');
-                    } 
+                      signIn("facebook");
+                    }
                   }}
                 >
                   Registration
@@ -146,16 +146,16 @@ export const Navigation = () => {
 
             {session && (
               <li className="block 2xl:mt-3 py-3 text-center w-[100%] bg-gradient-to-b from-[#dd517e] to-[#E5155E] hover:bg-[#ff2480] 2xl:hidden text-white font-pixel 2xl:hover:text-text-highlight text-lg cursor-pointer text-shadow transition-all duration-200 ease-linear">
-                  <button
-                    type="button"
-                    onClick={async () => {
-                      await signOut({ redirect: false });
-                      router.push('/home');
-                    }}
-                  >
-                    Sign out
-                  </button>
-                </li>
+                <button
+                  type="button"
+                  onClick={async () => {
+                    await signOut({ redirect: false });
+                    router.push("/home");
+                  }}
+                >
+                  Sign out
+                </button>
+              </li>
             )}
           </ul>
         </div>
@@ -166,10 +166,10 @@ export const Navigation = () => {
           className="relative top-0 bg-gradient-to-b from-[#F054F3]/90 to-[#9600FF]/90 right-3 font-pixel text-xl text-white px-3 py-1 rounded mt-[2vh] hidden 2xl:block border-2 border-[#B3E7F8] hover:shadow-[0_0px_15px_-2px_rgba(150,0,255,1)] hover:shadow-[#9600FF] transition-all duration-100 ease-linear"
           onClick={() => {
             if (session) {
-              router.push('/registration')
+              router.push("/registration");
             } else {
-              signIn('facebook');
-            } 
+              signIn("facebook");
+            }
           }}
         >
           Registration
@@ -180,7 +180,7 @@ export const Navigation = () => {
             className="relative top-0 bg-gradient-to-b from-[#dd517e]/90 to-[#E5155E]/90 right-3 font-pixel text-xl text-white px-3 py-1 rounded mt-[2vh] hidden 2xl:block border-2 border-[#B3E7F8] hover:shadow-[0_0px_15px_-2px_rgba(150,0,255,1)] hover:shadow-[#7a374e] transition-all duration-100 ease-linear"
             onClick={async () => {
               await signOut({ redirect: false });
-              router.push('/home');
+              router.push("/home");
             }}
           >
             Sign out
