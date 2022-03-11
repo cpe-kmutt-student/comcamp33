@@ -88,23 +88,7 @@ const DATABASE_STRUCTURE = {
     email: "",
   },
   interest: {
-    admission: [
-      {
-        faculty: "",
-        department: "",
-        university: "",
-      },
-      {
-        faculty: "",
-        department: "",
-        university: "",
-      },
-      {
-        faculty: "",
-        department: "",
-        university: "",
-      },
-    ],
+    admission: [],
     plan: ["", "", "", "", ""],
     camp: "",
   },
@@ -142,9 +126,36 @@ const saveData = async (req, res, session) => {
   if (dateNow > dateLate || !isSubset(DATABASE_STRUCTURE, copiedData) || (isComplete && !!isComplete.complete)) {
     return res.status(400).json({
       success: false,
-      message: "Bad request",
+      message: "payload doesn't match our requirement",
       timestamp: new Date(),
     });
+  }
+
+  if (Array.isArray(data.interest.admission)) {
+    if (data.interest.admission.length > 3) {
+      return res.status(400).json({
+        message: `admission doesn't match our requirement`
+      });
+    }
+
+    const requiredStructure = {
+      faculty: '',
+      department: '',
+      university: '',
+    };
+
+    const isNotPass = data.interest.admission
+      .map((object) => {
+        if (object) return isSubset(requiredStructure, object);
+        return true;
+      })
+      .some((object) => object == false);
+
+    if (isNotPass) {
+      return res.status(400).json({
+        message: `admission doesn't match our requirement`
+      });
+    }
   }
 
   if (data.info) {
@@ -298,9 +309,8 @@ const getTimeStamp = () => {
 
 const isSubset = (superSet, subset) => {
   return Object.keys(subset).every((element) => {
-    if (element === 'admission' && subset[element].length > superSet[element].length) {
-      return false;
-    }
+    if (element === 'admission') return true;
+
     if (typeof subset[element] === 'object') {
       return isSubset(superSet[element], subset[element]);
     }
