@@ -25,7 +25,7 @@ const First = () => {
             </div>
             <div className="h-[60vh] relative mx-5">
                 <div className="h-[58vh] relative ml-6 ">
-                    <Image src="/assets/sun.svg" quality={100} layout="fill" objectFit='contain' alt="sun" />
+                    <Image src="/assets/sun.svg" quality={100} layout="fill" objectFit='contain' alt="sun" loading="lazy" />
                 </div>
                 <Image className='animate-wiggle' src="/assets/comcamplogo.png" quality={100} layout="fill" objectFit='contain' alt="comcamp logo" />
             </div>
@@ -35,6 +35,7 @@ const First = () => {
                     objectFit="cover"
                     quality={100}
                     alt="background town"
+                    loading="lazy"
                 />
             </div>
         </>

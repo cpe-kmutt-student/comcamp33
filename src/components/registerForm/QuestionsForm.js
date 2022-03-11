@@ -127,8 +127,8 @@ export default function QuestionsForm({ data, setData, choose, prev, setOpen, op
             และมีข้อความดังรูป`}
               <br />
               <div className="flex">
-                <Image src={imageQ1} />
-                <Image src={imageQ2} />
+                <Image src={imageQ1} alt="box 1" loading="lazy" />
+                <Image src={imageQ2} alt="box 2" loading="lazy" />
               </div>
               <br />
               {`ถ้าน้องรู้ว่าข้อความหน้ากล่องมีข้อความที่เป็นจริงเพียงแค่ข้อความเดียวเท่านั้น
@@ -183,7 +183,7 @@ export default function QuestionsForm({ data, setData, choose, prev, setOpen, op
             />
           </div>
           <label className={styles.label}>
-            <h2>{}</h2>
+            <h2>{ }</h2>
           </label>
           <div className="flex flex-col gap-5 mb-5">
             <p className=" w-fit  text-base  text-white bg-[#DD517E] px-5 py-3 mt-5 rounded-3xl">

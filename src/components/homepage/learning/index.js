@@ -22,6 +22,7 @@ const Learning = () => {
           objectFit="contain"
           alt="learning topics"
           quality={100}
+          loading="lazy"
         />
       </div>
       <div className="h-[30%] animate-float w-full relative lg:hidden block">
@@ -30,6 +31,7 @@ const Learning = () => {
           objectFit="contain"
           alt="learning topics"
           quality={100}
+          loading="lazy"
         />
       </div>
       <div className="flex sm:flex-row flex-col lg:hidden w-screen sm:px-8 sm:space-x-5 items-center px-8 mt-[5vw] lg:space-y-3">
@@ -43,7 +45,7 @@ const Learning = () => {
           <SubjectDetail name="Python" highlight="ภาษายอดฮิตที่ทุกคนต้องได้ลอง!" detail="สนุกกับการเขียนภาษา Python ซึ่งสามารถนำไปประยุกต์ใช้ได้หลากหลาย" />
         </div>
       </div>
-     
+
     </div>
   );
 };

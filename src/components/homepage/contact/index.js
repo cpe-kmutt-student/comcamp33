@@ -3,7 +3,7 @@ import Image from "next/image";
 const Contact = () => {
   return (
     <>
-      
+
       <div className="absolute h-[93vh] w-screen right-0 bottom-0 z-1">
         <Image
           src="/assets/contact/contactbg.png"
@@ -11,6 +11,7 @@ const Contact = () => {
           layout="fill"
           objectFit="cover"
           alt="light"
+          loading="lazy"
         />
       </div>
       <div className="md:px-10 space-y-4 flex items-center flex-col ">
@@ -25,6 +26,7 @@ const Contact = () => {
                 src="/assets/contact/Ticket_Address.png"
                 objectFit="contain"
                 layout="fill"
+                loading="lazy"
                 alt="ticket contact"
               />
             </div>
@@ -34,6 +36,7 @@ const Contact = () => {
                 objectFit="contain"
                 layout="fill"
                 alt="ticket contact"
+                loading="lazy"
               />
             </div>
           </div>

@@ -13,10 +13,12 @@ const Condition = () => {
       <div className=" grid  gridrows-3 lg:grid-cols-3 gap-6">
         <div className="flex flex-col px-10 md:px-0 justify-center md:justify-start">
           <div data-aos="flip-right" className="relative mx-auto w-56 h-80 md:w-[18rem] md:h-96">
-            <Image src="/assets/condition/study.png"
+            <Image
+              src="/assets/condition/study.png"
+              alt="study condition"
               layout="fill"
               quality={100}
-
+              loading="lazy"
             />
           </div>
           <div data-aos="fade-up" className="flex justify-center text-sm md:text-xl">
@@ -32,14 +34,16 @@ const Condition = () => {
         </div>
         <div className="flex px-10 md:px-0 flex-col justify-center md:justify-start">
           <div data-aos="flip-left" className="relative mx-auto w-56 h-80 md:w-[18rem] md:h-96">
-            <Image src="/assets/condition/com.png"
+            <Image
+              src="/assets/condition/com.png"
               layout="fill"
               quality={100}
-
+              loading="lazy"
+              alt="interest condition"
             />
 
           </div>
-          <div data-aos="fade-up"className="flex justify-center text-center text-sm md:text-xl">
+          <div data-aos="fade-up" className="flex justify-center text-center text-sm md:text-xl">
             <p className="text-white py-6">
               มีความสนใจในด้านคอมพิวเตอร์
               <div className="flex">
@@ -55,11 +59,11 @@ const Condition = () => {
             <Image src="/assets/condition/parent.png"
               layout="fill"
               quality={100}
-
-
+              loading="lazy"
+              alt="parent condition"
             />
           </div>
-          <div data-aos="fade-up"className="flex justify-center text-center text-sm md:text-xl">
+          <div data-aos="fade-up" className="flex justify-center text-center text-sm md:text-xl">
             <p className="text-white py-6">
               <div className="flex">
                 ผู้ปกครอง
@@ -73,7 +77,7 @@ const Condition = () => {
             </p>
 
           </div>
-         
+
         </div>
 
       </div>

@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 import { useState } from "react";
 import { Link as Smooth } from "react-scroll/modules";
 import { useSpring, animated, config } from "react-spring";
-import { signIn, signOut, useSession } from 'next-auth/react';
+import { signIn, signOut, useSession } from "next-auth/react";
 
 const HamburgerIcon = ({ state }) => {
   const { x } = useSpring({
@@ -71,6 +71,7 @@ export const Navigation = () => {
               alt="comcamp logo"
               layout="fill"
               objectFit="contain"
+              loading="lazy"
             />
           </Link>
         </div>
@@ -140,10 +141,10 @@ export const Navigation = () => {
             type="button"
             onClick={() => {
               if (session) {
-                router.push('/registration')
+                router.push("/registration");
               } else {
-                signIn('facebook');
-              } 
+                signIn("facebook");
+              }
             }}
           >
             Registration
@@ -155,7 +156,7 @@ export const Navigation = () => {
             className="relative top-0 bg-gradient-to-b from-[#dd517e]/90 to-[#E5155E]/90 right-3 font-pixel text-xl text-white px-3 py-1 rounded mt-[2vh] hidden lg:block border-2 border-[#B3E7F8] hover:shadow-[0_0px_15px_-2px_rgba(150,0,255,1)] hover:shadow-[#7a374e] transition-all duration-100 ease-linear"
             onClick={async () => {
               await signOut({ redirect: false });
-              router.push('/home');
+              router.push("/home");
             }}
           >
             Sign out

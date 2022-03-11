@@ -77,6 +77,7 @@ export default function RegistrationPage() {
           layout="responsive"
           objectFit="contain"
           quality={100}
+          loading="lazy"
         />
       </div>
       <div className="fixed w-[100vw] h-[100vh] top-0">
@@ -92,6 +93,7 @@ export default function RegistrationPage() {
             layout="responsive"
             objectFit="contain"
             quality={100}
+            loading="lazy"
           />
         </div>
       </div>
@@ -99,7 +101,7 @@ export default function RegistrationPage() {
       <h1 className="my-7 self-center m-2 text-white font-pixel text-4xl md:text-6xl">
         REGISTRATION
       </h1>
-      <ProgressBar  currentStep={chooseForm} />
+      <ProgressBar currentStep={chooseForm} />
       <div className="p-[20%] flex justify-center all pt-0 pb-0 z-10">
         <PolicyForm
           data={data}
