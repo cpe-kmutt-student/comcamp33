@@ -16,7 +16,7 @@ const About = () => {
   return (
     <div className="flex flex-col justify-center items-center relative w-full h-full text-center px-10 md:px-[10vw] pt-[15vh] md:pt-[15vh] ">
       <BGAnimation />
-      <div className="absolute top-[-17px] right-0 w-full h-[25vh] z-20" style={{ transform: `translateY(${(offsetY-200) * 0.1}px)` }}>
+      <div className="absolute top-[-17px] right-0 w-full h-[25vh] z-20">
         <Image src="/assets/about/about_bg.png"
           layout="fill"
           objectFit="cover"
