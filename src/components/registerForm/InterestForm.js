@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { AiOutlineCheck } from "react-icons/ai";
-import Input from "@components/Input";
+// import Input from "@components/Input";
 import DropBox from "@components/DropBox";
 import TextArea from "@components/TextArea";
 import CheckBox from "@components/CheckBox";
 import styles from "@styles/components/registerForm/InterestForm.module.css";
 import { AiFillCaretLeft, AiFillCaretRight } from "react-icons/ai";
 import { saveData } from "@src/utils/clientUtils";
+import { Select, Form, Input, Button, InputNumber } from "antd";
 
 import trueAndFalse from "@components/registerForm/DropBoxData/trueAndFalse.json";
 
@@ -23,7 +24,7 @@ export default function InterestForm({ data, setData, choose, prev, next }) {
 
     setData({
       ...data,
-      "interest" : {
+      interest : {
         ...data.interest,
         admission: newAdmissions,
       },
@@ -145,7 +146,7 @@ export default function InterestForm({ data, setData, choose, prev, next }) {
           <br />
           <div className="flex flex-wrap md:flex-nowrap flex-row justify-between gap-5">
             <div className="flex flex-col mb-2 w-full">
-              <label className="text-white mb-2">มหาวิทยาลัยลำดับที่สอง * </label>
+              <label className="text-white mb-2">มหาวิทยาลัยลำดับที่สอง </label>
               <Input
                 type="text"
                 name="university"
@@ -153,7 +154,6 @@ export default function InterestForm({ data, setData, choose, prev, next }) {
                 onChange={(e) => {
                   handleChangeAdmission(e);
                 }}
-                required={true}
                 number="1"
                 value={
                   (data && data.interest &&
@@ -165,7 +165,7 @@ export default function InterestForm({ data, setData, choose, prev, next }) {
               />
             </div>
             <div className="flex flex-col mb-2 w-full">
-              <label className="text-white mb-2">คณะลำดับที่สอง * </label>
+              <label className="text-white mb-2">คณะลำดับที่สอง </label>
               <Input
                 type="text"
                 name="department"
@@ -173,7 +173,6 @@ export default function InterestForm({ data, setData, choose, prev, next }) {
                 onChange={(e) => {
                   handleChangeAdmission(e);
                 }}
-                required={true}
                 number="1"
                 value={
                   (data && data.interest &&
@@ -185,7 +184,7 @@ export default function InterestForm({ data, setData, choose, prev, next }) {
               />
             </div>
             <div className="flex flex-col mb-2 w-full">
-              <label className="text-white mb-2">ภาควิชาลำดับที่สอง * </label>
+              <label className="text-white mb-2">ภาควิชาลำดับที่สอง </label>
               <Input
                 type="text"
                 name="faculty"
@@ -193,7 +192,6 @@ export default function InterestForm({ data, setData, choose, prev, next }) {
                 onChange={(e) => {
                   handleChangeAdmission(e);
                 }}
-                required={true}
                 number="1"
                 value={
                   (data && data.interest &&
@@ -208,7 +206,7 @@ export default function InterestForm({ data, setData, choose, prev, next }) {
           <br />
           <div className="flex flex-wrap md:flex-nowrap flex-row justify-between gap-5">
             <div className="flex flex-col mb-2 w-full">
-              <label className="text-white mb-2">มหาวิทยาลัยลำดับที่สาม * </label>
+              <label className="text-white mb-2">มหาวิทยาลัยลำดับที่สาม </label>
               <Input
                 type="text"
                 name="university"
@@ -216,7 +214,6 @@ export default function InterestForm({ data, setData, choose, prev, next }) {
                 onChange={(e) => {
                   handleChangeAdmission(e);
                 }}
-                required={true}
                 number="2"
                 className="w-full"
                 value={
@@ -229,7 +226,7 @@ export default function InterestForm({ data, setData, choose, prev, next }) {
               />
             </div>
             <div className="flex flex-col mb-2 w-full">
-              <label className="text-white mb-2">คณะลำดับที่สาม * </label>
+              <label className="text-white mb-2">คณะลำดับที่สาม </label>
               <Input
                 type="text"
                 name="department"
@@ -237,7 +234,6 @@ export default function InterestForm({ data, setData, choose, prev, next }) {
                 onChange={(e) => {
                   handleChangeAdmission(e);
                 }}
-                required={true}
                 number="2"
                 value={
                   (data && data.interest &&
@@ -249,7 +245,7 @@ export default function InterestForm({ data, setData, choose, prev, next }) {
               />
             </div>
             <div className="flex flex-col mb-2 w-full">
-              <label className="text-white mb-2">ภาควิชาลำดับที่สาม * </label>
+              <label className="text-white mb-2">ภาควิชาลำดับที่สาม </label>
               <Input
                 type="text"
                 name="faculty"
@@ -257,7 +253,6 @@ export default function InterestForm({ data, setData, choose, prev, next }) {
                 onChange={(e) => {
                   handleChangeAdmission(e);
                 }}
-                required={true}
                 number="2"
                 value={
                   (data && data.interest &&
@@ -271,7 +266,7 @@ export default function InterestForm({ data, setData, choose, prev, next }) {
           </div>
           <br />
           <h2 className="text-white bg-[#DD517E] rounded-full justify-center w-fit p-2 pl-4 pr-4 text-lg">
-            หลักสูตรที่สนใจ
+            หลักสูตรที่สนใจ (คณะวิศวกรรมศาสตร์ ภาควิชาวิศวกรรมคอมพิวเตอร์ มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าธนบุรี)
           </h2>
           <div className="mt-2">
             <label className="flex items-center ml-5 text-white mb-2 w-fit">

@@ -3,6 +3,8 @@ import CheckBox from "@components/CheckBox";
 import styles from "@styles/register/PolicyForm.module.css";
 import Link from "next/link";
 import { AiFillCaretRight } from "react-icons/ai";
+import { Checkbox } from 'antd';
+import 'antd/dist/antd.css';
 
 export default function PolicyForm({
   data,
@@ -40,7 +42,7 @@ export default function PolicyForm({
           e.preventDefault();
           next();
           const isVerify = value.box1 === true && value.box2 === true;
-          setData({ ...data, verify: isVerify });
+          setData({ ...data, verify: data?.verify || isVerify });
         }}
       >
         <div className="flex flex-col bg-[#9600FF] text-white rounded-xl mt-6 pl-[10%] pr-[10%] pt-[1rem]">
@@ -75,8 +77,15 @@ export default function PolicyForm({
                 required={true}
                 onChange={handleChange}
                 name="box1"
-                checked={data && data.verify || value.box1}
+                checked={(data && data.verify) ? data.verify : value.box1}
               />
+              {/* 
+              <Checkbox>
+                onchange={handleChange}
+                checked={(data && data.verify) ? data.verify : value.box1}
+              </Checkbox>
+              
+              */}
               ข้าพเจ้าได้อ่านข้อมูลการสมัครทั้งหมดแล้ว
             </label>
           </div>
@@ -251,7 +260,7 @@ export default function PolicyForm({
                 required={true}
                 onChange={handleChange}
                 name="box2"
-                checked={data && data.verify || value.box2}
+                checked={(data && data.verify) ? data.verify : value.box2}
               />
               ข้าพเจ้ายอมรับนโยบายคุ้มครองข้อมูลส่วนบุคคล
             </label>

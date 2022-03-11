@@ -138,7 +138,7 @@ export default function RegistrationPage() {
         />
       </div>
 
-      <AutoSave data={data} />
+      {/* <AutoSave data={data} /> */}
 
       {/* <div className="flex justify-around my-5 z-20">
           <button onClick={prevForm}>
