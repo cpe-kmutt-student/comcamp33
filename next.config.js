@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ['platform-lookaside.fbsbx.com']
+    formats: ['image/webp']
   },
   i18n: {
     locales: ["th"],

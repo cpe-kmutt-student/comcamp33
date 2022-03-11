@@ -11,6 +11,7 @@ const Contact = () => {
           layout="fill"
           objectFit="cover"
           alt="light"
+          loading="lazy"
         />
       </div>
       <div className="md:px-10 space-y-4 flex items-center justify-center w-full h-full flex-col ">
@@ -26,6 +27,7 @@ const Contact = () => {
                 objectFit="contain"
                 layout="fill"
                 alt="ticket contact"
+                loading="lazy"
               />
             </div>
             <div className="flex justify-center h-[25vh] w-[100%] relative">
@@ -34,6 +36,7 @@ const Contact = () => {
                 objectFit="contain"
                 layout="fill"
                 alt="ticket contact"
+                loading="lazy"
               />
             </div>
           </div>
