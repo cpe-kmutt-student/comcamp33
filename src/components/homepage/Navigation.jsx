@@ -71,6 +71,7 @@ export const Navigation = () => {
               alt="comcamp logo"
               layout="fill"
               objectFit="contain"
+              loading="lazy"
             />
           </Link>
         </div>
