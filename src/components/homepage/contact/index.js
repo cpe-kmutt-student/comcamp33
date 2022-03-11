@@ -3,7 +3,7 @@ import Image from "next/image";
 const Contact = () => {
   return (
     <>
-      
+
       <div className="absolute h-[93vh] w-screen right-0 bottom-0 z-1">
         <Image
           src="/assets/contact/contactbg.png"
@@ -47,6 +47,7 @@ const Contact = () => {
               height={500}
               style={{ border: "none", overflow: "hidden" }}
               scrolling="no"
+              loading="lazy"
               frameBorder={0}
               title="ComCamp - Facebook Fanpage"
               allowFullScreen={true}
@@ -60,6 +61,7 @@ const Contact = () => {
               src="https://www.instagram.com/p/CaRvnhkhs2v/embed"
               frameBorder={0}
               title="ComCamp - Instagram Post"
+              loading="lazy"
             />
           </div>
         </div>
