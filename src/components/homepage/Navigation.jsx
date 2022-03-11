@@ -135,11 +135,12 @@ export const Navigation = () => {
                     if (session) {
                       router.push("/registration");
                     } else {
-                      signIn("facebook");
+                      signIn("facebook"); 
                     }
                   }}
                 >
-                  Registration
+                  {!session && (<p>Login</p>)}
+                  {session && ( <p>Registration</p> )}
                 </button>
               </li>
             </Link>
@@ -172,7 +173,8 @@ export const Navigation = () => {
             }
           }}
         >
-          Registration
+          {!session && (<p>Login</p>)}
+          {session && ( <p>Registration</p> )}
         </button>
 
         {session && (

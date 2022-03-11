@@ -23,10 +23,10 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
     next();
     e.preventDefault();
     saveData({
-      ...data, 
+      ...data,
     });
   };
-  
+
   return (
     <>
       <div className={choose != 2 ? "hidden" : ""}>
@@ -49,15 +49,15 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
               />
             </div>
             <div className="flex flex-col w-full">
-                <label className="text-white mb-2">ชื่อ (ภาษาไทย) * </label>
-                <Input
-                  type="text"
-                  name="name_th"
-                  placeholder="First Name"
-                  value={(data && data.info) ? data.info.name_th : ''}
-                  onChange={(e) => handleChange(e, 'info')}
-                  required={true}
-                />
+              <label className="text-white mb-2">ชื่อ (ภาษาไทย) * </label>
+              <Input
+                type="text"
+                name="name_th"
+                placeholder="First Name"
+                value={(data && data.info) ? data.info.name_th : ''}
+                onChange={(e) => handleChange(e, 'info')}
+                required={true}
+              />
             </div>
             <div className="flex flex-col w-full">
               <label className="text-white mb-2">นามสกุล (ภาษาไทย) * </label>
@@ -68,26 +68,26 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
                 value={(data && data.info) ? data.info.surname_th : ''}
                 onChange={(e) => handleChange(e, 'info')}
                 required={true}
-                // className="w-full"
+              // className="w-full"
               />
             </div>
             <div className="flex flex-col w-full">
               <label className="text-white mb-2">ชื่อเล่น (ภาษาไทย) * </label>
-                <Input
-                  type="text"
-                  name="nickname_th"
-                  placeholder="Nickname"
-                  value={(data && data.info) ? data.info.nickname_th : ''}
-                  onChange={(e) => handleChange(e, 'info')}
-                  required={true}
-                  // className="w-full"
-                />
+              <Input
+                type="text"
+                name="nickname_th"
+                placeholder="Nickname"
+                value={(data && data.info) ? data.info.nickname_th : ''}
+                onChange={(e) => handleChange(e, 'info')}
+                required={true}
+              // className="w-full"
+              />
             </div>
           </div>
 
           <div className="flex flex-wrap md:flex-nowrap flex-row items-end justify-between gap-10">
             <div className="flex flex-col">
-            <label className="text-white mb-2">*</label>
+              <label className="text-white mb-2">*</label>
               <DropBox
                 placeholder="Name prefix"
                 name="prefix_en"
@@ -124,7 +124,7 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
             <div className="flex flex-col w-full">
               <label className="text-white mb-2">
                 เดือน / วัน / ปี (ค.ศ.) เกิด
-               * </label>
+                * </label>
               <Input
                 type="date"
                 name="birthdate"
@@ -140,34 +140,34 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
 
           <div>
             <div className="flex flex-wrap md:flex-nowrap flex-row gap-10">
-                <div className="flex flex-col">
-                  <label className="text-white mb-2">
-                    เบอร์โทรศัพท์ส่วนตัว
-                   * </label>
-                  <Input
-                    type="tel"
-                    name="tel"
-                    placeholder="Tel"
-                    pattern="[0-9]{10}"
-                    value={(data && data.info) ? data.info.tel : ''}
-                    size="10"
-                    onChange={(e) => handleChange(e, 'info')}
-                    required={true}
-                    className="w-full block"
-                  />
-                </div>
-                <div className="flex flex-col">
-                  <label className="text-white mb-2">ขนาดเสื้อ * </label>
-                  <DropBox
-                    placeholder="ระบุขนาดเสื้อ"
-                    name="shirt"
-                    onChange={(e) => handleChange(e, 'info')}
-                    required={true}
-                    option={shirt_size}
-                    value={(data && data.info) ? data.info.shirt : ''}
-                    className="w-full block"
-                  />
-                </div>
+              <div className="flex flex-col">
+                <label className="text-white mb-2">
+                  เบอร์โทรศัพท์ส่วนตัว
+                  * </label>
+                <Input
+                  type="tel"
+                  name="tel"
+                  placeholder="Tel"
+                  pattern="[0-9]{10}"
+                  value={(data && data.info) ? data.info.tel : ''}
+                  size="10"
+                  onChange={(e) => handleChange(e, 'info')}
+                  required={true}
+                  className="w-full block"
+                />
+              </div>
+              <div className="flex flex-col">
+                <label className="text-white mb-2">ขนาดเสื้อ * </label>
+                <DropBox
+                  placeholder="ระบุขนาดเสื้อ"
+                  name="shirt"
+                  onChange={(e) => handleChange(e, 'info')}
+                  required={true}
+                  option={shirt_size}
+                  value={(data && data.info) ? data.info.shirt : ''}
+                  className="w-full block"
+                />
+              </div>
             </div>
           </div>
 
@@ -197,7 +197,7 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
                   type="text"
                   name="moo"
                   placeholder="หมู่"
-                  value={(data && data.address)  ? data.address.moo : ''}
+                  value={(data && data.address) ? data.address.moo : ''}
                   onChange={(e) => handleChange(e, 'address')}
                   required={true}
                   className="w-full"
@@ -236,11 +236,7 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
 
           <div className="flex flex-wrap md:flex-nowrap flex-row justify-between gap-10">
             <div className="flex flex-col w-full">
-<<<<<<< HEAD
-              <label className="text-white mb-2">{`ตำบล/แขวง`}</label>
-=======
               <label className="text-white mb-2">{`ตำบล/แขวง`} * </label>
->>>>>>> b981c78c13b84a0c608b8b130056a9c5e40bb2b9
               <div>
                 <Input
                   type="text"
@@ -254,11 +250,7 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
               </div>
             </div>
             <div className="flex flex-col w-full">
-<<<<<<< HEAD
-              <label className="text-white mb-2">{`อำเภอ/เขต`}</label>
-=======
               <label className="text-white mb-2">{`อำเภอ/เขต`} * </label>
->>>>>>> b981c78c13b84a0c608b8b130056a9c5e40bb2b9
               <div>
                 <Input
                   type="text"
@@ -395,33 +387,33 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
             </div>
           </div>
           <div className="flex justify-between my-5 z-20">
-          <button type="button" onClick={(e)=>{
-            prev();
-            e.preventDefault();
-            saveData({
-              ...data, 
-            });
-          }}>
-            <AiFillCaretLeft
-              size="4.5rem"
-              color="rgb(236,72,153)"
-            />
-          </button>
-          <button
-            type="submit"
-          >
-            <AiFillCaretRight
-              size="4.5rem"
-              color={[5].includes(choose) ? "#00FF00" : "rgb(236,72,153)"}
-              style={{ display: [5].includes(choose) ? "none" : "block" }}
-            />
-            <div
-              className="z-40"
-              style={{ display: [5].includes(choose) ? "block" : "none" }}
+            <button type="button" onClick={(e) => {
+              prev();
+              e.preventDefault();
+              saveData({
+                ...data,
+              });
+            }}>
+              <AiFillCaretLeft
+                size="4.5rem"
+                color="rgb(236,72,153)"
+              />
+            </button>
+            <button
+              type="submit"
             >
-            </div>
-          </button>
-        </div>
+              <AiFillCaretRight
+                size="4.5rem"
+                color={[5].includes(choose) ? "#00FF00" : "rgb(236,72,153)"}
+                style={{ display: [5].includes(choose) ? "none" : "block" }}
+              />
+              <div
+                className="z-40"
+                style={{ display: [5].includes(choose) ? "block" : "none" }}
+              >
+              </div>
+            </button>
+          </div>
         </form>
       </div>
     </>
