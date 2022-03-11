@@ -14,7 +14,7 @@ const Contact = () => {
           loading="lazy"
         />
       </div>
-      <div className="md:px-10 space-y-4 flex items-center flex-col ">
+      <div className="md:px-10 space-y-4 flex items-center justify-center w-full h-full flex-col ">
         <section data-aos="fade-up" className="text-white pt-4 sm:pt-10 md:pt-10 lg:pt-10 flex justify-center text-center font-pixel text-4xl sm:text-5xl md:text-5xl lg:text-6xl">
           Contact
         </section>
@@ -23,7 +23,7 @@ const Contact = () => {
           <div data-aos="fade-up" className="relative flex flex-col items-center lg:w-[35%] w-[90%] space-y-5 lg:space-y-0">
             <div className="flex justify-center h-[25vh] w-[100%] relative">
               <Image
-                src="/assets/contact/Ticket_Address.png"
+                src="/assets/contact/Address.png"
                 objectFit="contain"
                 layout="fill"
                 loading="lazy"
@@ -32,7 +32,7 @@ const Contact = () => {
             </div>
             <div className="flex justify-center h-[25vh] w-[100%] relative">
               <Image
-                src="/assets/contact/Ticket_Tel.png"
+                src="/assets/contact/Telephone.png"
                 objectFit="contain"
                 layout="fill"
                 alt="ticket contact"
@@ -48,7 +48,8 @@ const Contact = () => {
               style={{ border: "none", overflow: "hidden" }}
               scrolling="no"
               frameBorder={0}
-              allowFullScreen="true"
+              title="ComCamp - Facebook Fanpage"
+              allowFullScreen={true}
               allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
             />
           </div>
@@ -58,6 +59,7 @@ const Contact = () => {
               height={440}
               src="https://www.instagram.com/p/CaRvnhkhs2v/embed"
               frameBorder={0}
+              title="ComCamp - Instagram Post"
             />
           </div>
         </div>
