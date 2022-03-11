@@ -79,7 +79,7 @@ const particleConfig = {
             "options": {
                 "image": [
                     {
-                        "src": "/assets/star.svg",
+                        "src": "/assets/star.png",
                         "width": 32,
                         "height": 32
                     },
@@ -88,7 +88,7 @@ const particleConfig = {
             "type": "image"
         },
         "size": {
-            "value": 7,
+            "value": 8,
             "random": true,
             "animation": {
                 "enable": true,

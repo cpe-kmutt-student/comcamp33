@@ -26,8 +26,10 @@ const Learning = () => {
   return (
 
     <div className="flex flex-col justify-start pt-[8vh] lg:pt-[15vh] items-center relative w-full h-full text-center md:px-10 lg:px-10 sm:space-y-10 lg:space-y-5 md:space-y-5 ">
-      <div data-aos="fade-up" className="absolute top-[-20px] left-0" style={{transform: `translate(-${(offsetY-910)*0.1}px, ${(offsetY-910)*0.2}px)`, }}>
-        <Image className="animate-float" src="/assets/cassette.png" width={480} height={270} alt="" loading="lazy" />
+      <div data-aos="fade-up" className="absolute top-[-20px] left-0 hidden lg:block" style={{ transform: `translate(-${(offsetY - 910) * 0.1}px, ${(offsetY - 1500) * 0.2}px)`, }}>
+        <div className="relative w-[50vh] h-[25vh]">
+          <Image className="animate-float" src="/assets/cassette.png" layout="fill" alt="cassette" loading="lazy" objectFit="contain" />
+        </div>
       </div>
       <h1 data-aos="fade-right" className="text-white font-pixel text-3xl sm:text-4xl md:text-6xl lg:text-6xl relative ">Learning</h1>
       <div data-aos="fade-up" className="h-[60%] w-full relative hidden lg:block  animate-float">
@@ -57,7 +59,7 @@ const Learning = () => {
           <SubjectDetail name="Python" highlight="ภาษายอดฮิตที่ทุกคนต้องได้ลอง!" detail="สนุกกับการเขียนภาษา Python ซึ่งสามารถนำไปประยุกต์ใช้ได้หลากหลาย" />
         </div>
       </div>
-     
+
     </div>
   );
 };
