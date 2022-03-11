@@ -2,27 +2,25 @@ const PostCheck = () => {
   // Test Object
   const out = {
     info: {
-      prefix_en: "Mr.",
+      prefix_en: "Mr.", // *
       name_en: "Damn",
-      surname_en: "Namwongsa",
-      prefix_th: "นาย",
+      prefix_th: "นาย", // *
       name_th: "ปุณณวัช",
       surname_th: "นามวงเวียนแฮ่ นามวงวาน แฮ่..",
       nickname_th: "UwUNiceName",
-      birthdate: "2002-11-25",
-      religion: "พุทธโธ",
-      tel: "0875908288",
-      email: "shinnapatjr@gmail.com",
-      shirt: "XXL รอบอก 48",
-      image: "file",
+      birthdate: "2002-12-25", // *
+      tel: "0875908288", // *
+      shirt: "XXL",
+      email: 'eiei@mail.com' // *
     },
+
     education: {
-      name: "KMUTT",
+     name: "KMUTT",
       province: "กรุงเทพ",
-      program: "วิทย์-คณิต",
-      level: "ปี 1",
-      gpax: 3.78,
-    },
+      program: "วิทย์-คณิต", // *
+      level: "ม.4 ของปีการศึกษา 2564", // *
+      gpax: '3.78', // *
+    }, 
     address: {
       no: "298/1",
       moo: "-",
@@ -31,14 +29,14 @@ const PostCheck = () => {
       tambol: "ตลาดน้อย",
       amphoe: "สัมพันธวงศ์",
       province: "กรุงเทพฯ",
-      postal: 10100,
+      postcode: "10100", // *
     },
     parent: {
       name: "ธีรวัจน์",
       surname: "โกปาราเมศไตรสิน",
       relation: "บิดา",
-      tel: "0814422999",
-      email: "pp2p@hotmail.com",
+      tel: "0814422999", // *
+      email: "pp2p@hotmail.com", // *
     },
     interest: {
       admission: [
@@ -46,7 +44,7 @@ const PostCheck = () => {
         { faculty: "", department: "", university: "" },
         { faculty: "", department: "", university: "" },
       ],
-      plan: [true, false, false, false],
+      plan: [true, false, false, false], // *
       camp: "",
     },
     answers: {

@@ -7,11 +7,16 @@ if (!process.env.FACEBOOK_ID || !process.env.FACEBOOK_SECRET) {
 
 export default NextAuth({
   pages: {
-    signIn: '/auth',
+    signIn: '/home',
+    error: '/home'
   },
   callbacks: {
-    redirect({ url, baseUrl   }) {
+    async redirect({ url, baseUrl   }) {
       return baseUrl + '/registration';
+    },
+
+    async signIn({ user, account, profile, email }){
+      return !!(user && user.email);
     }
   },
   providers: [
@@ -19,5 +24,6 @@ export default NextAuth({
       clientId: process.env.FACEBOOK_ID,
       clientSecret: process.env.FACEBOOK_SECRET
     }),
-  ]
+  ],
+  debug: false,
 });
