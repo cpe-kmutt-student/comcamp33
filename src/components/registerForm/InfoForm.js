@@ -99,7 +99,7 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
               />
             </div>
             <div className="flex flex-col w-full">
-              <label className="text-white mb-2">Firstname * </label>
+              <label className="text-white mb-2">First name * </label>
               <Input
                 type="text"
                 name="name_en"
@@ -111,7 +111,7 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
               />
             </div>
             <div className="flex flex-col w-full">
-              <label className="text-white mb-2">Lastname * </label>
+              <label className="text-white mb-2">Last name * </label>
               <Input
                 type="text"
                 name="surname_en"
