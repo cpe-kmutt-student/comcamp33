@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import DropBox from "@components/DropBox";
+// import DropBox from "@components/DropBox";
 import { saveData } from "@src/utils/clientUtils";
 import { AiFillCaretLeft, AiFillCaretRight } from "react-icons/ai";
 
@@ -19,7 +19,7 @@ import {
 import MaskedInput from "antd-mask-input";
 import TestInput from "@components/Input";
 import { location } from "@components/registerForm/DropBoxData/location";
-import * as dayjs from "dayjs";
+// import * as dayjs from "dayjs";
 import moment from "moment";
 
 const { Option } = Select;
@@ -29,28 +29,9 @@ const dateFormat = "YYYY-MM-DD";
 export default function InfoForm({ data, setData, choose, next, prev }) {
   const [locationForm, setLocationForm] = useState();
 
+  const [filterData, setFilterData] = useState({});
+
   const onSearch = (type, value) => {
-    if (data?.tambol && data?.amphoe && data?.province && data?.postcode) {
-      setLocationForm(
-        locationForm?.filter((loc) => {
-          loc[type].toString().startsWith(value.toString());
-        }
-        )
-      );
-    } else {
-      setLocationForm(
-        location.filter((loc) =>
-          loc[type].toString().startsWith(value.toString())
-        )
-      );
-    }
-  };
-  const onSelect = (value, option, type) => {
-    // const filterData = {
-    //   sub_district: option.children[2],
-    //   province: option.children[4],
-    //   postcode: option.children[6],
-    // };
     if (data?.tambol && data?.amphoe && data?.province && data?.postcode) {
       setLocationForm(
         locationForm?.filter((loc) =>
@@ -64,11 +45,41 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
         )
       );
     }
-    // setData((oldData) => ({
-    //   ...oldData,
-    //   ...filterData,
-    // }));
   };
+  const onSelect = (value, option, type) => {
+    console.log(value, option, type);
+    if (option.children.length == 8) {
+      setFilterData({
+        ...data.address,
+        tambol: option.children[0],
+        amphoe: option.children[2],
+        province: option.children[5],
+        postcode: option.children[7],
+      });
+    } else if (option.children.length == 5) {
+      setFilterData({
+        ...data.address,
+        amphoe: option.children[0],
+        province: option.children[2],
+        postcode: option.children[4],
+      });
+    } else if (option.children.length == 3) {
+      setFilterData({
+        ...data.address,
+        province: option.children[0],
+        postcode: option.children[2],
+      });
+    } else if (option.children.length == 1) {
+      setFilterData({ ...data.address, postcode: option.children[0] });
+    }
+  };
+
+  useEffect(() => {
+    setData({
+      ...data,
+      address: filterData,
+    });
+  }, [filterData]);
 
   const [form] = Form.useForm();
   // const handleChange = (e, type) => {
@@ -202,7 +213,10 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
                 name={["info", "nickname_th"]}
                 rules={[{ required: true, message: "กรุณากรอกชื่อเล่น" }]}
               >
-                <Input placeholder="ชื่อเล่น (ภาษาไทย)" className="md:text-lg" />
+                <Input
+                  placeholder="ชื่อเล่น (ภาษาไทย)"
+                  className="md:text-lg"
+                />
               </Form.Item>
             </div>
           </div>
@@ -254,7 +268,10 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
                 name={["info", "surname_en"]}
                 rules={[{ required: true, message: "กรุณากรอกนามสกุล" }]}
               >
-                <Input placeholder="นามสกุล (ภาษาอังกฤษ)" className="md:text-lg" />
+                <Input
+                  placeholder="นามสกุล (ภาษาอังกฤษ)"
+                  className="md:text-lg"
+                />
               </Form.Item>
             </div>
             <div className="w-full ">
@@ -281,7 +298,11 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
                 name={["info", "tel"]}
                 rules={[{ required: true, message: "กรุณากรอกเบอร์โทรศัพท์" }]}
               >
-                <MaskedInput className="md:text-lg" mask="111-111-1111" name="tel" />
+                <MaskedInput
+                  className="md:text-lg"
+                  mask="111-111-1111"
+                  name="tel"
+                />
               </Form.Item>
             </div>
             <div className="w-full">
@@ -337,9 +358,11 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
                 name={["address", "no"]}
                 rules={[{ required: true, message: "กรุณากรอกบ้านเลขที่" }]}
               >
-                <Input placeholder="บ้านเลขที่" className="font-sans md:text-lg" />
+                <Input
+                  placeholder="บ้านเลขที่"
+                  className="font-sans md:text-lg"
+                />
               </Form.Item>
-
             </div>
             <div className="font-sans w-full">
               <Form.Item
@@ -352,7 +375,6 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
               >
                 <Input placeholder="หมู่" className="md:text-lg" />
               </Form.Item>
-
             </div>
             <div className="font-sans w-full">
               <Form.Item
@@ -365,7 +387,6 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
               >
                 <Input placeholder="ซอย" className="md:text-lg" />
               </Form.Item>
-
             </div>
             <div className="font-sans w-full">
               <Form.Item
@@ -393,20 +414,21 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
                 <AutoComplete
                   onSearch={(txt) => onSearch("district", txt)}
                   onSelect={(e, option) => onSelect(e, option, "district")}
-                  placeholder="แขวง / ตำบล" className="md:text-lg"
+                  placeholder="แขวง / ตำบล"
+                  className="md:text-lg"
                 >
                   {locationForm?.map((loc, index) => (
                     <OptionAuto
                       key={loc.district + index.toString()}
                       value={loc.district}
                     >
-                      {loc.district} &gt;&gt; {loc.amphoe} &gt;&gt; {loc.province} &gt;&gt;
+                      {loc.district} &gt;&gt; {loc.amphoe} &gt;&gt;{" "}
+                      {loc.province} &gt;&gt;
                       {loc.zipcode}
                     </OptionAuto>
                   ))}
                 </AutoComplete>
               </Form.Item>
-
             </div>
             <div className="w-full">
               <Form.Item
@@ -422,7 +444,9 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
                   onSelect={(e, option) => onSelect(e, option, "amphoe")}
                   placeholder="อำเภอ / เขต"
                   filterOption={(inputValue, option) =>
-                    option.value.toUpperCase().indexOf(inputValue.toUpperCase()) !== -1
+                    option.value
+                      .toUpperCase()
+                      .indexOf(inputValue.toUpperCase()) !== -1
                   }
                 >
                   {locationForm?.map((loc, index) => (
@@ -452,9 +476,10 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
                   placeholder="จังหวัด"
                   value={data?.province}
                   filterOption={(inputValue, option) =>
-                    option.value.toUpperCase().indexOf(inputValue.toUpperCase()) !== -1
+                    option.value
+                      .toUpperCase()
+                      .indexOf(inputValue.toUpperCase()) !== -1
                   }
-
                 >
                   {locationForm?.map((loc, index) => (
                     <OptionAuto
@@ -534,9 +559,7 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
                   </label>
                 }
                 name={["parent", "name"]}
-                rules={[
-                  { required: true, message: "กรุณากรอกชื่อผู้ปกครอง!" },
-                ]}
+                rules={[{ required: true, message: "กรุณากรอกชื่อผู้ปกครอง!" }]}
               >
                 <Input placeholder="ชื่อผู้ปกครอง" className="md:text-lg" />
               </Form.Item>
@@ -552,7 +575,10 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
                   name={["parent", "surname"]}
                   rules={[{ required: true, message: "กรุณากรอกนามสกุล!" }]}
                 >
-                  <Input placeholder="นามสกุลผู้ปกครอง" className="md:text-lg" />
+                  <Input
+                    placeholder="นามสกุลผู้ปกครอง"
+                    className="md:text-lg"
+                  />
                 </Form.Item>
               </div>
             </div>
