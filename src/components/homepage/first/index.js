@@ -25,7 +25,7 @@ const First = () => {
     return (
         <>
             <ModalFacebook isVisible={isModalVisible} setIsModalVisible={setIsModalVisible} handleSuccess={signIn} />
-            <div className="absolute h-screen w-screen lg:right-[-1vh] lg:top-[-5vh] md:top-[-7vh]  md:right-[-1vh] sm:top-[-10vh] sm:right-[-1vh] hidden lg:block md:block sm:block">
+            <div className="absolute h-screen w-screen lg:top-[-5vh] md:top-[-7vh]  sm:top-[-10vh] hidden lg:block md:block sm:block">
                 <svg
                     viewBox="0 0 1855 1080"
                     xmlns="http://www.w3.org/2000/svg"
