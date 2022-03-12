@@ -31,14 +31,14 @@ const loadData = async (req, res, session) => {
     .collection("data")
     .findOne(
       { 'facebook.email': session.user.email },
-      { projection: { _id: false } } 
+      { projection: { _id: false } }
     );
 
-  if(dataList) {
+  if (dataList) {
     delete dataList.facebook;
-    delete dataList.update_timestamp; 
+    delete dataList.update_timestamp;
   }
-  
+
   return res.status(200).json({
     success: true,
     message: dataList,
@@ -118,10 +118,10 @@ const saveData = async (req, res, session) => {
   const dateLate = new Date('3/29/2022 23:59:59').getTime();
   const dateNow = new Date().getTime();
 
-  const isComplete  = await database
-  .db("comcamp33")
-  .collection("data")
-  .findOne({ "facebook.email": session.user.email }, { projection: { complete: 1, _id: 0 }});
+  const isComplete = await database
+    .db("comcamp33")
+    .collection("data")
+    .findOne({ "facebook.email": session.user.email }, { projection: { complete: 1, _id: 0 } });
 
   if (dateNow > dateLate || !isSubset(DATABASE_STRUCTURE, copiedData) || (isComplete && !!isComplete.complete)) {
     return res.status(400).json({
@@ -164,7 +164,7 @@ const saveData = async (req, res, session) => {
         message: `prefix_en doesn't match our requirement`
       });
     }
-    
+
     if (data.info.prefix_th && !['นาย', 'นาง', 'นางสาว'].includes(data.info.prefix_th)) {
       return res.status(400).json({
         message: `prefix_th doesn't match our requirement`
@@ -176,19 +176,19 @@ const saveData = async (req, res, session) => {
         message: `date doesn't match our requirement`
       });
     }
-    
+
     if (data.info.tel && ((data.info.tel.length != 10) || !Number.isInteger(Number(data.info.tel)))) {
       return res.status(400).json({
         message: `tel doesn't match our requirement`
       });
     }
-    
+
     if (data.info.email
-        && !data.info.email
-          .toLowerCase()
-          .match(
-            /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-          )
+      && !data.info.email
+        .toLowerCase()
+        .match(
+          /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+        )
     ) {
       return res.status(400).json({
         message: `email doesn't match our requirement`
@@ -201,14 +201,14 @@ const saveData = async (req, res, session) => {
       });
     }
   }
-  
+
   if (data.education) {
     if (data.education.program && !['วิทย์-คอม', 'วิทย์-คณิต', 'คณิต-คอม', 'ปวช. เตรียมวิศวะ', 'อื่นๆ'].includes(data.education.program)) {
       return res.status(400).json({
         message: `program doesn't match our requirement`
       });
     }
-    
+
     const gpax = Number.parseFloat(data.education.gpax);
     if (data.education.gpax && (isNaN(gpax) || gpax < 0 || gpax > 4)) {
       return res.status(400).json({
@@ -217,16 +217,16 @@ const saveData = async (req, res, session) => {
     }
 
     if (data.education.level && !['ม.4 ขึ้น ม.5 หรือเทียบเท่า', 'ม.5 ขึ้น ม.6 หรือเทียบเท่า', 'จบ ม.6 หรือเทียบเท่า'].includes(data.education.level))
-    return res.status(400).json({
-      message: `level doesn't match our requirement`
-    });
+      return res.status(400).json({
+        message: `level doesn't match our requirement`
+      });
   }
 
   if (data.address) {
     if (data.address.postcode && ((data.address.postcode.length != 5) || !Number.isInteger(Number(data.address.postcode))))
-    return res.status(400).json({
-      message: `postcode doesn't match our requirement`
-    });
+      return res.status(400).json({
+        message: `postcode doesn't match our requirement`
+      });
   }
 
   if (data.parent) {
@@ -247,17 +247,24 @@ const saveData = async (req, res, session) => {
         message: `parent email doesn't match our requirement`
       });
     }
-    
-    if (data.interest) {
-      if (data.interest.plan) {
-        if (!Array.isArray(data.interest.plan)
-          || (data.interest.plan.length > 4)
-          // || (data.interest.plan.some((data) => typeof data !== 'boolean'))
-        ) {
-          return res.status(400).json({
-            message: `interest plan doesn't match our requirement`
-          });
-        }
+  }
+
+  if (data.interest) {
+    if (data.interest.plan) {
+
+      const planIsNotPass = data.interest.plan
+        .map((plan) => {
+          return ['หลักสูตรปกติ', 'หลักสูตรนานาชาติ', 'หลักสูตรวิทยาศาสตร์ข้อมูลสุขภาพ', 'หลักสูตร Residential College'].includes(plan);
+        })
+        .some((plan) => plan == false);
+
+      if (!Array.isArray(data.interest.plan)
+        || (data.interest.plan.length > 4)
+        || planIsNotPass
+      ) {
+        return res.status(400).json({
+          message: `interest plan doesn't match our requirement`
+        });
       }
     }
   }
@@ -273,7 +280,7 @@ const saveData = async (req, res, session) => {
     .db("comcamp33")
     .collection("data")
     .findOne({ "facebook.email": session.user.email });
-    
+
   if (!user) {
     const save = await database
       .db("comcamp33")
@@ -292,9 +299,9 @@ const saveData = async (req, res, session) => {
       .db("comcamp33")
       .collection("data")
       .updateOne({ "facebook.email": session.user.email }, { $set: data });
-    
+
     console.log(`[${getTimeStamp()}] ${session.user.email} save data`);
-    
+
     return res.status(200).json({
       success: true,
       message: update,

@@ -18,7 +18,7 @@ const PostCheck = () => {
      name: "KMUTT",
       province: "กรุงเทพ",
       program: "วิทย์-คณิต", // *
-      level: "ม.4 ของปีการศึกษา 2564", // *
+      level: "ม.5 ขึ้น ม.6 หรือเทียบเท่า", // *
       gpax: '3.78', // *
     }, 
     address: {
@@ -36,7 +36,7 @@ const PostCheck = () => {
       surname: "โกปาราเมศไตรสิน",
       relation: "บิดา",
       tel: "0814422999", // *
-      email: "pp2p@hotmail.com", // *
+      // email: "pp2p@hotmail.com", // *
     },
     interest: {
       admission: [
@@ -44,7 +44,7 @@ const PostCheck = () => {
         { faculty: "", department: "", university: "" },
         { faculty: "", department: "", university: "" },
       ],
-      plan: [true, false, false, false], // *
+      plan: ['หลักสูตรปกติ','หลักสูตรนานาชาติ'], // *
       camp: "",
     },
     answers: {
