@@ -29,7 +29,7 @@ const Home = () => {
           <Learning />
         </section>
         <Wave fill="#200440" />
-        <section className="bg-[#380644] py0 lg:h-[92vh]" id="condition">
+        <section className="bg-[#380644] py-12 lg:h-[92vh]" id="condition">
           <Condition />
         </section>
         <Wave fill="#380644" />
