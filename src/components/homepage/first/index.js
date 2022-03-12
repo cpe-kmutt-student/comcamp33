@@ -2,7 +2,6 @@ import { signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 const { default: Image } = require("next/image");
-import { signIn, useSession } from "next-auth/react";
 
 const First = () => {
   const [offsetY, setOffsetY] = useState(0);
