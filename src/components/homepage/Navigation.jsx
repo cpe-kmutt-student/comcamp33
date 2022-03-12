@@ -131,7 +131,7 @@ export const Navigation = () => {
                                     } `109o`
                                 }}
                             >
-                                 <p className="tracking-wider">Register</p>
+                                <p className="tracking-wider">Register</p>
 
                             </button>
                         </button>
@@ -207,7 +207,7 @@ export const Navigation = () => {
 
                     {/* regis and sign out button */}
 
-                    <button className="right-2 font-pixel relative text-white top-0 text-center  bg-gradient-to-b from-[#F054F3] to-[#9600FF] px-4 py-1 mx-2 border-2 text-xl border-2 border-[#B3E7F8] hover:shadow-[0_0px_15px_-2px_rgba(150,0,255,1)] hover:shadow-[#9600FF] transition-all duration-100 ease-linear rounded-lg hover:px-6  hover:tracking-widest hover:mx-0">
+                    <button className="right-2 font-pixel relative text-white top-0 text-center  bg-gradient-to-b from-[#F054F3] to-[#9600FF] px-4 py-1 mx-2 text-xl border-2 border-[#B3E7F8] hover:shadow-[0_0px_15px_-2px_rgba(150,0,255,1)] hover:shadow-[#9600FF] transition-all duration-100 ease-linear rounded-lg   hover:tracking-widest ">
                         <button
                             type="button"
                             onClick={() => {

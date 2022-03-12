@@ -149,15 +149,11 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
                 <Select
                   placeholder="คำนำหน้า"
                   style={{ width: "7rem" }}
-                  dropdownClassName="border-2 border-white bg-transparent text-gray-400 px-2 py-1 "
+                  dropdownClassName="border-2 border-white text-gray-400 px-2 py-1 "
                   defaultValue={data?.info ? data.info.prefix_th : null}
                 >
                   {prefix_th.map((item) => (
-                    <Option
-                      key={item.value}
-                      value={item.value}
-                      className="text-black bg-transparent"
-                    >
+                    <Option key={item.value} value={item.value}>
                       {item.name}
                     </Option>
                   ))}
@@ -247,14 +243,10 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
                 <Select
                   placeholder="Name prefix"
                   style={{ width: "7rem" }}
-                  dropdownClassName="border-2 border-white bg-transparent text-gray-400 px-2 py-1 "
+                  dropdownClassName="border-2 border-white text-gray-400 px-2 py-1 "
                 >
                   {prefix_en.map((item) => (
-                    <Option
-                      key={item.value}
-                      value={item.value}
-                      className="text-black bg-transparent"
-                    >
+                    <Option key={item.value} value={item.value}>
                       {item.name}
                     </Option>
                   ))}
@@ -380,14 +372,10 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
                   <Select
                     placeholder="ระบุขนาดเสื้อ"
                     style={{ width: "7rem" }}
-                    dropdownClassName="border-2 border-white bg-transparent text-gray-400 px-2 py-1 "
+                    dropdownClassName="border-2 border-white text-gray-400 px-2 py-1 "
                   >
                     {shirt_size.map((item) => (
-                      <Option
-                        key={item.value}
-                        value={item.value}
-                        className="text-black bg-transparent"
-                      >
+                      <Option key={item.value} value={item.value}>
                         {item.name}
                       </Option>
                     ))}
@@ -671,14 +659,10 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
                 <Select
                   placeholder="คำนำหน้า"
                   style={{ width: "7rem" }}
-                  dropdownClassName="border-2 border-white bg-transparent text-gray-400 px-2 py-1 "
+                  dropdownClassName="border-2 border-white text-gray-400 px-2 py-1 "
                 >
                   {prefix_th.map((item) => (
-                    <Option
-                      key={item.value}
-                      value={item.value}
-                      className="text-black bg-transparent"
-                    >
+                    <Option key={item.value} value={item.value}>
                       {item.name}
                     </Option>
                   ))}
