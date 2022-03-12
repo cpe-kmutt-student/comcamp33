@@ -319,7 +319,7 @@ export default function QuestionsForm({
               <button type="button" onClick={prev}>
                 <AiFillCaretLeft
                   size="4.5rem"
-                  color="rgb(236,72,153)"
+                  className="text-[#ec4899] opacity-60 translation-all ase-linear duration-200 hover:opacity-100"
                   style={{
                     display: [1, 2].includes(choose) ? "none" : "block",
                   }}
