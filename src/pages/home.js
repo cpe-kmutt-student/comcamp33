@@ -17,7 +17,7 @@ const Home = () => {
       <StarParticle />
 
       <div className=" overflow-x-hidden overflow-visible">
-        <section className="lg:px-24 h-[94vh] bg-gradient-to-t from-[#E5155E] to-[#11033E] top-0" id="home" >
+        <section className="lg:px-24 h-[100vh] bg-gradient-to-t from-[#E5155E] to-[#11033E] top-0" id="home" >
           <First />
         </section>
 

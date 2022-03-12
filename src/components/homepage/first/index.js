@@ -11,7 +11,7 @@ const First = () => {
             window.removeEventListener("scroll", handleScroll);
         }
     }, [])
-
+    
     return (
         <>
             <div className="absolute h-[92vh] md:h-[100%] w-screen right-0">
@@ -28,6 +28,32 @@ const First = () => {
                     <Image src="/assets/sun.svg" quality={100} layout="fill" objectFit='contain' alt="sun" />
                 </div>
                 <Image className='animate-wiggle' src="/assets/comcamplogo.png" quality={100} layout="fill" objectFit='contain' alt="comcamp logo" />
+            </div>
+            <div className="font-pixel w-full flex justify-center relative text-white top-0 text-center z-[90] text-xl      tracking-widest  ">
+
+{/* putter */}
+                <button
+                    type="button"
+                    onClick={() => {
+                        if (session) {
+                            router.push('/registration')
+                        } else {
+                            signIn('facebook');
+                        } 
+                    }}
+                >
+                    <div className="cursor-pointer w-5/4 font-pixel relative text-white top-0 text-center  bg-gradient-to-b from-[#F054F3] to-[#9600FF] px-6 py-2  border-2 text-4xl border-3 border-[#B3E7F8] hover:shadow-[0_0px_15px_-2px_rgba(150,0,255,1)] hover:shadow-[#9600FF] transition-all duration-100 ease-linear rounded-xl  animate-bounce   tracking-widest ">
+                        register Now
+                    </div>
+                </button>
+
+            </div>
+            <div className="font-pixel w-full flex justify-center relative text-white top-0 text-center z-[90] text-xl      tracking-widest ">
+
+                <div className='text-4xl'>
+                    Open 12 - 29 March
+                </div>
+
             </div>
             <div className="absolute bottom-[-1vh] right-0 w-[100%] md:h-[35vh] h-[40vh]">
                 <Image src="/assets/first/longtown.png"
