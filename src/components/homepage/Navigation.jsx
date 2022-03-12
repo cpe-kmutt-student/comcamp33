@@ -250,7 +250,11 @@ export const Navigation = () => {
                       : "registration closed"}
                   </p>
                   <div className="hidden group-hover:block  fixed right-0 rounded-lg  pt-16 top-0 min-w-fit text-black p-5 ">
-                    <div className="py-2 px-6 rounded-lg bg-[#F054F3]/80 text-[#E3E7EE]tracking-widest  w-[250px] text-[1rem] leading-5 border-dashed border-2 border-[#E3E7EE]">
+                    <div
+                      className={`py-2 px-6 rounded-lg bg-[#F054F3]/80 text-[#E3E7EE]tracking-widest  w-[250px] text-[1rem] leading-5 border-dashed border-2 border-[#E3E7EE] ${
+                        isEnabled ? "block" : "hidden"
+                      }`}
+                    >
                       you have to sign up with your facebook account before
                       registering to our camp
                     </div>
