@@ -146,7 +146,7 @@ const saveData = async (req, res, session) => {
 
     const isNotPass = data.interest.admission
       .map((object) => {
-        if (object) return isSubset(requiredStructure, object);
+        if (object) return isSubset(requiredStructure, JSON.parse(JSON.stringify(object)));
         return true;
       })
       .some((object) => object == false);
