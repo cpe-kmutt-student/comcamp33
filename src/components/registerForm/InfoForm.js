@@ -32,8 +32,9 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
   const onSearch = (type, value) => {
     if (data?.tambol && data?.amphoe && data?.province && data?.postcode) {
       setLocationForm(
-        locationForm?.filter((loc) =>
-          loc[type].toString().startsWith(value.toString())
+        locationForm?.filter((loc) =>{
+          loc[type].toString().startsWith(value.toString());
+        }
         )
       );
     } else {
@@ -45,11 +46,11 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
     }
   };
   const onSelect = (value, option, type) => {
-    const filterData = {
-      sub_district: option.children[2],
-      province: option.children[4],
-      post_code: option.children[6],
-    };
+    // const filterData = {
+    //   sub_district: option.children[2],
+    //   province: option.children[4],
+    //   postcode: option.children[6],
+    // };
     if (data?.tambol && data?.amphoe && data?.province && data?.postcode) {
       setLocationForm(
         locationForm?.filter((loc) =>
@@ -372,7 +373,7 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
                   <Select
                     placeholder="ระบุขนาดเสื้อ"
                     style={{ width: "7rem" }}
-                    dropdownClassName="border-2 font-sans border-white text-gray-400 px-2 py-1 "
+                    dropdownClassName="border-2 font-sans border-white text-gray-400 px-1 py-1 "
                   >
                     {shirt_size.map((item) => (
                       <Option key={item.value} value={item.value}>
@@ -501,15 +502,14 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
                 <AutoComplete
                   onSearch={(txt) => onSearch("district", txt)}
                   onSelect={(e, option) => onSelect(e, option, "district")}
-                  placeholder="แขวง / ตำบล"
+                  placeholder="ตำบล / แขวง"
                 >
                   {locationForm?.map((loc, index) => (
                     <OptionAuto
                       key={loc.district + index.toString()}
                       value={loc.district}
                     >
-                      {loc.district} &gt;&gt; {loc.amphoe} &gt;&gt;{" "}
-                      {loc.province} &gt;&gt;
+                      {loc.district} &gt;&gt; {loc.amphoe} &gt;&gt; {loc.province} &gt;&gt;
                       {loc.zipcode}
                     </OptionAuto>
                   ))}
@@ -539,7 +539,10 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
                 <AutoComplete
                   onSearch={(txt) => onSearch("amphoe", txt)}
                   onSelect={(e, option) => onSelect(e, option, "amphoe")}
-                  placeholder="อำเภอ"
+                  placeholder="อำเภอ / เขต"
+                  filterOption={(inputValue, option) =>
+                    option.value.toUpperCase().indexOf(inputValue.toUpperCase()) !== -1
+                  }              
                 >
                   {locationForm?.map((loc, index) => (
                     <OptionAuto
@@ -578,6 +581,10 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
                   onSearch={(txt) => onSearch("province", txt)}
                   placeholder="จังหวัด"
                   value={data?.province}
+                  filterOption={(inputValue, option) =>
+                    option.value.toUpperCase().indexOf(inputValue.toUpperCase()) !== -1
+                  }
+              
                 >
                   {locationForm?.map((loc, index) => (
                     <OptionAuto

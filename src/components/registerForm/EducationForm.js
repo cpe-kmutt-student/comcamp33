@@ -116,31 +116,31 @@ export default function EducationForm({ data, setData, choose, prev, next }) {
   }, [data]);
 
   return (
-    <>
-      <div className={choose != 3 ? "hidden" : ""}>
+      <div className={choose != 3 ? "hidden w-full" : ""}>
+        <div className="flex justify-center mt-2">
+          <h1 className="flex w-fit justify-center font-sans text-xl md:text-3xl text-white bg-[#9600FF] px-4 py-3 my-8 rounded-2xl">
+            ประวัติการศึกษา
+          </h1>
+        </div>
         <Form
           form={form}
           name="education"
           // onSubmit={handleSubmit}
-          className="space-y-8"
+          className="space-y-8 "
           layout="vertical"
           onFinish={onFinish}
           onFinishFailed={onFinishFailed}
           validateTrigger="onBlur"
           initialValues={data}
         >
-          <div className="flex justify-center mt-2">
-            <h1 className="flex w-fit justify-center font-sans text-xl md:text-3xl text-white bg-[#9600FF] px-4 py-3 my-8 rounded-2xl">
-              ประวัติการศึกษา
-            </h1>
-          </div>
+          
           {/* <form onSubmit={handleSubmit}> */}
           <Form.Item
             label={<label className="text-white font-sans md:text-lg mb-2">{`ชื่อสถานศึกษา`}</label>}
             name={["education", "name"]}
             rules={[{ required: true, message: "กรุณากรอกชื่อโรงเรียน" }]}
           >
-            <Input placeholder="โรงเรียน" />
+            <Input placeholder="โรงเรียน"/>
           </Form.Item>
           {/* <label className="text-white mb-2">{`ชื่อสถานศึกษา`} * </label>
           <div>
@@ -155,10 +155,10 @@ export default function EducationForm({ data, setData, choose, prev, next }) {
             />
           </div> */}
           <br />
-          <div className="flex font-sans flex-wrap md:flex-nowrap flex-col md:flex-row justify-between gap-10">
+          <div className="flex font-sans flex-col justify-between gap-10">
             <div className="flex flex-col w-full">
               <Form.Item
-                label={<label className="text-white mb-2">{`จังหวัด`}</label>}
+                label={<label className="text-white md:text-lg mb-2">{`จังหวัด`}</label>}
                 name={["education", "province"]}
                 rules={[{ required: true, message: "กรุณากรอกจังหวัด" }]}
               >
@@ -189,7 +189,7 @@ export default function EducationForm({ data, setData, choose, prev, next }) {
             <div className="flex flex-col w-full">
               <Form.Item
                 label={
-                  <label className="text-white mb-2">{`แผนการเรียน`}</label>
+                  <label className="text-white md:text-lg mb-2">{`แผนการเรียน`}</label>
                 }
                 name={["education", "program"]}
                 rules={[{ required: true, message: "กรุณาเลือกแผนการเรียน" }]}
@@ -224,7 +224,7 @@ export default function EducationForm({ data, setData, choose, prev, next }) {
             <div className="flex flex-col w-full">
               <Form.Item
                 label={
-                  <label className="text-white mb-2">{`ระดับการศึกษา`}</label>
+                  <label className="text-white md:text-lg mb-2">{`ระดับการศึกษา`}</label>
                 }
                 name={["education", "level"]}
                 rules={[{ required: true, message: "กรุณาเลือกระดับการศึกษา" }]}
@@ -259,7 +259,7 @@ export default function EducationForm({ data, setData, choose, prev, next }) {
             <div className="flex flex-col w-full">
               <Form.Item
                 label={
-                  <label className="text-white mb-2">{`เกรดเฉลี่ย`}</label>
+                  <label className="text-white md:text-lg mb-2">{`เกรดเฉลี่ย`}</label>
                 }
                 name={["education", "gpax"]}
                 rules={[{ required: true, message: "กรุณากรอกเกรดเฉลี่ย" }]}
@@ -302,7 +302,6 @@ export default function EducationForm({ data, setData, choose, prev, next }) {
           {/* </form> */}
         </Form>
       </div>
-    </>
   );
 }
 

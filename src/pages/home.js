@@ -27,7 +27,7 @@ const Home = () => {
         </section>
 
 
-        <section className="bg-[#200440] h-[120vh]" id="learning">
+        <section className="bg-[#200440] h-[94vh]" id="learning">
           <Learning />
         </section>
         <Wave fill="#200440" />

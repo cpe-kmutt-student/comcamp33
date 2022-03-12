@@ -42,7 +42,7 @@ const About = () => {
         </div>
         <p
           data-aos="fade-right"
-          className="mx-auto w-3/4 tracking-wide leading-snug text-white text-center lg:text-justify text-sm sm:text-lg md:text-xl lg:text-2xl font-thai"
+          className="mx-auto w-3/4 text-white text-center tracking-wide leading-snug lg:text-center text-sm sm:text-lg md:text-xl lg:text-2xl font-thai"
         >
           วิศวะคอมบางมดเรียนเกี่ยวกับอะไร ? วิศวะคอมบางมดจบไปแล้วทำอะไร ?
           วิศวะคอมบางมดเรียนสนุกไหม ? ยินดีต้อนรับน้อง ๆ
@@ -56,7 +56,7 @@ const About = () => {
         </p>
         <div
           data-aos="fade-right"
-          className="text-sm sm:text-lg md:text-xl lg:text-2xl mx-auto w-3/4 text-white flex flex-col lg:flex-row  justify-start relative mt-4"
+          className="text-sm sm:text-lg md:text-xl lg:text-2xl mx-auto w-scree text-white flex flex-col lg:flex-row  items-center justify-center relative mt-4"
         >
           <div className="flex flex-row items-center pb-3 lg:pb-0">
             <div className="pr-2 text-sm sm:text-lg md:text-3xl leading-10">
