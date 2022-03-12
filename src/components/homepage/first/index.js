@@ -1,6 +1,7 @@
 import { signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
+import { ModalFacebook } from "../Navigation";
 const { default: Image } = require("next/image");
 
 const First = () => {
@@ -19,9 +20,11 @@ const First = () => {
     const openRegis = new Date(2022, 2, 12, 18, 0, 0)
     const closeRegis = new Date(2022, 2, 29, 23, 59, 59)
 
+    const [isModalVisible, setIsModalVisible] = useState(false)
     const isEnabled = date >= openRegis && date <= closeRegis
     return (
         <>
+            <ModalFacebook isVisible={isModalVisible} setIsModalVisible={setIsModalVisible} handleSuccess={signIn} />
             <div className="absolute h-[92vh] md:h-[100%] w-screen right-0">
                 <svg
                     viewBox="0 0 1855 1080"
@@ -96,7 +99,7 @@ const First = () => {
                         if (session) {
                             router.push("/registration");
                         } else {
-                            signIn("facebook");
+                            setIsModalVisible(true)
                         }
                     }}
                     disabled={!isEnabled}
