@@ -52,12 +52,12 @@ const Contact = () => {
 
                 <div className="flex space-x-5 m-2">
                   <div>
-                    <p className="lg:text-lg md:text-lg sm:text-md text-sm">พี่วิน     <a href="tel:098-064-4919">098-064-4919</a></p>
-                    <p className="lg:text-lg md:text-lg sm:text-md text-sm">พี่เฟียร์   <a href="tel:094-345-4863">094-345-4863</a></p>
-                    <p className="lg:text-lg md:text-lg sm:text-md text-sm">พี่พัตเตอร์ <a href="tel:098-799-3905">098-799-3905</a></p>
-                    <p className="lg:text-lg md:text-lg sm:text-md text-sm">พี่ฆี      <a href="tel:084-642-6322">084-642-6322</a></p>
-                    <p className="lg:text-lg md:text-lg sm:text-md text-sm">พี่ปิ่น     <a href="tel:095-154-3610">095-154-3610</a></p>
-                    <p className="lg:text-lg md:text-lg sm:text-md text-sm">พี่ณัฐ     <a href="tel:092-595-4992">092-595-4992</a></p>
+                    <p className="lg:text-lg md:text-lg sm:text-md text-sm">พี่วิน     <a href="tel:098-064-4919" className="underline">098-064-4919</a></p>
+                    <p className="lg:text-lg md:text-lg sm:text-md text-sm">พี่เฟียร์   <a href="tel:094-345-4863" className="underline">094-345-4863</a></p>
+                    <p className="lg:text-lg md:text-lg sm:text-md text-sm">พี่พัตเตอร์ <a href="tel:098-799-3905" className="underline">098-799-3905</a></p>
+                    <p className="lg:text-lg md:text-lg sm:text-md text-sm">พี่ฆี      <a href="tel:084-642-6322" className="underline">084-642-6322</a></p>
+                    <p className="lg:text-lg md:text-lg sm:text-md text-sm">พี่ปิ่น     <a href="tel:095-154-3610" className="underline">095-154-3610</a></p>
+                    <p className="lg:text-lg md:text-lg sm:text-md text-sm">พี่ณัฐ     <a href="tel:092-595-4992" className="underline">092-595-4992</a></p>
                   </div>
                 </div>
               </div>
