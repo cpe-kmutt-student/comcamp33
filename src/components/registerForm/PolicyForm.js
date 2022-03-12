@@ -52,7 +52,7 @@ export default function PolicyForm({
   }, [check1, check2]);
 
   return (
-    <div className={choose != 1 && data?.verify == true ? "hidden" : ""}>
+    <div className={choose != 1 && data?.verify == true ? "hidden" : "w-full"}>
       <form
         onSubmit={(e) => {
           e.preventDefault();
@@ -61,8 +61,8 @@ export default function PolicyForm({
           setData({ ...data, verify: data?.verify || isVerify });
         }}
       >
-        <div className="flex flex-col bg-[#9600FF] text-white rounded-xl mt-6 pl-[10%] pr-[10%] py-6">
-          <div className="flex justify-center content-center py-4">
+        <div className="bg-[#9600FF] text-white rounded-xl p-8 px-10 md:px-28 mb-8">
+          <div className="flex justify-center py-4">
             <h1 className="text-xl md:text-3xl font-sans mb-2 text-white">เอกสารประกอบการสมัคร</h1>
           </div>
           <div className="text-sm md:text-lg">
@@ -99,20 +99,20 @@ export default function PolicyForm({
           </div>
         </div>
 
-        <div className="flex flex-col bg-[#DD517E] text-white rounded-xl my-6 pl-[10%] pr-[10%] pt-[1rem]">
+        <div className="flex flex-col bg-[#DD517E] text-white rounded-xl p-8 px-10 md:px-28">
           <div className="flex justify-center font-sans content-center">
             <h1 className="text-xl md:text-3xl mb-2 leading-relaxed text-white">
               นโยบายข้อมูลส่วนบุคคล
             </h1>
           </div>
-          <div className="overflow-auto max-h-[16rem] font-sans bg-white text-black pt-[1rem] px-8 text-[0.9rem] md:text-lg">
+          <div className="overflow-auto max-h-64 font-sans bg-white text-black pt-4 px-4 md:text-lg">
             <ol className={styles.orderList}>
               <li className={styles.listItem}>
                 ข้อมูลสำคัญเกี่ยวกับโครงการ
                 <ol className={styles.orderList}>
                   <li>
                     โครงการฝึกอบรมเชิงปฏิบัติการคอมพิวเตอร์ ครั้งที่ 33 หรือ
-                    Comcamp#33 ( ซึ่งต่อไปนี้จะเรียกว่า “ โครงการ ” )
+                    Comcamp 33 ( ซึ่งต่อไปนี้จะเรียกว่า “ โครงการ ” )
                     เป็นผู้ให้บริการเว็บไซต์ comcamp.io
                     และเว็บไซต์อื่นที่เกี่ยวข้อง ( ซึ่งต่อไปนี้จะเรียกว่า “
                     เว็บไซต์ ” )
