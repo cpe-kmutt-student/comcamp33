@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-// import DropBox from "@components/DropBox";
+import { useEffect, useState } from "react";
 import { saveData } from "@src/utils/clientUtils";
 import { AiFillCaretLeft, AiFillCaretRight } from "react-icons/ai";
 
@@ -11,19 +10,15 @@ import {
   Form,
   Input,
   DatePicker,
-  Button,
   notification,
   AutoComplete,
-  InputNumber,
 } from "antd";
 import MaskedInput from "antd-mask-input";
-import TestInput from "@components/Input";
 import { location } from "@components/registerForm/DropBoxData/location";
 import moment from "moment";
 
 const { Option } = Select;
 const { Option: OptionAuto } = AutoComplete;
-const dateFormat = "YYYY-MM-DD";
 
 export default function InfoForm({ data, setData, choose, next, prev }) {
   const [locationForm, setLocationForm] = useState();

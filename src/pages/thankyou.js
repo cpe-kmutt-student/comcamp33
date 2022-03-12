@@ -2,11 +2,12 @@ import ThankYou_BG from "@public/formBg/ThankYou_BG.png";
 import Link from "next/link";
 import Image from "next/image";
 import { FaDownload } from "react-icons/fa";
-// import Header from "@components/Header";
+import Header from "@components/Header";
 
 export default function thankyou() {
   return (
     <>
+      <Header />
       <div className="relative flex flex-col justify-center items-center bg-[#11033E] h-screen overflow-hidden">
         <div className="w-screen h-screen top-0 z-0 fixed">
           <Image

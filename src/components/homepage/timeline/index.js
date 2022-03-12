@@ -2,6 +2,7 @@ import { PC_Timeline } from "./PC_Timeline";
 import { Phone_Timeline } from "./Phone_Timeline";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+
 const Timeline = () => {
   const [offsetY, setOffsetY] = useState(0);
   const handleScroll = () => setOffsetY(window.pageYOffset);

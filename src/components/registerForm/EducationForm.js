@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from "react";
-// import Input from "@components/Input";
-import DropBox from "@components/DropBox";
 import styles from "@styles/components/registerForm/EducationForm.module.css";
 import { AiFillCaretLeft, AiFillCaretRight } from "react-icons/ai";
 import { saveData } from "@src/utils/clientUtils";
-import { Select, Form, Input, Button, InputNumber, AutoComplete } from "antd";
+import { Select, Form, Input, InputNumber, AutoComplete } from "antd";
 
 import level from "@components/registerForm/DropBoxData/level.json";
 import education from "@components/registerForm/DropBoxData/education.json";
@@ -136,7 +134,9 @@ export default function EducationForm({ data, setData, choose, prev, next }) {
         <div className="flex flex-wrap md:flex-nowrap flex-col md:flex-row justify-between gap-10">
           <div className="w-full">
             <Form.Item
-              label={<label className="text-white font-sans md:text-lg mb-2">{`ชื่อสถานศึกษา`}</label>}
+              label={
+                <label className="text-white font-sans md:text-lg mb-2">{`ชื่อสถานศึกษา`}</label>
+              }
               name={["education", "name"]}
               rules={[{ required: true, message: "กรุณากรอกชื่อโรงเรียน" }]}
             >
@@ -145,7 +145,9 @@ export default function EducationForm({ data, setData, choose, prev, next }) {
           </div>
           <div className="w-full lg:w-[40%]">
             <Form.Item
-              label={<label className="text-white md:text-lg mb-2">{`จังหวัด`}</label>}
+              label={
+                <label className="text-white md:text-lg mb-2">{`จังหวัด`}</label>
+              }
               name={["education", "province"]}
               rules={[{ required: true, message: "กรุณากรอกจังหวัด" }]}
             >
@@ -231,7 +233,10 @@ export default function EducationForm({ data, setData, choose, prev, next }) {
         </div>
         <div className="flex justify-between my-5 z-20">
           <button type="button" onClick={prev}>
-            <AiFillCaretLeft size="4.5rem" className="text-[#ec4899] opacity-60 translation-all ase-linear duration-200 hover:opacity-100" />
+            <AiFillCaretLeft
+              size="4.5rem"
+              className="text-[#ec4899] opacity-60 translation-all ase-linear duration-200 hover:opacity-100"
+            />
           </button>
 
           <button type="submit">
@@ -247,4 +252,3 @@ export default function EducationForm({ data, setData, choose, prev, next }) {
     </div>
   );
 }
-

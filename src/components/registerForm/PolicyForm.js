@@ -1,8 +1,8 @@
-import React, { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import styles from "@styles/register/PolicyForm.module.css";
 import Link from "next/link";
 import { AiFillCaretRight } from "react-icons/ai";
-import { Checkbox, Form } from "antd";
+import { Checkbox } from "antd";
 
 export default function PolicyForm({
   data,

@@ -5,7 +5,6 @@ import { useEffect, useState } from "react";
 import { Link as Smooth } from "react-scroll/modules";
 import { useSpring, animated, config } from "react-spring";
 import { signIn, signOut, useSession } from "next-auth/react";
-import { lazy } from "react/cjs/react.production.min";
 
 export const ModalFacebook = ({
   isVisible,

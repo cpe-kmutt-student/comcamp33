@@ -1,7 +1,6 @@
-import React, { useState, useRef } from "react";
+import { useRef } from "react";
 // import TextArea from "@components/TextArea";
-import styles from "@styles/components/registerForm/QuestionsForm.module.css";
-import { AiFillCaretLeft, AiFillCaretRight } from "react-icons/ai";
+import { AiFillCaretLeft } from "react-icons/ai";
 import { saveData } from "@src/utils/clientUtils";
 import ModalAsk from "@components/registerForm/ModalAsk";
 import Image from "next/image";
@@ -17,10 +16,8 @@ export default function QuestionsForm({
   setOpen,
   open,
 }) {
-
   const [form] = Form.useForm();
   const submitBtn = useRef(null);
-
 
   const { TextArea } = Input;
   const handleChange = (e, type) => {
@@ -58,7 +55,7 @@ export default function QuestionsForm({
               rules={[
                 {
                   required: true,
-                  message: 'อย่าลืมตอบคำถาม!',
+                  message: "อย่าลืมตอบคำถาม!",
                 },
               ]}
             >
@@ -92,7 +89,7 @@ export default function QuestionsForm({
               rules={[
                 {
                   required: true,
-                  message: 'อย่าลืมตอบคำถาม!',
+                  message: "อย่าลืมตอบคำถาม!",
                 },
               ]}
             >
@@ -122,7 +119,7 @@ export default function QuestionsForm({
               rules={[
                 {
                   required: true,
-                  message: 'อย่าลืมตอบคำถาม!',
+                  message: "อย่าลืมตอบคำถาม!",
                 },
               ]}
             >
@@ -171,7 +168,7 @@ export default function QuestionsForm({
               rules={[
                 {
                   required: true,
-                  message: 'อย่าลืมตอบคำถาม!',
+                  message: "อย่าลืมตอบคำถาม!",
                 },
               ]}
             >
@@ -207,7 +204,7 @@ export default function QuestionsForm({
               rules={[
                 {
                   required: true,
-                  message: 'อย่าลืมตอบคำถาม!',
+                  message: "อย่าลืมตอบคำถาม!",
                 },
               ]}
             >
@@ -236,7 +233,7 @@ export default function QuestionsForm({
               rules={[
                 {
                   required: true,
-                  message: 'อย่าลืมตอบคำถาม!',
+                  message: "อย่าลืมตอบคำถาม!",
                 },
               ]}
             >
@@ -255,7 +252,6 @@ export default function QuestionsForm({
                   className="h-36 font-sans md:text-lg  text-gray-400 border-2 border-white px-2 py-1 outline-none bg-transparent focus:bg-white"
                 />
               </div>
-
             </Form.Item>
             {/* <label className={styles.label}>
               <h2>{}</h2>*{" "}
@@ -265,7 +261,7 @@ export default function QuestionsForm({
               rules={[
                 {
                   required: true,
-                  message: 'อย่าลืมตอบคำถาม!',
+                  message: "อย่าลืมตอบคำถาม!",
                 },
               ]}
             >
@@ -294,7 +290,7 @@ export default function QuestionsForm({
               rules={[
                 {
                   required: true,
-                  message: 'อย่าลืมตอบคำถาม!',
+                  message: "อย่าลืมตอบคำถาม!",
                 },
               ]}
             >
@@ -326,9 +322,14 @@ export default function QuestionsForm({
                 />
               </button>
               <button type="button">
-                <ModalAsk submitBtn={submitBtn} open={open} setOpen={setOpen} data={data} />
+                <ModalAsk
+                  submitBtn={submitBtn}
+                  open={open}
+                  setOpen={setOpen}
+                  data={data}
+                />
               </button>
-              <button style={{ display: 'none' }} ref={submitBtn}></button>
+              <button style={{ display: "none" }} ref={submitBtn}></button>
 
               {/* 
                   <Button htmlType="submit">
@@ -336,7 +337,6 @@ export default function QuestionsForm({
                   </Button>
                   
                   */}
-
             </div>
           </form>
         </Form>

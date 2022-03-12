@@ -1,15 +1,7 @@
-import React, { useState, useEffect } from "react";
-import { AiOutlineCheck } from "react-icons/ai";
-// import Input from "@components/Input";
-// import DropBox from "@components/DropBox";
-// import TextArea from "@components/TextArea";
-// import CheckBox from "@components/CheckBox";
-import styles from "@styles/components/registerForm/InterestForm.module.css";
+import { useEffect } from "react";
 import { AiFillCaretLeft, AiFillCaretRight } from "react-icons/ai";
 import { saveData } from "@src/utils/clientUtils";
-import { Form, Input, Button, Checkbox } from "antd";
-
-import trueAndFalse from "@components/registerForm/DropBoxData/trueAndFalse.json";
+import { Form, Input, Checkbox } from "antd";
 
 export default function InterestForm({ data, setData, choose, prev, next }) {
   const [form] = Form.useForm();
@@ -126,14 +118,15 @@ export default function InterestForm({ data, setData, choose, prev, next }) {
             <div className="flex flex-col font-sans md:text-lg mb-2 w-full">
               <Form.Item
                 label={
-                  <label className="text-white font-sans md:text-lg mb-2">คณะลำดับที่หนึ่ง</label>
+                  <label className="text-white font-sans md:text-lg mb-2">
+                    คณะลำดับที่หนึ่ง
+                  </label>
                 }
                 name={["interest", "admission", 0, "department"]}
                 rules={[{ required: true, message: "กรุณากรอกคณะ" }]}
               >
                 <Input placeholder="วิศวกรรมศาสตร์" />
               </Form.Item>
-
             </div>
             <div className="flex flex-col  mb-2 w-full">
               <Form.Item
@@ -147,7 +140,6 @@ export default function InterestForm({ data, setData, choose, prev, next }) {
               >
                 <Input placeholder="วิศวกรรมคอมพิวเตอร์" />
               </Form.Item>
-
             </div>
           </div>
           <br />
@@ -163,29 +155,30 @@ export default function InterestForm({ data, setData, choose, prev, next }) {
               >
                 <Input placeholder="มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าธนบุรี" />
               </Form.Item>
-
             </div>
             <div className="flex font-sans flex-col mb-2 w-full">
               <Form.Item
                 label={
-                  <label className="text-white font-sans md:text-lg mb-2">คณะลำดับที่สอง</label>
+                  <label className="text-white font-sans md:text-lg mb-2">
+                    คณะลำดับที่สอง
+                  </label>
                 }
                 name={["interest", "admission", 1, "department"]}
               >
                 <Input placeholder="วิศวกรรมศาสตร์" />
               </Form.Item>
-
             </div>
             <div className="flex flex-col mb-2 w-full">
               <Form.Item
                 label={
-                  <label className="text-white font-sans md:text-lg mb-2">ภาควิชาลำดับที่สอง</label>
+                  <label className="text-white font-sans md:text-lg mb-2">
+                    ภาควิชาลำดับที่สอง
+                  </label>
                 }
                 name={["interest", "admission", 1, "faculty"]}
               >
                 <Input placeholder="วิศวกรรมคอมพิวเตอร์" />
               </Form.Item>
-
             </div>
           </div>
           <br />
@@ -201,23 +194,25 @@ export default function InterestForm({ data, setData, choose, prev, next }) {
               >
                 <Input placeholder="มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าธนบุรี" />
               </Form.Item>
-
             </div>
             <div className="flex flex-col font-sans mb-2 w-full">
               <Form.Item
                 label={
-                  <label className="text-white font-sans md:text-lg mb-2">คณะลำดับที่สาม</label>
+                  <label className="text-white font-sans md:text-lg mb-2">
+                    คณะลำดับที่สาม
+                  </label>
                 }
                 name={["interest", "admission", 2, "department"]}
               >
                 <Input placeholder="วิศวกรรมศาสตร์" />
               </Form.Item>
-
             </div>
             <div className="flex font-sans flex-col mb-2 w-full">
               <Form.Item
                 label={
-                  <label className="text-white font-sans md:text-lg mb-2">ภาควิชาลำดับที่สาม</label>
+                  <label className="text-white font-sans md:text-lg mb-2">
+                    ภาควิชาลำดับที่สาม
+                  </label>
                 }
                 name={["interest", "admission", 2, "faculty"]}
               >
