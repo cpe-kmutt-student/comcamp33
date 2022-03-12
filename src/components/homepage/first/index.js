@@ -1,3 +1,5 @@
+import { signIn, useSession } from 'next-auth/react';
+import { useRouter } from 'next/router';
 import { useState, useEffect } from 'react';
 const { default: Image } = require("next/image");
 
@@ -11,7 +13,8 @@ const First = () => {
             window.removeEventListener("scroll", handleScroll);
         }
     }, [])
-    
+    const { data: session } = useSession();
+    const router = useRouter();
     return (
         <>
             <div className="absolute h-[92vh] md:h-[100%] w-screen right-0">
@@ -31,7 +34,6 @@ const First = () => {
             </div>
             <div className="font-pixel w-full flex justify-center relative text-white top-0 text-center z-[90] text-xl      tracking-widest  ">
 
-{/* putter */}
                 <button
                     type="button"
                     onClick={() => {
@@ -39,7 +41,7 @@ const First = () => {
                             router.push('/registration')
                         } else {
                             signIn('facebook');
-                        } 
+                        }
                     }}
                 >
                     <div className="cursor-pointer w-5/4 font-pixel relative text-white top-0 text-center  bg-gradient-to-b from-[#F054F3] to-[#9600FF] px-6 py-2  border-2 text-4xl border-3 border-[#B3E7F8] hover:shadow-[0_0px_15px_-2px_rgba(150,0,255,1)] hover:shadow-[#9600FF] transition-all duration-100 ease-linear rounded-xl  animate-bounce   tracking-widest ">
