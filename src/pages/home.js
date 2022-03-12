@@ -1,9 +1,20 @@
 import Header from "@components/Header";
-import { About, Condition, Contact, Faqs, First, Footer, Learning, Navigation, Timeline, Wave } from "@components/homepage";
-import dynamic from 'next/dynamic';
-const StarParticle = dynamic(() => import('@components/homepage/StarParticle'));
-import Aos from 'aos';
-import 'aos/dist/aos.css';
+import {
+  About,
+  Condition,
+  Contact,
+  Faqs,
+  First,
+  Footer,
+  Learning,
+  Navigation,
+  Timeline,
+  Wave,
+} from "@components/homepage";
+import dynamic from "next/dynamic";
+const StarParticle = dynamic(() => import("@components/homepage/StarParticle"));
+import Aos from "aos";
+import "aos/dist/aos.css";
 import { useEffect } from "react";
 const Home = () => {
   useEffect(() => {
@@ -17,21 +28,22 @@ const Home = () => {
       <StarParticle />
 
       <div className=" overflow-x-hidden overflow-visible">
-        <section className="lg:px-24 h-[95.5vh] bg-gradient-to-t from-[#E5155E] to-[#11033E] top-0" id="home" >
+        <section
+          className="lg:px-24 h-[95.5vh] bg-gradient-to-t from-[#E5155E] to-[#11033E] top-0"
+          id="home"
+        >
           <First />
         </section>
 
-
-        <section className="bg-[#11033E] h-[94vh]" id="about">
+        <section className="bg-[#11033E] h-fit" id="about">
           <About />
         </section>
 
-
-        <section className="bg-[#200440] h-[120vh]" id="learning">
+        <section className="bg-[#200440] h-fit" id="learning">
           <Learning />
         </section>
         <Wave fill="#200440" />
-        <section className="bg-[#380644] py-12 lg:h-[92vh]" id="condition">
+        <section className="bg-[#380644] py-12 lg:h-fit " id="condition">
           <Condition />
         </section>
         <Wave fill="#380644" />
@@ -42,13 +54,16 @@ const Home = () => {
         <section className="bg-[#840D4F] h-fit" id="faq">
           <Faqs />
         </section>
-        <section className="bg-[#B61157] lg:h-[113vh] relative pb-8 lg:pb-0" id="contact">
+        <section
+          className="bg-[#B61157] h-fit relative pb-8 lg:pb-0"
+          id="contact"
+        >
           <Contact />
         </section>
 
         <Footer />
       </div>
-    </div >
+    </div>
   );
 };
 

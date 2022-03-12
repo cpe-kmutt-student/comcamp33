@@ -1,8 +1,8 @@
-import Image from "next/image";
 import React, { useState } from "react";
 import { Data } from "./faq-question";
 import { FiPlus, FiMinus } from "react-icons/fi";
 import { Fragment } from "react";
+
 const Faqs = () => {
   const [clicked, setClicked] = useState(false);
   const toggle = (index) => {

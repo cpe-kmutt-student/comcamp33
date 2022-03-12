@@ -2,6 +2,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { BGAnimation } from "./BGAnimation";
 import { BiCalendar, BiLocationPlus } from "react-icons/bi";
+
 const About = () => {
   const [offsetY, setOffsetY] = useState(0);
   const handleScroll = () => setOffsetY(window.pageYOffset);
@@ -14,7 +15,7 @@ const About = () => {
   }, []);
 
   return (
-    <div className="flex flex-col justify-center items-center relative w-full h-full text-center px-6 md:px-[10vw] pt-[15vh] md:pt-[15vh] ">
+    <div className="flex flex-col justify-center items-center relative w-full h-full text-center px-6 md:px-[10vw] pt-[20vh] md:pt-[20vh] pb-[5vh] md:pb-[8vh] lg:pt-[25vh]">
       <BGAnimation />
       <div className="absolute top-[-17px] right-0 w-full h-[25vh] z-20">
         <Image
@@ -29,7 +30,7 @@ const About = () => {
         <div className="md:space-y-2">
           <h1
             data-aos="fade-down"
-            className="text-white font-pixel text-2xl sm:text-4xl md:text-5xl lg:text-5xl mb-4"
+            className="text-white font-pixel text-2xl sm:text-4xl md:text-4xl lg:text-5xl mb-4"
           >
             What Is Comcamp ?
           </h1>
@@ -42,12 +43,12 @@ const About = () => {
         </div>
         <p
           data-aos="fade-right"
-          className="mx-auto w-3/4 tracking-wide leading-snug text-white text-center lg:text-justify text-sm sm:text-lg md:text-xl lg:text-2xl font-thai"
+          className="mx-auto w-3/4 text-white text-center tracking-wide leading-snug lg:text-center text-sm sm:text-lg md:text-xl lg:text-2xl font-thai"
         >
           วิศวะคอมบางมดเรียนเกี่ยวกับอะไร ? วิศวะคอมบางมดจบไปแล้วทำอะไร ?
           วิศวะคอมบางมดเรียนสนุกไหม ? ยินดีต้อนรับน้อง ๆ
           เข้าสู่โครงการฝึกอบรมเชิงปฏิบัติการคอมพิวเตอร์ ครั้งที่ 33 หรือ
-          Comcamp#33 ค่ายออนไลน์ที่เปิดโอกาสให้น้อง ๆ
+          Comcamp 33 ค่ายออนไลน์ที่เปิดโอกาสให้น้อง ๆ
           เข้ามาสัมผัสประสบการณ์ภายในภาควิชาวิศวกรรมคอมพิวเตอร์
           มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าธนบุรี ผ่านการเรียนเนื้อหาจริง
           ทำผลงานจริง และประสบการณ์จริงสุดเอ็กซ์คลูซีฟจากพี่ ๆ วิศวะคอม
@@ -56,7 +57,7 @@ const About = () => {
         </p>
         <div
           data-aos="fade-right"
-          className="text-sm sm:text-lg md:text-xl lg:text-2xl mx-auto w-3/4 text-white flex flex-col lg:flex-row  justify-start relative mt-4"
+          className="text-sm sm:text-lg md:text-xl lg:text-2xl mx-auto w-scree text-white flex flex-col lg:flex-row  items-center justify-center relative mt-4"
         >
           <div className="flex flex-row items-center pb-3 lg:pb-0">
             <div className="pr-2 text-sm sm:text-lg md:text-3xl leading-10">

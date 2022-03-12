@@ -103,7 +103,7 @@ export default function RegistrationPage() {
         REGISTRATION
       </h1>
       <ProgressBar currentStep={chooseForm} />
-      <div className="p-[20%] flex justify-center all pt-0 pb-0 z-10">
+      <div className="container mx-auto p-6 md:p-16 flex justify-center all pt-0 pb-0 z-10">
         <PolicyForm
           data={data}
           choose={chooseForm}

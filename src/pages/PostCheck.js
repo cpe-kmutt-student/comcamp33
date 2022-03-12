@@ -15,12 +15,12 @@ const PostCheck = () => {
     },
 
     education: {
-     name: "KMUTT",
+      name: "KMUTT",
       province: "กรุงเทพ",
       program: "วิทย์-คณิต", // *
       level: "ม.5 ขึ้น ม.6 หรือเทียบเท่า", // *
       gpax: '3.78', // *
-    }, 
+    },
     address: {
       no: "298/1",
       moo: "-",
@@ -44,7 +44,7 @@ const PostCheck = () => {
         { faculty: "", department: "", university: "" },
         { faculty: "", department: "", university: "" },
       ],
-      plan: ['หลักสูตรปกติ','หลักสูตรนานาชาติ'], // *
+      plan: ['หลักสูตรปกติ', 'หลักสูตรนานาชาติ'], // *
       camp: "",
     },
     answers: {
