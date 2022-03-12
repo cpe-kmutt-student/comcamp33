@@ -288,7 +288,7 @@ export const Navigation = () => {
                 isFirstSection
                   ? "opacity-0 pointer-events-none"
                   : "opacity-100 pointer-events-auto"
-              } right-2 font-pixel relative text-white top-0 text-center from-[#F054F3] to-[#9600FF] px-4 py-1 mx-2 text-xl border-2 border-[#B3E7F8] hover:shadow-[0_0px_15px_-2px_rgba(150,0,255,1)] hover:shadow-[#9600FF] transition-all duration-100 ease-linear rounded-lg   hover:tracking-widest ${
+              } right-2 font-pixel relative text-white top-0 text-center from-[#F054F3] to-[#9600FF] px-4 py-1 mx-2 text-md border-2 border-[#B3E7F8] hover:shadow-[0_0px_15px_-2px_rgba(150,0,255,1)] hover:shadow-[#9600FF] transition-all duration-100 ease-linear rounded-lg   hover:tracking-widest ${
                 isEnabled
                   ? "cursor-pointer bg-gradient-to-b hover:shadow-[0_0px_15px_-2px_rgba(150,0,255,1)] hover:shadow-[#9600FF]"
                   : "cursor-not-allowed bg bg-gray-500/30"
@@ -345,7 +345,7 @@ export const Navigation = () => {
             {/* sign out button */}
             {session && (
               <button
-                className="font-pixel relative text-white top-0 text-center  bg-gradient-to-b from-[#dd517e]/90 to-[#E5155E]/90  px-4 py-1 border-2 rounded-lg -xl mr-2 border-[#B3E7F8] hover:from-[#dd517e]/100 hover:to-[#E5155E]/100 hover:shadow-[0_0px_15px_-2px_rgba(255,38,114,1)] hover:shadow-[#ff2672] transition-all duration-100 ease-linear whitespace-nowrap"
+                className="font-pixel text-md relative text-white top-0 text-center  bg-gradient-to-b from-[#dd517e]/90 to-[#E5155E]/90  px-4 py-1 border-2 rounded-lg mr-2 border-[#B3E7F8] hover:from-[#dd517e]/100 hover:to-[#E5155E]/100 hover:shadow-[0_0px_15px_-2px_rgba(255,38,114,1)] hover:shadow-[#ff2672] transition-all duration-100 ease-linear whitespace-nowrap"
                 onClick={async () => {
                   await signOut({ redirect: false });
                   router.push("/home");
