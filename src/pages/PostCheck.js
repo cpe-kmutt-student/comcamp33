@@ -11,7 +11,7 @@ const PostCheck = () => {
       birthdate: "2002-12-25", // *
       tel: "0875908288", // *
       shirt: "XXL",
-      email: 'eiei@mail.com' // *
+      email: "eiei@mail.com", // *
     },
 
     education: {
@@ -19,7 +19,7 @@ const PostCheck = () => {
       province: "กรุงเทพ",
       program: "วิทย์-คณิต", // *
       level: "ม.5 ขึ้น ม.6 หรือเทียบเท่า", // *
-      gpax: '3.78', // *
+      gpax: "3.78", // *
     },
     address: {
       no: "298/1",
@@ -44,7 +44,7 @@ const PostCheck = () => {
         { faculty: "", department: "", university: "" },
         { faculty: "", department: "", university: "" },
       ],
-      plan: ['หลักสูตรปกติ', 'หลักสูตรนานาชาติ'], // *
+      plan: ["หลักสูตรปกติ", "หลักสูตรนานาชาติ"], // *
       camp: "",
     },
     answers: {
