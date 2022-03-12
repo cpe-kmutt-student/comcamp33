@@ -150,7 +150,6 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
                   placeholder="คำนำหน้า"
                   style={{ width: "7rem" }}
                   dropdownClassName="border-2 border-white text-gray-400 px-2 py-1 "
-                  defaultValue={data?.info ? data.info.prefix_th : null}
                 >
                   {prefix_th.map((item) => (
                     <Option key={item.value} value={item.value}>
