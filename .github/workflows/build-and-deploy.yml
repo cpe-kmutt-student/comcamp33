@@ -34,7 +34,7 @@ jobs:
           secrets: |
             "dotenv=${{ secrets.DOTENV }}"
 
-      - name: Deploy
+      - name: Deploy 1
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.SERVER_HOST }}
@@ -46,4 +46,21 @@ jobs:
             docker rmi ghcr.io/cpe35-kmutt/comcamp33:latest
             docker pull ghcr.io/cpe35-kmutt/comcamp33:latest
             docker run -p 3000:3000 -d --name comcamp33 ghcr.io/cpe35-kmutt/comcamp33:latest
+      
+      - name: Deploy 2
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SERVER_2_HOST }}
+          username: ${{ secrets.SERVER_2_USERNAME }}
+          password: ${{ secrets.SERVER_2_PASSWORD }}
+          script: |
+            echo ${{ secrets.CR_PAT }} | docker login ghcr.io -u USERNAME --password-stdin
+            docker stop comcamp33 || true && docker rm comcamp33 || true
+            docker rmi ghcr.io/cpe35-kmutt/comcamp33:latest
+            docker pull ghcr.io/cpe35-kmutt/comcamp33:latest
+            docker run -p 3000:3000 -d --name comcamp33 ghcr.io/cpe35-kmutt/comcamp33:latest
+            docker stop comcamp33-1 || true && docker rm comcamp33-1 || true
+            docker rmi ghcr.io/cpe35-kmutt/comcamp33:latest
+            docker pull ghcr.io/cpe35-kmutt/comcamp33:latest
+            docker run -p 3001:3000 -d --name comcamp33-1 ghcr.io/cpe35-kmutt/comcamp33:latest
 
