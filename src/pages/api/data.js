@@ -85,7 +85,7 @@ const DATABASE_STRUCTURE = {
     surname: "",
     relation: "",
     tel: "",
-    email: "",
+    // email: "",
   },
   interest: {
     admission: [],
@@ -131,7 +131,7 @@ const saveData = async (req, res, session) => {
     });
   }
 
-  if (Array.isArray(data.interest.admission)) {
+  if (data.interest && Array.isArray(data.interest.admission)) {
     if (data.interest.admission.length > 3) {
       return res.status(400).json({
         message: `admission doesn't match our requirement`
@@ -203,7 +203,7 @@ const saveData = async (req, res, session) => {
   }
   
   if (data.education) {
-    if (data.education.program && !['วิทย์-คอม', 'วิทย์-คณิต', 'คณิต-คอม', 'ปวช. เตรียมวิศวะ', 'อื่นๆ (สาขาที่เกี่ยวข้องกับคอม)'].includes(data.education.program)) {
+    if (data.education.program && !['วิทย์-คอม', 'วิทย์-คณิต', 'คณิต-คอม', 'ปวช. เตรียมวิศวะ', 'อื่นๆ'].includes(data.education.program)) {
       return res.status(400).json({
         message: `program doesn't match our requirement`
       });
@@ -216,7 +216,7 @@ const saveData = async (req, res, session) => {
       });
     }
 
-    if (data.education.level && !['ม.4 ของปีการศึกษา 2564', 'ม.5 ของปีการศึกษา 2564', 'ม.6 ของปีการศึกษา 2564'].includes(data.education.level))
+    if (data.education.level && !['ม.4 ขึ้น ม.5 หรือเทียบเท่า', 'ม.5 ขึ้น ม.6 หรือเทียบเท่า', 'จบ ม.6 หรือเทียบเท่า'].includes(data.education.level))
     return res.status(400).json({
       message: `level doesn't match our requirement`
     });
@@ -252,7 +252,7 @@ const saveData = async (req, res, session) => {
       if (data.interest.plan) {
         if (!Array.isArray(data.interest.plan)
           || (data.interest.plan.length > 4)
-          || (data.interest.plan.some((data) => typeof data !== 'boolean'))
+          // || (data.interest.plan.some((data) => typeof data !== 'boolean'))
         ) {
           return res.status(400).json({
             message: `interest plan doesn't match our requirement`

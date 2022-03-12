@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from "react";
-import CheckBox from "@components/CheckBox";
+import React, { useState, useEffect, useRef } from "react";
 import styles from "@styles/register/PolicyForm.module.css";
 import Link from "next/link";
 import { AiFillCaretRight } from "react-icons/ai";
-import { Checkbox } from 'antd';
-import 'antd/dist/antd.css';
+import { Checkbox, Form } from "antd";
+import "antd/dist/antd.css";
 
 export default function PolicyForm({
   data,
@@ -14,10 +13,10 @@ export default function PolicyForm({
   error,
   next,
 }) {
-  const [value, setValue] = useState({
-    box1: false,
-    box2: false,
-  });
+  const nextBtn = useRef(null);
+
+  const [check1, setCheck1] = useState(false);
+  const [check2, setCheck2] = useState(false);
 
   // useEffect(() => {
   //   const isVerify = value.box1 === true && value.box2 === true;
@@ -35,21 +34,38 @@ export default function PolicyForm({
     setState(currentStatus.box1 && currentStatus.box2);
   };
 
+  const validation = (rule, value, callback) => {
+    if (checked) {
+      return callback();
+    }
+    return callback("Please accept the terms and conditions");
+  };
+
+  const onCheckboxChange = async (e) => {
+    await setChecked(e.target.checked);
+  };
+
+  useEffect(() => {
+    if (check1 && check2) {
+      nextBtn.current.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [check1, check2]);
+
   return (
     <div className={choose != 1 && data?.verify == true ? "hidden" : ""}>
       <form
         onSubmit={(e) => {
           e.preventDefault();
           next();
-          const isVerify = value.box1 === true && value.box2 === true;
+          const isVerify = check1 === true && check2 === true;
           setData({ ...data, verify: data?.verify || isVerify });
         }}
       >
-        <div className="flex flex-col bg-[#9600FF] text-white rounded-xl mt-6 pl-[10%] pr-[10%] pt-[1rem]">
-          <div className="flex justify-center content-center">
-            <h1 className="text-3xl mb-2">เอกสารประกอบการสมัคร</h1>
+        <div className="flex flex-col bg-[#9600FF] text-white rounded-xl mt-6 pl-[10%] pr-[10%] py-6">
+          <div className="flex justify-center content-center py-4">
+            <h1 className="text-3xl mb-2 text-white">เอกสารประกอบการสมัคร</h1>
           </div>
-          <div className="text-sm md:text-[1.2rem]">
+          <div className="text-sm md:text-lg">
             <ul className="list-disc leading-relaxed">
               <li>
                 สำเนาบัตรประจำตัวประชาชน ( เฉพาะด้านหน้า ) หรือ
@@ -70,34 +86,26 @@ export default function PolicyForm({
               </li>
             </ul>
           </div>
-          <div className="mt-4 pt-[1rem] pb-[1rem] ">
-            <label className="md:text-[1.2rem]">
-              <CheckBox
-                type="checkbox"
-                required={true}
-                onChange={handleChange}
-                name="box1"
-                checked={(data && data.verify) ? data.verify : value.box1}
-              />
-              {/* 
-              <Checkbox>
-                onchange={handleChange}
-                checked={(data && data.verify) ? data.verify : value.box1}
+          <div className="">
+            <label className="md:text-lg">
+              <Checkbox
+                onChange={(e) => setCheck1(e.target.checked)}
+                checked={check1}
+                className="text-white"
+              >
+                ข้าพเจ้าได้อ่านข้อมูลการสมัครทั้งหมดแล้ว
               </Checkbox>
-              
-              */}
-              ข้าพเจ้าได้อ่านข้อมูลการสมัครทั้งหมดแล้ว
             </label>
           </div>
         </div>
 
         <div className="flex flex-col bg-[#DD517E] text-white rounded-xl my-6 pl-[10%] pr-[10%] pt-[1rem]">
           <div className="flex justify-center content-center">
-            <h1 className="text-3xl mb-2 leading-relaxed">
+            <h1 className="text-3xl mb-2 leading-relaxed text-white">
               นโยบายข้อมูลส่วนบุคคล
             </h1>
           </div>
-          <div className="overflow-auto max-h-[16rem] bg-white text-black pt-[1rem] pr-[2rem] pl-[2rem] text-[0.9rem] md:text-[1.2rem] ">
+          <div className="overflow-auto max-h-[16rem] bg-white text-black pt-[1rem] px-8 text-[0.9rem] md:text-lg">
             <ol className={styles.orderList}>
               <li className={styles.listItem}>
                 ข้อมูลสำคัญเกี่ยวกับโครงการ
@@ -255,18 +263,18 @@ export default function PolicyForm({
           </div>
           <div className="mt-2 pt-[1rem] pb-[1rem]">
             <label className="md:text-[1.2rem]">
-              <CheckBox
-                type="checkbox"
-                required={true}
-                onChange={handleChange}
-                name="box2"
-                checked={(data && data.verify) ? data.verify : value.box2}
-              />
-              ข้าพเจ้ายอมรับนโยบายคุ้มครองข้อมูลส่วนบุคคล
+              <Checkbox
+                onChange={(e) => setCheck2(e.target.checked)}
+                checked={check2}
+                className="text-white"
+              >
+                ข้าพเจ้ายอมรับนโยบายคุ้มครองข้อมูลส่วนบุคคล
+              </Checkbox>
             </label>
             <p
-              className={`text-[#FEFE2D] ${error && (!value.box1 || !value.box2) ? "" : "hidden"
-                }`}
+              className={`text-[#FEFE2D] ${
+                error && (!value.box1 || !value.box2) ? "" : "hidden"
+              }`}
             >
               กรุณาอ่านข้อมูลการสมัครให้ครบถ้วน
             </p>
@@ -274,10 +282,12 @@ export default function PolicyForm({
         </div>
         <div className="flex justify-between my-5 z-20">
           <div />
-          <button type="submit">
+          <button type="submit" ref={nextBtn}>
             <AiFillCaretRight
               size="4.5rem"
-              className="text-[rgb(236,72,153)] hover:text-black"
+              className={`text-[rgb(236,72,153)] hover:text-[rgb(236,72,153)] ${
+                !check1 || !check2 ? "hidden" : ""
+              }`}
             />
             <div
               className="z-40"

@@ -23,7 +23,7 @@ const Contact = () => {
           <div data-aos="fade-up" className="relative flex flex-col items-center lg:w-[35%] w-[90%] space-y-5 lg:space-y-0">
             <div className="flex justify-center h-[25vh] w-[100%] relative">
               <Image
-                src="/assets/contact/Address.png"
+                src="/assets/contact/Address.svg"
                 objectFit="contain"
                 layout="fill"
                 alt="ticket contact"
@@ -32,7 +32,7 @@ const Contact = () => {
             </div>
             <div className="flex justify-center h-[25vh] w-[100%] relative">
               <Image
-                src="/assets/contact/Telephone.png"
+                src="/assets/contact/Telephone.svg"
                 objectFit="contain"
                 layout="fill"
                 alt="ticket contact"

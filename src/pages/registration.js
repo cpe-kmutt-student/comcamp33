@@ -14,6 +14,9 @@ import bgForm2 from "@public/formBg/bgForm2.png";
 import Header from "@components/Header";
 import { getSession } from "next-auth/react";
 import { useRouter } from "next/router";
+import * as dayjs from 'dayjs'
+import moment from 'moment';
+
 
 export default function RegistrationPage() {
   const [chooseForm, setChooseForm] = useState(1); // 1
@@ -42,6 +45,9 @@ export default function RegistrationPage() {
     const loadInitialData = async () => {
       const result = await loadData();
       if (result.message) {
+        if (result.message?.info?.birthdate) {
+          result.message?.info?.birthdate = moment(result.message?.info?.birthdate);
+        }
         setData(result.message);
       }
     };
