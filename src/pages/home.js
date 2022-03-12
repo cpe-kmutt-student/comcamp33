@@ -22,7 +22,7 @@ const Home = () => {
         </section>
 
 
-        <section className="bg-[#11033E] h-[94vh]" id="about">
+        <section className="bg-[#11033E] h-fit" id="about">
           <About />
         </section>
 

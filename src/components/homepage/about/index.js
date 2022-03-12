@@ -14,7 +14,7 @@ const About = () => {
   }, []);
 
   return (
-    <div className="flex flex-col justify-center items-center relative w-full h-full text-center px-6 md:px-[10vw] pt-[15vh] md:pt-[15vh] ">
+    <div className="flex flex-col justify-center items-center relative w-full h-full text-center px-6 md:px-[10vw] pt-[20vh] md:pt-[20vh] pb-[5vh] md:pb-[8vh] lg:pt-[25vh]">
       <BGAnimation />
       <div className="absolute top-[-17px] right-0 w-full h-[25vh] z-20">
         <Image
@@ -29,7 +29,7 @@ const About = () => {
         <div className="md:space-y-2">
           <h1
             data-aos="fade-down"
-            className="text-white font-pixel text-2xl sm:text-4xl md:text-5xl lg:text-5xl mb-4"
+            className="text-white font-pixel text-2xl sm:text-4xl md:text-4xl lg:text-5xl mb-4"
           >
             What Is Comcamp ?
           </h1>
