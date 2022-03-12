@@ -1,11 +1,9 @@
-import { signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 const { default: Image } = require("next/image");
 
 const First = () => {
     const [offsetY, setOffsetY] = useState(0);
-    const { data: session } = useSession();
     const router = useRouter();
     const handleScroll = () => setOffsetY(window.pageYOffset);
     useEffect(() => {
@@ -94,22 +92,6 @@ const First = () => {
                 Open 12 - 29 March
             </div>
             <div className="font-pixel w-full flex justify-center relative text-white top-0 text-center z-[90] text-xl mb-4 tracking-widest hover:brightness-110 ">
-                {/* putter */}
-                <button
-                    type="button"
-                    onClick={() => {
-                        if (session) {
-                            router.push("/registration");
-                        } else {
-                            signIn("facebook");
-                        }
-                    }}
-                    disabled={!isEnabled}
-                >
-                    <div className={`w-5/4 font-pixel relative text-white top-0 text-center  from-[#F054F3] to-[#9600FF] px-6 py-2  border-2 text-4xl border-3 border-[#B3E7F8]  transition-all duration-300 ease-linear rounded-xl  animate-float   tracking-widest ${isEnabled ? 'cursor-pointer bg-gradient-to-b hover:shadow-[0_0px_15px_-2px_rgba(150,0,255,1)] hover:shadow-[#9600FF]' : 'cursor-not-allowed bg bg-gray-500'}`}>
-                        {isEnabled ? 'Register now' : date <= closeRegis ? 'registration is opening soon' : 'registration closed'}
-                    </div>
-                </button>
             </div>
 
             <div className="absolute bottom-[-1vh] right-0 w-[100%] md:h-[35vh] h-[40vh]">
