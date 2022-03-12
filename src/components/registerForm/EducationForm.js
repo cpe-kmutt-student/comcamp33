@@ -130,7 +130,7 @@ export default function EducationForm({ data, setData, choose, prev, next }) {
           initialValues={data}
         >
           <div className="flex justify-center mt-2">
-            <h1 className="flex w-fit justify-center font-sans text-xl md:text-3xl text-white bg-[#9600FF] px-4 py-3 my-8 rounded-2xl">
+            <h1 className="flex w-fit justify-center font-sans text-xl md:text-3xl text-white bg-[#9600FF] px-4 py-3 my-8 ">
               ประวัติการศึกษา
             </h1>
           </div>

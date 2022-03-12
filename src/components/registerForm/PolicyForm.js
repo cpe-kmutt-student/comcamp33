@@ -61,7 +61,7 @@ export default function PolicyForm({
           setData({ ...data, verify: data?.verify || isVerify });
         }}
       >
-        <div className="bg-[#9600FF] text-white rounded-xl p-8 px-10 md:px-28 mb-8">
+        <div className="bg-[#9600FF] text-white  p-8 px-10 md:px-28 mb-8">
           <div className="flex justify-center py-4">
             <h1 className="text-xl md:text-3xl font-sans mb-2 text-white">เอกสารประกอบการสมัคร</h1>
           </div>
@@ -99,7 +99,7 @@ export default function PolicyForm({
           </div>
         </div>
 
-        <div className="flex flex-col bg-[#DD517E] text-white rounded-xl p-8 px-10 md:px-28">
+        <div className="flex flex-col bg-[#DD517E] text-white p-8 px-10 md:px-28">
           <div className="flex justify-center font-sans content-center">
             <h1 className="text-xl md:text-3xl mb-2 leading-relaxed text-white">
               นโยบายข้อมูลส่วนบุคคล
@@ -272,9 +272,8 @@ export default function PolicyForm({
               </Checkbox>
             </label>
             <p
-              className={`text-[#FEFE2D] ${
-                error && (!value.box1 || !value.box2) ? "" : "hidden"
-              }`}
+              className={`text-[#FEFE2D] ${error && (!value.box1 || !value.box2) ? "" : "hidden"
+                }`}
             >
               กรุณาอ่านข้อมูลการสมัครให้ครบถ้วน
             </p>
@@ -283,12 +282,11 @@ export default function PolicyForm({
         <div className="flex justify-between my-5 z-20">
           <div />
           <button type="submit" ref={nextBtn}  >
-             
+
             <AiFillCaretRight
               size="4.5rem"
-              className={`text-[#ec4899] opacity-60 translation-all ase-linear duration-200 hover:opacity-100 ${
-                !check1 || !check2 ? "hidden" : ""
-              }`}
+              className={`text-[#ec4899] opacity-60 translation-all ase-linear duration-200 hover:opacity-100 ${!check1 || !check2 ? "hidden" : ""
+                }`}
             />
             <div
               className="z-40"

@@ -124,7 +124,7 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
     <>
       <div className={choose != 2 ? "hidden" : "w-full"}>
         <div className="flex justify-center">
-          <h1 className="font-sans text-xl md:text-3xl font-bold text-white bg-[#9600FF] px-4 py-3 my-8 rounded-2xl">
+          <h1 className="font-sans text-xl md:text-3xl font-bold text-white bg-[#9600FF] px-4 py-3 my-8">
             ข้อมูลส่วนตัว
           </h1>
         </div>
@@ -333,7 +333,7 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
             <div className="w-full"></div>
           </div>
 
-          <h2 className="text-white font-sans bg-[#DD517E] rounded-full justify-center w-fit p-2 pl-4 pr-4 text-lg">
+          <h2 className="text-white font-sans bg-[#DD517E] justify-center w-fit p-2 pl-4 pr-4 text-lg">
             ที่อยู่ปัจจุบัน
           </h2>
 
@@ -596,7 +596,7 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
             </div>
           </div>
 
-          <h2 className="text-white bg-[#DD517E] font-sans rounded-full justify-center w-fit p-2 pl-4 pr-4 text-lg">
+          <h2 className="text-white bg-[#DD517E] font-sans justify-center w-fit p-2 pl-4 pr-4 text-lg">
             ข้อมูลผู้ปกครอง
           </h2>
 
