@@ -36,16 +36,13 @@ export default function thankyou() {
           </a>
         </div>
 
-        <div className="flex flex-col">
-          <div className="flex text-white mx-4 text-sm md:text-lg font-sans py-6 z-10">
-            ถ้าหากทำการดาวน์โหลดเสร็จสิ้น &emsp;
-          </div>
-          <div className="underline underline-offset-auto cursor-pointer hover:text-[#FFD467] transiton-all ease-linear duration-200">
+        <div className="flex text-white mx-4 text-sm md:text-lg font-sans z-10 py-5 flex-col items-center justify-center">
+          <p>ถ้าหากทำการดาวน์โหลดเสร็จสิ้นแล้ว</p>
+          <p className="underline underline-offset-auto cursor-pointer hover:text-[#FFD467] transiton-all ease-linear duration-200 text-shadow">
             <Link href="/home" passHref>
-              กลับสู่หน้าหลัก
-
+              กลับสู่หน้าหลักเลย
             </Link>
-          </div>
+          </p>
         </div>
       </div>
     </>
