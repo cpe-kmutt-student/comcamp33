@@ -124,7 +124,7 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
     <>
       <div className={choose != 2 ? "hidden" : ""}>
         <div className="flex justify-center">
-          <h1 className="flex w-fit justify-center text-3xl font-bold text-white bg-[#9600FF] px-4 py-3 my-8 rounded-2xl">
+          <h1 className="flex w-fit justify-center font-sans text-xl md:text-3xl font-bold text-white bg-[#9600FF] px-4 py-3 my-8 rounded-2xl">
             ข้อมูลส่วนตัว
           </h1>
         </div>
@@ -139,18 +139,22 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
           validateTrigger="onBlur"
           initialValues={data}
         >
-          <div className="flex flex-wrap md:flex-nowrap flex-row items-end justify-between gap-10">
+          <div className="flex font-sans flex-wrap md:flex-nowrap flex-row items-end justify-between gap-10">
             <div className="flex flex-col">
               <Form.Item
-                label={<label className="text-white mb-2">คำนำหน้า</label>}
+                label={<label className="text-white md:text-lg mb-2">คำนำหน้า</label>}
                 name={["info", "prefix_th"]}
                 rules={[{ required: true, message: "กรุณาเลือก!" }]}
               >
                 <Select
                   placeholder="คำนำหน้า"
                   style={{ width: "7rem" }}
-                  dropdownClassName="border-2 border-white text-gray-400 px-2 py-1 "
+<<<<<<< HEAD
+                  dropdownClassName="border-2 font-sans border-white text-gray-400 px-2 py-1 "
                   defaultValue={data?.info ? data.info.prefix_th : null}
+=======
+                  dropdownClassName="border-2 border-white text-gray-400 px-2 py-1 "
+>>>>>>> 7e08da289bba2231773e5331d4f7a9f70feeee65
                 >
                   {prefix_th.map((item) => (
                     <Option key={item.value} value={item.value}>
@@ -172,7 +176,7 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
             <div className="flex flex-col w-full">
               <Form.Item
                 label={
-                  <label className="text-white mb-2">ชื่อ (ภาษาไทย)</label>
+                  <label className="text-white md:text-lg mb-2">ชื่อ (ภาษาไทย)</label>
                 }
                 name={["info", "name_th"]}
                 rules={[{ required: true, message: "กรุณากรอกชื่อ" }]}
@@ -192,7 +196,7 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
             <div className="flex flex-col w-full">
               <Form.Item
                 label={
-                  <label className="text-white mb-2">นามสกุล (ภาษาไทย)</label>
+                  <label className="text-white md:text-lg mb-2">นามสกุล (ภาษาไทย)</label>
                 }
                 name={["info", "surname_th"]}
                 rules={[{ required: true, message: "กรุณากรอกนามสกุล" }]}
@@ -213,7 +217,7 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
             <div className="flex flex-col w-full">
               <Form.Item
                 label={
-                  <label className="text-white mb-2">ชื่อเล่น (ภาษาไทย)</label>
+                  <label className="text-white md:text-lg mb-2">ชื่อเล่น (ภาษาไทย)</label>
                 }
                 name={["info", "nickname_th"]}
                 rules={[{ required: true, message: "กรุณากรอกชื่อเล่น" }]}
@@ -233,17 +237,17 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
             </div>
           </div>
 
-          <div className="flex flex-wrap md:flex-nowrap flex-row items-end justify-between gap-10">
-            <div className="flex flex-col">
+          <div className="flex font-sans  flex-wrap md:flex-nowrap flex-row items-end justify-between gap-10">
+            <div className="flex  flex-col">
               <Form.Item
-                label={<label className="text-white mb-2">Name prefix</label>}
+                label={<label className="text-white md:text-lg mb-2">Name prefix</label>}
                 name={["info", "prefix_en"]}
                 rules={[{ required: true, message: "กรุณาเลือก" }]}
               >
                 <Select
                   placeholder="Name prefix"
                   style={{ width: "7rem" }}
-                  dropdownClassName="border-2 border-white text-gray-400 px-2 py-1 "
+                  dropdownClassName="border-2 border-white font-sans text-gray-400 px-2 py-1 "
                 >
                   {prefix_en.map((item) => (
                     <Option key={item.value} value={item.value}>
@@ -265,7 +269,7 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
             <div className="flex flex-col w-full">
               <Form.Item
                 label={
-                  <label className="text-white mb-2">ชื่อ (ภาษาอังกฤษ)</label>
+                  <label className="text-white md:text-lg mb-2">ชื่อ (ภาษาอังกฤษ)</label>
                 }
                 name={["info", "name_en"]}
                 rules={[{ required: true, message: "กรุณากรอกชื่อ" }]}
@@ -286,7 +290,7 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
             <div className="flex flex-col w-full">
               <Form.Item
                 label={
-                  <label className="text-white mb-2">
+                  <label className="text-white md:text-lg mb-2">
                     นามสกุล (ภาษาอังกฤษ)
                   </label>
                 }
@@ -308,7 +312,7 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
             </div>
             <div className="flex flex-col w-full">
               <Form.Item
-                label={<label className="text-white mb-2">วันเกิด</label>}
+                label={<label className="text-white md:text-lg mb-2">วันเกิด</label>}
                 name={["info", "birthdate"]}
                 rules={[{ required: true, message: "กรุณากรอกวันเกิด" }]}
               >
@@ -331,11 +335,11 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
           </div>
 
           <div>
-            <div className="flex flex-wrap md:flex-nowrap flex-row gap-10">
+            <div className="flex font-sans flex-wrap md:flex-nowrap flex-row gap-10">
               <div className="flex flex-col">
                 <Form.Item
                   label={
-                    <label className="text-white mb-2">
+                    <label className="text-white md:text-lg mb-2">
                       เบอร์โทรศัพท์ส่วนตัว
                     </label>
                   }
@@ -364,7 +368,7 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
               <div className="flex flex-col">
                 <Form.Item
                   label={
-                    <label className="text-white mb-2">ระบุขนาดเสื้อ</label>
+                    <label className="text-white md:text-lg mb-2">ระบุขนาดเสื้อ</label>
                   }
                   name={["info", "shirt"]}
                   rules={[{ required: true, message: "กรุณาเลือกขนาดเสื้อ" }]}
@@ -372,7 +376,7 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
                   <Select
                     placeholder="ระบุขนาดเสื้อ"
                     style={{ width: "7rem" }}
-                    dropdownClassName="border-2 border-white text-gray-400 px-2 py-1 "
+                    dropdownClassName="border-2 font-sans border-white text-gray-400 px-2 py-1 "
                   >
                     {shirt_size.map((item) => (
                       <Option key={item.value} value={item.value}>
@@ -395,7 +399,7 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
             </div>
           </div>
 
-          <h2 className="text-white bg-[#DD517E] rounded-full justify-center w-fit p-2 pl-4 pr-4 text-lg">
+          <h2 className="text-white font-sans bg-[#DD517E] rounded-full justify-center w-fit p-2 pl-4 pr-4 text-lg">
             ที่อยู่ปัจจุบัน
           </h2>
 
@@ -403,7 +407,7 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
             <div className="flex flex-col w-full">
               <Form.Item
                 label={
-                  <label className="text-white mb-2">{`เลขที่บ้าน`}</label>
+                  <label className="text-white md:text-lg mb-2">{`เลขที่บ้าน`}</label>
                 }
                 name={["address", "no"]}
                 rules={[{ required: true, message: "กรุณากรอกบ้านเลขที่" }]}
@@ -423,10 +427,10 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
                 />
               </div> */}
             </div>
-            <div className="flex flex-col w-full">
+            <div className="flex font-sans flex-col w-full">
               <Form.Item
                 label={
-                  <label className="text-white mb-2">{`หมู่`} (optional)</label>
+                  <label className="text-white font md:text-lg mb-2">{`หมู่`} (optional)</label>
                 }
                 name={["address", "moo"]}
               >
@@ -445,10 +449,10 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
                 />
               </div> */}
             </div>
-            <div className="flex flex-col w-full">
+            <div className="flex font-sans flex-col w-full">
               <Form.Item
                 label={
-                  <label className="text-white mb-2">{`ซอย`} (optional)</label>
+                  <label className="text-white md:text-lg mb-2">{`ซอย`} (optional)</label>
                 }
                 name={["address", "soi"]}
               >
@@ -467,10 +471,10 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
                 />
               </div> */}
             </div>
-            <div className="flex flex-col w-full">
+            <div className="flex font-sans flex-col w-full">
               <Form.Item
                 label={
-                  <label className="text-white mb-2">{`ถนน`} (optional)</label>
+                  <label className="text-white md:text-lg mb-2">{`ถนน`} (optional)</label>
                 }
                 name={["address", "road"]}
               >
@@ -491,10 +495,10 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
             </div>
           </div>
 
-          <div className="flex flex-wrap md:flex-nowrap flex-row justify-between gap-10">
+          <div className="flex font-sans flex-wrap md:flex-nowrap flex-row justify-between gap-10">
             <div className="flex flex-col w-full">
               <Form.Item
-                label={<label className="text-white mb-2">{`ตำบล/แขวง`}</label>}
+                label={<label className="text-white md:text-lg mb-2">{`ตำบล/แขวง`}</label>}
                 name={["address", "tambol"]}
                 rules={[{ required: true, message: "ระบุตำบล" }]}
               >
@@ -532,7 +536,7 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
             </div>
             <div className="flex flex-col w-full">
               <Form.Item
-                label={<label className="text-white mb-2">{`อำเภอ/เขต`}</label>}
+                label={<label className="text-white md:text-lg mb-2">{`อำเภอ/เขต`}</label>}
                 name={["address", "amphoe"]}
                 rules={[{ required: true, message: "ระบุอำเภอ" }]}
               >
@@ -569,7 +573,7 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
             </div>
             <div className="flex flex-col w-full">
               <Form.Item
-                label={<label className="text-white mb-2">{`จังหวัด`}</label>}
+                label={<label className="text-white md:text-lg mb-2">{`จังหวัด`}</label>}
                 name={["address", "province"]}
                 rules={[{ required: true, message: "ระบุจังหวัด" }]}
               >
@@ -606,7 +610,7 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
             </div>
             <div className="flex flex-col w-full">
               <Form.Item
-                label={<label className="text-white mb-2">{`ไปรษณีย์`}</label>}
+                label={<label className="text-white md:text-lg mb-2">{`ไปรษณีย์`}</label>}
                 name={["address", "postcode"]}
                 rules={[
                   { len: 5, message: "รหัสไปรษณีย์ต้องมี 5 อักษร" },
@@ -644,14 +648,14 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
             </div>
           </div>
 
-          <h2 className="text-white bg-[#DD517E] rounded-full justify-center w-fit p-2 pl-4 pr-4 text-lg">
+          <h2 className="text-white bg-[#DD517E] font-sans rounded-full justify-center w-fit p-2 pl-4 pr-4 text-lg">
             ข้อมูลผู้ปกครอง
           </h2>
 
-          <div className="flex flex-wrap md:flex-nowrap flex-row items-end justify-between gap-10">
+          <div className="flex flex-wrap font-sans md:flex-nowrap flex-row items-end justify-between gap-10">
             <div className="flex">
               <Form.Item
-                label={<label className="text-white mb-2">คำนำหน้า</label>}
+                label={<label className="text-white md:text-lg mb-2">คำนำหน้า</label>}
                 // name="parent.prefix_th"
                 name={["parent", "prefix_th"]}
                 rules={[{ required: true, message: "กรุณาเลือก!" }]}
@@ -695,7 +699,7 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
                 </div> */}
                 <Form.Item
                   label={
-                    <label className="text-white mb-2">ชื่อผู้ปกครอง</label>
+                    <label className="text-white md:text-lg mb-2">ชื่อผู้ปกครอง</label>
                   }
                   name={["parent", "name"]}
                   rules={[
@@ -710,7 +714,7 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
               <div>
                 <Form.Item
                   label={
-                    <label className="text-white mb-2">นามสกุลผู้ปกครอง</label>
+                    <label className="text-white md:text-lg mb-2">นามสกุลผู้ปกครอง</label>
                   }
                   name={["parent", "surname"]}
                   rules={[{ required: true, message: "กรุณากรอกนามสกุล!" }]}
@@ -744,7 +748,7 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
                 />
               </div> */}
               <Form.Item
-                label={<label className="text-white mb-2">ความสัมพันธ์</label>}
+                label={<label className="text-white md:text-lg mb-2">ความสัมพันธ์</label>}
                 name={["parent", "relation"]}
                 rules={[{ required: true, message: "กรุณากรอกความสัมพันธ์!" }]}
               >
