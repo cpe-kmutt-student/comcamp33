@@ -335,7 +335,7 @@ export const Navigation = () => {
                     {isEnabled
                       ? "Register now"
                       : date <= closeRegis
-                      ? "register now"
+                      ? "Coming soon"
                       : "registration closed"}
                   </p>
                 )}
