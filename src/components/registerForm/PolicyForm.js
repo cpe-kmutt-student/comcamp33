@@ -63,10 +63,10 @@ export default function PolicyForm({
       >
         <div className="flex flex-col bg-[#9600FF] text-white rounded-xl mt-6 pl-[10%] pr-[10%] py-6">
           <div className="flex justify-center content-center py-4">
-            <h1 className="text-3xl mb-2 text-white">เอกสารประกอบการสมัคร</h1>
+            <h1 className="text-xl md:text-3xl font-sans mb-2 text-white">เอกสารประกอบการสมัคร</h1>
           </div>
           <div className="text-sm md:text-lg">
-            <ul className="list-disc leading-relaxed">
+            <ul className="list-disc font-sans leading-relaxed">
               <li>
                 สำเนาบัตรประจำตัวประชาชน ( เฉพาะด้านหน้า ) หรือ
                 สำเนาบัตรนักเรียน
@@ -91,7 +91,7 @@ export default function PolicyForm({
               <Checkbox
                 onChange={(e) => setCheck1(e.target.checked)}
                 checked={check1}
-                className="text-white"
+                className="text-white md:text-lg font-sans"
               >
                 ข้าพเจ้าได้อ่านข้อมูลการสมัครทั้งหมดแล้ว
               </Checkbox>
@@ -100,12 +100,12 @@ export default function PolicyForm({
         </div>
 
         <div className="flex flex-col bg-[#DD517E] text-white rounded-xl my-6 pl-[10%] pr-[10%] pt-[1rem]">
-          <div className="flex justify-center content-center">
-            <h1 className="text-3xl mb-2 leading-relaxed text-white">
+          <div className="flex justify-center font-sans content-center">
+            <h1 className="text-xl md:text-3xl mb-2 leading-relaxed text-white">
               นโยบายข้อมูลส่วนบุคคล
             </h1>
           </div>
-          <div className="overflow-auto max-h-[16rem] bg-white text-black pt-[1rem] px-8 text-[0.9rem] md:text-lg">
+          <div className="overflow-auto max-h-[16rem] font-sans bg-white text-black pt-[1rem] px-8 text-[0.9rem] md:text-lg">
             <ol className={styles.orderList}>
               <li className={styles.listItem}>
                 ข้อมูลสำคัญเกี่ยวกับโครงการ
@@ -266,7 +266,7 @@ export default function PolicyForm({
               <Checkbox
                 onChange={(e) => setCheck2(e.target.checked)}
                 checked={check2}
-                className="text-white"
+                className="text-white md:text-lg font-sans"
               >
                 ข้าพเจ้ายอมรับนโยบายคุ้มครองข้อมูลส่วนบุคคล
               </Checkbox>
@@ -282,10 +282,11 @@ export default function PolicyForm({
         </div>
         <div className="flex justify-between my-5 z-20">
           <div />
-          <button type="submit" ref={nextBtn}>
+          <button type="submit" ref={nextBtn}  >
+             
             <AiFillCaretRight
               size="4.5rem"
-              className={`text-[rgb(236,72,153)] hover:text-[rgb(236,72,153)] ${
+              className={`text-[#ec4899] opacity-60 translation-all ase-linear duration-200 hover:opacity-100 ${
                 !check1 || !check2 ? "hidden" : ""
               }`}
             />
