@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import DropBox from "@components/DropBox";
 import { saveData } from "@src/utils/clientUtils";
 import { AiFillCaretLeft, AiFillCaretRight } from "react-icons/ai";
@@ -6,13 +6,81 @@ import { AiFillCaretLeft, AiFillCaretRight } from "react-icons/ai";
 import prefix_en from "@components/registerForm/DropBoxData/prefix_en.json";
 import prefix_th from "@components/registerForm/DropBoxData/prefix_th.json";
 import shirt_size from "@components/registerForm/DropBoxData/shirt_size.json";
-import { Select, Form, Input, DatePicker, Button } from "antd";
+import {
+  Select,
+  Form,
+  Input,
+  DatePicker,
+  Button,
+  notification,
+  AutoComplete,
+  InputNumber
+} from "antd";
 import MaskedInput from "antd-mask-input";
+import TestInput from "@components/Input";
+import { location } from "@components/registerForm/DropBoxData/location";
+import * as dayjs from 'dayjs'
+import moment from 'moment';
+
+
 
 const { Option } = Select;
+const { Option: OptionAuto } = AutoComplete;
 const dateFormat = "YYYY-MM-DD";
 
 export default function InfoForm({ data, setData, choose, next, prev }) {
+  const [locationForm, setLocationForm] = useState();
+
+  const onSearch = (type, value) => {
+    if (
+      data?.tambol &&
+      data?.amphoe &&
+      data?.province &&
+      data?.postcode
+    ) {
+      setLocationForm(
+        locationForm?.filter((loc) =>
+          loc[type].toString().startsWith(value.toString())
+        )
+      );
+    } else {
+      setLocationForm(
+        location.filter((loc) =>
+          loc[type].toString().startsWith(value.toString())
+        )
+      );
+    }
+  };
+  const onSelect = (value, option, type) => {
+    const filterData = {
+      sub_district: option.children[2],
+      province: option.children[4],
+      post_code: option.children[6],
+    };
+    if (
+      data?.address.tambol &&
+      data?.address.amphoe &&
+      data?.address.province &&
+      data?.address.postcode
+    ) {
+      setLocationForm(
+        locationForm?.filter((loc) =>
+          loc[type].toString().startsWith(value.toString())
+        )
+      );
+    } else {
+      setLocationForm(
+        location.filter((loc) =>
+          loc[type].toString().startsWith(value.toString())
+        )
+      );
+    }
+    // setData((oldData) => ({
+    //   ...oldData,
+    //   ...filterData,
+    // }));
+  };
+
   const [form] = Form.useForm();
   // const handleChange = (e, type) => {
   //   setData({
@@ -32,10 +100,24 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
   //   });
   // };
 
-  const onFinish = (values) => {
+  const onFinish = async (values) => {
     console.log("Success:", values);
-    saveData(values);
-    next();
+    try {
+      const newValue = {...values, info: {
+        ...values.info,
+        birthdate: moment(values?.info?.birthdate),
+        tel: values?.info?.tel.replaceAll("-", "")
+      }}
+      console.log("SuccessNew:", newValue);
+      await saveData(newValue);
+      next();
+    } catch {
+      notification.error({
+        message: "System Alert",
+        description: "บันทึกข้อมูลผิดพลาด",
+        placement: "bottomRight",
+      });
+    }
   };
 
   const onFinishFailed = (errorInfo) => {
@@ -202,7 +284,7 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
                 label={
                   <label className="text-white mb-2">ชื่อ (ภาษาอังกฤษ)</label>
                 }
-                name={["info","name_en"]}
+                name={["info", "name_en"]}
                 rules={[{ required: true, message: "กรุณากรอกชื่อ" }]}
               >
                 <Input placeholder="ชื่อ (ภาษาอังกฤษ)" />
@@ -247,7 +329,7 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
                 name={["info", "birthdate"]}
                 rules={[{ required: true, message: "กรุณากรอกวันเกิด" }]}
               >
-                {/* <DatePicker format={"YYYY-MM-DD"} /> */}
+                <DatePicker />
               </Form.Item>
               {/* <label className="text-white mb-2">
                 เดือน / วัน / ปี (ค.ศ.) เกิด *
@@ -274,7 +356,7 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
                       เบอร์โทรศัพท์ส่วนตัว
                     </label>
                   }
-                  name={["info","tel"]}
+                  name={["info", "tel"]}
                   rules={[
                     { required: true, message: "กรุณากรอกเบอร์โทรศัพท์" },
                   ]}
@@ -301,7 +383,7 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
                   label={
                     <label className="text-white mb-2">ระบุขนาดเสื้อ</label>
                   }
-                  name={["info","shirt"]}
+                  name={["info", "shirt"]}
                   rules={[{ required: true, message: "กรุณาเลือกขนาดเสื้อ" }]}
                 >
                   <Select
@@ -347,7 +429,7 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
                 name={["address", "no"]}
                 rules={[{ required: true, message: "กรุณากรอกบ้านเลขที่" }]}
               >
-                <Input placeholder="บ้านเลขที่"/>
+                <Input placeholder="บ้านเลขที่" />
               </Form.Item>
               {/* <label className="text-white mb-2">{`เลขที่บ้าน`} * </label>
               <div>
@@ -408,8 +490,10 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
             </div>
             <div className="flex flex-col w-full">
               <Form.Item
-                label={<label className="text-white mb-2">{`ถนน`} (optional)</label>}
-                name={["address","road"]}
+                label={
+                  <label className="text-white mb-2">{`ถนน`} (optional)</label>
+                }
+                name={["address", "road"]}
               >
                 <Input placeholder="ถนน" />
               </Form.Item>
@@ -431,12 +515,28 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
           <div className="flex flex-wrap md:flex-nowrap flex-row justify-between gap-10">
             <div className="flex flex-col w-full">
               <Form.Item
-                label={<label className="text-white mb-2">{`ตำบล/แขวง`}</label>}
+                label={ <label className="text-white mb-2">{`ตำบล/แขวง`}</label>}
                 name={["address", "tambol"]}
-                rules={[{ required: true, message: "กรุณากรอกตำบล/แขวง" }]}
+                rules={[{ required: true, message: "ระบุตำบล" }]}
               >
-                <Input placeholder="ตำบล/แขวง" />
+                <AutoComplete
+                  onSearch={(txt) => onSearch("district", txt)}
+                  onSelect={(e, option) => onSelect(e, option, "district")}
+                  placeholder="แขวง / ตำบล"
+                >
+                  {locationForm?.map((loc, index) => (
+                    <OptionAuto
+                      key={loc.district + index.toString()}
+                      value={loc.district}
+                    >
+                      {loc.district} &gt;&gt; {loc.amphoe} &gt;&gt;{" "}
+                      {loc.province} &gt;&gt;
+                      {loc.zipcode}
+                    </OptionAuto>
+                  ))}
+                </AutoComplete>
               </Form.Item>
+
               {/* <label className="text-white mb-2">{`ตำบล/แขวง`}</label>
 
               <div>
@@ -454,11 +554,27 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
             <div className="flex flex-col w-full">
               <Form.Item
                 label={<label className="text-white mb-2">{`อำเภอ/เขต`}</label>}
-                name={["address","amphoe"]}
-                rules={[{ required: true, message: "กรุณากรอกอำเภอ/เขต" }]}
+                name={["address", "amphoe"]}
+                rules={[{ required: true, message: "ระบุอำเภอ" }]}
               >
-                <Input placeholder="อำเภอ/เขต" />
+                <AutoComplete
+                  onSearch={(txt) => onSearch("amphoe", txt)}
+                  onSelect={(e, option) => onSelect(e, option, "amphoe")}
+                  placeholder="อำเภอ"
+                >
+                  {locationForm?.map((loc, index) => (
+                    <OptionAuto
+                      key={loc.amphoe + index.toString()}
+                      value={loc.amphoe}
+                    >
+{loc.amphoe} &gt;&gt;{" "}
+                      {loc.province} &gt;&gt;
+                      {loc.zipcode}
+                    </OptionAuto>
+                  ))}
+                </AutoComplete>
               </Form.Item>
+
               {/* <label className="text-white mb-2">{`อำเภอ/เขต`}</label>
 
               <div>
@@ -474,13 +590,23 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
               </div> */}
             </div>
             <div className="flex flex-col w-full">
-              <Form.Item
-                label={<label className="text-white mb-2">{`จังหวัด`}</label>}
-                name={["address", "province"]}
-                rules={[{ required: true, message: "กรุณากรอกจังหวัด" }]}
-              >
-                <Input placeholder="จังหวัด" />
-              </Form.Item>
+            <Form.Item
+              label={<label className="text-white mb-2">{`จังหวัด`}</label>}
+              name={["address", "province"]}
+              rules={[{ required: true, message: 'ระบุจังหวัด' }]}>
+              <AutoComplete
+                onSelect={(e, option) => onSelect(e, option, 'province')}
+                onSearch={(txt) => onSearch('province', txt)}
+                placeholder="จังหวัด"
+                value={data?.province}>
+                {locationForm?.map((loc, index) => (
+                  <OptionAuto key={loc.province + index.toString()} value={loc.province}>{loc.province} &gt;&gt;
+                    {loc.zipcode}
+                  </OptionAuto>
+                ))}
+              </AutoComplete>
+            </Form.Item>
+
               {/* <label className="text-white mb-2">{`จังหวัด`} * </label>
               <div>
                 <Input
@@ -495,15 +621,26 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
               </div> */}
             </div>
             <div className="flex flex-col w-full">
-              <Form.Item
-                label={
-                  <label className="text-white mb-2">{`รหัสไปรษณีย์`}</label>
-                }
-                name={["address","postcode"]}
-                rules={[{ required: true, message: "กรุณากรอกรหัสไปรษณีย์" }]}
-              >
-                <Input placeholder="00000"/>
-              </Form.Item>
+            <Form.Item
+        label={<label className="text-white mb-2">{`ไปรษณีย์`}</label>}
+        name={["address", "postcode"]}
+        rules={[
+          { len: 5, message: 'รหัสไปรษณีย์ต้องมี 5 อักษร' },
+          { required: true, message: 'กรุณาระบุรหัสไปรษณีย์' },
+        ]}>
+        <AutoComplete
+          
+          onSelect={(e, option) => onSelect(e, option, 'zipcode')}
+          onSearch={(txt) => onSearch('zipcode', txt)}
+          placeholder="รหัสไปรษณีย์">
+          {locationForm?.map((loc, index) => (
+            <OptionAuto key={loc.zipcode + index} value={loc.zipcode.toString()}>
+              {loc.zipcode}
+            </OptionAuto>
+          ))}
+        </AutoComplete>
+      </Form.Item>
+
               {/* <label className="text-white mb-2">{`ไปรษณีย์`} * </label>
               <div>
                 <Input
@@ -526,13 +663,13 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
           <div className="flex flex-wrap md:flex-nowrap flex-row items-end justify-between gap-10">
             <div className="flex">
               <Form.Item
-                label={<label className="text-white mb-2">Name prefix</label>}
+                label={<label className="text-white mb-2">คำนำหน้า</label>}
                 // name="parent.prefix_th"
                 name={["parent", "prefix_th"]}
                 rules={[{ required: true, message: "กรุณาเลือก!" }]}
               >
                 <Select
-                  placeholder="Name prefix"
+                  placeholder="คำนำหน้า"
                   style={{ width: "7rem" }}
                   dropdownClassName="border-2 border-white bg-transparent text-gray-400 px-2 py-1 "
                 >

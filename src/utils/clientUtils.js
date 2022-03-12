@@ -15,6 +15,11 @@ export const saveData = async (data) => {
     },
     body: JSON.stringify(data),
   });
+
+  if (response.status !== 200) {
+    throw new Error("response not ok");
+  }
+
   return response.json();
 };
 

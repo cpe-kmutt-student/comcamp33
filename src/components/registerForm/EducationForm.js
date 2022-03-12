@@ -43,12 +43,17 @@ export default function EducationForm({ data, setData, choose, prev, next }) {
     console.log("Failed:", errorInfo);
   };
 
+  useEffect(() => {
+    console.log("incoming ", data);
+    form.resetFields();
+  }, [data]);
+
   return (
     <>
       <div className={choose != 3 ? "hidden" : ""}>
         <Form
           form={form}
-          name="info"
+          name="education"
           // onSubmit={handleSubmit}
           className="space-y-8"
           layout="vertical"

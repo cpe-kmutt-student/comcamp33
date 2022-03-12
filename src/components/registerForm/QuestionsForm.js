@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 // import TextArea from "@components/TextArea";
 import styles from "@styles/components/registerForm/QuestionsForm.module.css";
 import { AiFillCaretLeft, AiFillCaretRight } from "react-icons/ai";
@@ -17,6 +17,10 @@ export default function QuestionsForm({
   setOpen,
   open,
 }) {
+
+  const [form] = Form.useForm();
+  const submitBtn = useRef(null);
+
 
   const { TextArea } = Input;
   const handleChange = (e, type) => {
@@ -39,10 +43,15 @@ export default function QuestionsForm({
     // console.log(data);
   };
 
+  const onFinish = (values) => {
+    console.log("Success:", values);
+    saveData(values);
+  };
+
   return (
     <>
       <div className={choose != 5 ? "hidden" : ""}>
-        <Form>
+        <Form form={form} onFinish={onFinish}>
           <form onSubmit={handleSubmit}>
             <Form.Item
               name="q1"
@@ -58,7 +67,7 @@ export default function QuestionsForm({
                 *{" "}
               </label> */}
               <div className="flex flex-col gap-5 mb-5">
-              <p className="flex w-fit justify-center text-base text-white bg-[#FFFFFF] px-5 py-3 mt-5 rounded-3xl">
+              <p className="flex w-fit justify-center text-[1.2rem] text-blue-900 bg-white px-5 py-3 mt-5 rounded-3xl">
                 {`ถ้าวันหนึ่งน้องต้องย้อนไปในยุค 80 - 90s
               ที่เป็นจุดเริ่มต้นของเทคโนโลยี ได้ 1 วัน
               และสามารถเลือกอุปกรณ์หรือเทคโนโลยีในยุคปัจจุบันติดตัวไป1ชิ้น
@@ -90,7 +99,7 @@ export default function QuestionsForm({
               ]}
             >
             <div className="flex flex-col gap-5 mb-5">
-              <p className="flex w-fit justify-center text-base text-white bg-[#FFFFFF] px-5 py-3 mt-5 rounded-3xl">
+              <p className="flex w-fit justify-center text-[1.2rem] text-blue-900 bg-white px-5 py-3 mt-5 rounded-3xl">
                 {`ถ้าวันหนึ่งน้องได้รับเลือกเป็นผู้กล้าต้องย้อนไปในปี 1980
             เพื่อแก้ปัญหาวิกฤตการณ์ขาดแคลนอาหารซึ่งมีสาเหตุมาจากโรคระบาดที่ชื่อว่า
             “BEEtree35” ซึ่งเป็นโรคระบาดที่ติดต่อกันในฝูงผึ้ง
@@ -121,7 +130,7 @@ export default function QuestionsForm({
               ]}
             >
             <div className="flex flex-col gap-5 mb-5">
-              <p className=" w-fit  text-base  text-white bg-white px-5 py-3 mt-5 rounded-3xl">
+              <p className=" w-fit  text-[1.2rem] text-blue-900 bg-white px-5 py-3 mt-5 rounded-3xl">
                 <div>{`น้องวางแผนไว้ว่าจะนั่งรถไฟออกเดินทางไปเที่ยวพักผ่อน
             หลังจากที่ตั้งใจอ่านหนังสือและสอบปลายภาคมาอย่างยาวนาน
             เมื่อถึงวันเดินทาง น้องก็ได้เข้าไปอยู่ในห้องโดยสารส่วนตัวที่จองไว้
@@ -167,7 +176,7 @@ export default function QuestionsForm({
               ]}
             >
             <div className="flex flex-col gap-5 mb-5">
-              <p className=" w-fit  text-base  text-white bg-white px-5 py-3 mt-5 rounded-3xl">
+              <p className=" w-fit  text-[1.2rem] text-blue-900 bg-white px-5 py-3 mt-5 rounded-3xl">
                 {`ขณะนี้น้องยืนอยู่ในห้องแห่งความลับ
             ในห้องนั้นเต็มไปด้วยของเก่ามากมายแต่สิ่งที่ดึงดูดใจน้อง ๆ คือ
             หีบสมบัติขนาดใหญ่ 2 กล่อง ตรงกลางห้อง ประกอบไปด้วยหีบ A และ หีบ B 
@@ -204,7 +213,7 @@ export default function QuestionsForm({
               ]}
             >
             <div className="flex flex-col gap-5 mb-5">
-              <p className=" w-fit  text-base  text-white bg-white px-5 py-3 mt-5 rounded-3xl">
+              <p className=" w-fit  text-[1.2rem] text-blue-900 bg-white px-5 py-3 mt-5 rounded-3xl">
                 {`ร้านไอติมแห่งหนึ่ง ขายไอติมราคาแท่งละ 15 บาท แต่ถ้าซื้อมากกว่า 15
             แท่ง ร้านจะขายไอติมให้ในราคาแท่งละ 10 บาท น้องและเพื่อนๆ
             ชอบกินไอติมมาก น้องจึงซื้อไอติมรสวนิลาไปแจกเพื่อนๆ ทั้งหมด 30 แท่ง
@@ -234,7 +243,7 @@ export default function QuestionsForm({
               ]}
             >
             <div className="flex flex-col gap-5 mb-5">
-              <p className=" w-fit text-[1.2rem] text-blue-900 bg-white bg-white px-5 py-3 mt-5 rounded-3xl">
+              <p className=" w-fit text-[1.2rem] text-blue-900 bg-white px-5 py-3 mt-5 rounded-3xl">
                 {`น้องเป็นผู้ผ่านการคัดเลือกให้เข้าค่าย Comcamp #33
             ภายในค่ายน้องต้องทำกิจกรรมร่วมกับเพื่อนในกลุ่มและกิจกรรมนั้นจำเป็นต้องเปิดกล้องทุกคน
             แต่สมาชิกในกลุ่มน้องไม่มีใครเปิดกล้องเลย
@@ -321,9 +330,10 @@ export default function QuestionsForm({
                   }}
                 />
               </button>
-              <button type="submit">
-                <ModalAsk open={open} setOpen={setOpen} data={data} />
+              <button type="button">
+                <ModalAsk submitBtn={submitBtn} open={open} setOpen={setOpen} data={data} />
               </button>
+              <button style={{display: 'none'}} ref={submitBtn}></button>
 
                   {/* 
                   <Button htmlType="submit">
