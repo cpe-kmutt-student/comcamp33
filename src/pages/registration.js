@@ -14,6 +14,7 @@ import bgForm2 from "@public/formBg/bgForm2.png";
 import Header from "@components/Header";
 import { getSession } from "next-auth/react";
 import { useRouter } from "next/router";
+import moment from "moment";
 
 export default function RegistrationPage() {
   const [chooseForm, setChooseForm] = useState(1); // 1
@@ -28,8 +29,7 @@ export default function RegistrationPage() {
   const router = useRouter();
 
   const nextForm = () => {
-    if (chooseForm >= 1 && chooseForm < 6)
-      setChooseForm(chooseForm + 1);
+    if (chooseForm >= 1 && chooseForm < 6) setChooseForm(chooseForm + 1);
     else setError(true);
   };
 
@@ -42,6 +42,11 @@ export default function RegistrationPage() {
     const loadInitialData = async () => {
       const result = await loadData();
       if (result.message) {
+        if (result.message.info?.birthdate) {
+          result.message.info.birthdate = moment(
+            result.message?.info?.birthdate
+          );
+        }
         setData(result.message);
       }
     };
@@ -97,7 +102,7 @@ export default function RegistrationPage() {
       <h1 className="my-7 self-center m-2 text-white font-pixel text-4xl md:text-6xl">
         REGISTRATION
       </h1>
-      <ProgressBar  currentStep={chooseForm} />
+      <ProgressBar currentStep={chooseForm} />
       <div className="p-[20%] flex justify-center all pt-0 pb-0 z-10">
         <PolicyForm
           data={data}
@@ -138,7 +143,7 @@ export default function RegistrationPage() {
         />
       </div>
 
-      <AutoSave data={data} />
+      {/* <AutoSave data={data} /> */}
 
       {/* <div className="flex justify-around my-5 z-20">
           <button onClick={prevForm}>

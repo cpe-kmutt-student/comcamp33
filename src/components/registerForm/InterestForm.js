@@ -1,39 +1,45 @@
 import React, { useState, useEffect } from "react";
 import { AiOutlineCheck } from "react-icons/ai";
-import Input from "@components/Input";
-import DropBox from "@components/DropBox";
-import TextArea from "@components/TextArea";
-import CheckBox from "@components/CheckBox";
+// import Input from "@components/Input";
+// import DropBox from "@components/DropBox";
+// import TextArea from "@components/TextArea";
+// import CheckBox from "@components/CheckBox";
 import styles from "@styles/components/registerForm/InterestForm.module.css";
 import { AiFillCaretLeft, AiFillCaretRight } from "react-icons/ai";
 import { saveData } from "@src/utils/clientUtils";
+import { Form, Input, Button, Checkbox } from "antd";
 
 import trueAndFalse from "@components/registerForm/DropBoxData/trueAndFalse.json";
 
 export default function InterestForm({ data, setData, choose, prev, next }) {
+  const [form] = Form.useForm();
+  // const handleChangeAdmission = (e) => {
+  //   let name = e.target.name;
+  //   let keyChange = e.target.getAttribute("number");
+  //   const newAdmissions =
+  //     data.interest && data.interest.admission ? data.interest.admission : [];
+  //   newAdmissions[keyChange] =
+  //     data.interest && data.interest.admission
+  //       ? {
+  //           ...data.interest.admission[keyChange],
+  //           [name]: e.target.value,
+  //         }
+  //       : { [name]: e.target.value };
 
-  const handleChangeAdmission = (e) => {
-    let name = e.target.name;
-    let keyChange = e.target.getAttribute("number");
-    const newAdmissions = (data.interest && data.interest.admission) ? data.interest.admission : [] ;
-    newAdmissions[keyChange] = (data.interest && data.interest.admission) ? {
-      ...data.interest.admission[keyChange],
-      [name]: e.target.value,
-    } : { [name]: e.target.value}  ;
-
-    setData({
-      ...data,
-      "interest" : {
-        ...data.interest,
-        admission: newAdmissions,
-      },
-    });
+  //   setData({
+  //     ...data,
+  //     interest: {
+  //       ...data.interest,
+  //       admission: newAdmissions,
+  //     },
+  //   });
     //console.log(data);
-  };
+  // };
 
   const handleChangePlan = (e) => {
     let keyChange = e.target.getAttribute("number");
-    const newPlans = (data.interest && data.interest.plan) ? data.interest.plan : [];
+    const newPlans =
+      data.interest && data.interest.plan ? data.interest.plan : [];
     newPlans[keyChange] = e.target.checked;
 
     setData({
@@ -55,201 +61,169 @@ export default function InterestForm({ data, setData, choose, prev, next }) {
       },
     });
     // console.log(data)
-  }
-
-  const handleSubmit = (e) => {
-    next();
-    e.preventDefault();
-    saveData({
-      ...data, 
-    });
-    // console.log(data);
   };
+
+  // const handleSubmit = (e) => {
+  //   next();
+  //   e.preventDefault();
+  //   saveData({
+  //     ...data,
+  //   });
+  //   // console.log(data);
+  // };
+
+  const onFinish = (values) => {
+    console.log("Success:", values);
+    saveData(values);
+    next();
+  };
+
+  const onFinishFailed = (errorInfo) => {
+    console.log("Failed:", errorInfo);
+  };
+
+  useEffect(() => {
+    console.log("incoming ", data);
+    form.resetFields();
+  }, [data]);
 
   return (
     <>
       <div className={choose != 4 ? "hidden" : ""}>
-        <form onSubmit={handleSubmit}>
+        <Form
+          form={form}
+          name="interest"
+          // onSubmit={handleSubmit}
+          className="space-y-8"
+          layout="vertical"
+          onFinish={onFinish}
+          onFinishFailed={onFinishFailed}
+          validateTrigger="onBlur"
+          initialValues={data}
+        >
+          {/* <form onSubmit={handleSubmit}> */}
           <div className="flex justify-center">
-            <h1 className="flex w-fit justify-center text-3xl font-bold text-white bg-[#9600FF] px-4 py-3 my-8 rounded-2xl">
+            <h1 className="flex w-fit justify-center font-sans text-xl md:text-3xl font-bold text-white bg-[#9600FF] px-4 py-3 my-8 rounded-2xl">
               ความสนใจ
             </h1>
           </div>
-          <div className="flex flex-wrap md:flex-nowrap flex-row justify-between gap-5">
-            <div className="flex flex-col mb-2 w-full">
-              <label className="text-white mb-2">
-                มหาวิทยาลัยลำดับที่หนึ่ง
-               * </label>
-              <Input
-                type="text"
-                name="university"
-                placeholder="university"
-                onChange={(e) => {
-                  handleChangeAdmission(e);
-                }}
-                required={true}
-                number="0"
-                className="w-full"
-                value={
-                  (data && data.interest &&
-                    data.interest.admission &&
-                    data.interest.admission[0] &&
-                    data.interest.admission[0].university) ||
-                  ""
+          <div className="flex font-sans flex-wrap md:flex-nowrap flex-col md:flex-row justify-between gap-5">
+            <div className="flex flex-col font-sans mb-2 w-full">
+              <Form.Item
+                label={
+                  <label className="text-white font-sans md:text-lg mb-2">
+                    มหาวิทยาลัยลำดับที่หนึ่ง
+                  </label>
                 }
-              />
+                name={["interest", "admission", 0, "university"]}
+                rules={[
+                  { required: true, message: "กรุณากรอกชื่อมหาวิทยาลัย" },
+                ]}
+              >
+                <Input placeholder="มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าธนบุรี" />
+              </Form.Item>
             </div>
-            <div className="flex flex-col mb-2 w-full">
-              <label className="text-white mb-2">คณะลำดับที่หนึ่ง * </label>
-              <Input
-                type="text"
-                name="department"
-                placeholder="department"
-                onChange={(e) => {
-                  handleChangeAdmission(e);
-                }}
-                required={true}
-                number="0"
-                className="w-full"
-                value={
-                  (data && data.interest &&
-                    data.interest.admission &&
-                    data.interest.admission[0] &&
-                    data.interest.admission[0].department) ||
-                  ""
+            <div className="flex flex-col font-sans md:text-lg mb-2 w-full">
+              <Form.Item
+                label={
+                  <label className="text-white font-sans md:text-lg mb-2">คณะลำดับที่หนึ่ง</label>
                 }
-              />
+                name={["interest", "admission", 0, "department"]}
+                rules={[{ required: true, message: "กรุณากรอกคณะ" }]}
+              >
+                <Input placeholder="วิศวกรรมศาสตร์" />
+              </Form.Item>
+              
             </div>
-            <div className="flex flex-col mb-2 w-full">
-              <label className="text-white mb-2">ภาควิชาลำดับที่หนึ่ง * </label>
-              <Input
-                type="text"
-                name="faculty"
-                placeholder="faculty"
-                onChange={(e) => {
-                  handleChangeAdmission(e);
-                }}
-                required={true}
-                number="0"
-                className="w-full"
-                value={
-                  (data && data.interest &&
-                    data.interest.admission &&
-                    data.interest.admission[0] &&
-                    data.interest.admission[0].faculty) ||
-                  ""
+            <div className="flex flex-col  mb-2 w-full">
+              <Form.Item
+                label={
+                  <label className="text-white font-sans md:text-lg mb-2">
+                    ภาควิชาลำดับที่หนึ่ง
+                  </label>
                 }
-              />
+                name={["interest", "admission", 0, "faculty"]}
+                rules={[{ required: true, message: "กรุณากรอกภาควิชา" }]}
+              >
+                <Input placeholder="วิศวกรรมคอมพิวเตอร์" />
+              </Form.Item>
+              
             </div>
           </div>
           <br />
-          <div className="flex flex-wrap md:flex-nowrap flex-row justify-between gap-5">
-            <div className="flex flex-col mb-2 w-full">
-              <label className="text-white mb-2">มหาวิทยาลัยลำดับที่สอง * </label>
-              <Input
-                type="text"
-                name="university"
-                placeholder="university"
-                onChange={(e) => {
-                  handleChangeAdmission(e);
-                }}
-                required={true}
-                number="1"
-                value={
-                  (data && data.interest &&
-                    data.interest.admission &&
-                    data.interest.admission[1] &&
-                    data.interest.admission[1].university) ||
-                  ""
+          <div className="flex flex-wrap md:flex-nowrap flex-col md:flex-row justify-between gap-5">
+            <div className="flex font-sans flex-col  mb-2 w-full">
+              <Form.Item
+                label={
+                  <label className="text-white font-sans md:text-lg mb-2">
+                    มหาวิทยาลัยลำดับที่สอง
+                  </label>
                 }
-              />
+                name={["interest", "admission", 1, "university"]}
+              >
+                <Input placeholder="มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าธนบุรี" />
+              </Form.Item>
+              
+            </div>
+            <div className="flex font-sans flex-col mb-2 w-full">
+              <Form.Item
+                label={
+                  <label className="text-white font-sans md:text-lg mb-2">คณะลำดับที่สอง</label>
+                }
+                name={["interest", "admission", 1, "department"]}
+              >
+                <Input placeholder="วิศวกรรมศาสตร์" />
+              </Form.Item>
+              
             </div>
             <div className="flex flex-col mb-2 w-full">
-              <label className="text-white mb-2">คณะลำดับที่สอง * </label>
-              <Input
-                type="text"
-                name="department"
-                placeholder="department"
-                onChange={(e) => {
-                  handleChangeAdmission(e);
-                }}
-                required={true}
-                number="1"
-                value={
-                  (data && data.interest &&
-                    data.interest.admission &&
-                    data.interest.admission[1] &&
-                    data.interest.admission[1].department) ||
-                  ""
+              <Form.Item
+                label={
+                  <label className="text-white font-sans md:text-lg mb-2">ภาควิชาลำดับที่สอง</label>
                 }
-              />
-            </div>
-            <div className="flex flex-col mb-2 w-full">
-              <label className="text-white mb-2">ภาควิชาลำดับที่สอง * </label>
-              <Input
-                type="text"
-                name="faculty"
-                placeholder="faculty"
-                onChange={(e) => {
-                  handleChangeAdmission(e);
-                }}
-                required={true}
-                number="1"
-                value={
-                  (data && data.interest &&
-                    data.interest.admission &&
-                    data.interest.admission[1] &&
-                    data.interest.admission[1].faculty) ||
-                  ""
-                }
-              />
+                name={["interest", "admission", 1, "faculty"]}
+              >
+                <Input placeholder="วิศวกรรมคอมพิวเตอร์" />
+              </Form.Item>
+              
             </div>
           </div>
           <br />
-          <div className="flex flex-wrap md:flex-nowrap flex-row justify-between gap-5">
+          <div className="flex font-sans flex-wrap md:flex-nowrap flex-col md:flex-row justify-between gap-5">
             <div className="flex flex-col mb-2 w-full">
-              <label className="text-white mb-2">มหาวิทยาลัยลำดับที่สาม * </label>
-              <Input
-                type="text"
-                name="university"
-                placeholder="university"
-                onChange={(e) => {
-                  handleChangeAdmission(e);
-                }}
-                required={true}
-                number="2"
-                className="w-full"
-                value={
-                  (data && data.interest &&
-                    data.interest.admission &&
-                    data.interest.admission[2] &&
-                    data.interest.admission[2].university) ||
-                  ""
+              <Form.Item
+                label={
+                  <label className="text-white font-sans md:text-lg mb-2">
+                    มหาวิทยาลัยลำดับที่สาม
+                  </label>
                 }
-              />
+                name={["interest", "admission", 2, "university"]}
+              >
+                <Input placeholder="มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าธนบุรี" />
+              </Form.Item>
+              
             </div>
-            <div className="flex flex-col mb-2 w-full">
-              <label className="text-white mb-2">คณะลำดับที่สาม * </label>
-              <Input
-                type="text"
-                name="department"
-                placeholder="department"
-                onChange={(e) => {
-                  handleChangeAdmission(e);
-                }}
-                required={true}
-                number="2"
-                value={
-                  (data && data.interest &&
-                    data.interest.admission &&
-                    data.interest.admission[2] &&
-                    data.interest.admission[2].department) ||
-                  ""
+            <div className="flex flex-col font-sans mb-2 w-full">
+              <Form.Item
+                label={
+                  <label className="text-white font-sans md:text-lg mb-2">คณะลำดับที่สาม</label>
                 }
-              />
+                name={["interest", "admission", 2, "department"]}
+              >
+                <Input placeholder="วิศวกรรมศาสตร์" />
+              </Form.Item>
+
             </div>
-            <div className="flex flex-col mb-2 w-full">
-              <label className="text-white mb-2">ภาควิชาลำดับที่สาม * </label>
+            <div className="flex font-sans flex-col mb-2 w-full">
+              <Form.Item
+                label={
+                  <label className="text-white font-sans md:text-lg mb-2">ภาควิชาลำดับที่สาม</label>
+                }
+                name={["interest", "admission", 2, "faculty"]}
+              >
+                <Input placeholder="วิศวกรรมคอมพิวเตอร์" />
+              </Form.Item>
+              {/* <label className="text-white mb-2">ภาควิชาลำดับที่สาม </label>
               <Input
                 type="text"
                 name="faculty"
@@ -257,38 +231,68 @@ export default function InterestForm({ data, setData, choose, prev, next }) {
                 onChange={(e) => {
                   handleChangeAdmission(e);
                 }}
-                required={true}
                 number="2"
                 value={
-                  (data && data.interest &&
+                  (data &&
+                    data.interest &&
                     data.interest.admission &&
                     data.interest.admission[2] &&
                     data.interest.admission[2].faculty) ||
                   ""
                 }
-              />
+              /> */}
             </div>
           </div>
           <br />
-          <h2 className="text-white bg-[#DD517E] rounded-full justify-center w-fit p-2 pl-4 pr-4 text-lg">
-            หลักสูตรที่สนใจ
+          <h2 className="text-white font-sans md:text-lg bg-[#DD517E] rounded-2xl md:rounded-full justify-center w-fit p-2 pl-4 pr-4">
+            หลักสูตรที่สนใจ (คณะวิศวกรรมศาสตร์ ภาควิชาวิศวกรรมคอมพิวเตอร์
+            มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าธนบุรี)
           </h2>
           <div className="mt-2">
-            <label className="flex items-center ml-5 text-white mb-2 w-fit">
+            <Form.Item name={["interest", "plan"]}>
+              <Checkbox.Group>
+                <Checkbox value="หลักสูตรปกติ">
+                  <label className="flex font-sans md:text-lg items-center ml-5 text-white mb-2 w-fit">
+                    หลักสูตรปกติ
+                  </label>
+                </Checkbox>
+                <br />
+                <Checkbox value="หลักสูตรนานาชาติ">
+                  <label className="flex font-sans md:text-lg items-center ml-5 text-white mb-2 w-fit">
+                    หลักสูตรนานาชาติ
+                  </label>
+                </Checkbox>
+                <br />
+                <Checkbox value="หลักสูตรวิทยาศาสตร์ข้อมูลสุขภาพ">
+                  <label className="flex font-sans md:text-lg items-center ml-5 text-white mb-2 w-fit">
+                    หลักสูตรวิทยาศาสตร์ข้อมูลสุขภาพ
+                  </label>
+                </Checkbox>
+                <br />
+                <Checkbox value="หลักสูตร Residential College">
+                  <label className="flex font-sans md:text-lg items-center ml-5 text-white mb-2 w-fit">
+                    หลักสูตร Residential College
+                  </label>
+                </Checkbox>
+              </Checkbox.Group>
+            </Form.Item>
+            {/* <label className="flex items-center ml-5 text-white mb-2 w-fit">
               <input
                 type="checkbox"
                 onChange={(e) => handleChangePlan(e)}
                 number="0"
                 name="plan"
                 checked={
-                  (data && data.interest &&
+                  (data &&
+                    data.interest &&
                     data.interest.plan &&
                     data.interest.plan[0]) ||
                   false
                 }
                 className="appearance-none border-2 h-4 aspect-square relative mr-2 checked:bg-[rgb(0,0,0)] unchecked:bg-transparent"
               />
-              {data && data.interest &&
+              {data &&
+              data.interest &&
               data.interest.plan &&
               data.interest.plan[0] == true ? (
                 <AiOutlineCheck
@@ -299,24 +303,24 @@ export default function InterestForm({ data, setData, choose, prev, next }) {
                 ""
               )}
               หลักสูตรปกติ
-             </label>
+            </label> */}
           </div>
-          <br />
-          <div>
-            <label className="flex items-center ml-5 text-white mb-2 w-fit">
+            {/* <label className="flex items-center ml-5 text-white mb-2 w-fit">
               <input
                 type="checkbox"
                 onChange={(e) => handleChangePlan(e)}
                 number="1"
                 checked={
-                  (data && data.interest &&
+                  (data &&
+                    data.interest &&
                     data.interest.plan &&
                     data.interest.plan[1]) ||
                   false
                 }
                 className="appearance-none border-2 h-4 aspect-square relative mr-2 checked:bg-[rgb(0,0,0)] unchecked:bg-transparent"
               />
-              {data && data.interest &&
+              {data &&
+              data.interest &&
               data.interest.plan &&
               data.interest.plan[1] == true ? (
                 <AiOutlineCheck
@@ -327,24 +331,24 @@ export default function InterestForm({ data, setData, choose, prev, next }) {
                 ""
               )}
               หลักสูตรนานาชาติ
-             </label>
-          </div>
-          <br />
-          <div>
-            <label className="flex items-center ml-5 text-white mb-2 w-fit">
+            </label> */}
+            
+            {/* <label className="flex items-center ml-5 text-white mb-2 w-fit">
               <input
                 type="checkbox"
                 onChange={(e) => handleChangePlan(e)}
                 number="2"
                 checked={
-                  (data && data.interest &&
+                  (data &&
+                    data.interest &&
                     data.interest.plan &&
                     data.interest.plan[2]) ||
                   false
                 }
                 className="appearance-none border-2 h-4 aspect-square relative mr-2 checked:bg-[rgb(0,0,0)] unchecked:bg-transparent"
               />
-              {data && data.interest &&
+              {data &&
+              data.interest &&
               data.interest.plan &&
               data.interest.plan[2] == true ? (
                 <AiOutlineCheck
@@ -355,24 +359,23 @@ export default function InterestForm({ data, setData, choose, prev, next }) {
                 ""
               )}
               หลักสูตรวิทยาศาสตร์ข้อมูลสุขภาพ
-             </label>
-          </div>
-          <br />
-          <div>
-            <label className="flex items-center ml-5 text-white mb-2 w-fit">
+            </label> */}
+            {/* <label className="flex items-center ml-5 text-white mb-2 w-fit">
               <input
                 type="checkbox"
                 onChange={(e) => handleChangePlan(e)}
                 number="3"
                 checked={
-                  (data && data.interest &&
+                  (data &&
+                    data.interest &&
                     data.interest.plan &&
                     data.interest.plan[3]) ||
                   false
                 }
                 className="appearance-none border-2 h-4 aspect-square relative mr-2 checked:bg-[rgb(0,0,0)] unchecked:bg-transparent"
               />
-              {data && data.interest &&
+              {data &&
+              data.interest &&
               data.interest.plan &&
               data.interest.plan[3] == true ? (
                 <AiOutlineCheck
@@ -383,56 +386,49 @@ export default function InterestForm({ data, setData, choose, prev, next }) {
                 ""
               )}
               หลักสูตร Residential College
-             </label>
-          </div>
+            </label> */}
+
           <br />
-          <h2 className="text-white bg-[#DD517E] rounded-full justify-center w-fit p-2 pl-4 pr-4 text-lg">
-            ค่ายที่เคยเข้าร่วม * (หาไม่เคยเข้าค่ายโปรดระบุ &quot;-&quot; )
+          <h2 className="text-white font-sans md:text-lg bg-[#DD517E] rounded-full justify-center w-fit p-2 pl-4 pr-4 text-lg">
+            ค่ายที่เคยเข้าร่วม (หาไม่เคยเข้าค่ายโปรดระบุ &quot;-&quot; )
           </h2>
-          <div className="mt-2">
-            <TextArea
-              type="text"
-              name="camp"
-              placeholder="camp"
-              value={(data && data.interest &&
-                data.interest.camp) ||
-              ""}
-              onChange={(e) => handleChangeCourse(e)}
-              required={true}
-              className="h-36 w-full rounded-xl"
-            />
+          <div className="mt-2 font-sans">
+            <Form.Item name={["interest", "camp"]}>
+              <Input.TextArea className="resize-none"/>
+            </Form.Item>
           </div>
           <div className="flex justify-between my-5 z-20">
-          <button type="button" onClick={()=>{
-            saveData({
-              ...data, 
-            });
-            prev();
-          }}>
-            <AiFillCaretLeft
-              size="4.5rem"
-              color="rgb(236,72,153)"
-              style={{
-                display: [1, 2].includes(choose) ? "none" : "block",
+            <button
+              type="button"
+              onClick={() => {
+                saveData({
+                  ...data,
+                });
+                prev();
               }}
-            />
-          </button>
-          <button
-            type="submit"
-          >
-            <AiFillCaretRight
-              size="4.5rem"
-              color={"rgb(236,72,153)"}
-              style={{ display: [5].includes(choose) ? "none" : "block" }}
-            />
-            <div
-              className="z-40"
-              style={{ display: [5].includes(choose) ? "block" : "none" }}
             >
-            </div>
-          </button>
-        </div>
-        </form>
+              <AiFillCaretLeft
+                size="4.5rem"
+                className="text-[#ec4899] opacity-60 translation-all ase-linear duration-200 hover:opacity-100"
+                style={{
+                  display: [1, 2].includes(choose) ? "none" : "block",
+                }}
+              />
+            </button>
+            <button type="submit">
+              <AiFillCaretRight
+                size="4.5rem"
+                className="text-[#ec4899] opacity-60 translation-all ase-linear duration-200 hover:opacity-100"
+                style={{ display: [5].includes(choose) ? "none" : "block" }}
+              />
+              <div
+                className="z-40 text-[#ec4899] hover:text-[#ff63b0]"
+                style={{ display: [5].includes(choose) ? "block" : "none" }}
+              ></div>
+            </button>
+          </div>
+          {/* </form> */}
+        </Form>
       </div>
     </>
   );

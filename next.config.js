@@ -8,6 +8,7 @@ const nextConfig = {
     locales: ["th"],
     defaultLocale: "th",
   },
+  compress: true
 }
 
 module.exports = nextConfig

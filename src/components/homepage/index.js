@@ -8,3 +8,5 @@ export { default as Faqs } from './faq'
 export { default as Learning } from './learning'
 export { default as Timeline } from './timeline'
 export { default as Footer } from './Footer'
+
+export { Wave } from './Wave'

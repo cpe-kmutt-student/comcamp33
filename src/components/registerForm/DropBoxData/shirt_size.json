@@ -1,26 +1,22 @@
 [
   {
-    "name": "ขนาดเสื้อ",
-    "value": "ขนาดเสื้อ"
-  },
-  {
-    "name": "S",
+    "name": "S (รอบอก 34 นิ้ว)",
     "value": "S"
   },
   {
-    "name": "M",
+    "name": "M (รอบอก 38 นิ้ว)",
     "value": "M"
   },
   {
-    "name": "L",
+    "name": "L (รอบอก 42 นิ้ว)",
     "value": "L"
   },
   {
-    "name": "XL",
+    "name": "XL (รอบอก 44 นิ้ว)",
     "value": "XL"
   },
   {
-    "name": "XXL",
+    "name": "XXL (รอบอก 46 นิ้ว)",
     "value": "XXL"
   }
 ]

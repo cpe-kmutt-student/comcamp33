@@ -7,6 +7,7 @@ export const debounce = (func, timeout) => {
 };
 
 export const saveData = async (data) => {
+  console.log("saving", data);
   const response = await fetch('/api/data', {
     method: 'POST',
     headers: {
@@ -14,6 +15,11 @@ export const saveData = async (data) => {
     },
     body: JSON.stringify(data),
   });
+
+  if (response.status !== 200) {
+    throw new Error("response not ok");
+  }
+
   return response.json();
 };
 

@@ -24,7 +24,7 @@ const AuthPage = ({ providers }) => {
                 onClick={() => signIn(provider.id)}
               >
                 <div className="relative w-5 h-5">
-                  <Image src={authLogoPath[provider.name]} layout="fill" alt="" />
+                  <Image src={authLogoPath[provider.name]} layout="fill" alt="logo" loading="lazy" />
                 </div>
                 <span>Sign in with {provider.name}</span>
               </button>
