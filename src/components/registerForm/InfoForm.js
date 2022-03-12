@@ -14,15 +14,13 @@ import {
   Button,
   notification,
   AutoComplete,
-  InputNumber
+  InputNumber,
 } from "antd";
 import MaskedInput from "antd-mask-input";
 import TestInput from "@components/Input";
 import { location } from "@components/registerForm/DropBoxData/location";
-import * as dayjs from 'dayjs'
-import moment from 'moment';
-
-
+import * as dayjs from "dayjs";
+import moment from "moment";
 
 const { Option } = Select;
 const { Option: OptionAuto } = AutoComplete;
@@ -32,12 +30,7 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
   const [locationForm, setLocationForm] = useState();
 
   const onSearch = (type, value) => {
-    if (
-      data?.tambol &&
-      data?.amphoe &&
-      data?.province &&
-      data?.postcode
-    ) {
+    if (data?.tambol && data?.amphoe && data?.province && data?.postcode) {
       setLocationForm(
         locationForm?.filter((loc) =>
           loc[type].toString().startsWith(value.toString())
@@ -57,12 +50,7 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
       province: option.children[4],
       post_code: option.children[6],
     };
-    if (
-      data?.address.tambol &&
-      data?.address.amphoe &&
-      data?.address.province &&
-      data?.address.postcode
-    ) {
+    if (data?.tambol && data?.amphoe && data?.province && data?.postcode) {
       setLocationForm(
         locationForm?.filter((loc) =>
           loc[type].toString().startsWith(value.toString())
@@ -103,11 +91,14 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
   const onFinish = async (values) => {
     console.log("Success:", values);
     try {
-      const newValue = {...values, info: {
-        ...values.info,
-        birthdate: moment(values?.info?.birthdate),
-        tel: values?.info?.tel.replaceAll("-", "")
-      }}
+      const newValue = {
+        ...values,
+        info: {
+          ...values.info,
+          birthdate: moment(values?.info?.birthdate),
+          tel: values?.info?.tel.replaceAll("-", ""),
+        },
+      };
       console.log("SuccessNew:", newValue);
       await saveData(newValue);
       next();
@@ -361,7 +352,7 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
                     { required: true, message: "กรุณากรอกเบอร์โทรศัพท์" },
                   ]}
                 >
-                  <MaskedInput mask="111-111-1111" />
+                  <MaskedInput mask="111-111-1111" name="tel" />
                 </Form.Item>
                 {/* <label className="text-white mb-2">
                   เบอร์โทรศัพท์ส่วนตัว *{" "}
@@ -515,7 +506,7 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
           <div className="flex flex-wrap md:flex-nowrap flex-row justify-between gap-10">
             <div className="flex flex-col w-full">
               <Form.Item
-                label={ <label className="text-white mb-2">{`ตำบล/แขวง`}</label>}
+                label={<label className="text-white mb-2">{`ตำบล/แขวง`}</label>}
                 name={["address", "tambol"]}
                 rules={[{ required: true, message: "ระบุตำบล" }]}
               >
@@ -567,8 +558,7 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
                       key={loc.amphoe + index.toString()}
                       value={loc.amphoe}
                     >
-{loc.amphoe} &gt;&gt;{" "}
-                      {loc.province} &gt;&gt;
+                      {loc.amphoe} &gt;&gt; {loc.province} &gt;&gt;
                       {loc.zipcode}
                     </OptionAuto>
                   ))}
@@ -590,22 +580,28 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
               </div> */}
             </div>
             <div className="flex flex-col w-full">
-            <Form.Item
-              label={<label className="text-white mb-2">{`จังหวัด`}</label>}
-              name={["address", "province"]}
-              rules={[{ required: true, message: 'ระบุจังหวัด' }]}>
-              <AutoComplete
-                onSelect={(e, option) => onSelect(e, option, 'province')}
-                onSearch={(txt) => onSearch('province', txt)}
-                placeholder="จังหวัด"
-                value={data?.province}>
-                {locationForm?.map((loc, index) => (
-                  <OptionAuto key={loc.province + index.toString()} value={loc.province}>{loc.province} &gt;&gt;
-                    {loc.zipcode}
-                  </OptionAuto>
-                ))}
-              </AutoComplete>
-            </Form.Item>
+              <Form.Item
+                label={<label className="text-white mb-2">{`จังหวัด`}</label>}
+                name={["address", "province"]}
+                rules={[{ required: true, message: "ระบุจังหวัด" }]}
+              >
+                <AutoComplete
+                  onSelect={(e, option) => onSelect(e, option, "province")}
+                  onSearch={(txt) => onSearch("province", txt)}
+                  placeholder="จังหวัด"
+                  value={data?.province}
+                >
+                  {locationForm?.map((loc, index) => (
+                    <OptionAuto
+                      key={loc.province + index.toString()}
+                      value={loc.province}
+                    >
+                      {loc.province} &gt;&gt;
+                      {loc.zipcode}
+                    </OptionAuto>
+                  ))}
+                </AutoComplete>
+              </Form.Item>
 
               {/* <label className="text-white mb-2">{`จังหวัด`} * </label>
               <div>
@@ -621,25 +617,29 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
               </div> */}
             </div>
             <div className="flex flex-col w-full">
-            <Form.Item
-        label={<label className="text-white mb-2">{`ไปรษณีย์`}</label>}
-        name={["address", "postcode"]}
-        rules={[
-          { len: 5, message: 'รหัสไปรษณีย์ต้องมี 5 อักษร' },
-          { required: true, message: 'กรุณาระบุรหัสไปรษณีย์' },
-        ]}>
-        <AutoComplete
-          
-          onSelect={(e, option) => onSelect(e, option, 'zipcode')}
-          onSearch={(txt) => onSearch('zipcode', txt)}
-          placeholder="รหัสไปรษณีย์">
-          {locationForm?.map((loc, index) => (
-            <OptionAuto key={loc.zipcode + index} value={loc.zipcode.toString()}>
-              {loc.zipcode}
-            </OptionAuto>
-          ))}
-        </AutoComplete>
-      </Form.Item>
+              <Form.Item
+                label={<label className="text-white mb-2">{`ไปรษณีย์`}</label>}
+                name={["address", "postcode"]}
+                rules={[
+                  { len: 5, message: "รหัสไปรษณีย์ต้องมี 5 อักษร" },
+                  { required: true, message: "กรุณาระบุรหัสไปรษณีย์" },
+                ]}
+              >
+                <AutoComplete
+                  onSelect={(e, option) => onSelect(e, option, "zipcode")}
+                  onSearch={(txt) => onSearch("zipcode", txt)}
+                  placeholder="รหัสไปรษณีย์"
+                >
+                  {locationForm?.map((loc, index) => (
+                    <OptionAuto
+                      key={loc.zipcode + index}
+                      value={loc.zipcode.toString()}
+                    >
+                      {loc.zipcode}
+                    </OptionAuto>
+                  ))}
+                </AutoComplete>
+              </Form.Item>
 
               {/* <label className="text-white mb-2">{`ไปรษณีย์`} * </label>
               <div>
