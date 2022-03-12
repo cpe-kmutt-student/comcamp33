@@ -282,10 +282,11 @@ export default function PolicyForm({
         </div>
         <div className="flex justify-between my-5 z-20">
           <div />
-          <button type="submit" ref={nextBtn}>
+          <button type="submit" ref={nextBtn}  >
+             
             <AiFillCaretRight
               size="4.5rem"
-              className={`text-[rgb(236,72,153)] hover:text-[rgb(236,72,153)] ${
+              className={`text-[#ec4899] opacity-60 translation-all ase-linear duration-200 hover:opacity-100 ${
                 !check1 || !check2 ? "hidden" : ""
               }`}
             />

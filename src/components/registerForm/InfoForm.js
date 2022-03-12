@@ -780,12 +780,12 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
                 });
               }}
             >
-              <AiFillCaretLeft size="4.5rem" color="rgb(236,72,153)" />
+              <AiFillCaretLeft size="4.5rem" className="text-[#ec4899] opacity-60 translation-all ase-linear duration-200 hover:opacity-100" />
             </button>
             <button type="submit">
               <AiFillCaretRight
                 size="4.5rem"
-                color={[5].includes(choose) ? "#00FF00" : "rgb(236,72,153)"}
+                className="text-[#ec4899] opacity-60 translation-all ase-linear duration-200 hover:opacity-100"
                 style={{ display: [5].includes(choose) ? "none" : "block" }}
               />
               <div

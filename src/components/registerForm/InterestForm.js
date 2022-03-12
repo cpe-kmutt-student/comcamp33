@@ -418,11 +418,11 @@ export default function InterestForm({ data, setData, choose, prev, next }) {
             <button type="submit">
               <AiFillCaretRight
                 size="4.5rem"
-                color={"rgb(236,72,153)"}
+                // color={"rgb(236,72,153)"}
                 style={{ display: [5].includes(choose) ? "none" : "block" }}
               />
               <div
-                className="z-40"
+                className="z-40 text-[#ec4899] hover:text-[#ff63b0]"
                 style={{ display: [5].includes(choose) ? "block" : "none" }}
               ></div>
             </button>
