@@ -15,6 +15,7 @@
     "aos": "^2.3.4",
     "boxicons": "^2.1.2",
     "framer-motion": "^6.2.8",
+    "ionicons": "^6.0.1",
     "moment": "^2.29.1",
     "mongodb": "^4.4.0",
     "next": "12.1.0",

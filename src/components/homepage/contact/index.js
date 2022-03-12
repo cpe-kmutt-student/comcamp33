@@ -1,5 +1,6 @@
 import Image from "next/image";
-
+import { AiFillPhone } from "react-icons/ai";
+import { IoLocationSharp } from "react-icons/io5";
 const Contact = () => {
   return (
     <>
@@ -28,14 +29,28 @@ const Contact = () => {
           >
             <div className="border-white/80 border-1 p-3 bg-[rgb(45,24,62)] text-pink-200 tracking-wide flex justify-center lg:h-fit w-[100%] relative flex-col lg:text-white">
               <div className="w-fit h-fit border-[3px] border-[#B351E9] p-1">
-                <h1 className="tracking-wider text-center lg:text-xl md:text-xl sm:text-lg text-md">ที่อยู่</h1>
-                <p className="lg:text-lg  sm:text-md text-sm">ภาควิชาวิศวกรรมคอมพิวเตอร์ คณะวิศวกรรมศาสตร์ มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าธนบุรี ชั้น 10 อาคารวิศววัฒนะ เลขที่ 126 ถ.ประชาอุทิศน์ แขวงบางมด เขตทุ่งครุ จังหวัดกทม. 10140</p>
+              <div className="flex flex-row justify-start m-2" >
+                  <div className="tracking-wider text-center font-pixel lg:text-2xl md:text-2xl sm:text-lg text:md">address
+                  </div>
+                  <div className="tracking-wider text-center lg:text-2xl md:text-2xl sm:text-lg text:md">
+                  <IoLocationSharp className="w-full h-full ml-1"></IoLocationSharp>
+                  </div>
+                </div>
+                
+                <p className="lg:text-lg  sm:text-md text-sm m-2">&ensp;ภาควิชาวิศวกรรมคอมพิวเตอร์ คณะวิศวกรรมศาสตร์ มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าธนบุรี ชั้น 10 อาคารวิศววัฒนะ เลขที่ 126 ถ.ประชาอุทิศน์ แขวงบางมด เขตทุ่งครุ จังหวัดกทม. 10140</p>
               </div>
             </div>
-            <div className="flex justify-center h-fit w-[100%] relative flex-col p-3 bg-[#702869] text-pink-200 lg:text-white  mt-[5%]">
+            <div className="flex justify-center h-fit w-[100%] relative flex-col p-3 bg-[#702869] text-pink-200 lg:text-white  mt-[5%] ">
               <div className="w-[100%] h-fit p-1 border-[3px] border-[#F659DB]">
-                <h1 className="tracking-wider text-center lg:text-xl md:text-xl sm:text-lg text:md">ติดต่อ</h1>
-                <div className="flex space-x-5">
+                <div className="flex flex-row justify-start m-2" >
+                  <div className="tracking-wider text-center font-pixel lg:text-2xl md:text-2xl sm:text-lg text:md">contact
+                  </div>
+                  <div className="tracking-wider text-center lg:text-2xl md:text-2xl sm:text-lg text:md">
+                  <AiFillPhone className="w-full h-full"></AiFillPhone>
+                  </div>
+                </div>
+
+                <div className="flex space-x-5 m-2">
                   <div>
                     <p className="lg:text-lg md:text-lg sm:text-md text-sm">พี่วิน     098-064-4919</p>
                     <p className="lg:text-lg md:text-lg sm:text-md text-sm">พี่เฟียร์   094-345-4863</p>
