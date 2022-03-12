@@ -36,7 +36,7 @@ const Home = () => {
         </section>
         <Wave fill="#380644" />
 
-        <section className="bg-[#590949] h-[92vh]" id="schedule">
+        <section className="bg-[#590949] h-[92vh]" id="timeline">
           <Timeline />
         </section>
         <section className="bg-[#840D4F] h-fit" id="faq">
