@@ -2,6 +2,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { BGAnimation } from "./BGAnimation";
 import { BiCalendar, BiLocationPlus } from "react-icons/bi";
+
 const About = () => {
   const [offsetY, setOffsetY] = useState(0);
   const handleScroll = () => setOffsetY(window.pageYOffset);

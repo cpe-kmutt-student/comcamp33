@@ -3,7 +3,6 @@ import styles from "@styles/register/PolicyForm.module.css";
 import Link from "next/link";
 import { AiFillCaretRight } from "react-icons/ai";
 import { Checkbox, Form } from "antd";
-import "antd/dist/antd.css";
 
 export default function PolicyForm({
   data,
@@ -63,7 +62,9 @@ export default function PolicyForm({
       >
         <div className="bg-[#9600FF] text-white  p-8 px-10 md:px-28 mb-8">
           <div className="flex justify-center py-4">
-            <h1 className="text-xl md:text-3xl font-sans mb-2 text-white">เอกสารประกอบการสมัคร</h1>
+            <h1 className="text-xl md:text-3xl font-sans mb-2 text-white">
+              เอกสารประกอบการสมัคร
+            </h1>
           </div>
           <div className="text-sm md:text-lg">
             <ul className="list-disc font-sans leading-relaxed">
@@ -281,8 +282,7 @@ export default function PolicyForm({
         </div>
         <div className="flex justify-between my-5 z-20">
           <div />
-          <button type="submit" ref={nextBtn}  >
-
+          <button type="submit" ref={nextBtn}>
             <AiFillCaretRight
               size="4.5rem"
               className={`text-[#ec4899] opacity-60 translation-all ase-linear duration-200 hover:opacity-100 ${!check1 || !check2 ? "hidden" : ""

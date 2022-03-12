@@ -19,7 +19,6 @@ import {
 import MaskedInput from "antd-mask-input";
 import TestInput from "@components/Input";
 import { location } from "@components/registerForm/DropBoxData/location";
-// import * as dayjs from "dayjs";
 import moment from "moment";
 
 const { Option } = Select;
