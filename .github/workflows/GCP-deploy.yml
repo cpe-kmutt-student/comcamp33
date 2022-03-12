@@ -1,39 +1,40 @@
-name: Build & Deploy
+name: Docker
 
 on:
   push:
     branches: [ feat/gcp-run ]
 
-env:
-  REGISTRY: ghcr.io
-  GCP_IMAGE_NAME: gcr.io/${{ secrets.GCP_PROJECT_ID }}/${{ secrets.GCP_APP_NAME }}
-
 jobs:
-  build-and-deploy:
-    runs-on: ubuntu-latest
 
-    steps:
-      - name: Checkout the repository
-        uses: actions/checkout@v2
+    deploy:
 
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v1.6.0
+        name: Setup Gcloud Account
+        runs-on: ubuntu-latest
+        env:
+          IMAGE_NAME: gcr.io/${{ secrets.GCP_PROJECT_ID }}/${{ secrets.GCP_APP_NAME }}
+        steps:
 
-      - name: Login GCP
+        - name: Login
           uses: google-github-actions/setup-gcloud@v0
           with:
             project_id: ${{ secrets.GCP_PROJECT_ID }}
             service_account_email: ${{ secrets.GCP_EMAIL }}
             service_account_key: ${{ secrets.GCP_CREDENTIALS }}
-  
-      - name: Build GCP
-        uses: docker/build-push-action@v2.9.0
-        with:
-          context: .
-          push: true
-          tags: $IMAGE_NAME
-          secrets: |
-            "dotenv=${{ secrets.DOTENV }}"
-      
-      - name: Deploy Docker image
-          run: gcloud run deploy ${{ secrets.GCP_PROJECT_ID }} --image $IMAGE_NAME --region us-central1 --platform managed
+            
+        - name: Checkout repository
+          uses: actions/checkout@v2
+
+        - name: Set up Docker Buildx
+          uses: docker/setup-buildx-action@v1.6.0
+
+        - name: Build and push Next.js
+          uses: docker/build-push-action@v2.9.0
+          with:
+            context: .
+            push: true
+            tags: $IMAGE_NAME
+            secrets: |
+              "dotenv=${{ secrets.DOTENV }}"
+
+        - name: Deploy Docker image
+          run: gcloud run deploy ${{ secrets.GCP_PROJECT_ID }} --image $IMAGE_NAME --region asia-southeast1-a --platform managed
