@@ -27,7 +27,7 @@ const Faqs = () => {
           data-aos="fade-left"
           className="font-pixel text-white text-center text-4xl sm:text-5xl md:text-5xl lg:text-6xl py-4 sm:py-4"
         >
-          Faqs
+          Faq
         </div>
         <div className="w-full px-4 mx-auto lg:container py-5">
           {Data.map((item, index) => {

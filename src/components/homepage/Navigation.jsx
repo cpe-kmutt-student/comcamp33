@@ -86,7 +86,7 @@ export const Navigation = () => {
     "about",
     "learning",
     "condition",
-    "schedule",
+    "timeline",
     "faq",
     "contact",
   ];
