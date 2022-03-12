@@ -125,9 +125,12 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
       <div className={choose != 2 ? "hidden" : "w-full"}>
         <div className="flex justify-center">
           <h1 className="font-sans text-xl md:text-3xl font-bold text-white bg-[#9600FF] px-4 py-3 my-8">
-            ข้อมูลส่วนตัว
+            ข้อมูลทั่วไป
           </h1>
         </div>
+        <h2 className="text-white font-sans bg-[#DD517E] justify-center w-fit p-2 pl-4 pr-4 text-lg mb-2">
+          ข้อมูลส่วนตัว
+        </h2>
         <Form
           form={form}
           name="info"
@@ -150,7 +153,8 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
               >
                 <Select
                   placeholder="คำนำหน้า"
-                  dropdownClassName="border-2 font-sans border-white text-gray-400 px-2 py-1 "
+                  className="md:text-lg"
+                  dropdownClassName="border-2  font-sans border-white text-gray-400 px-2 py-1 "
                   defaultValue={data?.info ? data.info.prefix_th : null}
                 >
                   {prefix_th.map((item) => (
@@ -171,7 +175,7 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
                 name={["info", "name_th"]}
                 rules={[{ required: true, message: "กรุณากรอกชื่อ" }]}
               >
-                <Input placeholder="ชื่อ (ภาษาไทย)" />
+                <Input placeholder="ชื่อ (ภาษาไทย)" className="md:text-lg" />
               </Form.Item>
             </div>
             <div className="w-full">
@@ -184,7 +188,7 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
                 name={["info", "surname_th"]}
                 rules={[{ required: true, message: "กรุณากรอกนามสกุล" }]}
               >
-                <Input placeholder="นามสกุล (ภาษาไทย)" />
+                <Input placeholder="นามสกุล (ภาษาไทย)" className="md:text-lg" />
               </Form.Item>
             </div>
             <div className="w-full">
@@ -197,7 +201,7 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
                 name={["info", "nickname_th"]}
                 rules={[{ required: true, message: "กรุณากรอกชื่อเล่น" }]}
               >
-                <Input placeholder="ชื่อเล่น (ภาษาไทย)" />
+                <Input placeholder="ชื่อเล่น (ภาษาไทย)" className="md:text-lg" />
               </Form.Item>
             </div>
           </div>
@@ -207,7 +211,7 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
               <Form.Item
                 label={
                   <label className="text-white md:text-lg mb-2 whitespace-nowrap">
-                    Name prefix
+                    คำนำหน้า (ภาษาอังกฤษ)
                   </label>
                 }
                 name={["info", "prefix_en"]}
@@ -215,6 +219,7 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
               >
                 <Select
                   placeholder="Name prefix"
+                  className="md:text-lg"
                   dropdownClassName="border-2 border-white font-sans text-gray-400 px-2 py-1 "
                 >
                   {prefix_en.map((item) => (
@@ -235,7 +240,7 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
                 name={["info", "name_en"]}
                 rules={[{ required: true, message: "กรุณากรอกชื่อ" }]}
               >
-                <Input placeholder="ชื่อ (ภาษาอังกฤษ)" />
+                <Input placeholder="ชื่อ (ภาษาอังกฤษ)" className="md:text-lg" />
               </Form.Item>
             </div>
             <div className="w-full">
@@ -248,10 +253,10 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
                 name={["info", "surname_en"]}
                 rules={[{ required: true, message: "กรุณากรอกนามสกุล" }]}
               >
-                <Input placeholder="นามสกุล (ภาษาอังกฤษ)" />
+                <Input placeholder="นามสกุล (ภาษาอังกฤษ)" className="md:text-lg" />
               </Form.Item>
             </div>
-            <div className="w-full">
+            <div className="w-full ">
               <Form.Item
                 label={
                   <label className="text-white md:text-lg mb-2">วันเกิด</label>
@@ -259,7 +264,7 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
                 name={["info", "birthdate"]}
                 rules={[{ required: true, message: "กรุณากรอกวันเกิด" }]}
               >
-                <DatePicker className="w-full" />
+                <DatePicker className="w-full " />
               </Form.Item>
             </div>
           </div>
@@ -275,27 +280,21 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
                 name={["info", "tel"]}
                 rules={[{ required: true, message: "กรุณากรอกเบอร์โทรศัพท์" }]}
               >
-                <MaskedInput mask="111-111-1111" name="tel" />
+                <MaskedInput className="md:text-lg" mask="111-111-1111" name="tel" />
               </Form.Item>
-              {/* <label className="text-white mb-2">
-                  เบอร์โทรศัพท์ส่วนตัว *{" "}
-                </label>
-                <Input
-                  type="tel"
-                  name="tel"
-                  placeholder="091XXXXXXX"
-                  pattern="[0-9]{10}"
-                  value={data && data.info ? data.info.tel : ""}
-                  size="10"
-                  onChange={(e) => handleChange(e, "info")}
-                  required={true}
-                  className="w-full block"
-                /> */}
             </div>
             <div className="w-full">
-              <Form.Item>
+              <Form.Item
+                label={
+                  <label className="text-white md:text-lg mb-2">อีเมล</label>
+                }
+                name={["info", "email"]}
+                rules={[
+                  { required: true, message: "กรุณากรอกอีเมล", type: "email" },
+                ]}
+              >
+                <Input placeholder="อีเมล" />
               </Form.Item>
-              ;
             </div>
             <div className="w-full">
               <Form.Item
@@ -309,7 +308,8 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
               >
                 <Select
                   placeholder="ระบุขนาดเสื้อ"
-                  dropdownClassName="border-2 font-sans border-white text-gray-400 px-2 py-1 "
+                  className="md:text-lg"
+                  dropdownClassName="border-2  font-sans border-white text-gray-400 px-2 py-1 "
                 >
                   {shirt_size.map((item) => (
                     <Option key={item.value} value={item.value}>
@@ -318,16 +318,6 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
                   ))}
                 </Select>
               </Form.Item>
-              {/* <label className="text-white mb-2">ขนาดเสื้อ * </label>
-                <DropBox
-                  placeholder="ระบุขนาดเสื้อ"
-                  name="shirt"
-                  onChange={(e) => handleChange(e, "info")}
-                  required={true}
-                  option={shirt_size}
-                  value={data && data.info ? data.info.shirt : ""}
-                  className="w-full block"
-                /> */}
             </div>
 
             <div className="w-full"></div>
@@ -338,7 +328,7 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
           </h2>
 
           <div className="flex flex-wrap md:flex-nowrap flex-col md:flex-row justify-between gap-10">
-            <div className="flex flex-col w-full">
+            <div className="w-full">
               <Form.Item
                 label={
                   <label className="text-white font-sans md:text-lg mb-2">{`เลขที่บ้าน`}</label>
@@ -346,22 +336,11 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
                 name={["address", "no"]}
                 rules={[{ required: true, message: "กรุณากรอกบ้านเลขที่" }]}
               >
-                <Input placeholder="บ้านเลขที่" />
+                <Input placeholder="บ้านเลขที่" className="font-sans md:text-lg" />
               </Form.Item>
-              {/* <label className="text-white mb-2">{`เลขที่บ้าน`} * </label>
-              <div>
-                <Input
-                  type="text"
-                  name="no"
-                  placeholder="เลขที่บ้าน"
-                  value={data && data.address ? data.address.no : ""}
-                  onChange={(e) => handleChange(e, "address")}
-                  required={true}
-                  className="w-full"
-                />
-              </div> */}
+
             </div>
-            <div className="flex font-sans flex-col w-full">
+            <div className="font-sans w-full">
               <Form.Item
                 label={
                   <label className="text-white font md:text-lg mb-2">
@@ -370,22 +349,11 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
                 }
                 name={["address", "moo"]}
               >
-                <Input placeholder="หมู่" />
+                <Input placeholder="หมู่" className="md:text-lg" />
               </Form.Item>
-              {/* <label className="text-white mb-2">{`หมู่`} * </label>
-              <div>
-                <Input
-                  type="text"
-                  name="moo"
-                  placeholder="หมู่"
-                  value={data && data.address ? data.address.moo : ""}
-                  onChange={(e) => handleChange(e, "address")}
-                  required={true}
-                  className="w-full"
-                />
-              </div> */}
+
             </div>
-            <div className="flex font-sans flex-col w-full">
+            <div className="font-sans w-full">
               <Form.Item
                 label={
                   <label className="text-white md:text-lg mb-2">
@@ -394,22 +362,11 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
                 }
                 name={["address", "soi"]}
               >
-                <Input placeholder="ซอย" />
+                <Input placeholder="ซอย" className="md:text-lg" />
               </Form.Item>
-              {/* <label className="text-white mb-2">{`ซอย`} * </label>
-              <div>
-                <Input
-                  type="text"
-                  name="soi"
-                  placeholder="ซอย"
-                  value={data && data.address ? data.address.soi : ""}
-                  onChange={(e) => handleChange(e, "address")}
-                  required={true}
-                  className="w-full"
-                />
-              </div> */}
+
             </div>
-            <div className="flex font-sans flex-col w-full">
+            <div className="font-sans w-full">
               <Form.Item
                 label={
                   <label className="text-white md:text-lg mb-2">
@@ -418,25 +375,13 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
                 }
                 name={["address", "road"]}
               >
-                <Input placeholder="ถนน" />
+                <Input placeholder="ถนน" className="md:text-lg" />
               </Form.Item>
-              {/* <label className="text-white mb-2">{`ถนน`} * </label>
-              <div>
-                <Input
-                  type="text"
-                  name="road"
-                  placeholder="ถนน"
-                  value={data && data.address ? data.address.road : ""}
-                  onChange={(e) => handleChange(e, "address")}
-                  required={true}
-                  className="w-full"
-                />
-              </div> */}
             </div>
           </div>
 
           <div className="flex font-sans flex-wrap md:flex-nowrap flex-row justify-between gap-10">
-            <div className="flex flex-col w-full">
+            <div className="w-full">
               <Form.Item
                 label={
                   <label className="text-white md:text-lg mb-2">{`ตำบล/แขวง`}</label>
@@ -447,7 +392,7 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
                 <AutoComplete
                   onSearch={(txt) => onSearch("district", txt)}
                   onSelect={(e, option) => onSelect(e, option, "district")}
-                  placeholder="แขวง / ตำบล"
+                  placeholder="แขวง / ตำบล" className="md:text-lg"
                 >
                   {locationForm?.map((loc, index) => (
                     <OptionAuto
@@ -462,21 +407,8 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
                 </AutoComplete>
               </Form.Item>
 
-              {/* <label className="text-white mb-2">{`ตำบล/แขวง`}</label>
-
-              <div>
-                <Input
-                  type="text"
-                  name="tambol"
-                  placeholder="ตำบล/แขวง"
-                  value={data && data.address ? data.address.tambol : ""}
-                  onChange={(e) => handleChange(e, "address")}
-                  required={true}
-                  className="w-full"
-                />
-              </div> */}
             </div>
-            <div className="flex flex-col w-full">
+            <div className="w-full">
               <Form.Item
                 label={
                   <label className="text-white md:text-lg mb-2">{`อำเภอ/เขต`}</label>
@@ -485,6 +417,7 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
                 rules={[{ required: true, message: "ระบุอำเภอ" }]}
               >
                 <AutoComplete
+                  className="md:text-lg"
                   onSearch={(txt) => onSearch("amphoe", txt)}
                   onSelect={(e, option) => onSelect(e, option, "amphoe")}
                   placeholder="อำเภอ"
@@ -500,22 +433,8 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
                   ))}
                 </AutoComplete>
               </Form.Item>
-
-              {/* <label className="text-white mb-2">{`อำเภอ/เขต`}</label>
-
-              <div>
-                <Input
-                  type="text"
-                  name="amphoe"
-                  placeholder="อำเภอ/เขต"
-                  value={data && data.address ? data.address.amphoe : ""}
-                  onChange={(e) => handleChange(e, "address")}
-                  required={true}
-                  className="w-full"
-                />
-              </div> */}
             </div>
-            <div className="flex flex-col w-full">
+            <div className="w-full">
               <Form.Item
                 label={
                   <label className="text-white md:text-lg mb-2">{`จังหวัด`}</label>
@@ -524,6 +443,7 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
                 rules={[{ required: true, message: "ระบุจังหวัด" }]}
               >
                 <AutoComplete
+                  className="md:text-lg"
                   onSelect={(e, option) => onSelect(e, option, "province")}
                   onSearch={(txt) => onSearch("province", txt)}
                   placeholder="จังหวัด"
@@ -540,21 +460,8 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
                   ))}
                 </AutoComplete>
               </Form.Item>
-
-              {/* <label className="text-white mb-2">{`จังหวัด`} * </label>
-              <div>
-                <Input
-                  type="text"
-                  name="province"
-                  placeholder="จังหวัด"
-                  value={data && data.address ? data.address.province : ""}
-                  onChange={(e) => handleChange(e, "address")}
-                  required={true}
-                  className="w-full"
-                />
-              </div> */}
             </div>
-            <div className="flex flex-col w-full">
+            <div className="w-full">
               <Form.Item
                 label={
                   <label className="text-white md:text-lg mb-2">{`ไปรษณีย์`}</label>
@@ -566,6 +473,7 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
                 ]}
               >
                 <AutoComplete
+                  className="md:text-lg"
                   onSelect={(e, option) => onSelect(e, option, "zipcode")}
                   onSearch={(txt) => onSearch("zipcode", txt)}
                   placeholder="รหัสไปรษณีย์"
@@ -580,19 +488,6 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
                   ))}
                 </AutoComplete>
               </Form.Item>
-
-              {/* <label className="text-white mb-2">{`ไปรษณีย์`} * </label>
-              <div>
-                <Input
-                  type="text"
-                  name="postcode"
-                  placeholder="รหัสไปรษณีย์"
-                  value={data && data.address ? data.address.postcode : ""}
-                  onChange={(e) => handleChange(e, "address")}
-                  required={true}
-                  className="w-full"
-                />
-              </div> */}
             </div>
           </div>
 
@@ -601,7 +496,7 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
           </h2>
 
           <div className="flex flex-wrap font-sans md:flex-nowrap flex-row items-end justify-between gap-10">
-            <div className="flex flex-col md:flex-row">
+            <div className="md:flex-row">
               <Form.Item
                 label={
                   <label className="text-white md:text-lg mb-2">คำนำหน้า</label>
@@ -612,6 +507,7 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
               >
                 <Select
                   placeholder="คำนำหน้า"
+                  className="md:text-lg"
                   style={{ width: "7rem" }}
                   dropdownClassName="border-2 border-white text-gray-400 px-2 py-1 "
                 >
@@ -622,47 +518,23 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
                   ))}
                 </Select>
               </Form.Item>
-              {/* <DropBox
-                placeholder="Prefix"
-                name="prefix_th"
-                onChange={(e) => handleChange(e, "parent")}
-                required={true}
-                option={prefix_th}
-                value={data && data.parent ? data.parent.prefix_th : ""}
-              /> */}
             </div>
             <div className="flex flex-col w-full">
-              <div className="flex flex-col">
-                {/* <label className="text-white mb-2">
-                  {`ชื่อจริงผู้ปกครอง`} *{" "}
-                </label>
-                <div>
-                  <Input
-                    type="text"
-                    name="name"
-                    placeholder="ชื่อผู้ปกครอง"
-                    value={data && data.parent ? data.parent.name : ""}
-                    onChange={(e) => handleChange(e, "parent")}
-                    required={true}
-                    className="w-full"
-                  />
-                </div> */}
-                <Form.Item
-                  label={
-                    <label className="text-white md:text-lg mb-2">
-                      ชื่อผู้ปกครอง
-                    </label>
-                  }
-                  name={["parent", "name"]}
-                  rules={[
-                    { required: true, message: "กรุณากรอกชื่อผู้ปกครอง!" },
-                  ]}
-                >
-                  <Input placeholder="ชื่อผู้ปกครอง" />
-                </Form.Item>
-              </div>
+              <Form.Item
+                label={
+                  <label className="text-white md:text-lg mb-2">
+                    ชื่อผู้ปกครอง
+                  </label>
+                }
+                name={["parent", "name"]}
+                rules={[
+                  { required: true, message: "กรุณากรอกชื่อผู้ปกครอง!" },
+                ]}
+              >
+                <Input placeholder="ชื่อผู้ปกครอง" className="md:text-lg" />
+              </Form.Item>
             </div>
-            <div className="flex flex-col w-full">
+            <div className="w-full">
               <div>
                 <Form.Item
                   label={
@@ -673,34 +545,11 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
                   name={["parent", "surname"]}
                   rules={[{ required: true, message: "กรุณากรอกนามสกุล!" }]}
                 >
-                  <Input placeholder="นามสกุลผู้ปกครอง" />
+                  <Input placeholder="นามสกุลผู้ปกครอง" className="md:text-lg" />
                 </Form.Item>
-                {/* <label className="text-white mb-2">{`นามสกุลผู้ปกครอง`} * </label>
-              <div>
-                <Input
-                  type="text"
-                  name="surname"
-                  placeholder="นามสกุลผู้ปกครอง"
-                  value={data && data.parent ? data.parent.surname : ""}
-                  onChange={(e) => handleChange(e, "parent")}
-                  required={true}
-                  className="w-full"
-                /> */}
               </div>
             </div>
-            <div className="flex flex-col w-full">
-              {/* <label className="text-white mb-2">{`ความสัมพันธ์`} * </label>
-              <div>
-                <Input
-                  type="text"
-                  name="relation"
-                  placeholder="ความสัมพันธ์"
-                  value={data && data.parent ? data.parent.relation : ""}
-                  onChange={(e) => handleChange(e, "parent")}
-                  required={true}
-                  className="w-full"
-                />
-              </div> */}
+            <div className="w-full">
               <Form.Item
                 label={
                   <label className="text-white md:text-lg mb-2">
@@ -710,7 +559,7 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
                 name={["parent", "relation"]}
                 rules={[{ required: true, message: "กรุณากรอกความสัมพันธ์!" }]}
               >
-                <Input placeholder="ความสัมพันธ์" />
+                <Input placeholder="ความสัมพันธ์" className="md:text-lg" />
               </Form.Item>
             </div>
           </div>
