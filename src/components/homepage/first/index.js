@@ -1,4 +1,4 @@
-import { signIn, useSession } from "next-auth/react";
+import { signIn } from "next-auth/react";
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 import { ModalFacebook } from "../Navigation";
@@ -6,7 +6,6 @@ const { default: Image } = require("next/image");
 
 const First = () => {
     const [offsetY, setOffsetY] = useState(0);
-    const { data: session } = useSession();
     const router = useRouter();
     const handleScroll = () => setOffsetY(window.pageYOffset);
     useEffect(() => {
