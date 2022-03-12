@@ -180,7 +180,7 @@ export default function QuestionsForm({
                 {`4. ขณะนี้น้องยืนอยู่ในห้องแห่งความลับ ในห้องนั้นเต็มไปด้วยของเก่ามากมายแต่สิ่งที่ดึงดูดใจน้อง ๆ 
                 คือ หีบสมบัติขนาดใหญ่ 2 กล่อง ตรงกลางห้อง ประกอบไปด้วยหีบ A และ หีบ B  และมีข้อความดังรูป`}
                 <br />
-                <div className="flex">
+                <div className="flex md:flex-row flex-col gap-2">
                   <Image src={imageQ1} alt="" />
                   <Image src={imageQ2} alt="" />
                 </div>

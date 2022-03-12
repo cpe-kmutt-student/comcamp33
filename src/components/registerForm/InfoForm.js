@@ -150,11 +150,12 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
               >
                 <Select
                   placeholder="คำนำหน้า"
-                  dropdownClassName="border-2 font-sans border-white text-gray-400 px-2 py-1 "
+                  className="md:text-lg"
+                  dropdownClassName="border-2  font-sans border-white text-gray-400 px-2 py-1 "
                   defaultValue={data?.info ? data.info.prefix_th : null}
                 >
                   {prefix_th.map((item) => (
-                    <Option key={item.value} value={item.value}>
+                    <Option  key={item.value} value={item.value}>
                       {item.name}
                     </Option>
                   ))}
@@ -171,7 +172,7 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
                 name={["info", "name_th"]}
                 rules={[{ required: true, message: "กรุณากรอกชื่อ" }]}
               >
-                <Input placeholder="ชื่อ (ภาษาไทย)" />
+                <Input placeholder="ชื่อ (ภาษาไทย)" className="md:text-lg"/>
               </Form.Item>
             </div>
             <div className="w-full">
@@ -184,7 +185,7 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
                 name={["info", "surname_th"]}
                 rules={[{ required: true, message: "กรุณากรอกนามสกุล" }]}
               >
-                <Input placeholder="นามสกุล (ภาษาไทย)" />
+                <Input placeholder="นามสกุล (ภาษาไทย)" className="md:text-lg"/>
               </Form.Item>
             </div>
             <div className="w-full">
@@ -197,7 +198,7 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
                 name={["info", "nickname_th"]}
                 rules={[{ required: true, message: "กรุณากรอกชื่อเล่น" }]}
               >
-                <Input placeholder="ชื่อเล่น (ภาษาไทย)" />
+                <Input placeholder="ชื่อเล่น (ภาษาไทย)" className="md:text-lg" />
               </Form.Item>
             </div>
           </div>
@@ -215,6 +216,7 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
               >
                 <Select
                   placeholder="Name prefix"
+                  className="md:text-lg"
                   dropdownClassName="border-2 border-white font-sans text-gray-400 px-2 py-1 "
                 >
                   {prefix_en.map((item) => (
@@ -235,7 +237,7 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
                 name={["info", "name_en"]}
                 rules={[{ required: true, message: "กรุณากรอกชื่อ" }]}
               >
-                <Input placeholder="ชื่อ (ภาษาอังกฤษ)" />
+                <Input placeholder="ชื่อ (ภาษาอังกฤษ)" className="md:text-lg"/>
               </Form.Item>
             </div>
             <div className="w-full">
@@ -248,10 +250,10 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
                 name={["info", "surname_en"]}
                 rules={[{ required: true, message: "กรุณากรอกนามสกุล" }]}
               >
-                <Input placeholder="นามสกุล (ภาษาอังกฤษ)" />
+                <Input placeholder="นามสกุล (ภาษาอังกฤษ)" className="md:text-lg"/>
               </Form.Item>
             </div>
-            <div className="w-full">
+            <div className="w-full ">
               <Form.Item
                 label={
                   <label className="text-white md:text-lg mb-2">วันเกิด</label>
@@ -259,7 +261,7 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
                 name={["info", "birthdate"]}
                 rules={[{ required: true, message: "กรุณากรอกวันเกิด" }]}
               >
-                <DatePicker className="w-full" />
+                <DatePicker className="w-full " />
               </Form.Item>
             </div>
           </div>
@@ -275,7 +277,7 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
                 name={["info", "tel"]}
                 rules={[{ required: true, message: "กรุณากรอกเบอร์โทรศัพท์" }]}
               >
-                <MaskedInput mask="111-111-1111" name="tel" />
+                <MaskedInput className="md:text-lg" mask="111-111-1111" name="tel" />
               </Form.Item>
               {/* <label className="text-white mb-2">
                   เบอร์โทรศัพท์ส่วนตัว *{" "}
@@ -309,7 +311,8 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
               >
                 <Select
                   placeholder="ระบุขนาดเสื้อ"
-                  dropdownClassName="border-2 font-sans border-white text-gray-400 px-2 py-1 "
+                  className="md:text-lg"
+                  dropdownClassName="border-2  font-sans border-white text-gray-400 px-2 py-1 "
                 >
                   {shirt_size.map((item) => (
                     <Option key={item.value} value={item.value}>
@@ -346,7 +349,7 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
                 name={["address", "no"]}
                 rules={[{ required: true, message: "กรุณากรอกบ้านเลขที่" }]}
               >
-                <Input placeholder="บ้านเลขที่" />
+                <Input placeholder="บ้านเลขที่" className="font-sans md:text-lg" />
               </Form.Item>
               {/* <label className="text-white mb-2">{`เลขที่บ้าน`} * </label>
               <div>
@@ -370,7 +373,7 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
                 }
                 name={["address", "moo"]}
               >
-                <Input placeholder="หมู่" />
+                <Input placeholder="หมู่" className="md:text-lg" />
               </Form.Item>
               {/* <label className="text-white mb-2">{`หมู่`} * </label>
               <div>
@@ -394,7 +397,7 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
                 }
                 name={["address", "soi"]}
               >
-                <Input placeholder="ซอย" />
+                <Input placeholder="ซอย" className="md:text-lg"/>
               </Form.Item>
               {/* <label className="text-white mb-2">{`ซอย`} * </label>
               <div>
@@ -418,7 +421,7 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
                 }
                 name={["address", "road"]}
               >
-                <Input placeholder="ถนน" />
+                <Input placeholder="ถนน" className="md:text-lg"/>
               </Form.Item>
               {/* <label className="text-white mb-2">{`ถนน`} * </label>
               <div>
@@ -447,7 +450,7 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
                 <AutoComplete
                   onSearch={(txt) => onSearch("district", txt)}
                   onSelect={(e, option) => onSelect(e, option, "district")}
-                  placeholder="แขวง / ตำบล"
+                  placeholder="แขวง / ตำบล" className="md:text-lg"
                 >
                   {locationForm?.map((loc, index) => (
                     <OptionAuto
@@ -485,6 +488,7 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
                 rules={[{ required: true, message: "ระบุอำเภอ" }]}
               >
                 <AutoComplete
+                className="md:text-lg"
                   onSearch={(txt) => onSearch("amphoe", txt)}
                   onSelect={(e, option) => onSelect(e, option, "amphoe")}
                   placeholder="อำเภอ"
@@ -524,6 +528,7 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
                 rules={[{ required: true, message: "ระบุจังหวัด" }]}
               >
                 <AutoComplete
+                className="md:text-lg"
                   onSelect={(e, option) => onSelect(e, option, "province")}
                   onSearch={(txt) => onSearch("province", txt)}
                   placeholder="จังหวัด"
@@ -566,6 +571,7 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
                 ]}
               >
                 <AutoComplete
+                className="md:text-lg"
                   onSelect={(e, option) => onSelect(e, option, "zipcode")}
                   onSearch={(txt) => onSearch("zipcode", txt)}
                   placeholder="รหัสไปรษณีย์"
@@ -612,6 +618,7 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
               >
                 <Select
                   placeholder="คำนำหน้า"
+                  className="md:text-lg"
                   style={{ width: "7rem" }}
                   dropdownClassName="border-2 border-white text-gray-400 px-2 py-1 "
                 >
@@ -658,7 +665,7 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
                     { required: true, message: "กรุณากรอกชื่อผู้ปกครอง!" },
                   ]}
                 >
-                  <Input placeholder="ชื่อผู้ปกครอง" />
+                  <Input placeholder="ชื่อผู้ปกครอง" className="md:text-lg" />
                 </Form.Item>
               </div>
             </div>
@@ -673,7 +680,7 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
                   name={["parent", "surname"]}
                   rules={[{ required: true, message: "กรุณากรอกนามสกุล!" }]}
                 >
-                  <Input placeholder="นามสกุลผู้ปกครอง" />
+                  <Input placeholder="นามสกุลผู้ปกครอง" className="md:text-lg"/>
                 </Form.Item>
                 {/* <label className="text-white mb-2">{`นามสกุลผู้ปกครอง`} * </label>
               <div>
@@ -710,7 +717,7 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
                 name={["parent", "relation"]}
                 rules={[{ required: true, message: "กรุณากรอกความสัมพันธ์!" }]}
               >
-                <Input placeholder="ความสัมพันธ์" />
+                <Input placeholder="ความสัมพันธ์" className="md:text-lg"/>
               </Form.Item>
             </div>
           </div>
