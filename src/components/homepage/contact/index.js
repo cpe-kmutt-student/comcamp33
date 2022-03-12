@@ -3,7 +3,7 @@ import Image from "next/image";
 const Contact = () => {
   return (
     <>
-      <div className="absolute h-[93vh] w-screen right-0 bottom-0 z-1">
+      <div className="absolute h-full w-screen right-0 bottom-0 z-1">
         <Image
           src="/assets/contact/contactbg.png"
           quality={100}
