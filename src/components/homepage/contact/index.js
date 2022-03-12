@@ -21,7 +21,7 @@ const Contact = () => {
           Contact
         </section>
 
-        <div className="flex justify-center flex-col items-center lg:flex-row bg-white/60 w-[80%] z-10 rounded-3xl relative lg:space-x-5 px-5 lg:pt-5 pt-8 pb-8">
+        <div className="flex justify-center flex-col items-center lg:flex-row bg-white/60 w-[80%] z-10 rounded-3xl relative lg:space-x-5 px-5 lg:pt-5 pt-8 pb-8 mb-10">
           <div
             data-aos="fade-up"
             className="relative flex flex-col items-center lg:w-[35%] w-[90%] space-y-5 lg:space-y-12 lg:pl-8"
