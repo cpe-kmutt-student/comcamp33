@@ -76,6 +76,7 @@ export default function QuestionsForm({
                 <TextArea
                   name="q1"
                   placeholder="คำถามข้อที่ 1 :"
+                  className="resize-none"
                   value={data && data.answers ? data.answers.q1 : ""}
                   onChange={(e) => handleChange(e, "answers")}
                   required={true}
@@ -105,6 +106,7 @@ export default function QuestionsForm({
               <TextArea
                 name="q2"
                 placeholder="คำถามข้อที่ 2 :"
+                className="resize-none"
                 value={data && data.answers ? data.answers.q2 : ""}
                 onChange={(e) => handleChange(e, "answers")}
                 required={true}
@@ -153,6 +155,7 @@ export default function QuestionsForm({
               <TextArea
                 name="q3"
                 placeholder="คำถามข้อที่ 3 :"
+                className="resize-none"
                 value={data && data.answers ? data.answers.q3 : ""}
                 onChange={(e) => handleChange(e, "answers")}
                 required={true}
@@ -188,6 +191,7 @@ export default function QuestionsForm({
               <TextArea
                 name="q4"
                 placeholder="คำถามข้อที่ 4 :"
+                className="resize-none"
                 value={data && data.answers ? data.answers.q4 : ""}
                 onChange={(e) => handleChange(e, "answers")}
                 required={true}
@@ -216,6 +220,7 @@ export default function QuestionsForm({
               <TextArea
                 name="q5"
                 placeholder="คำถามข้อที่ 5 :"
+                className="resize-none"
                 value={data && data.answers ? data.answers.q5 : ""}
                 onChange={(e) => handleChange(e, "answers")}
                 required={true}
@@ -243,6 +248,7 @@ export default function QuestionsForm({
               </p>
               <TextArea
                 name="q6"
+                className="resize-none"
                 placeholder="คำถามข้อที่ 6 :"
                 value={data && data.answers ? data.answers.q6 : ""}
                 onChange={(e) => handleChange(e, "answers")}
@@ -272,6 +278,7 @@ export default function QuestionsForm({
               </p>
               <TextArea
                 name="q7"
+                className="resize-none text-black h-fit"
                 placeholder="คำถามข้อที่ 7 :"
                 value={data && data.answers ? data.answers.q7 : ""}
                 onChange={(e) => handleChange(e, "answers")}
@@ -304,7 +311,7 @@ export default function QuestionsForm({
                 value={data && data.answers ? data.answers.q8 : ""}
                 onChange={(e) => handleChange(e, "answers")}
                 required={true}
-                className="h-36 rounded-xl text-gray-400 border-2 border-white px-2 py-1 rounded-0 outline-none bg-transparent focus:bg-white"
+                className="h-36    border-2 border-white px-2 py-1 rounded-0 outline-none  focus:bg-white"
               />
             </div>
             </Form.Item>

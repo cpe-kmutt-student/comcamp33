@@ -197,13 +197,13 @@ export default function EducationForm({ data, setData, choose, prev, next }) {
                 <Select
                   placeholder="แผนการเรียน"
                   style={{ width: "7rem" }}
-                  dropdownClassName="border-2 border-white bg-transparent text-gray-400 px-2 py-1 "
+                  dropdownClassName="border-2 border-white   text-gray-400 px-2 py-1 "
                 >
                   {education.map((item) => (
                     <Option
                       key={item.value}
                       value={item.value}
-                      className="text-black bg-transparent"
+                      className="text-black "
                     >
                       {item.name}
                     </Option>
@@ -232,7 +232,7 @@ export default function EducationForm({ data, setData, choose, prev, next }) {
                 <Select
                   placeholder="ระดับการศึกษา"
                   style={{ width: "7rem" }}
-                  dropdownClassName="border-2 border-white bg-transparent text-gray-400 px-2 py-1 "
+                  dropdownClassName="border-2 border-white  text-gray-400 px-2 py-1 "
                 >
                   {level.map((item) => (
                     <Option
@@ -288,13 +288,13 @@ export default function EducationForm({ data, setData, choose, prev, next }) {
           </div>
           <div className="flex justify-between my-5 z-20">
             <button type="button" onClick={prev}>
-              <AiFillCaretLeft size="4.5rem" color="rgb(236,72,153)" />
+              <AiFillCaretLeft size="4.5rem" className="text-[#ec4899] opacity-60 translation-all ase-linear duration-200 hover:opacity-100" />
             </button>
 
             <button type="submit">
               <AiFillCaretRight
                 size="4.5rem"
-                color={"rgb(236,72,153)"}
+                className="text-[#ec4899] opacity-60 translation-all ase-linear duration-200 hover:opacity-100"
                 style={{ display: [5].includes(choose) ? "none" : "block" }}
               />
             </button>

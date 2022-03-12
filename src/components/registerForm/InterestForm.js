@@ -394,7 +394,7 @@ export default function InterestForm({ data, setData, choose, prev, next }) {
           </h2>
           <div className="mt-2">
             <Form.Item name={["interest", "camp"]}>
-              <Input.TextArea />
+              <Input.TextArea className="resize-none"/>
             </Form.Item>
           </div>
           <div className="flex justify-between my-5 z-20">
@@ -409,7 +409,7 @@ export default function InterestForm({ data, setData, choose, prev, next }) {
             >
               <AiFillCaretLeft
                 size="4.5rem"
-                color="rgb(236,72,153)"
+                className="text-[#ec4899] opacity-60 translation-all ase-linear duration-200 hover:opacity-100"
                 style={{
                   display: [1, 2].includes(choose) ? "none" : "block",
                 }}
@@ -418,7 +418,7 @@ export default function InterestForm({ data, setData, choose, prev, next }) {
             <button type="submit">
               <AiFillCaretRight
                 size="4.5rem"
-                // color={"rgb(236,72,153)"}
+                className="text-[#ec4899] opacity-60 translation-all ase-linear duration-200 hover:opacity-100"
                 style={{ display: [5].includes(choose) ? "none" : "block" }}
               />
               <div
