@@ -36,8 +36,7 @@ const Contact = () => {
                     <IoLocationSharp className="w-full h-full ml-1"></IoLocationSharp>
                   </div>
                 </div>
-
-                <p className="lg:text-lg  sm:text-md text-sm m-2">&ensp;ภาควิชาวิศวกรรมคอมพิวเตอร์ คณะวิศวกรรมศาสตร์ มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าธนบุรี ชั้น 10 อาคารวิศววัฒนะ เลขที่ 126 ถ.ประชาอุทิศน์ แขวงบางมด เขตทุ่งครุ จังหวัดกทม. 10140</p>
+                <p className="lg:text-lg  sm:text-md text-sm m-2">&ensp;ภาควิชาวิศวกรรมคอมพิวเตอร์ คณะวิศวกรรมศาสตร์ มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าธนบุรี ชั้น 10 อาคารวิศววัฒนะ เลขที่ 126 ถ.ประชาอุทิศ แขวงบางมด เขตทุ่งครุ กรุงเทพฯ 10140</p>
               </div>
             </div>
             <div className="flex justify-center h-fit w-[100%] relative flex-col p-3 bg-[#702869] text-pink-200 lg:text-white  mt-[5%] ">
