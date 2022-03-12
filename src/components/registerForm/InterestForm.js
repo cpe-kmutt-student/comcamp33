@@ -103,15 +103,15 @@ export default function InterestForm({ data, setData, choose, prev, next }) {
         >
           {/* <form onSubmit={handleSubmit}> */}
           <div className="flex justify-center">
-            <h1 className="flex w-fit justify-center text-3xl font-bold text-white bg-[#9600FF] px-4 py-3 my-8 rounded-2xl">
+            <h1 className="flex w-fit justify-center font-sans text-xl md:text-3xl font-bold text-white bg-[#9600FF] px-4 py-3 my-8 rounded-2xl">
               ความสนใจ
             </h1>
           </div>
-          <div className="flex flex-wrap md:flex-nowrap flex-row justify-between gap-5">
-            <div className="flex flex-col mb-2 w-full">
+          <div className="flex font-sans flex-wrap md:flex-nowrap flex-row justify-between gap-5">
+            <div className="flex flex-col font-sans mb-2 w-full">
               <Form.Item
                 label={
-                  <label className="text-white mb-2">
+                  <label className="text-white font-sans md:text-lg mb-2">
                     มหาวิทยาลัยลำดับที่หนึ่ง
                   </label>
                 }
@@ -123,10 +123,10 @@ export default function InterestForm({ data, setData, choose, prev, next }) {
                 <Input placeholder="มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าธนบุรี" />
               </Form.Item>
             </div>
-            <div className="flex flex-col mb-2 w-full">
+            <div className="flex flex-col font-sans md:text-lg mb-2 w-full">
               <Form.Item
                 label={
-                  <label className="text-white mb-2">คณะลำดับที่หนึ่ง</label>
+                  <label className="text-white font-sans md:text-lg mb-2">คณะลำดับที่หนึ่ง</label>
                 }
                 name={["interest", "admission", 0, "department"]}
                 rules={[{ required: true, message: "กรุณากรอกคณะ" }]}
@@ -135,10 +135,10 @@ export default function InterestForm({ data, setData, choose, prev, next }) {
               </Form.Item>
               
             </div>
-            <div className="flex flex-col mb-2 w-full">
+            <div className="flex flex-col  mb-2 w-full">
               <Form.Item
                 label={
-                  <label className="text-white mb-2">
+                  <label className="text-white font-sans md:text-lg mb-2">
                     ภาควิชาลำดับที่หนึ่ง
                   </label>
                 }
@@ -152,10 +152,10 @@ export default function InterestForm({ data, setData, choose, prev, next }) {
           </div>
           <br />
           <div className="flex flex-wrap md:flex-nowrap flex-row justify-between gap-5">
-            <div className="flex flex-col mb-2 w-full">
+            <div className="flex font-sans flex-col  mb-2 w-full">
               <Form.Item
                 label={
-                  <label className="text-white mb-2">
+                  <label className="text-white font-sans md:text-lg mb-2">
                     มหาวิทยาลัยลำดับที่สอง
                   </label>
                 }
@@ -165,10 +165,10 @@ export default function InterestForm({ data, setData, choose, prev, next }) {
               </Form.Item>
               
             </div>
-            <div className="flex flex-col mb-2 w-full">
+            <div className="flex font-sans flex-col mb-2 w-full">
               <Form.Item
                 label={
-                  <label className="text-white mb-2">คณะลำดับที่สอง</label>
+                  <label className="text-white font-sans md:text-lg mb-2">คณะลำดับที่สอง</label>
                 }
                 name={["interest", "admission", 1, "department"]}
               >
@@ -179,7 +179,7 @@ export default function InterestForm({ data, setData, choose, prev, next }) {
             <div className="flex flex-col mb-2 w-full">
               <Form.Item
                 label={
-                  <label className="text-white mb-2">ภาควิชาลำดับที่สอง</label>
+                  <label className="text-white font-sans md:text-lg mb-2">ภาควิชาลำดับที่สอง</label>
                 }
                 name={["interest", "admission", 1, "faculty"]}
               >
@@ -189,11 +189,11 @@ export default function InterestForm({ data, setData, choose, prev, next }) {
             </div>
           </div>
           <br />
-          <div className="flex flex-wrap md:flex-nowrap flex-row justify-between gap-5">
+          <div className="flex font-sans flex-wrap md:flex-nowrap flex-row justify-between gap-5">
             <div className="flex flex-col mb-2 w-full">
               <Form.Item
                 label={
-                  <label className="text-white mb-2">
+                  <label className="text-white font-sans md:text-lg mb-2">
                     มหาวิทยาลัยลำดับที่สาม
                   </label>
                 }
@@ -203,10 +203,10 @@ export default function InterestForm({ data, setData, choose, prev, next }) {
               </Form.Item>
               
             </div>
-            <div className="flex flex-col mb-2 w-full">
+            <div className="flex flex-col font-sans mb-2 w-full">
               <Form.Item
                 label={
-                  <label className="text-white mb-2">คณะลำดับที่สาม</label>
+                  <label className="text-white font-sans md:text-lg mb-2">คณะลำดับที่สาม</label>
                 }
                 name={["interest", "admission", 2, "department"]}
               >
@@ -214,10 +214,10 @@ export default function InterestForm({ data, setData, choose, prev, next }) {
               </Form.Item>
 
             </div>
-            <div className="flex flex-col mb-2 w-full">
+            <div className="flex font-sans flex-col mb-2 w-full">
               <Form.Item
                 label={
-                  <label className="text-white mb-2">ภาควิชาลำดับที่สาม</label>
+                  <label className="text-white font-sans md:text-lg mb-2">ภาควิชาลำดับที่สาม</label>
                 }
                 name={["interest", "admission", 2, "faculty"]}
               >
@@ -244,7 +244,7 @@ export default function InterestForm({ data, setData, choose, prev, next }) {
             </div>
           </div>
           <br />
-          <h2 className="text-white bg-[#DD517E] rounded-full justify-center w-fit p-2 pl-4 pr-4 text-lg">
+          <h2 className="text-white font-sans md:text-lg bg-[#DD517E] rounded-full justify-center w-fit p-2 pl-4 pr-4">
             หลักสูตรที่สนใจ (คณะวิศวกรรมศาสตร์ ภาควิชาวิศวกรรมคอมพิวเตอร์
             มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าธนบุรี)
           </h2>
@@ -252,25 +252,25 @@ export default function InterestForm({ data, setData, choose, prev, next }) {
             <Form.Item name={["interest", "plan"]}>
               <Checkbox.Group>
                 <Checkbox value="หลักสูตรปกติ">
-                  <label className="flex items-center ml-5 text-white mb-2 w-fit">
+                  <label className="flex font-sans md:text-lg items-center ml-5 text-white mb-2 w-fit">
                     หลักสูตรปกติ
                   </label>
                 </Checkbox>
                 <br />
                 <Checkbox value="หลักสูตรนานาชาติ">
-                  <label className="flex items-center ml-5 text-white mb-2 w-fit">
+                  <label className="flex font-sans md:text-lg items-center ml-5 text-white mb-2 w-fit">
                     หลักสูตรนานาชาติ
                   </label>
                 </Checkbox>
                 <br />
                 <Checkbox value="หลักสูตรวิทยาศาสตร์ข้อมูลสุขภาพ">
-                  <label className="flex items-center ml-5 text-white mb-2 w-fit">
+                  <label className="flex font-sans md:text-lg items-center ml-5 text-white mb-2 w-fit">
                     หลักสูตรวิทยาศาสตร์ข้อมูลสุขภาพ
                   </label>
                 </Checkbox>
                 <br />
                 <Checkbox value="หลักสูตร Residential College">
-                  <label className="flex items-center ml-5 text-white mb-2 w-fit">
+                  <label className="flex font-sans md:text-lg items-center ml-5 text-white mb-2 w-fit">
                     หลักสูตร Residential College
                   </label>
                 </Checkbox>
@@ -389,10 +389,10 @@ export default function InterestForm({ data, setData, choose, prev, next }) {
             </label> */}
 
           <br />
-          <h2 className="text-white bg-[#DD517E] rounded-full justify-center w-fit p-2 pl-4 pr-4 text-lg">
+          <h2 className="text-white font-sans md:text-lg bg-[#DD517E] rounded-full justify-center w-fit p-2 pl-4 pr-4 text-lg">
             ค่ายที่เคยเข้าร่วม (หาไม่เคยเข้าค่ายโปรดระบุ &quot;-&quot; )
           </h2>
-          <div className="mt-2">
+          <div className="mt-2 font-sans">
             <Form.Item name={["interest", "camp"]}>
               <Input.TextArea className="resize-none"/>
             </Form.Item>
