@@ -190,7 +190,7 @@ export const Navigation = () => {
                 className={`py-3 text-center w-[100%] from-[#F054F3] to-[#9600FF]  text-white font-pixel text-lg hover:text-xl cursor-pointer text-shadow transition-all duration-200 ease-linear ${
                   isEnabled
                     ? "cursor-pointer bg-gradient-to-b hover:bg-gradient-to-t"
-                    : "cursor-not-allowed bg bg-gray-500"
+                    : "cursor-not-allowed bg bg-gray-500/80 "
                 }`}
                 onClick={() => {
                   if (session) {
@@ -286,7 +286,7 @@ export const Navigation = () => {
               } right-2 font-pixel relative text-white top-0 text-center from-[#F054F3] to-[#9600FF] px-4 py-1 mx-2 text-xl border-2 border-[#B3E7F8] hover:shadow-[0_0px_15px_-2px_rgba(150,0,255,1)] hover:shadow-[#9600FF] transition-all duration-100 ease-linear rounded-lg   hover:tracking-widest ${
                 isEnabled
                   ? "cursor-pointer bg-gradient-to-b hover:shadow-[0_0px_15px_-2px_rgba(150,0,255,1)] hover:shadow-[#9600FF]"
-                  : "cursor-not-allowed bg bg-gray-500"
+                  : "cursor-not-allowed bg bg-gray-500/30"
               }`}
             >
               <button
@@ -340,7 +340,7 @@ export const Navigation = () => {
             {/* sign out button */}
             {session && (
               <button
-                className="font-pixel relative text-white top-0 text-center  bg-gradient-to-b from-[#dd517e]/90 to-[#E5155E]/90  px-4 py-1 border-2 rounded-lg border-2 text-xl mr-2 border-[#B3E7F8] hover:from-[#dd517e]/100 hover:to-[#E5155E]/100 hover:shadow-[0_0px_15px_-2px_rgba(255,38,114,1)] hover:shadow-[#ff2672] transition-all duration-100 ease-linear whitespace-nowrap"
+                className="font-pixel relative text-white top-0 text-center  bg-gradient-to-b from-[#dd517e]/90 to-[#E5155E]/90  px-4 py-1 border-2 rounded-lg -xl mr-2 border-[#B3E7F8] hover:from-[#dd517e]/100 hover:to-[#E5155E]/100 hover:shadow-[0_0px_15px_-2px_rgba(255,38,114,1)] hover:shadow-[#ff2672] transition-all duration-100 ease-linear whitespace-nowrap"
                 onClick={async () => {
                   await signOut({ redirect: false });
                   router.push("/home");
