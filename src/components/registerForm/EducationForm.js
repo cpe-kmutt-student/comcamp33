@@ -1,94 +1,3 @@
-import React, { useState, useEffect } from "react";
-// import Input from "@components/Input";
-import DropBox from "@components/DropBox";
-import styles from "@styles/components/registerForm/EducationForm.module.css";
-import { AiFillCaretLeft, AiFillCaretRight } from "react-icons/ai";
-import { saveData } from "@src/utils/clientUtils";
-import { Select, Form, Input, Button, InputNumber, AutoComplete } from "antd";
-
-import level from "@components/registerForm/DropBoxData/level.json";
-import education from "@components/registerForm/DropBoxData/education.json";
-
-const provices = [
-  { value: "กรุงเทพฯ" },
-  { value: "กระบี่" },
-  { value: "กาญจนบุรี" },
-  { value: "กาฬสินธุ์" },
-  { value: "กำแพงเพชร" },
-  { value: "ขอนแก่น" },
-  { value: "จันทบุรี" },
-  { value: "ฉะเชิงเทรา" },
-  { value: "ชลบุรี" },
-  { value: "ชัยนาท" },
-  { value: "ชัยภูมิ" },
-  { value: "ชุมพร" },
-  { value: "เชียงใหม่" },
-  { value: "เชียงราย" },
-  { value: "ตรัง" },
-  { value: "ตราด" },
-  { value: "ตาก" },
-  { value: "นครนายก" },
-  { value: "นครปฐม" },
-  { value: "นครพนม" },
-  { value: "นครราชสีมา" },
-  { value: "นครศรีธรรมราช" },
-  { value: "นครสวรรค์" },
-  { value: "นนทบุรี" },
-  { value: "นราธิวาส" },
-  { value: "น่าน" },
-  { value: "บึงกาฬ" },
-  { value: "บุรีรัมย์" },
-  { value: "ปทุมธานี" },
-  { value: "ประจวบคีรีขันธ์" },
-  { value: "ปราจีนบุรี" },
-  { value: "ปัตตานี" },
-  { value: "พระนครศรีอยุธยา" },
-  { value: "พะเยา" },
-  { value: "พังงา" },
-  { value: "พัทลุง" },
-  { value: "พิจิตร" },
-  { value: "พิษณุโลก" },
-  { value: "เพชรบุรี" },
-  { value: "เพชรบูรณ์" },
-  { value: "แพร่" },
-  { value: "ภูเก็ต" },
-  { value: "มหาสารคาม" },
-  { value: "มุกดาหาร" },
-  { value: "แม่ฮ่องสอน" },
-  { value: "ยโสธร" },
-  { value: "ยะลา" },
-  { value: "ร้อยเอ็ด" },
-  { value: "ระนอง" },
-  { value: "ระยอง" },
-  { value: "ราชบุรี" },
-  { value: "ลพบุรี" },
-  { value: "ลำปาง" },
-  { value: "ลำพูน" },
-  { value: "เลย" },
-  { value: "ศรีสะเกษ" },
-  { value: "สกลนคร" },
-  { value: "สงขลา" },
-  { value: "สตูล" },
-  { value: "สมุทรปราการ" },
-  { value: "สมุทรสงคราม" },
-  { value: "สมุทรสาคร" },
-  { value: "สระแก้ว" },
-  { value: "สระบุรี" },
-  { value: "สิงห์บุรี" },
-  { value: "สุโขทัย" },
-  { value: "สุพรรณบุรี" },
-  { value: "สุราษฎร์ธานี" },
-  { value: "สุรินทร์" },
-  { value: "หนองคาย" },
-  { value: "หนองบัวลำภู" },
-  { value: "อ่างทอง" },
-  { value: "อำนาจเจริญ" },
-  { value: "อุดรธานี" },
-  { value: "อุตรดิตถ์" },
-  { value: "อุทัยธานี" },
-  { value: "อุบลราชธานี" },
-];
-
 export default function EducationForm({ data, setData, choose, prev, next }) {
   const [options, setOptions] = useState({ ...provices });
 
@@ -130,13 +39,13 @@ export default function EducationForm({ data, setData, choose, prev, next }) {
           initialValues={data}
         >
           <div className="flex justify-center mt-2">
-            <h1 className="flex w-fit justify-center text-3xl font-bold text-white bg-[#9600FF] px-4 py-3 my-8 rounded-2xl">
+            <h1 className="flex w-fit justify-center font-sans text-xl md:text-3xl text-white bg-[#9600FF] px-4 py-3 my-8 rounded-2xl">
               ประวัติการศึกษา
             </h1>
           </div>
           {/* <form onSubmit={handleSubmit}> */}
           <Form.Item
-            label={<label className="text-white mb-2">{`ชื่อสถานศึกษา`}</label>}
+            label={<label className="text-white font-sans md:text-lg mb-2">{`ชื่อสถานศึกษา`}</label>}
             name={["education", "name"]}
             rules={[{ required: true, message: "กรุณากรอกชื่อโรงเรียน" }]}
           >
@@ -155,7 +64,7 @@ export default function EducationForm({ data, setData, choose, prev, next }) {
             />
           </div> */}
           <br />
-          <div className="flex flex-wrap md:flex-nowrap flex-row justify-between gap-10">
+          <div className="flex font-sans flex-wrap md:flex-nowrap flex-row justify-between gap-10">
             <div className="flex flex-col w-full">
               <Form.Item
                 label={<label className="text-white mb-2">{`จังหวัด`}</label>}
@@ -197,7 +106,7 @@ export default function EducationForm({ data, setData, choose, prev, next }) {
                 <Select
                   placeholder="แผนการเรียน"
                   style={{ width: "7rem" }}
-                  dropdownClassName="border-2 border-white   text-gray-400 px-2 py-1 "
+                  dropdownClassName="border-2 border-white font-sans  text-gray-400 px-2 py-1 "
                 >
                   {education.map((item) => (
                     <Option
@@ -232,7 +141,7 @@ export default function EducationForm({ data, setData, choose, prev, next }) {
                 <Select
                   placeholder="ระดับการศึกษา"
                   style={{ width: "7rem" }}
-                  dropdownClassName="border-2 border-white  text-gray-400 px-2 py-1 "
+                  dropdownClassName="border-2 border-white font-sans  text-gray-400 px-2 py-1 "
                 >
                   {level.map((item) => (
                     <Option
@@ -305,3 +214,4 @@ export default function EducationForm({ data, setData, choose, prev, next }) {
     </>
   );
 }
+
