@@ -107,7 +107,7 @@ const First = () => {
                     disabled={!isEnabled}
                 >
                     <div className={`w-5/4 font-pixel relative text-white top-0 text-center  from-[#F054F3] to-[#9600FF] px-6 py-2  border-2 text-4xl border-3 border-[#B3E7F8]  transition-all duration-300 ease-linear rounded-xl  animate-float   tracking-widest ${isEnabled ? 'cursor-pointer bg-gradient-to-b hover:shadow-[0_0px_15px_-2px_rgba(150,0,255,1)] hover:shadow-[#9600FF]' : 'cursor-not-allowed bg bg-gray-500'}`}>
-                        register Now
+                        {isEnabled ? 'Register now' : date <= closeRegis ? 'registration is opening soon' : 'registration closed'}
                     </div>
                 </button>
             </div>
