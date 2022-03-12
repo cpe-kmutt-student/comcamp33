@@ -271,7 +271,7 @@ const saveData = async (req, res, session) => {
 
   data.facebook = {
     name: session.user.name,
-    email: session.user.email,
+    email: session.user.id,
     image: session.user.image,
   };
   data.update_timestamp = new Date();
