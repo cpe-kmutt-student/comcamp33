@@ -18,7 +18,7 @@ const IndexPage = () => {
   <Link href="/home">
   <video
     preload="true" autoPlay loop muted
-    class="absolute z-10 min-w-full cursor-pointer bg-dunes bg-no-repeat bg-cover bg-center object-cover min-h-full "
+    className="absolute z-10 min-w-full cursor-pointer bg-dunes bg-no-repeat bg-cover bg-center object-cover min-h-full "
   >
     <source
       src="/assets/Clickweb.mp4"
