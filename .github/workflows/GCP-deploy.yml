@@ -43,4 +43,4 @@ jobs:
               "dotenv=${{ secrets.DOTENV }}"
 
         - name: Deploy Docker image
-          run: gcloud run deploy ${{ secrets.GCP_PROJECT_ID }} --image $IMAGE_NAME --region asia-southeast1 --platform managed
+          run: gcloud run deploy ${{ secrets.GCP_PROJECT_ID }} --image $IMAGE_NAME --region asia-southeast1 --port=3000 --platform managed
