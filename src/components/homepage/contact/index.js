@@ -24,30 +24,37 @@ const Contact = () => {
         <div className="flex justify-center flex-col items-center lg:flex-row bg-white/60 w-[80%] z-10 rounded-3xl relative lg:space-x-5 px-5 lg:pt-5 pt-8 pb-8">
           <div
             data-aos="fade-up"
-            className="relative flex flex-col items-center lg:w-[35%] w-[90%] space-y-5 lg:space-y-0"
+            className="relative flex flex-col items-center lg:w-[35%] w-[90%] space-y-5 lg:space-y-12 lg:pl-8"
           >
-            <div className="flex justify-center h-[25vh] w-[100%] relative">
-              <Image
-                src="/assets/contact/Address.svg"
-                objectFit="contain"
-                layout="fill"
-                alt="ticket contact"
-                loading="lazy"
-              />
+            <div className="flex justify-center lg:h-[25vh] w-[100%] relative flex-col">
+              <h1 className="lg:text-xl md:text-xl sm:text-lg text:md">ที่อยู่</h1>
+              <p className="lg:text-lg md:text-lg sm:text-md text:sm">ภาควิชาวิศวกรรมคอมพิวเตอร์ คณะวิศวกรรมศาสตร์ มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าธนบุรี ชั้น 10 อาคารวิศววัฒนะ เลขที่ 126 ถ.ประชาอุทิศน์ แขวงบางมด เขตทุ่งครุ จังหวัดกทม. 10140</p>
             </div>
-            <div className="flex justify-center h-[25vh] w-[100%] relative">
-              <Image
-                src="/assets/contact/Telephone.svg"
-                objectFit="contain"
-                layout="fill"
-                alt="ticket contact"
-                loading="lazy"
-              />
+            <div className="flex justify-center h-[25vh] w-[100%] relative flex-col">
+              <h1 className="lg:text-xl md:text-xl sm:text-lg text:mdl">ติดต่อ</h1>
+              <div className="flex space-x-5">
+                <div>
+                  <p className="lg:text-lg md:text-lg sm:text-md text:sm">พี่วิน</p>
+                  <p className="lg:text-lg md:text-lg sm:text-md text:sm">พี่เฟียร์</p>
+                  <p className="lg:text-lg md:text-lg sm:text-md text:sm">พี่พัตเตอร์</p>
+                  <p className="lg:text-lg md:text-lg sm:text-md text:sm">พี่ฆี</p>
+                  <p className="lg:text-lg md:text-lg sm:text-md text:sm">พี่ปิ่น</p>
+                  <p className="lg:text-lg md:text-lg sm:text-md text:sm">พี่ณัฐ</p>
+                </div>
+                <div>
+                  <p className="lg:text-lg md:text-lg sm:text-md text:sm">098-064-4919</p>
+                  <p className="lg:text-lg md:text-lg sm:text-md text:sm">094-345-4863</p>
+                  <p className="lg:text-lg md:text-lg sm:text-md text:sm">098-799-3905</p>
+                  <p className="lg:text-lg md:text-lg sm:text-md text:sm">084-642-6322</p>
+                  <p className="lg:text-lg md:text-lg sm:text-md text:sm">095-154-3610</p>
+                  <p className="lg:text-lg md:text-lg sm:text-md text:sm">092-595-4992</p>
+                </div>
+              </div>
             </div>
           </div>
           <div
             data-aos="fade-up"
-            className="flex justify-center scale-[0.7] lg:scale-[0.8] lg:w-[30%] ml-4"
+            className="flex justify-center scale-[0.8] lg:scale-[0.7] lg:w-[30%] ml-4"
           >
             <iframe
               src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FKMUTTcomcamp&tabs=timeline&width=320&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=323404429809727"
@@ -64,7 +71,7 @@ const Contact = () => {
           </div>
           <div
             data-aos="fade-up"
-            className="flex justify-center scale-[0.7] lg:scale-[0.8] lg:w-[35%]"
+            className="flex justify-center scale-[0.8] lg:scale-[0.8] lg:w-[30%]"
           >
             <iframe
               width={320}

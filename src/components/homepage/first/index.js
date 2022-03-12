@@ -87,12 +87,7 @@ const First = () => {
                     alt="comcamp logo"
                 />
             </div>
-            <div
-                className="font-pixel w-full flex justify-center relative text-white top-0 text-center z-[90]  mb-12
-        tracking-widest  sm:text-4xl text-2xl sm:mt-0 -mt-12"
-            >
-                Open 12 - 29 March
-            </div>
+            
             <div className="font-pixel w-full flex justify-center relative text-white top-0 text-center z-[90] text-xl mb-4 tracking-widest hover:brightness-110 ">
                 {/* putter */}
                 <button
@@ -111,6 +106,12 @@ const First = () => {
                     </div>
                 </button>
             </div>
+            <div
+                className="font-pixel w-full flex justify-center relative text-white top-0 text-center z-[90]  mb-12
+        tracking-widest  sm:text-4xl text-2xl sm:mt-0 mt-[10vh]"
+            >
+                Open 12 - 29 March
+            </div>
 
             <div className="absolute bottom-[-1vh] right-0 w-[100%] md:h-[35vh] h-[40vh]">
                 <Image
@@ -119,8 +120,8 @@ const First = () => {
                     objectFit="cover"
                     quality={100}
                     alt="background town"
-                />
-            </div>
+               />
+        </div>
         </>
     );
 };
