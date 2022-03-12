@@ -90,7 +90,7 @@ const First = () => {
                     alt="comcamp logo"
                 />
             </div>
-            
+
             <div className="font-pixel w-full flex justify-center relative text-white top-0 text-center z-[90] text-xl mb-4 tracking-widest hover:brightness-110 ">
                 {/* putter */}
                 <button
@@ -104,16 +104,16 @@ const First = () => {
                     }}
                     disabled={!isEnabled}
                 >
-                    <div className={`w-5/4 font-pixel relative text-white top-0 text-center  from-[#F054F3] to-[#9600FF] px-6 py-2  border-2 text-4xl border-3 border-[#B3E7F8]  transition-all duration-300 ease-linear rounded-xl  animate-float   tracking-widest ${isEnabled ? 'cursor-pointer bg-gradient-to-b hover:shadow-[0_0px_15px_-2px_rgba(150,0,255,1)] hover:shadow-[#9600FF]' : 'cursor-not-allowed bg bg-gray-500/50'}`}>
-                        {isEnabled ? 'Register now' : date <= closeRegis ? 'registration is opening soon' : 'registration closed'}
+                    <div className={`w-5/4 font-pixel relative text-white top-0 text-center  from-[#F054F3] to-[#9600FF] px-6 py-2  border-2 lg:text-3xl md:text-3xl sm:text-3xl text-xl border-3 border-[#B3E7F8]  transition-all duration-300 ease-linear rounded-xl  animate-float   tracking-widest ${isEnabled ? 'cursor-pointer bg-gradient-to-b hover:shadow-[0_0px_15px_-2px_rgba(150,0,255,1)] hover:shadow-[#9600FF]' : 'cursor-not-allowed bg bg-gray-500/50'}`}>
+                        {isEnabled ? 'Register now' : date <= closeRegis ? 'coming soon' : 'registration closed'}
                     </div>
                 </button>
             </div>
             <div
                 className="font-pixel w-full flex justify-center relative text-white top-0 text-center z-[90]  mb-12
-        tracking-widest  sm:text-4xl text-2xl sm:mt-0 mt-[10vh]"
+        tracking-widest  sm:text-3xl text-2xl sm:mt-0 mt-[10vh]"
             >
-                Open 12 - 29 March
+                Open 14 March - 29 March
             </div>
 
             <div className="absolute bottom-[-1vh] right-0 w-[100%] md:h-[35vh] h-[40vh]">
@@ -123,8 +123,8 @@ const First = () => {
                     objectFit="cover"
                     quality={100}
                     alt="background town"
-               />
-        </div>
+                />
+            </div>
         </>
     );
 };
