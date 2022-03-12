@@ -20,7 +20,7 @@ export default function ModalAsk({ data, open, setOpen, submitBtn }) {
           <div
             className="justify-center cursor-default items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none"
           >
-            <div className="relative w-auto my-6 mx-auto max-w-3xl">
+            <div className="relative px-6 w-auto my-6 mx-auto max-w-3xl">
               {/*content*/}
               <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
                 {/*header*/}
@@ -41,7 +41,7 @@ export default function ModalAsk({ data, open, setOpen, submitBtn }) {
                 </div>
                 {/*body*/}
                 <div className="relative p-6 flex-auto  cursor-default">
-                  <p className="my-4 text-center text-blueGray-500 text-lg leading-relaxed cursor-default">
+                  <p className="my-4 font-sans text-center text-blueGray-500 text-lg leading-relaxed cursor-default">
                     ยืนยันการสมัครใช่หรือไม่?
                     <br /><span className="text-red-500">คำเตือน</span> ไม่สามารถแก้ไขข้อมูลได้ภายหลังยืนยันข้อมูล
                   </p>

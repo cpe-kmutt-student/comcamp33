@@ -315,7 +315,7 @@ export default function QuestionsForm({
               />
             </div>
             </Form.Item>
-            <div className="flex items-center justify-between my-5 z-20">
+            <div className="flex font-pixel items-center justify-between my-5 z-20">
               <button type="button" onClick={prev}>
                 <AiFillCaretLeft
                   size="4.5rem"
@@ -326,7 +326,7 @@ export default function QuestionsForm({
                 />
               </button>
               <button type="button">
-                <ModalAsk submitBtn={submitBtn} open={open} setOpen={setOpen} data={data} />
+                <ModalAsk  submitBtn={submitBtn} open={open} setOpen={setOpen} data={data} />
               </button>
               <button style={{display: 'none'}} ref={submitBtn}></button>
 
