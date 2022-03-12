@@ -206,7 +206,7 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
             <div className="w-full">
               <Form.Item
                 label={
-                  <label className="text-white md:text-lg mb-2">
+                  <label className="text-white md:text-lg mb-2 whitespace-nowrap">
                     Name prefix
                   </label>
                 }
