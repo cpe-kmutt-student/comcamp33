@@ -149,8 +149,12 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
                 <Select
                   placeholder="คำนำหน้า"
                   style={{ width: "7rem" }}
+<<<<<<< HEAD
                   dropdownClassName="border-2 font-sans border-white text-gray-400 px-2 py-1 "
                   defaultValue={data?.info ? data.info.prefix_th : null}
+=======
+                  dropdownClassName="border-2 border-white text-gray-400 px-2 py-1 "
+>>>>>>> 7e08da289bba2231773e5331d4f7a9f70feeee65
                 >
                   {prefix_th.map((item) => (
                     <Option key={item.value} value={item.value}>
