@@ -12,7 +12,7 @@ const Home = () => {
   return (
     <div className="bg-bg-primary max-w-full">
       <Header />
-      {/* <Navigation /> */}
+      <Navigation />
 
       <StarParticle />
 
