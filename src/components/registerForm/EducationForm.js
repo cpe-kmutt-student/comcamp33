@@ -116,33 +116,37 @@ export default function EducationForm({ data, setData, choose, prev, next }) {
   }, [data]);
 
   return (
-    <>
-      <div className={choose != 3 ? "hidden" : ""}>
-        <Form
-          form={form}
-          name="education"
-          // onSubmit={handleSubmit}
-          className="space-y-8"
-          layout="vertical"
-          onFinish={onFinish}
-          onFinishFailed={onFinishFailed}
-          validateTrigger="onBlur"
-          initialValues={data}
+    <div className={choose != 3 ? "hidden w-full" : ""}>
+      <div className="flex justify-center mt-2">
+        <h1 className="flex w-fit justify-center font-sans text-xl md:text-3xl text-white bg-[#9600FF] px-4 py-3 my-8 rounded-2xl">
+          ประวัติการศึกษา
+        </h1>
+      </div>
+      <Form
+        form={form}
+        name="education"
+        // onSubmit={handleSubmit}
+        className="space-y-8 "
+        layout="vertical"
+        onFinish={onFinish}
+        onFinishFailed={onFinishFailed}
+        validateTrigger="onBlur"
+        initialValues={data}
+      >
+        <div className="flex justify-center mt-2">
+          <h1 className="flex w-fit justify-center font-sans text-xl md:text-3xl text-white bg-[#9600FF] px-4 py-3 my-8 ">
+            ประวัติการศึกษา
+          </h1>
+        </div>
+        {/* <form onSubmit={handleSubmit}> */}
+        <Form.Item
+          label={<label className="text-white font-sans md:text-lg mb-2">{`ชื่อสถานศึกษา`}</label>}
+          name={["education", "name"]}
+          rules={[{ required: true, message: "กรุณากรอกชื่อโรงเรียน" }]}
         >
-          <div className="flex justify-center mt-2">
-            <h1 className="flex w-fit justify-center font-sans text-xl md:text-3xl text-white bg-[#9600FF] px-4 py-3 my-8 ">
-              ประวัติการศึกษา
-            </h1>
-          </div>
-          {/* <form onSubmit={handleSubmit}> */}
-          <Form.Item
-            label={<label className="text-white font-sans md:text-lg mb-2">{`ชื่อสถานศึกษา`}</label>}
-            name={["education", "name"]}
-            rules={[{ required: true, message: "กรุณากรอกชื่อโรงเรียน" }]}
-          >
-            <Input placeholder="โรงเรียน" />
-          </Form.Item>
-          {/* <label className="text-white mb-2">{`ชื่อสถานศึกษา`} * </label>
+          <Input placeholder="โรงเรียน" />
+        </Form.Item>
+        {/* <label className="text-white mb-2">{`ชื่อสถานศึกษา`} * </label>
           <div>
             <Input
               type="text"
@@ -154,28 +158,28 @@ export default function EducationForm({ data, setData, choose, prev, next }) {
               className="w-full"
             />
           </div> */}
-          <br />
-          <div className="flex font-sans flex-wrap md:flex-nowrap flex-col md:flex-row justify-between gap-10">
-            <div className="flex flex-col w-full">
-              <Form.Item
-                label={<label className="text-white mb-2">{`จังหวัด`}</label>}
-                name={["education", "province"]}
-                rules={[{ required: true, message: "กรุณากรอกจังหวัด" }]}
-              >
-                <AutoComplete
-                  style={{
-                    width: 200,
-                  }}
-                  options={provices}
-                  placeholder="จังหวัด"
-                  filterOption={(inputValue, option) =>
-                    option.value
-                      .toUpperCase()
-                      .indexOf(inputValue.toUpperCase()) !== -1
-                  }
-                />
-              </Form.Item>
-              {/* <label className="text-white mb-2">{`จังหวัด`} * </label>
+        <br />
+        <div className="flex font-sans flex-col justify-between gap-10">
+          <div className="flex flex-col w-full">
+            <Form.Item
+              label={<label className="text-white md:text-lg mb-2">{`จังหวัด`}</label>}
+              name={["education", "province"]}
+              rules={[{ required: true, message: "กรุณากรอกจังหวัด" }]}
+            >
+              <AutoComplete
+                style={{
+                  width: 200,
+                }}
+                options={provices}
+                placeholder="จังหวัด"
+                filterOption={(inputValue, option) =>
+                  option.value
+                    .toUpperCase()
+                    .indexOf(inputValue.toUpperCase()) !== -1
+                }
+              />
+            </Form.Item>
+            {/* <label className="text-white mb-2">{`จังหวัด`} * </label>
               <Input
                 type="text"
                 name="province"
@@ -185,32 +189,32 @@ export default function EducationForm({ data, setData, choose, prev, next }) {
                 required={true}
                 className="w-full"
               /> */}
-            </div>
-            <div className="flex flex-col w-full">
-              <Form.Item
-                label={
-                  <label className="text-white mb-2">{`แผนการเรียน`}</label>
-                }
-                name={["education", "program"]}
-                rules={[{ required: true, message: "กรุณาเลือกแผนการเรียน" }]}
+          </div>
+          <div className="flex flex-col w-full">
+            <Form.Item
+              label={
+                <label className="text-white md:text-lg mb-2">{`แผนการเรียน`}</label>
+              }
+              name={["education", "program"]}
+              rules={[{ required: true, message: "กรุณาเลือกแผนการเรียน" }]}
+            >
+              <Select
+                placeholder="แผนการเรียน"
+                style={{ width: "7rem" }}
+                dropdownClassName="border-2 border-white font-sans  text-gray-400 px-2 py-1 "
               >
-                <Select
-                  placeholder="แผนการเรียน"
-                  style={{ width: "7rem" }}
-                  dropdownClassName="border-2 border-white font-sans  text-gray-400 px-2 py-1 "
-                >
-                  {education.map((item) => (
-                    <Option
-                      key={item.value}
-                      value={item.value}
-                      className="text-black "
-                    >
-                      {item.name}
-                    </Option>
-                  ))}
-                </Select>
-              </Form.Item>
-              {/* <label className="text-white mb-2">{`แผนการเรียน`} * </label>
+                {education.map((item) => (
+                  <Option
+                    key={item.value}
+                    value={item.value}
+                    className="text-black "
+                  >
+                    {item.name}
+                  </Option>
+                ))}
+              </Select>
+            </Form.Item>
+            {/* <label className="text-white mb-2">{`แผนการเรียน`} * </label>
               <DropBox
                 name="program"
                 placeholder="Program"
@@ -220,32 +224,32 @@ export default function EducationForm({ data, setData, choose, prev, next }) {
                 value={data && data.education ? data.education.program : ""}
                 className="w-full"
               /> */}
-            </div>
-            <div className="flex flex-col w-full">
-              <Form.Item
-                label={
-                  <label className="text-white mb-2">{`ระดับการศึกษา`}</label>
-                }
-                name={["education", "level"]}
-                rules={[{ required: true, message: "กรุณาเลือกระดับการศึกษา" }]}
+          </div>
+          <div className="flex flex-col w-full">
+            <Form.Item
+              label={
+                <label className="text-white md:text-lg mb-2">{`ระดับการศึกษา`}</label>
+              }
+              name={["education", "level"]}
+              rules={[{ required: true, message: "กรุณาเลือกระดับการศึกษา" }]}
+            >
+              <Select
+                placeholder="ระดับการศึกษา"
+                style={{ width: "7rem" }}
+                dropdownClassName="border-2 border-white font-sans  text-gray-400 px-2 py-1 "
               >
-                <Select
-                  placeholder="ระดับการศึกษา"
-                  style={{ width: "7rem" }}
-                  dropdownClassName="border-2 border-white font-sans  text-gray-400 px-2 py-1 "
-                >
-                  {level.map((item) => (
-                    <Option
-                      key={item.value}
-                      value={item.value}
-                      className="text-black bg-transparent"
-                    >
-                      {item.name}
-                    </Option>
-                  ))}
-                </Select>
-              </Form.Item>
-              {/* <label className="text-white mb-2">{`ระดับการศึกษา`} * </label>
+                {level.map((item) => (
+                  <Option
+                    key={item.value}
+                    value={item.value}
+                    className="text-black bg-transparent"
+                  >
+                    {item.name}
+                  </Option>
+                ))}
+              </Select>
+            </Form.Item>
+            {/* <label className="text-white mb-2">{`ระดับการศึกษา`} * </label>
               <DropBox
                 placeholder="Level"
                 name="level"
@@ -255,23 +259,23 @@ export default function EducationForm({ data, setData, choose, prev, next }) {
                 value={data && data.education ? data.education.level : ""}
                 className="w-full"
               /> */}
-            </div>
-            <div className="flex flex-col w-full">
-              <Form.Item
-                label={
-                  <label className="text-white mb-2">{`เกรดเฉลี่ย`}</label>
-                }
-                name={["education", "gpax"]}
-                rules={[{ required: true, message: "กรุณากรอกเกรดเฉลี่ย" }]}
-              >
-                <InputNumber
-                  placeholder="เกรดเฉลี่ย"
-                  min="0"
-                  max="4"
-                  step="0.01"
-                />
-              </Form.Item>
-              {/* <label className="text-white mb-2">{`เกรดเฉลี่ย`} * </label>
+          </div>
+          <div className="flex flex-col w-full">
+            <Form.Item
+              label={
+                <label className="text-white md:text-lg mb-2">{`เกรดเฉลี่ย`}</label>
+              }
+              name={["education", "gpax"]}
+              rules={[{ required: true, message: "กรุณากรอกเกรดเฉลี่ย" }]}
+            >
+              <InputNumber
+                placeholder="เกรดเฉลี่ย"
+                min="0"
+                max="4"
+                step="0.01"
+              />
+            </Form.Item>
+            {/* <label className="text-white mb-2">{`เกรดเฉลี่ย`} * </label>
               <Input
                 type="number"
                 step="0.01"
@@ -284,25 +288,24 @@ export default function EducationForm({ data, setData, choose, prev, next }) {
                 min="1.00"
                 max="4.00"
               /> */}
-            </div>
           </div>
-          <div className="flex justify-between my-5 z-20">
-            <button type="button" onClick={prev}>
-              <AiFillCaretLeft size="4.5rem" className="text-[#ec4899] opacity-60 translation-all ase-linear duration-200 hover:opacity-100" />
-            </button>
+        </div>
+        <div className="flex justify-between my-5 z-20">
+          <button type="button" onClick={prev}>
+            <AiFillCaretLeft size="4.5rem" className="text-[#ec4899] opacity-60 translation-all ase-linear duration-200 hover:opacity-100" />
+          </button>
 
-            <button type="submit">
-              <AiFillCaretRight
-                size="4.5rem"
-                className="text-[#ec4899] opacity-60 translation-all ase-linear duration-200 hover:opacity-100"
-                style={{ display: [5].includes(choose) ? "none" : "block" }}
-              />
-            </button>
-          </div>
-          {/* </form> */}
-        </Form>
-      </div>
-    </>
+          <button type="submit">
+            <AiFillCaretRight
+              size="4.5rem"
+              className="text-[#ec4899] opacity-60 translation-all ase-linear duration-200 hover:opacity-100"
+              style={{ display: [5].includes(choose) ? "none" : "block" }}
+            />
+          </button>
+        </div>
+        {/* </form> */}
+      </Form>
+    </div>
   );
 }
 

@@ -30,7 +30,7 @@ const loadData = async (req, res, session) => {
     .db("comcamp33")
     .collection("data")
     .findOne(
-      { 'facebook.email': session.user.email },
+      { 'facebook.id': session.token.sub },
       { projection: { _id: false } }
     );
 
@@ -121,7 +121,7 @@ const saveData = async (req, res, session) => {
   const isComplete = await database
     .db("comcamp33")
     .collection("data")
-    .findOne({ "facebook.email": session.user.email }, { projection: { complete: 1, _id: 0 } });
+    .findOne({ "facebook.id": session.token.sub }, { projection: { complete: 1, _id: 0 } });
 
   if (dateNow > dateLate || !isSubset(DATABASE_STRUCTURE, copiedData) || (isComplete && !!isComplete.complete)) {
     return res.status(400).json({
@@ -270,16 +270,16 @@ const saveData = async (req, res, session) => {
   }
 
   data.facebook = {
-    name: session.user.name,
-    email: session.user.email,
-    image: session.user.image,
+    name: session.session.user.name,
+    id: session.token.sub,
+    image: session.session.user.image,
   };
   data.update_timestamp = new Date();
 
   const user = await database
     .db("comcamp33")
     .collection("data")
-    .findOne({ "facebook.email": session.user.email });
+    .findOne({ "facebook.id": session.token.sub });
 
   if (!user) {
     const save = await database
@@ -287,7 +287,7 @@ const saveData = async (req, res, session) => {
       .collection("data")
       .insertOne(data);
 
-    console.log(`[${getTimeStamp()} ${session.user.email} save initial data`);
+    console.log(`[${getTimeStamp()} ${session.session.user.name} save initial data`);
 
     return res.status(201).json({
       success: true,
@@ -298,9 +298,9 @@ const saveData = async (req, res, session) => {
     const update = await database
       .db("comcamp33")
       .collection("data")
-      .updateOne({ "facebook.email": session.user.email }, { $set: data });
+      .updateOne({ "facebook.id": session.token.sub }, { $set: data });
 
-    console.log(`[${getTimeStamp()}] ${session.user.email} save data`);
+    console.log(`[${getTimeStamp()}] ${session.session.user.name} save data`);
 
     return res.status(200).json({
       success: true,

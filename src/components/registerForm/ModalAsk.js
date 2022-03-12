@@ -18,7 +18,7 @@ export default function ModalAsk({ data, open, setOpen, submitBtn }) {
       {showModal ? (
         <>
           <div
-            className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none"
+            className="justify-center cursor-default items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none"
           >
             <div className="relative w-auto my-6 mx-10 max-w-3xl">
               {/*content*/}
@@ -73,12 +73,13 @@ export default function ModalAsk({ data, open, setOpen, submitBtn }) {
                     Confirm
                   </button>
                 </div>
-              </div>
-            </div>
-          </div>
-          <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
+              </div >
+            </div >
+          </div >
+          <div className="cursor-default opacity-25 fixed inset-0 z-40 bg-black"></div>
         </>
-      ) : null}
+      ) : null
+      }
     </>
   );
 }
