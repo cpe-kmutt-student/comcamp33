@@ -21,7 +21,7 @@ const First = () => {
     const closeRegis = new Date(2022, 2, 29, 23, 59, 59)
 
     const [isModalVisible, setIsModalVisible] = useState(false)
-    const isEnabled = date >= openRegis && date <= closeRegis
+    const isEnabled = true
     return (
         <>
             <ModalFacebook isVisible={isModalVisible} setIsModalVisible={setIsModalVisible} handleSuccess={signIn} />
