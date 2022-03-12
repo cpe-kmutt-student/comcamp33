@@ -216,9 +216,9 @@ export const Navigation = () => {
               </button>
               {!session && (
                 <p className="p-3 text-center text-[#FFD467] cursor-default">
-                  You have to sign up with your Facebook account before register
+                  {`You have to sign up with your Facebook account before register
                   Comcamp#33 (If you don't have facebook account, you must
-                  register one.)
+                  register one.)`}
                 </p>
               )}
 

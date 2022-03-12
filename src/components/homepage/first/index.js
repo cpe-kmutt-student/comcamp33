@@ -1,10 +1,11 @@
-import { signIn } from "next-auth/react";
+import { signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 import { ModalFacebook } from "../Navigation";
 const { default: Image } = require("next/image");
 
 const First = () => {
+    const { data: session } = useSession()
     const [offsetY, setOffsetY] = useState(0);
     const router = useRouter();
     const handleScroll = () => setOffsetY(window.pageYOffset);
@@ -19,8 +20,10 @@ const First = () => {
     const openRegis = new Date(2022, 2, 14, 18, 0, 0)
     const closeRegis = new Date(2022, 2, 29, 23, 59, 59)
 
+
     const [isModalVisible, setIsModalVisible] = useState(false)
-    const isEnabled = true
+    const isEnabled = date >= openRegis && date <= closeRegis;
+
     return (
         <>
             <ModalFacebook isVisible={isModalVisible} setIsModalVisible={setIsModalVisible} handleSuccess={signIn} />
