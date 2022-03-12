@@ -242,7 +242,7 @@ export default function QuestionsForm({
             >
             <div className="flex flex-col gap-5 mb-5">
               <p className=" w-fit font-sans md:text-[1.2rem] text-blue-900 bg-white px-5 py-3 mt-5 rounded-3xl">
-                {`6. น้องเป็นผู้ผ่านการคัดเลือกให้เข้าค่าย Comcamp #33 
+                {`6. น้องเป็นผู้ผ่านการคัดเลือกให้เข้าค่าย Comcamp 33 
                 ภายในค่ายน้องต้องทำกิจกรรมร่วมกับเพื่อนในกลุ่มและกิจกรรมนั้นจำเป็นต้องเปิดกล้องทุกคน 
                 แต่สมาชิกในกลุ่มน้องไม่มีใครเปิดกล้องเลย น้องจะทำอย่างไรกับสถานการณ์นี้`}
               </p>
@@ -301,8 +301,8 @@ export default function QuestionsForm({
             <div className="flex flex-col gap-5 mb-5">
               <p className=" w-fit font-sans md:text-[1.2rem] text-blue-900 bg-white px-5 py-3 mt-5 rounded-3xl">
                 {`8. หากน้องได้มีโอกาสเข้ามาเป็นนักศึกษาคณะวิศวกรรมศาสตร์ ภาควิชาวิศวกรรมคอมพิวเตอร์ 
-                ที่มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าธนบุรี และน้องได้ร่วมกิจกรรมการจัดค่าย Comcamp #33 
-                โดยน้องนั้นรับหน้าที่เป็น Admin page Facebook ของทางค่าย Comcamp #33 
+                ที่มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าธนบุรี และน้องได้ร่วมกิจกรรมการจัดค่าย Comcamp 33 
+                โดยน้องนั้นรับหน้าที่เป็น Admin page Facebook ของทางค่าย Comcamp 33 
                 น้องจะมีวิธีการใช้คำพูดอย่างไร เพื่อให้น้องรุ่นต่อ ๆ ไปมีความชื่นชอบสนใจและอยากมาค่าย Comcamp #33 นี้`}
               </p>
               <TextArea
