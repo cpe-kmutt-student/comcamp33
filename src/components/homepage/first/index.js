@@ -25,7 +25,7 @@ const First = () => {
     return (
         <>
             <ModalFacebook isVisible={isModalVisible} setIsModalVisible={setIsModalVisible} handleSuccess={signIn} />
-            <div className="absolute h-[92vh] md:h-[100%] w-screen right-0">
+            <div className="absolute h-screen w-screen lg:right-[-1vh] lg:top-[-5vh] md:top-[-7vh]  md:right-[-1vh] sm:top-[-10vh] sm:right-[-1vh] hidden lg:block md:block sm:block">
                 <svg
                     viewBox="0 0 1855 1080"
                     xmlns="http://www.w3.org/2000/svg"
@@ -71,8 +71,8 @@ const First = () => {
                     />
                 </svg>
             </div>
-            <div className="h-[60vh] relative mx-5 ">
-                <div className="h-[58vh] relative ml-6">
+            <div className="h-[55vh] relative ">
+                <div className="h-[55vh] relative ">
                     <Image
                         src="/assets/sun.svg"
                         quality={100}
@@ -111,7 +111,7 @@ const First = () => {
             </div>
             <div
                 className="font-pixel w-full flex justify-center relative text-white top-0 text-center z-[90]  mb-12
-        tracking-widest  sm:text-3xl text-2xl sm:mt-0 mt-[10vh]"
+        tracking-widest  sm:text-3xl text-2xl sm:mt-0 mt-[10vh] "
             >
                 Open 14 March - 29 March
             </div>
