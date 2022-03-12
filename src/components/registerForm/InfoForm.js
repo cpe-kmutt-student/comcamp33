@@ -331,7 +331,7 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
           </div>
 
           <div>
-            <div className="flex font-sans flex-wrap md:flex-nowrap flex-row gap-10">
+            <div className="flex font-sans flex-wrap md:flex-nowrap flex-col md:flex-row gap-10">
               <div className="flex flex-col">
                 <Form.Item
                   label={
@@ -399,11 +399,11 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
             ที่อยู่ปัจจุบัน
           </h2>
 
-          <div className="flex flex-wrap md:flex-nowrap flex-row justify-between gap-10">
+          <div className="flex flex-wrap md:flex-nowrap flex-col md:flex-row justify-between gap-10">
             <div className="flex flex-col w-full">
               <Form.Item
                 label={
-                  <label className="text-white md:text-lg mb-2">{`เลขที่บ้าน`}</label>
+                  <label className="text-white font-sans md:text-lg mb-2">{`เลขที่บ้าน`}</label>
                 }
                 name={["address", "no"]}
                 rules={[{ required: true, message: "กรุณากรอกบ้านเลขที่" }]}
@@ -649,7 +649,7 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
           </h2>
 
           <div className="flex flex-wrap font-sans md:flex-nowrap flex-row items-end justify-between gap-10">
-            <div className="flex">
+            <div className="flex flex-col md:flex-row">
               <Form.Item
                 label={<label className="text-white md:text-lg mb-2">คำนำหน้า</label>}
                 // name="parent.prefix_th"

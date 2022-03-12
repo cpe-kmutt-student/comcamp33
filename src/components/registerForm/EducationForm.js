@@ -155,7 +155,7 @@ export default function EducationForm({ data, setData, choose, prev, next }) {
             />
           </div> */}
           <br />
-          <div className="flex font-sans flex-wrap md:flex-nowrap flex-row justify-between gap-10">
+          <div className="flex font-sans flex-wrap md:flex-nowrap flex-col md:flex-row justify-between gap-10">
             <div className="flex flex-col w-full">
               <Form.Item
                 label={<label className="text-white mb-2">{`จังหวัด`}</label>}

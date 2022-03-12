@@ -107,7 +107,7 @@ export default function InterestForm({ data, setData, choose, prev, next }) {
               ความสนใจ
             </h1>
           </div>
-          <div className="flex font-sans flex-wrap md:flex-nowrap flex-row justify-between gap-5">
+          <div className="flex font-sans flex-wrap md:flex-nowrap flex-col md:flex-row justify-between gap-5">
             <div className="flex flex-col font-sans mb-2 w-full">
               <Form.Item
                 label={
@@ -151,7 +151,7 @@ export default function InterestForm({ data, setData, choose, prev, next }) {
             </div>
           </div>
           <br />
-          <div className="flex flex-wrap md:flex-nowrap flex-row justify-between gap-5">
+          <div className="flex flex-wrap md:flex-nowrap flex-col md:flex-row justify-between gap-5">
             <div className="flex font-sans flex-col  mb-2 w-full">
               <Form.Item
                 label={
@@ -189,7 +189,7 @@ export default function InterestForm({ data, setData, choose, prev, next }) {
             </div>
           </div>
           <br />
-          <div className="flex font-sans flex-wrap md:flex-nowrap flex-row justify-between gap-5">
+          <div className="flex font-sans flex-wrap md:flex-nowrap flex-col md:flex-row justify-between gap-5">
             <div className="flex flex-col mb-2 w-full">
               <Form.Item
                 label={
@@ -244,7 +244,7 @@ export default function InterestForm({ data, setData, choose, prev, next }) {
             </div>
           </div>
           <br />
-          <h2 className="text-white font-sans md:text-lg bg-[#DD517E] rounded-full justify-center w-fit p-2 pl-4 pr-4">
+          <h2 className="text-white font-sans md:text-lg bg-[#DD517E] rounded-2xl md:rounded-full justify-center w-fit p-2 pl-4 pr-4">
             หลักสูตรที่สนใจ (คณะวิศวกรรมศาสตร์ ภาควิชาวิศวกรรมคอมพิวเตอร์
             มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าธนบุรี)
           </h2>
