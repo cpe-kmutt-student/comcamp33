@@ -24,22 +24,26 @@ const Contact = () => {
         <div className="flex justify-center flex-col items-center lg:flex-row bg-white/60 w-[80%] z-10 rounded-3xl relative lg:space-x-5 px-5 lg:pt-5 pt-8 pb-8 mb-10">
           <div
             data-aos="fade-up"
-            className="relative flex flex-col items-center h-full lg:w-[35%] w-[90%] justify-evenly lg:pl-8"
+            className="relative flex flex-col items-center h-full lg:w-[45%] w-[90%] justify-evenly lg:pl-8"
           >
-            <div className="border-white/80 border-1 p-3 rounded-xl bg-[#B642FF]/80 text-pink-200 tracking-wide flex justify-center lg:h-fit w-[100%] relative flex-col lg:text-white">
-              <h1 className="tracking-wider text-center lg:text-xl md:text-xl sm:text-lg text-md">ที่อยู่</h1>
-              <p className="lg:text-lg  sm:text-md text-sm">ภาควิชาวิศวกรรมคอมพิวเตอร์ คณะวิศวกรรมศาสตร์ มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าธนบุรี ชั้น 10 อาคารวิศววัฒนะ เลขที่ 126 ถ.ประชาอุทิศน์ แขวงบางมด เขตทุ่งครุ จังหวัดกทม. 10140</p>
+            <div className="border-white/80 border-1 p-3 bg-[rgb(45,24,62)] text-pink-200 tracking-wide flex justify-center lg:h-fit w-[100%] relative flex-col lg:text-white">
+              <div className="w-fit h-fit border-[3px] border-[#B351E9] p-1">
+                <h1 className="tracking-wider text-center lg:text-xl md:text-xl sm:text-lg text-md">ที่อยู่</h1>
+                <p className="lg:text-lg  sm:text-md text-sm">ภาควิชาวิศวกรรมคอมพิวเตอร์ คณะวิศวกรรมศาสตร์ มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าธนบุรี ชั้น 10 อาคารวิศววัฒนะ เลขที่ 126 ถ.ประชาอุทิศน์ แขวงบางมด เขตทุ่งครุ จังหวัดกทม. 10140</p>
+              </div>
             </div>
-            <div className="flex justify-center h-fit w-[100%] relative flex-col rounded-xl p-3 bg-[#F658DA] text-pink-200 lg:text-white  mt-[5%]">
-              <h1 className="tracking-wider text-center lg:text-xl md:text-xl sm:text-lg text:md">ติดต่อ</h1>
-              <div className="flex space-x-5">
-                <div>
-                  <p className="lg:text-lg md:text-lg sm:text-md text-sm">พี่วิน     098-064-4919</p>
-                  <p className="lg:text-lg md:text-lg sm:text-md text-sm">พี่เฟียร์   094-345-4863</p>
-                  <p className="lg:text-lg md:text-lg sm:text-md text-sm">พี่พัตเตอร์ 098-799-3905</p>
-                  <p className="lg:text-lg md:text-lg sm:text-md text-sm">พี่ฆี      084-642-6322</p>
-                  <p className="lg:text-lg md:text-lg sm:text-md text-sm">พี่ปิ่น     095-154-3610</p>
-                  <p className="lg:text-lg md:text-lg sm:text-md text-sm">พี่ณัฐ     092-595-4992</p>
+            <div className="flex justify-center h-fit w-[100%] relative flex-col p-3 bg-[#702869] text-pink-200 lg:text-white  mt-[5%]">
+              <div className="w-[100%] h-fit p-1 border-[3px] border-[#F659DB]">
+                <h1 className="tracking-wider text-center lg:text-xl md:text-xl sm:text-lg text:md">ติดต่อ</h1>
+                <div className="flex space-x-5">
+                  <div>
+                    <p className="lg:text-lg md:text-lg sm:text-md text-sm">พี่วิน     098-064-4919</p>
+                    <p className="lg:text-lg md:text-lg sm:text-md text-sm">พี่เฟียร์   094-345-4863</p>
+                    <p className="lg:text-lg md:text-lg sm:text-md text-sm">พี่พัตเตอร์ 098-799-3905</p>
+                    <p className="lg:text-lg md:text-lg sm:text-md text-sm">พี่ฆี      084-642-6322</p>
+                    <p className="lg:text-lg md:text-lg sm:text-md text-sm">พี่ปิ่น     095-154-3610</p>
+                    <p className="lg:text-lg md:text-lg sm:text-md text-sm">พี่ณัฐ     092-595-4992</p>
+                  </div>
                 </div>
               </div>
             </div>
