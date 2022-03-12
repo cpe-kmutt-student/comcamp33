@@ -27,6 +27,9 @@ jobs:
         - name: Checkout repository
           uses: actions/checkout@v2
 
+        - name: Export .env.local
+          run: echo ${{ secrets.DOTENV}} > .env.local
+
         - name: Build Docker image
           run:  export DOCKER_BUILDKIT=1 && docker build . -t $IMAGE_NAME
 
