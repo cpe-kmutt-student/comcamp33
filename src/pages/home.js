@@ -21,9 +21,11 @@ const Home = () => {
           <First />
         </section>
 
+
         <section className="bg-[#11033E] h-[94vh]" id="about">
           <About />
         </section>
+
 
         <section className="bg-[#200440] h-[120vh]" id="learning">
           <Learning />

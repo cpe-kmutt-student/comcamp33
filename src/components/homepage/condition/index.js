@@ -11,7 +11,7 @@ const Condition = () => {
 
       <div className="grid  gridrows-3 lg:grid-cols-3 gap-6">
         <div className="flex px-10 md:px-0 flex-col justify-center md:justify-start">
-          <div data-aos="flip-right" className="relative mx-auto w-56 h-80 md:w-[18rem] md:h-96">
+          <div data-aos="flip-left" className="relative mx-auto w-56 h-80 md:w-[18rem] md:h-96">
             <Image src="/assets/condition/com.png"
               layout="fill"
               quality={100}
