@@ -122,9 +122,9 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
 
   return (
     <>
-      <div className={choose != 2 ? "hidden" : ""}>
+      <div className={choose != 2 ? "hidden" : "w-full"}>
         <div className="flex justify-center">
-          <h1 className="flex w-fit justify-center font-sans text-xl md:text-3xl font-bold text-white bg-[#9600FF] px-4 py-3 my-8 rounded-2xl">
+          <h1 className="font-sans text-xl md:text-3xl font-bold text-white bg-[#9600FF] px-4 py-3 my-8 rounded-2xl">
             ข้อมูลส่วนตัว
           </h1>
         </div>
