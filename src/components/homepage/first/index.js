@@ -16,7 +16,7 @@ const First = () => {
         };
     }, []);
     const date = new Date()
-    const openRegis = new Date(2022, 2, 12, 16, 0, 0)
+    const openRegis = new Date(2022, 2, 12, 18, 0, 0)
     const closeRegis = new Date(2022, 2, 29, 23, 59, 59)
 
     const isEnabled = date >= openRegis && date <= closeRegis
