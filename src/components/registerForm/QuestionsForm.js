@@ -66,8 +66,8 @@ export default function QuestionsForm({
                 <h2 className="flex w-fit justify-center text-3xl font-bold text-white bg-[#9600FF] px-4 py-3 my-8 rounded-2xl">{`คำถาม`}</h2>
                 *{" "}
               </label> */}
-              <div className="flex flex-col gap-5 mb-5">
-              <p className="flex w-fit justify-center text-[1.2rem] text-blue-900 bg-white px-5 py-3 mt-5 rounded-3xl">
+             <div className="flex flex-col gap-5 mb-5">
+              <p className="flex w-fit justify-center font-sans md:text-[1.2rem] text-blue-900 bg-white px-5 py-3 mt-5 rounded-3xl">
                 {`1. ถ้าวันหนึ่งน้องต้องย้อนกลับไปในยุค 80 – 90s ที่เป็นจุดเริ่มต้นของเทคโนโลยีได้ 1 วัน 
                 โดยสามารถเลือกอุปกรณ์หรือเทคโนโลยีในยุคปัจจุบันติดตัวไปได้ 1 ชิ้น น้องจะทำอะไรให้เกิดประโยชน์ที่สุด 
                 แล้วทำไมถึงเลือกอุปกรณ์ชิ้นนั้นไปด้วย และเมื่อกลับมายุคปัจจุบัน น้องสามารถนำอุปกรณ์ในช่วงยุค 80 – 90s 
@@ -76,10 +76,10 @@ export default function QuestionsForm({
                 <TextArea
                   name="q1"
                   placeholder="คำถามข้อที่ 1 :"
-                  className="resize-none"
                   value={data && data.answers ? data.answers.q1 : ""}
                   onChange={(e) => handleChange(e, "answers")}
                   required={true}
+                  className="h-36 font-sans md:text-lg rounded-xl text-gray-400 border-2 border-white px-2 py-1 rounded-0 outline-none bg-transparent focus:bg-white"
                 />
               </div>
             </Form.Item>
@@ -97,7 +97,7 @@ export default function QuestionsForm({
               ]}
             >
             <div className="flex flex-col gap-5 mb-5">
-              <p className="flex w-fit justify-center text-[1.2rem] text-blue-900 bg-white px-5 py-3 mt-5 rounded-3xl">
+              <p className="flex w-fit font-sans justify-center md:text-[1.2rem] text-blue-900 bg-white px-5 py-3 mt-5 rounded-3xl">
                 {`2. ถ้าวันหนึ่งน้องได้รับเลือกเป็นผู้กล้าต้องย้อนไปในปี 1980 
                 เพื่อแก้ปัญหาวิกฤตการณ์ขาดแคลนอาหารซึ่งมีสาเหตุมาจากโรคระบาดที่ชื่อว่า 
                 “BEEtree35” ซึ่งเป็นโรคระบาดที่ติดต่อกันในฝูงผึ้ง ทำให้ผึ้งไม่สามารถผสมเกสรได้ 
@@ -106,10 +106,10 @@ export default function QuestionsForm({
               <TextArea
                 name="q2"
                 placeholder="คำถามข้อที่ 2 :"
-                className="resize-none"
                 value={data && data.answers ? data.answers.q2 : ""}
                 onChange={(e) => handleChange(e, "answers")}
                 required={true}
+                className="h-36 font-sans md:text-lg rounded-xl text-gray-400 border-2 border-white px-2 py-1 rounded-0 outline-none bg-transparent focus:bg-white"
               />
             </div>
             </Form.Item>
@@ -127,7 +127,7 @@ export default function QuestionsForm({
               ]}
             >
             <div className="flex flex-col gap-5 mb-5">
-              <p className=" w-fit  text-[1.2rem] text-blue-900 bg-white px-5 py-3 mt-5 rounded-3xl">
+              <p className=" w-fit  md:text-[1.2rem] text-blue-900 bg-white px-5 py-3 font-sans mt-5 rounded-3xl">
                 <div>{`3. น้องวางแผนไว้ว่าจะนั่งรถไฟออกเดินทางไปเที่ยวพักผ่อน 
                 หลังจากที่ตั้งใจอ่านหนังสือและสอบปลายภาคมาอย่างยาวนาน 
                 เมื่อถึงวันเดินทาง น้องก็ได้เข้าไปอยู่ในห้องโดยสารส่วนตัวที่จองไว้ 
@@ -141,7 +141,7 @@ export default function QuestionsForm({
                 และเครื่องคิดเลขรุ่นเก่าที่ไม่มีฟังก์ชันอะไรเลย หากน้องมีเวลาเพียง 
                 10 นาทีก่อนที่คนร้ายจะเข้ามาในห้องโดยสาร
 `}</div>
-                <div className="pt-2">
+                <div className="pt-2 font-sans">
                   &emsp;
                   {`1.น้องจะเอาตัวรอดจากรถไฟขบวนนี้อย่างปลอดภัยอย่างไร และเพราะเหตุใดถึงใช้วิธีนั้น ๆ
 `}
@@ -155,10 +155,10 @@ export default function QuestionsForm({
               <TextArea
                 name="q3"
                 placeholder="คำถามข้อที่ 3 :"
-                className="resize-none"
                 value={data && data.answers ? data.answers.q3 : ""}
                 onChange={(e) => handleChange(e, "answers")}
                 required={true}
+                className="h-36 font-sans md:text-lg rounded-xl text-gray-400 border-2 border-white px-2 py-1 rounded-0 outline-none bg-transparent focus:bg-white"
               />
             </div>
             </Form.Item>
@@ -176,7 +176,7 @@ export default function QuestionsForm({
               ]}
             >
             <div className="flex flex-col gap-5 mb-5">
-              <p className=" w-fit  text-[1.2rem] text-blue-900 bg-white px-5 py-3 mt-5 rounded-3xl">
+              <p className=" w-fit font-sans md:text-[1.2rem] text-blue-900 bg-white px-5 py-3 mt-5 rounded-3xl">
                 {`4. ขณะนี้น้องยืนอยู่ในห้องแห่งความลับ ในห้องนั้นเต็มไปด้วยของเก่ามากมายแต่สิ่งที่ดึงดูดใจน้อง ๆ 
                 คือ หีบสมบัติขนาดใหญ่ 2 กล่อง ตรงกลางห้อง ประกอบไปด้วยหีบ A และ หีบ B  และมีข้อความดังรูป`}
                 <br />
@@ -191,10 +191,10 @@ export default function QuestionsForm({
               <TextArea
                 name="q4"
                 placeholder="คำถามข้อที่ 4 :"
-                className="resize-none"
                 value={data && data.answers ? data.answers.q4 : ""}
                 onChange={(e) => handleChange(e, "answers")}
                 required={true}
+                className="h-36 font-sans md:text-lg rounded-xl text-gray-400 border-2 border-white px-2 py-1 rounded-0 outline-none bg-transparent focus:bg-white"
               />
             </div>
               </Form.Item>
@@ -212,7 +212,7 @@ export default function QuestionsForm({
               ]}
             >
             <div className="flex flex-col gap-5 mb-5">
-              <p className=" w-fit  text-[1.2rem] text-blue-900 bg-white px-5 py-3 mt-5 rounded-3xl">
+              <p className=" w-fit font-sans md:text-[1.2rem] text-blue-900 bg-white px-5 py-3 mt-5 rounded-3xl">
                 {`5. ร้านไอติมแห่งหนึ่ง ขายไอติมราคาแท่งละ 15 บาท แต่ถ้าซื้อมากกว่า 15 แท่ง ร้านจะขายไอติมให้ในราคาแท่งละ 10 บาท น้องและเพื่อน ๆ 
                 ชอบกินไอติมมาก น้องจึงซื้อไอติมรสวนิลาไปแจกเพื่อน ๆ ทั้งหมด 30 แท่ง 
                 จงเขียน Pseudo code อธิบายวิธีการคำนวณราคาไอติม โดยให้มีการใช้  If-else statement`}
@@ -220,10 +220,10 @@ export default function QuestionsForm({
               <TextArea
                 name="q5"
                 placeholder="คำถามข้อที่ 5 :"
-                className="resize-none"
                 value={data && data.answers ? data.answers.q5 : ""}
                 onChange={(e) => handleChange(e, "answers")}
                 required={true}
+                className="h-36 font-sans md:text-lg rounded-xl text-gray-400 border-2 border-white px-2 py-1 rounded-0 outline-none bg-transparent focus:bg-white"
               />
             </div>
               </Form.Item>
@@ -241,18 +241,18 @@ export default function QuestionsForm({
               ]}
             >
             <div className="flex flex-col gap-5 mb-5">
-              <p className=" w-fit text-[1.2rem] text-blue-900 bg-white px-5 py-3 mt-5 rounded-3xl">
+              <p className=" w-fit font-sans md:text-[1.2rem] text-blue-900 bg-white px-5 py-3 mt-5 rounded-3xl">
                 {`6. น้องเป็นผู้ผ่านการคัดเลือกให้เข้าค่าย Comcamp #33 
                 ภายในค่ายน้องต้องทำกิจกรรมร่วมกับเพื่อนในกลุ่มและกิจกรรมนั้นจำเป็นต้องเปิดกล้องทุกคน 
                 แต่สมาชิกในกลุ่มน้องไม่มีใครเปิดกล้องเลย น้องจะทำอย่างไรกับสถานการณ์นี้`}
               </p>
               <TextArea
                 name="q6"
-                className="resize-none"
                 placeholder="คำถามข้อที่ 6 :"
                 value={data && data.answers ? data.answers.q6 : ""}
                 onChange={(e) => handleChange(e, "answers")}
                 required={true}
+                className="h-36 font-sans md:text-lg rounded-xl text-gray-400 border-2 border-white px-2 py-1 rounded-0 outline-none bg-transparent focus:bg-white"
               />
             </div>
 
@@ -270,7 +270,7 @@ export default function QuestionsForm({
               ]}
             >
             <div className="flex flex-col gap-5 mb-5">
-              <p className=" w-fit text-[1.2rem] text-blue-900 bg-white px-5 py-3 mt-5 rounded-3xl">
+              <p className=" w-fit font-sans md:text-[1.2rem] text-blue-900 bg-white px-5 py-3 mt-5 rounded-3xl">
                 {`7. ถ้าน้องกำลังเล่นเกมทายภาพ โดยจะต้องเป็นคนบอกขั้นตอนการวาดรูปให้เพื่อนเป็นผู้วาดแล้วทายรูปจากภาพที่ได้ให้ถูกต้อง 
                 โดยมีเวลาเพียง 90 วินาที น้องจะอธิบายการวาดรูป “ ผีเสื้อ ” ให้เพื่อนฟังได้อย่างไร 
                 โดยห้ามบอกลักษณะ หรือบอกว่ามันคือผีเสื้อ ให้อธิบายเพื่อการวาดภาพเท่านั้น 
@@ -278,11 +278,11 @@ export default function QuestionsForm({
               </p>
               <TextArea
                 name="q7"
-                className="resize-none text-black h-fit"
                 placeholder="คำถามข้อที่ 7 :"
                 value={data && data.answers ? data.answers.q7 : ""}
                 onChange={(e) => handleChange(e, "answers")}
                 required={true}
+                className="h-36 font-sans md:text-lg rounded-xl text-gray-400 border-2 border-white px-2 py-1 rounded-0 outline-none bg-transparent focus:bg-white"
               />
             </div>
             </Form.Item>
@@ -299,7 +299,7 @@ export default function QuestionsForm({
               ]}
             >
             <div className="flex flex-col gap-5 mb-5">
-              <p className=" w-fit  text-[1.2rem] text-blue-900 bg-white px-5 py-3 mt-5 rounded-3xl">
+              <p className=" w-fit font-sans md:text-[1.2rem] text-blue-900 bg-white px-5 py-3 mt-5 rounded-3xl">
                 {`8. หากน้องได้มีโอกาสเข้ามาเป็นนักศึกษาคณะวิศวกรรมศาสตร์ ภาควิชาวิศวกรรมคอมพิวเตอร์ 
                 ที่มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าธนบุรี และน้องได้ร่วมกิจกรรมการจัดค่าย Comcamp #33 
                 โดยน้องนั้นรับหน้าที่เป็น Admin page Facebook ของทางค่าย Comcamp #33 
@@ -311,7 +311,7 @@ export default function QuestionsForm({
                 value={data && data.answers ? data.answers.q8 : ""}
                 onChange={(e) => handleChange(e, "answers")}
                 required={true}
-                className="h-36    border-2 border-white px-2 py-1 rounded-0 outline-none  focus:bg-white"
+                className="h-36 font-sans md:text-lg rounded-xl text-gray-400 border-2 border-white px-2 py-1 rounded-0 outline-none bg-transparent focus:bg-white"
               />
             </div>
             </Form.Item>
