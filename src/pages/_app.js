@@ -7,11 +7,9 @@ const App = ({
   pageProps: { session, ...pageProps },
 }) => {
   return (
-    <SessionProvider session={session}>
-      <ParallaxProvider>
+    <ParallaxProvider>
       <Component {...pageProps} />
-      </ParallaxProvider>
-    </SessionProvider>
+    </ParallaxProvider>
   );
 };
 

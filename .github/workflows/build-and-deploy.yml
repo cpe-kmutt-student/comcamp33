@@ -45,7 +45,7 @@ jobs:
             docker stop comcamp33 || true && docker rm comcamp33 || true
             docker rmi ghcr.io/cpe35-kmutt/comcamp33:latest
             docker pull ghcr.io/cpe35-kmutt/comcamp33:latest
-            docker run -p 3000:3000 -d --name comcamp33 ghcr.io/cpe35-kmutt/comcamp33:latest
+            docker run --network host -d --name comcamp33 ghcr.io/cpe35-kmutt/comcamp33:latest
       
       - name: Deploy 2
         uses: appleboy/ssh-action@master
@@ -58,9 +58,9 @@ jobs:
             docker stop comcamp33 || true && docker rm comcamp33 || true
             docker rmi ghcr.io/cpe35-kmutt/comcamp33:latest
             docker pull ghcr.io/cpe35-kmutt/comcamp33:latest
-            docker run -p 3000:3000 -d --name comcamp33 ghcr.io/cpe35-kmutt/comcamp33:latest
+            docker run --network host -d --name comcamp33 ghcr.io/cpe35-kmutt/comcamp33:latest
             docker stop comcamp33-1 || true && docker rm comcamp33-1 || true
             docker rmi ghcr.io/cpe35-kmutt/comcamp33:latest
             docker pull ghcr.io/cpe35-kmutt/comcamp33:latest
-            docker run -p 3001:3000 -d --name comcamp33-1 ghcr.io/cpe35-kmutt/comcamp33:latest
+            docker run --network host -d --name comcamp33-1 ghcr.io/cpe35-kmutt/comcamp33:latest
 
