@@ -15,6 +15,7 @@ import Header from "@components/Header";
 import { getSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import moment from "moment";
+import "antd/dist/antd.css";
 
 export default function RegistrationPage() {
   const [chooseForm, setChooseForm] = useState(1); // 1
