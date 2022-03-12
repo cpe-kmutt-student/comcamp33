@@ -98,7 +98,7 @@ export const Navigation = () => {
   const openRegis = new Date(2022, 2, 14, 18, 0, 0);
   const closeRegis = new Date(2022, 2, 29, 23, 59, 59);
 
-  const isEnabled = true//date >= openRegis && date <= closeRegis;
+  const isEnabled = date >= openRegis && date <= closeRegis;
 
   const [offsetY, setOffsetY] = useState(0);
   const [heightY, setHeightY] = useState(0);
@@ -216,8 +216,9 @@ export const Navigation = () => {
               </button>
               {!session && (
                 <p className="p-3 text-center text-[#FFD467] cursor-default">
-                  You have to sign up with your Facebook account before
-                  register Comcamp#33 (If you don't have facebook account, you must register one.)
+                  You have to sign up with your Facebook account before register
+                  Comcamp#33 (If you don't have facebook account, you must
+                  register one.)
                 </p>
               )}
 
@@ -324,7 +325,7 @@ export const Navigation = () => {
                         }`}
                       >
                         You have to sign up with your facebook account before
-                  register Comcamp#33
+                        register Comcamp#33
                       </div>
                     </div>
                   </div>

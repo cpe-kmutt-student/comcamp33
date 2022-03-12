@@ -27,11 +27,11 @@ const Home = () => {
         </section>
 
 
-        <section className="bg-[#200440] h-[94vh]" id="learning">
+        <section className="bg-[#200440] h-fit" id="learning">
           <Learning />
         </section>
         <Wave fill="#200440" />
-        <section className="bg-[#380644] py-12 lg:h-[92vh]" id="condition">
+        <section className="bg-[#380644] py-12 lg:h-fit " id="condition">
           <Condition />
         </section>
         <Wave fill="#380644" />
@@ -42,7 +42,7 @@ const Home = () => {
         <section className="bg-[#840D4F] h-fit" id="faq">
           <Faqs />
         </section>
-        <section className="bg-[#B61157] lg:h-[113vh] relative pb-8 lg:pb-0" id="contact">
+        <section className="bg-[#B61157] h-fit relative pb-8 lg:pb-0" id="contact">
           <Contact />
         </section>
 
