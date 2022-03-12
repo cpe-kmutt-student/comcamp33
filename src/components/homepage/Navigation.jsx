@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link as Smooth } from "react-scroll/modules";
 import { useSpring, animated, config } from "react-spring";
 import { signIn, signOut, useSession } from "next-auth/react";
@@ -57,6 +57,22 @@ export const Navigation = () => {
   const closeRegis = new Date(2022, 2, 29, 23, 59, 59);
 
   const isEnabled = date >= openRegis && date <= closeRegis;
+
+  const [offsetY, setOffsetY] = useState(0);
+  const [heightY, setHeightY] = useState(0);
+
+  const handleScroll = () => setOffsetY(window.pageYOffset);
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    setHeightY(window.innerHeight - window.innerHeight * 0.06);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  const isFirstSection = offsetY <= heightY;
+
   return (
     <nav className="sticky h-[6vh] min-h-[50px] top-0 z-[100]">
       {/* mobile screen */}
@@ -223,7 +239,11 @@ export const Navigation = () => {
 
           <button
             disabled={!isEnabled}
-            className={`right-2 font-pixel relative text-white top-0 text-center from-[#F054F3] to-[#9600FF] px-4 py-1 mx-2 text-xl border-2 border-[#B3E7F8] hover:shadow-[0_0px_15px_-2px_rgba(150,0,255,1)] hover:shadow-[#9600FF] transition-all duration-100 ease-linear rounded-lg   hover:tracking-widest ${
+            className={`${
+              isFirstSection
+                ? "opacity-0 pointer-events-none"
+                : "opacity-100 pointer-events-auto"
+            } right-2 font-pixel relative text-white top-0 text-center from-[#F054F3] to-[#9600FF] px-4 py-1 mx-2 text-xl border-2 border-[#B3E7F8] hover:shadow-[0_0px_15px_-2px_rgba(150,0,255,1)] hover:shadow-[#9600FF] transition-all duration-100 ease-linear rounded-lg   hover:tracking-widest ${
               isEnabled
                 ? "cursor-pointer bg-gradient-to-b hover:shadow-[0_0px_15px_-2px_rgba(150,0,255,1)] hover:shadow-[#9600FF]"
                 : "cursor-not-allowed bg bg-gray-500"
@@ -252,7 +272,11 @@ export const Navigation = () => {
                   <div className="hidden group-hover:block  fixed right-0 rounded-lg  pt-16 top-0 min-w-fit text-black p-5 ">
                     <div
                       className={`py-2 px-6 rounded-lg bg-[#F054F3]/80 text-[#E3E7EE]tracking-widest  w-[250px] text-[1rem] leading-5 border-dashed border-2 border-[#E3E7EE] ${
-                        isEnabled ? "block" : "hidden"
+                        isFirstSection
+                          ? "hidden"
+                          : isEnabled
+                          ? "block"
+                          : "hidden"
                       }`}
                     >
                       you have to sign up with your facebook account before
