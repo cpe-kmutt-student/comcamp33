@@ -7,7 +7,11 @@ import { useSpring, animated, config } from "react-spring";
 import { signIn, signOut, useSession } from "next-auth/react";
 import { lazy } from "react/cjs/react.production.min";
 
-const ModalFacebook = ({ isVisible, setIsModalVisible, handleSuccess }) => {
+export const ModalFacebook = ({
+  isVisible,
+  setIsModalVisible,
+  handleSuccess,
+}) => {
   const handleOk = () => {
     setIsModalVisible(false);
     handleSuccess("facebook");
