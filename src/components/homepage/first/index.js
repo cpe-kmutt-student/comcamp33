@@ -19,7 +19,7 @@ const First = () => {
     const openRegis = new Date(2022, 2, 12, 16, 0, 0)
     const closeRegis = new Date(2022, 2, 29, 23, 59, 59)
 
-    const isEnabled = true
+    const isEnabled = date >= openRegis && date <= closeRegis
     return (
         <>
             <div className="absolute h-[92vh] md:h-[100%] w-screen right-0">
