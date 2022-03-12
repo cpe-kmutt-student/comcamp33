@@ -1,10 +1,11 @@
-name: Deploy GCP
+name: Build & Deploy
 
 on:
   push:
     branches: [ feat/gcp-run ]
 
 env:
+  REGISTRY: ghcr.io
   GCP_IMAGE_NAME: gcr.io/${{ secrets.GCP_PROJECT_ID }}/${{ secrets.GCP_APP_NAME }}
 
 jobs:
@@ -30,10 +31,9 @@ jobs:
         with:
           context: .
           push: true
-          tags: $GCP_IMAGE_NAME
+          tags: $IMAGE_NAME
           secrets: |
             "dotenv=${{ secrets.DOTENV }}"
       
       - name: Deploy Docker image
           run: gcloud run deploy ${{ secrets.GCP_PROJECT_ID }} --image $IMAGE_NAME --region us-central1 --platform managed
-
