@@ -753,7 +753,7 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
             </div>
           </div>
 
-          <div className="flex justify-between my-5 z-20">
+          <div className="flex justify-between my-5 mb-6">
             <button
               type="button"
               onClick={(e) => {
@@ -769,13 +769,10 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
             <button type="submit">
               <AiFillCaretRight
                 size="4.5rem"
-                className="text-[#ec4899] opacity-60 translation-all ase-linear duration-200 hover:opacity-100"
+                className="text-[#ec4899] opacity-60 translation-all ase-linear duration-200 hover:opacity-100 "
                 style={{ display: [5].includes(choose) ? "none" : "block" }}
               />
-              <div
-                className="z-40"
-                style={{ display: [5].includes(choose) ? "block" : "none" }}
-              ></div>
+              
             </button>
           </div>
         </Form>
