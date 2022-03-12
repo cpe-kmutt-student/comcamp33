@@ -11,12 +11,15 @@ export default NextAuth({
     error: '/home'
   },
   callbacks: {
+    session: async (session, user) => {
+      return Promise.resolve(session)
+    },
+
     async redirect({ url, baseUrl }) {
       return baseUrl + '/registration';
     },
 
     async signIn({ user, account, profile, email }) {
-      console.log(user)
       return !!(user && user.id);
     }
   },

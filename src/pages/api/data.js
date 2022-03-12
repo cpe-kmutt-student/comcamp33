@@ -4,6 +4,7 @@ import { Double } from "mongodb";
 
 const handler = async (req, res) => {
   const session = await getSession({ req });
+  console.log(session.token.sub)
 
   if (!session) {
     return res.status(401).json({
