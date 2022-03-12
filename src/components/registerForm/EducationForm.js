@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from "react";
-// import Input from "@components/Input";
-import DropBox from "@components/DropBox";
 import styles from "@styles/components/registerForm/EducationForm.module.css";
 import { AiFillCaretLeft, AiFillCaretRight } from "react-icons/ai";
 import { saveData } from "@src/utils/clientUtils";
-import { Select, Form, Input, Button, InputNumber, AutoComplete } from "antd";
+import { Select, Form, Input, InputNumber, AutoComplete } from "antd";
 
 import level from "@components/registerForm/DropBoxData/level.json";
 import education from "@components/registerForm/DropBoxData/education.json";
@@ -116,122 +114,91 @@ export default function EducationForm({ data, setData, choose, prev, next }) {
   }, [data]);
 
   return (
-    <>
-      <div className={choose != 3 ? "hidden" : ""}>
-        <Form
-          form={form}
-          name="education"
-          // onSubmit={handleSubmit}
-          className="space-y-8"
-          layout="vertical"
-          onFinish={onFinish}
-          onFinishFailed={onFinishFailed}
-          validateTrigger="onBlur"
-          initialValues={data}
-        >
-          <div className="flex justify-center mt-2">
-            <h1 className="flex w-fit justify-center font-sans text-xl md:text-3xl text-white bg-[#9600FF] px-4 py-3 my-8 rounded-2xl">
-              ประวัติการศึกษา
-            </h1>
+    <div className={choose != 3 ? "hidden" : "w-full"}>
+      <Form
+        form={form}
+        name="education"
+        // onSubmit={handleSubmit}
+        className="space-y-8 "
+        layout="vertical"
+        onFinish={onFinish}
+        onFinishFailed={onFinishFailed}
+        validateTrigger="onBlur"
+        initialValues={data}
+      >
+        <div className="flex justify-center mt-2">
+          <h1 className="flex w-fit justify-center font-sans text-xl md:text-3xl text-white bg-[#9600FF] px-4 py-3 my-8 ">
+            ประวัติการศึกษา
+          </h1>
+        </div>
+        <div className="flex flex-wrap md:flex-nowrap flex-col md:flex-row justify-between gap-10">
+          <div className="w-full">
+            <Form.Item
+              label={
+                <label className="text-white font-sans md:text-lg mb-2">{`ชื่อสถานศึกษา`}</label>
+              }
+              name={["education", "name"]}
+              rules={[{ required: true, message: "กรุณากรอกชื่อโรงเรียน" }]}
+            >
+              <Input placeholder="โรงเรียน" />
+            </Form.Item>
           </div>
-          {/* <form onSubmit={handleSubmit}> */}
-          <Form.Item
-            label={<label className="text-white font-sans md:text-lg mb-2">{`ชื่อสถานศึกษา`}</label>}
-            name={["education", "name"]}
-            rules={[{ required: true, message: "กรุณากรอกชื่อโรงเรียน" }]}
-          >
-            <Input placeholder="โรงเรียน" />
-          </Form.Item>
-          {/* <label className="text-white mb-2">{`ชื่อสถานศึกษา`} * </label>
-          <div>
-            <Input
-              type="text"
-              name="name"
-              placeholder="Name"
-              value={data && data.education ? data.education.name : ""}
-              onChange={(e) => handleChange(e, "education")}
-              required={true}
-              className="w-full"
-            />
-          </div> */}
-          <br />
-          <div className="flex font-sans flex-wrap md:flex-nowrap flex-col md:flex-row justify-between gap-10">
-            <div className="flex flex-col w-full">
-              <Form.Item
-                label={<label className="text-white mb-2">{`จังหวัด`}</label>}
-                name={["education", "province"]}
-                rules={[{ required: true, message: "กรุณากรอกจังหวัด" }]}
-              >
-                <AutoComplete
-                  style={{
-                    width: 200,
-                  }}
-                  options={provices}
-                  placeholder="จังหวัด"
-                  filterOption={(inputValue, option) =>
-                    option.value
-                      .toUpperCase()
-                      .indexOf(inputValue.toUpperCase()) !== -1
-                  }
-                />
-              </Form.Item>
-              {/* <label className="text-white mb-2">{`จังหวัด`} * </label>
-              <Input
-                type="text"
-                name="province"
-                placeholder="Province"
-                value={data && data.education ? data.education.province : ""}
-                onChange={(e) => handleChange(e, "education")}
-                required={true}
-                className="w-full"
-              /> */}
-            </div>
-            <div className="flex flex-col w-full">
-              <Form.Item
-                label={
-                  <label className="text-white mb-2">{`แผนการเรียน`}</label>
+          <div className="w-full lg:w-[40%]">
+            <Form.Item
+              label={
+                <label className="text-white md:text-lg mb-2">{`จังหวัด`}</label>
+              }
+              name={["education", "province"]}
+              rules={[{ required: true, message: "กรุณากรอกจังหวัด" }]}
+            >
+              <AutoComplete
+                options={provices}
+                placeholder="จังหวัด"
+                filterOption={(inputValue, option) =>
+                  option.value
+                    .toUpperCase()
+                    .indexOf(inputValue.toUpperCase()) !== -1
                 }
-                name={["education", "program"]}
-                rules={[{ required: true, message: "กรุณาเลือกแผนการเรียน" }]}
+              />
+            </Form.Item>
+          </div>
+        </div>
+        <div className="flex flex-wrap md:flex-nowrap flex-col md:flex-row justify-between gap-10 w-full">
+          <div className="w-full">
+            <Form.Item
+              label={
+                <label className="text-white md:text-lg mb-2">{`แผนการเรียน`}</label>
+              }
+              name={["education", "program"]}
+              rules={[{ required: true, message: "กรุณาเลือกแผนการเรียน" }]}
+            >
+              <Select
+                placeholder="แผนการเรียน"
+                dropdownClassName="border-2 border-white font-sans  text-gray-400 px-2 py-1 "
               >
-                <Select
-                  placeholder="แผนการเรียน"
-                  style={{ width: "7rem" }}
-                  dropdownClassName="border-2 border-white font-sans  text-gray-400 px-2 py-1 "
-                >
-                  {education.map((item) => (
-                    <Option
-                      key={item.value}
-                      value={item.value}
-                      className="text-black "
-                    >
-                      {item.name}
-                    </Option>
-                  ))}
-                </Select>
-              </Form.Item>
-              {/* <label className="text-white mb-2">{`แผนการเรียน`} * </label>
-              <DropBox
-                name="program"
-                placeholder="Program"
-                onChange={(e) => handleChange(e, "education")}
-                required={true}
-                option={education}
-                value={data && data.education ? data.education.program : ""}
-                className="w-full"
-              /> */}
-            </div>
+                {education.map((item) => (
+                  <Option
+                    key={item.value}
+                    value={item.value}
+                    className="text-black "
+                  >
+                    {item.name}
+                  </Option>
+                ))}
+              </Select>
+            </Form.Item>
+          </div>
+          <div className="flex flex-row gap-10 lg:w-[50%] w-[100%]">
             <div className="flex flex-col w-full">
               <Form.Item
                 label={
-                  <label className="text-white mb-2">{`ระดับการศึกษา`}</label>
+                  <label className="text-white md:text-lg mb-2">{`ระดับการศึกษา`}</label>
                 }
                 name={["education", "level"]}
                 rules={[{ required: true, message: "กรุณาเลือกระดับการศึกษา" }]}
               >
                 <Select
                   placeholder="ระดับการศึกษา"
-                  style={{ width: "7rem" }}
                   dropdownClassName="border-2 border-white font-sans  text-gray-400 px-2 py-1 "
                 >
                   {level.map((item) => (
@@ -245,21 +212,11 @@ export default function EducationForm({ data, setData, choose, prev, next }) {
                   ))}
                 </Select>
               </Form.Item>
-              {/* <label className="text-white mb-2">{`ระดับการศึกษา`} * </label>
-              <DropBox
-                placeholder="Level"
-                name="level"
-                onChange={(e) => handleChange(e, "education")}
-                required={true}
-                option={level}
-                value={data && data.education ? data.education.level : ""}
-                className="w-full"
-              /> */}
             </div>
-            <div className="flex flex-col w-full">
+            <div>
               <Form.Item
                 label={
-                  <label className="text-white mb-2">{`เกรดเฉลี่ย`}</label>
+                  <label className="text-white md:text-lg mb-2">{`เกรดเฉลี่ย`}</label>
                 }
                 name={["education", "gpax"]}
                 rules={[{ required: true, message: "กรุณากรอกเกรดเฉลี่ย" }]}
@@ -271,38 +228,27 @@ export default function EducationForm({ data, setData, choose, prev, next }) {
                   step="0.01"
                 />
               </Form.Item>
-              {/* <label className="text-white mb-2">{`เกรดเฉลี่ย`} * </label>
-              <Input
-                type="number"
-                step="0.01"
-                name="gpax"
-                placeholder="GPAX"
-                value={data && data.education ? data.education.gpax : ""}
-                onChange={(e) => handleChange(e, "education")}
-                required={true}
-                className="w-full"
-                min="1.00"
-                max="4.00"
-              /> */}
             </div>
           </div>
-          <div className="flex justify-between my-5 z-20">
-            <button type="button" onClick={prev}>
-              <AiFillCaretLeft size="4.5rem" className="text-[#ec4899] opacity-60 translation-all ase-linear duration-200 hover:opacity-100" />
-            </button>
+        </div>
+        <div className="flex justify-between my-5 z-20">
+          <button type="button" onClick={prev}>
+            <AiFillCaretLeft
+              size="4.5rem"
+              className="text-[#ec4899] opacity-60 translation-all ase-linear duration-200 hover:opacity-100"
+            />
+          </button>
 
-            <button type="submit">
-              <AiFillCaretRight
-                size="4.5rem"
-                className="text-[#ec4899] opacity-60 translation-all ase-linear duration-200 hover:opacity-100"
-                style={{ display: [5].includes(choose) ? "none" : "block" }}
-              />
-            </button>
-          </div>
-          {/* </form> */}
-        </Form>
-      </div>
-    </>
+          <button type="submit">
+            <AiFillCaretRight
+              size="4.5rem"
+              className="text-[#ec4899] opacity-60 translation-all ase-linear duration-200 hover:opacity-100"
+              style={{ display: [5].includes(choose) ? "none" : "block" }}
+            />
+          </button>
+        </div>
+        {/* </form> */}
+      </Form>
+    </div>
   );
 }
-

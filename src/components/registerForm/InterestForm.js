@@ -1,15 +1,7 @@
-import React, { useState, useEffect } from "react";
-import { AiOutlineCheck } from "react-icons/ai";
-// import Input from "@components/Input";
-// import DropBox from "@components/DropBox";
-// import TextArea from "@components/TextArea";
-// import CheckBox from "@components/CheckBox";
-import styles from "@styles/components/registerForm/InterestForm.module.css";
+import { useEffect } from "react";
 import { AiFillCaretLeft, AiFillCaretRight } from "react-icons/ai";
 import { saveData } from "@src/utils/clientUtils";
-import { Form, Input, Button, Checkbox } from "antd";
-
-import trueAndFalse from "@components/registerForm/DropBoxData/trueAndFalse.json";
+import { Form, Input, Checkbox } from "antd";
 
 export default function InterestForm({ data, setData, choose, prev, next }) {
   const [form] = Form.useForm();
@@ -33,7 +25,7 @@ export default function InterestForm({ data, setData, choose, prev, next }) {
   //       admission: newAdmissions,
   //     },
   //   });
-    //console.log(data);
+  //console.log(data);
   // };
 
   const handleChangePlan = (e) => {
@@ -103,7 +95,7 @@ export default function InterestForm({ data, setData, choose, prev, next }) {
         >
           {/* <form onSubmit={handleSubmit}> */}
           <div className="flex justify-center">
-            <h1 className="flex w-fit justify-center font-sans text-xl md:text-3xl font-bold text-white bg-[#9600FF] px-4 py-3 my-8 rounded-2xl">
+            <h1 className="flex w-fit justify-center font-sans text-xl md:text-3xl font-bold text-white bg-[#9600FF] px-4 py-3 my-8">
               ความสนใจ
             </h1>
           </div>
@@ -126,14 +118,15 @@ export default function InterestForm({ data, setData, choose, prev, next }) {
             <div className="flex flex-col font-sans md:text-lg mb-2 w-full">
               <Form.Item
                 label={
-                  <label className="text-white font-sans md:text-lg mb-2">คณะลำดับที่หนึ่ง</label>
+                  <label className="text-white font-sans md:text-lg mb-2">
+                    คณะลำดับที่หนึ่ง
+                  </label>
                 }
                 name={["interest", "admission", 0, "department"]}
                 rules={[{ required: true, message: "กรุณากรอกคณะ" }]}
               >
                 <Input placeholder="วิศวกรรมศาสตร์" />
               </Form.Item>
-              
             </div>
             <div className="flex flex-col  mb-2 w-full">
               <Form.Item
@@ -147,7 +140,6 @@ export default function InterestForm({ data, setData, choose, prev, next }) {
               >
                 <Input placeholder="วิศวกรรมคอมพิวเตอร์" />
               </Form.Item>
-              
             </div>
           </div>
           <br />
@@ -163,29 +155,30 @@ export default function InterestForm({ data, setData, choose, prev, next }) {
               >
                 <Input placeholder="มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าธนบุรี" />
               </Form.Item>
-              
             </div>
             <div className="flex font-sans flex-col mb-2 w-full">
               <Form.Item
                 label={
-                  <label className="text-white font-sans md:text-lg mb-2">คณะลำดับที่สอง</label>
+                  <label className="text-white font-sans md:text-lg mb-2">
+                    คณะลำดับที่สอง
+                  </label>
                 }
                 name={["interest", "admission", 1, "department"]}
               >
                 <Input placeholder="วิศวกรรมศาสตร์" />
               </Form.Item>
-              
             </div>
             <div className="flex flex-col mb-2 w-full">
               <Form.Item
                 label={
-                  <label className="text-white font-sans md:text-lg mb-2">ภาควิชาลำดับที่สอง</label>
+                  <label className="text-white font-sans md:text-lg mb-2">
+                    ภาควิชาลำดับที่สอง
+                  </label>
                 }
                 name={["interest", "admission", 1, "faculty"]}
               >
                 <Input placeholder="วิศวกรรมคอมพิวเตอร์" />
               </Form.Item>
-              
             </div>
           </div>
           <br />
@@ -201,23 +194,25 @@ export default function InterestForm({ data, setData, choose, prev, next }) {
               >
                 <Input placeholder="มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าธนบุรี" />
               </Form.Item>
-              
             </div>
             <div className="flex flex-col font-sans mb-2 w-full">
               <Form.Item
                 label={
-                  <label className="text-white font-sans md:text-lg mb-2">คณะลำดับที่สาม</label>
+                  <label className="text-white font-sans md:text-lg mb-2">
+                    คณะลำดับที่สาม
+                  </label>
                 }
                 name={["interest", "admission", 2, "department"]}
               >
                 <Input placeholder="วิศวกรรมศาสตร์" />
               </Form.Item>
-
             </div>
             <div className="flex font-sans flex-col mb-2 w-full">
               <Form.Item
                 label={
-                  <label className="text-white font-sans md:text-lg mb-2">ภาควิชาลำดับที่สาม</label>
+                  <label className="text-white font-sans md:text-lg mb-2">
+                    ภาควิชาลำดับที่สาม
+                  </label>
                 }
                 name={["interest", "admission", 2, "faculty"]}
               >
@@ -244,7 +239,7 @@ export default function InterestForm({ data, setData, choose, prev, next }) {
             </div>
           </div>
           <br />
-          <h2 className="text-white font-sans md:text-lg bg-[#DD517E] rounded-2xl md:rounded-full justify-center w-fit p-2 pl-4 pr-4">
+          <h2 className="text-white font-sans md:text-lg bg-[#DD517E] justify-center w-fit p-2 pl-4 pr-4">
             หลักสูตรที่สนใจ (คณะวิศวกรรมศาสตร์ ภาควิชาวิศวกรรมคอมพิวเตอร์
             มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าธนบุรี)
           </h2>
@@ -305,7 +300,7 @@ export default function InterestForm({ data, setData, choose, prev, next }) {
               หลักสูตรปกติ
             </label> */}
           </div>
-            {/* <label className="flex items-center ml-5 text-white mb-2 w-fit">
+          {/* <label className="flex items-center ml-5 text-white mb-2 w-fit">
               <input
                 type="checkbox"
                 onChange={(e) => handleChangePlan(e)}
@@ -332,8 +327,8 @@ export default function InterestForm({ data, setData, choose, prev, next }) {
               )}
               หลักสูตรนานาชาติ
             </label> */}
-            
-            {/* <label className="flex items-center ml-5 text-white mb-2 w-fit">
+
+          {/* <label className="flex items-center ml-5 text-white mb-2 w-fit">
               <input
                 type="checkbox"
                 onChange={(e) => handleChangePlan(e)}
@@ -360,7 +355,7 @@ export default function InterestForm({ data, setData, choose, prev, next }) {
               )}
               หลักสูตรวิทยาศาสตร์ข้อมูลสุขภาพ
             </label> */}
-            {/* <label className="flex items-center ml-5 text-white mb-2 w-fit">
+          {/* <label className="flex items-center ml-5 text-white mb-2 w-fit">
               <input
                 type="checkbox"
                 onChange={(e) => handleChangePlan(e)}
@@ -389,12 +384,12 @@ export default function InterestForm({ data, setData, choose, prev, next }) {
             </label> */}
 
           <br />
-          <h2 className="text-white font-sans md:text-lg bg-[#DD517E] rounded-full justify-center w-fit p-2 pl-4 pr-4 text-lg">
+          <h2 className="text-white font-sans md:text-lg bg-[#DD517E] justify-center w-fit p-2 pl-4 pr-4 text-lg">
             ค่ายที่เคยเข้าร่วม (หาไม่เคยเข้าค่ายโปรดระบุ &quot;-&quot; )
           </h2>
           <div className="mt-2 font-sans">
             <Form.Item name={["interest", "camp"]}>
-              <Input.TextArea className="resize-none"/>
+              <Input.TextArea className="resize-y" />
             </Form.Item>
           </div>
           <div className="flex justify-between my-5 z-20">

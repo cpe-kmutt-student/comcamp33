@@ -1,11 +1,12 @@
 import { signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
+import { ModalFacebook } from "../Navigation";
 const { default: Image } = require("next/image");
 
 const First = () => {
+    const { data: session } = useSession()
     const [offsetY, setOffsetY] = useState(0);
-    const { data: session } = useSession();
     const router = useRouter();
     const handleScroll = () => setOffsetY(window.pageYOffset);
     useEffect(() => {
@@ -16,13 +17,17 @@ const First = () => {
         };
     }, []);
     const date = new Date()
-    const openRegis = new Date(2022, 2, 12, 16, 0, 0)
+    const openRegis = new Date(2022, 2, 14, 18, 0, 0)
     const closeRegis = new Date(2022, 2, 29, 23, 59, 59)
 
-    const isEnabled = date >= openRegis && date <= closeRegis
+
+    const [isModalVisible, setIsModalVisible] = useState(false)
+    const isEnabled = date >= openRegis && date <= closeRegis;
+
     return (
         <>
-            <div className="absolute h-[92vh] md:h-[100%] w-screen right-0">
+            <ModalFacebook isVisible={isModalVisible} setIsModalVisible={setIsModalVisible} handleSuccess={signIn} />
+            <div className="absolute h-screen w-screen lg:top-[-5vh] md:top-[-7vh]  sm:top-[-10vh] hidden lg:block md:block sm:block right-0">
                 <svg
                     viewBox="0 0 1855 1080"
                     xmlns="http://www.w3.org/2000/svg"
@@ -68,8 +73,8 @@ const First = () => {
                     />
                 </svg>
             </div>
-            <div className="h-[60vh] relative mx-5 ">
-                <div className="h-[58vh] relative ml-6">
+            <div className="h-[55vh] relative ">
+                <div className="h-[55vh] relative ">
                     <Image
                         src="/assets/sun.svg"
                         quality={100}
@@ -87,12 +92,7 @@ const First = () => {
                     alt="comcamp logo"
                 />
             </div>
-            <div
-                className="font-pixel w-full flex justify-center relative text-white top-0 text-center z-[90]  mb-12
-        tracking-widest  sm:text-4xl text-2xl sm:mt-0 -mt-12"
-            >
-                Open 12 - 29 March
-            </div>
+
             <div className="font-pixel w-full flex justify-center relative text-white top-0 text-center z-[90] text-xl mb-4 tracking-widest hover:brightness-110 ">
                 {/* putter */}
                 <button
@@ -101,15 +101,21 @@ const First = () => {
                         if (session) {
                             router.push("/registration");
                         } else {
-                            signIn("facebook");
+                            setIsModalVisible(true)
                         }
                     }}
                     disabled={!isEnabled}
                 >
-                    <div className={`w-5/4 font-pixel relative text-white top-0 text-center  from-[#F054F3] to-[#9600FF] px-6 py-2  border-2 text-4xl border-3 border-[#B3E7F8]  transition-all duration-300 ease-linear rounded-xl  animate-float   tracking-widest ${isEnabled ? 'cursor-pointer bg-gradient-to-b hover:shadow-[0_0px_15px_-2px_rgba(150,0,255,1)] hover:shadow-[#9600FF]' : 'cursor-not-allowed bg bg-gray-500'}`}>
-                        {isEnabled ? 'Register now' : date <= closeRegis ? 'registration is opening soon' : 'registration closed'}
+                    <div className={`w-5/4 font-pixel relative text-white top-0 text-center  from-[#F054F3] to-[#9600FF] px-6 py-2  border-2 lg:text-3xl md:text-3xl sm:text-3xl text-xl border-3 border-[#B3E7F8]  transition-all duration-300 ease-linear rounded-xl  animate-float   tracking-widest ${isEnabled ? 'cursor-pointer bg-gradient-to-b hover:shadow-[0_0px_15px_-2px_rgba(150,0,255,1)] hover:shadow-[#9600FF]' : 'cursor-not-allowed bg bg-gray-500/50'}`}>
+                        {isEnabled ? 'Register now' : date <= closeRegis ? 'coming soon' : 'registration closed'}
                     </div>
                 </button>
+            </div>
+            <div
+                className="font-pixel w-full flex justify-center relative text-white top-0 text-center z-[90]  mb-12
+        tracking-widest  sm:text-3xl text-2xl sm:mt-0 mt-[10vh] "
+            >
+                Open 14 March - 29 March
             </div>
 
             <div className="absolute bottom-[-1vh] right-0 w-[100%] md:h-[35vh] h-[40vh]">
