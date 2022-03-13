@@ -140,19 +140,20 @@ export default function EducationForm({ data, setData, choose, prev, next }) {
               name={["education", "name"]}
               rules={[{ required: true, message: "กรุณากรอกชื่อโรงเรียน" }]}
             >
-              <Input placeholder="โรงเรียน" />
+              <Input placeholder="โรงเรียน" className="font-sans md:text-lg" />
             </Form.Item>
           </div>
           <div className="w-full lg:w-[40%]">
             <Form.Item
               label={
-                <label className="text-white md:text-lg mb-2">{`จังหวัด`}</label>
+                <label className="text-white font-sans md:text-lg mb-2">{`จังหวัด`}</label>
               }
               name={["education", "province"]}
               rules={[{ required: true, message: "กรุณากรอกจังหวัด" }]}
             >
               <AutoComplete
                 options={provices}
+                className="font-sans md:text-lg"
                 placeholder="จังหวัด"
                 filterOption={(inputValue, option) =>
                   option.value
@@ -164,16 +165,17 @@ export default function EducationForm({ data, setData, choose, prev, next }) {
           </div>
         </div>
         <div className="flex flex-wrap md:flex-nowrap flex-col md:flex-row justify-between gap-10 w-full">
-          <div className="w-full">
+          <div className="w-full ">
             <Form.Item
               label={
-                <label className="text-white md:text-lg mb-2">{`แผนการเรียน`}</label>
+                <label className="text-white font-sans md:text-lg mb-2">{`แผนการเรียน`}</label>
               }
               name={["education", "program"]}
               rules={[{ required: true, message: "กรุณาเลือกแผนการเรียน" }]}
             >
               <Select
                 placeholder="แผนการเรียน"
+                className="font-sans md:text-lg"
                 dropdownClassName="border-2 border-white font-sans  text-gray-400 px-2 py-1 "
               >
                 {education.map((item) => (
@@ -192,13 +194,14 @@ export default function EducationForm({ data, setData, choose, prev, next }) {
             <div className="flex flex-col w-full">
               <Form.Item
                 label={
-                  <label className="text-white md:text-lg mb-2">{`ระดับการศึกษา`}</label>
+                  <label className="text-white font-sans md:text-lg mb-2">{`ระดับการศึกษา`}</label>
                 }
                 name={["education", "level"]}
                 rules={[{ required: true, message: "กรุณาเลือกระดับการศึกษา" }]}
               >
                 <Select
                   placeholder="ระดับการศึกษา"
+                  className="font-sans md:text-lg"
                   dropdownClassName="border-2 border-white font-sans  text-gray-400 px-2 py-1 "
                 >
                   {level.map((item) => (
@@ -216,12 +219,13 @@ export default function EducationForm({ data, setData, choose, prev, next }) {
             <div>
               <Form.Item
                 label={
-                  <label className="text-white md:text-lg mb-2">{`เกรดเฉลี่ย`}</label>
+                  <label className="text-white font-sans md:text-lg mb-2">{`เกรดเฉลี่ย`}</label>
                 }
                 name={["education", "gpax"]}
                 rules={[{ required: true, message: "กรุณากรอกเกรดเฉลี่ย" }]}
               >
                 <InputNumber
+                  className="font-sans md:text-lg"
                   placeholder="เกรดเฉลี่ย"
                   min="0"
                   max="4"

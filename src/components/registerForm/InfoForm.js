@@ -302,14 +302,16 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
             <div className="w-full">
               <Form.Item
                 label={
-                  <label className="text-white md:text-lg mb-2">อีเมล</label>
+                  <label className="text-white font-sans md:text-lg mb-2">
+                    อีเมล
+                  </label>
                 }
                 name={["info", "email"]}
                 rules={[
                   { required: true, message: "กรุณากรอกอีเมล", type: "email" },
                 ]}
               >
-                <Input placeholder="อีเมล" />
+                <Input placeholder="อีเมล" className="md:text-lg" />
               </Form.Item>
             </div>
             <div className="w-full">
@@ -506,6 +508,7 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
                 >
                   {locationForm?.map((loc, index) => (
                     <OptionAuto
+                      className="font-sans"
                       key={loc.zipcode + index}
                       value={loc.zipcode.toString()}
                     >
