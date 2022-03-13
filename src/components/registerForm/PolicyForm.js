@@ -4,14 +4,7 @@ import Link from "next/link";
 import { AiFillCaretRight } from "react-icons/ai";
 import { Checkbox } from "antd";
 
-export default function PolicyForm({
-  data,
-  setData,
-  setState,
-  choose,
-  error,
-  next,
-}) {
+export default function PolicyForm({ data, setData, choose, error, next }) {
   const nextBtn = useRef(null);
 
   const [check1, setCheck1] = useState(false);
@@ -30,7 +23,6 @@ export default function PolicyForm({
       [nameChange]: checkValue,
     };
     setValue(currentStatus);
-    setState(currentStatus.box1 && currentStatus.box2);
   };
 
   const validation = (rule, value, callback) => {
@@ -273,8 +265,9 @@ export default function PolicyForm({
               </Checkbox>
             </label>
             <p
-              className={`text-[#FEFE2D] ${error && (!value.box1 || !value.box2) ? "" : "hidden"
-                }`}
+              className={`text-[#FEFE2D] ${
+                error && (!value.box1 || !value.box2) ? "" : "hidden"
+              }`}
             >
               กรุณาอ่านข้อมูลการสมัครให้ครบถ้วน
             </p>
@@ -285,8 +278,9 @@ export default function PolicyForm({
           <button type="submit" ref={nextBtn}>
             <AiFillCaretRight
               size="4.5rem"
-              className={`text-[#ec4899] opacity-60 translation-all ase-linear duration-200 hover:opacity-100 ${!check1 || !check2 ? "hidden" : ""
-                }`}
+              className={`text-[#ec4899] opacity-60 translation-all ase-linear duration-200 hover:opacity-100 ${
+                !check1 || !check2 ? "hidden" : ""
+              }`}
             />
             <div
               className="z-40"
