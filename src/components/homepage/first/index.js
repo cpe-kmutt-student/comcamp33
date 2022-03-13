@@ -118,7 +118,7 @@ const First = () => {
                 Open 14 March - 29 March
             </div>
 
-            <div className="absolute bottom-0 right-0 w-[100%] md:h-[35vh] h-[40vh]">
+            <div className="absolute bottom-[-1vh] right-0 w-[100%] md:h-[35vh] h-[40vh]">
                 <Image
                     src="/assets/first/longtown.png"
                     layout="fill"

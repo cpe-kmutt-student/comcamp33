@@ -24,7 +24,6 @@ const Contact = () => {
 
         <div className="flex justify-center flex-col items-center lg:flex-row bg-white/60 w-[80%] z-10 rounded-3xl relative lg:space-x-5 px-5 lg:pt-5 pt-8 pb-8 mb-10">
           <div
-            data-aos="fade-up"
             className="relative flex flex-col items-center h-full lg:w-[45%] w-[90%] justify-evenly lg:pl-8"
           >
             <div className="border-white/80 border-1 p-3 bg-[rgb(45,24,62)] text-pink-200 tracking-wide flex justify-center lg:h-fit w-[100%] relative flex-col lg:text-white">
@@ -63,8 +62,7 @@ const Contact = () => {
             </div>
           </div>
           <div
-            data-aos="fade-up"
-            className="flex justify-center  scale-[0.6] sm:scale-[0.8] md:scale-[0.8] lg:scale-[0.7] lg:w-[30%] ml-4 h-fit"
+            className="flex justify-center  scale-[0.6] sm:scale-[0.8] md:scale-[0.8] lg:scale-[0.75] lg:w-[30%] ml-4 h-fit"
           >
             <iframe
               src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FKMUTTcomcamp&tabs=timeline&width=320&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=323404429809727"
@@ -80,8 +78,7 @@ const Contact = () => {
             />
           </div>
           <div
-            data-aos="fade-up"
-            className="flex justify-center scale-[0.6] sm:scale-[0.8] md:scale-[0.8] lg:scale-[0.8] lg:w-[30%]"
+            className="flex justify-center scale-[0.6] sm:scale-[0.8] md:scale-[0.8] lg:scale-[0.85] lg:w-[30%]"
           >
             <iframe
               width={320}
