@@ -141,7 +141,7 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
                   onSelect={(_, option) => {
                     form.setFieldsValue({
                       info: {
-                        prefix_en: prefix_en[option.key],
+                        prefix_en: prefix_en[option.key].name,
                       },
                     });
                   }}
@@ -216,7 +216,7 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
                   onSelect={(_, option) => {
                     form.setFieldsValue({
                       info: {
-                        prefix_th: prefix_th[option.key],
+                        prefix_th: prefix_th[option.key].name,
                       },
                     });
                   }}
@@ -280,7 +280,10 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
                   </label>
                 }
                 name={["info", "tel"]}
-                rules={[{ required: true, message: "กรุณากรอกเบอร์โทรศัพท์" }]}
+                rules={[
+                  { required: true, message: "กรุณากรอกเบอร์โทรศัพท์" },
+                  { pattern: /^\d{3}-\d{3}-\d{4}$/, message: 'กรุณากรอกเบอร์โทรศัพท์' }
+                ]}
               >
                 <MaskedInput
                   className="md:text-lg"
