@@ -29,7 +29,7 @@ const Learning = () => {
     <div className="flex flex-col justify-start pt-[5vh] sm:py-[5vh] md:py-[5vh] lg:py-[7vh] items-center relative w-full h-full text-center md:px-10 lg:px-10 sm:space-y-10 lg:space-y-5 md:space-y-5 ">
       <div
         data-aos="fade-up"
-        className="absolute top-[-20px] left-0 hidden lg:block"
+        className="absolute z-0 top-[-20px] left-0 "
         style={{
           transform: `translate(-${(offsetY - 910) * 0.1}px, ${
             (offsetY - 1500) * 0.2
