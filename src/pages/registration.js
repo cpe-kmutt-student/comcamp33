@@ -9,7 +9,7 @@ import { loadData } from "@src/utils/clientUtils";
 import AutoSave from "@components/AutoSave";
 import Image from "next/image";
 import BgStar from "@public/formBg/unknown.png";
-import Bg1 from "@public/formBg/unknown1.png";
+import Bg1 from "@public/formBg/fadetown.png";
 import bgForm2 from "@public/formBg/bgForm2.png";
 import Header from "@components/Header";
 import { getSession } from "next-auth/react";
