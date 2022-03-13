@@ -41,7 +41,7 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
         amphoe: select.amphoe,
         province: select.province,
         postcode: select.zipcode.toString(),
-      }
+      },
     });
   };
 
@@ -138,12 +138,11 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
                   placeholder="คำนำหน้า"
                   className="md:text-lg"
                   dropdownClassName="border-2  font-sans border-white text-gray-400 px-2 py-1 "
-                  defaultValue={data?.info ? data.info.prefix_th : null}
                   onSelect={(_, option) => {
                     form.setFieldsValue({
                       info: {
                         prefix_en: prefix_en[option.key],
-                      }
+                      },
                     });
                   }}
                 >
@@ -218,7 +217,7 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
                     form.setFieldsValue({
                       info: {
                         prefix_th: prefix_th[option.key],
-                      }
+                      },
                     });
                   }}
                 >
@@ -499,7 +498,8 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
                     <OptionAuto
                       key={index}
                       value={`${loc.district} > ${loc.amphoe} > ${loc.province} > ${loc.zipcode}`}
-                      className="font-sans">
+                      className="font-sans"
+                    >
                       {`${loc.district} > ${loc.amphoe} > ${loc.province} > ${loc.zipcode}`}
                     </OptionAuto>
                   ))}
