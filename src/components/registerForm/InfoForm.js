@@ -121,10 +121,10 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
     console.log("Failed:", errorInfo);
   };
 
-  useEffect(() => {
+  /*  useEffect(() => {
     console.log("incoming ", data);
     form.resetFields();
-  }, [data]);
+  }, [data]); */
 
   return (
     <>
