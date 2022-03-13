@@ -72,7 +72,7 @@ const First = () => {
                         fill="#DD517E"
                     />
                 </svg>
-            </div>
+            </div>*/}
             <div className="h-[55vh] relative ">
                 <div className="h-[55vh] relative ">
                     <Image
