@@ -27,7 +27,7 @@ const First = () => {
     return (
         <>
             <ModalFacebook isVisible={isModalVisible} setIsModalVisible={setIsModalVisible} handleSuccess={signIn} />
-            <div className="absolute h-screen w-screen lg:top-[-5vh] md:top-[-7vh]  sm:top-[-10vh] hidden lg:block md:block sm:block right-0">
+            <div className="absolute h-[95.5vh] w-screen lg:top-[-5vh] md:top-[-7vh]  sm:top-[-10vh] hidden lg:block md:block sm:block right-0 overflow-hidden">
                 <svg
                     viewBox="0 0 1855 1080"
                     xmlns="http://www.w3.org/2000/svg"
@@ -118,7 +118,7 @@ const First = () => {
                 Open 14 March - 29 March
             </div>
 
-            <div className="absolute bottom-0 right-0 w-[100%] md:h-[35vh] h-[40vh]">
+            <div className="absolute bottom-[-1vh] right-0 w-[100%] md:h-[35vh] h-[40vh]">
                 <Image
                     src="/assets/first/longtown.png"
                     layout="fill"
