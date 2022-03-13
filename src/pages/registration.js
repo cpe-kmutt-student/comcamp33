@@ -20,8 +20,6 @@ import "antd/dist/antd.css";
 export default function RegistrationPage() {
   const [chooseForm, setChooseForm] = useState(1); // 1
   const [data, setData] = useState({});
-
-  const [checked, setChecked] = useState(false);
   const [error, setError] = useState(false);
 
   const [isNext, setIsNext] = useState(false);
@@ -39,6 +37,7 @@ export default function RegistrationPage() {
       setChooseForm(chooseForm - 1);
     }
   };
+
   useEffect(() => {
     const loadInitialData = async () => {
       const result = await loadData();
@@ -105,43 +104,56 @@ export default function RegistrationPage() {
       </h1>
       <ProgressBar currentStep={chooseForm} />
       <div className="container mx-auto p-6 md:p-16 flex justify-center all pt-0 pb-0 z-10">
-        <PolicyForm
-          data={data}
-          choose={chooseForm}
-          setState={setChecked}
-          error={error}
-          setData={setData}
-          next={nextForm}
-        />
-        <InfoForm
-          data={data}
-          setData={setData}
-          choose={chooseForm}
-          next={nextForm}
-          prev={prevForm}
-        />
-        <EducationForm
-          data={data}
-          setData={setData}
-          choose={chooseForm}
-          prev={prevForm}
-          next={nextForm}
-        />
-        <InterestForm
-          data={data}
-          setData={setData}
-          choose={chooseForm}
-          prev={prevForm}
-          next={nextForm}
-        />
-        <QuestionsForm
-          data={data}
-          setData={setData}
-          choose={chooseForm}
-          prev={prevForm}
-          open={open}
-          setOpen={setOpen}
-        />
+        {chooseForm == 1 && (
+          <PolicyForm
+            data={data}
+            choose={chooseForm}
+            error={error}
+            setData={setData}
+            next={nextForm}
+          />
+        )}
+
+        {chooseForm == 2 && (
+          <InfoForm
+            data={data}
+            setData={setData}
+            choose={chooseForm}
+            next={nextForm}
+            prev={prevForm}
+          />
+        )}
+
+        {chooseForm == 3 && (
+          <EducationForm
+            data={data}
+            setData={setData}
+            choose={chooseForm}
+            prev={prevForm}
+            next={nextForm}
+          />
+        )}
+
+        {chooseForm == 4 && (
+          <InterestForm
+            data={data}
+            setData={setData}
+            choose={chooseForm}
+            prev={prevForm}
+            next={nextForm}
+          />
+        )}
+
+        {chooseForm == 5 && (
+          <QuestionsForm
+            data={data}
+            setData={setData}
+            choose={chooseForm}
+            prev={prevForm}
+            open={open}
+            setOpen={setOpen}
+          />
+        )}
       </div>
 
       {/* <AutoSave data={data} /> */}
