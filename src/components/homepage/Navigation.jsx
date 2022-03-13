@@ -22,9 +22,8 @@ export const ModalFacebook = ({
 
   return (
     <div
-      className={`fixed w-screen h-screen top-0 right-0 items-center justify-center z-[200] bg-black/30 p-0 ${
-        isVisible ? "flex" : "hidden"
-      }`}
+      className={`fixed w-screen h-screen top-0 right-0 items-center justify-center z-[200] bg-black/30 p-0 ${isVisible ? "flex" : "hidden"
+        }`}
     >
 
       <div className="h-fit py-10 lg:w-[40%] md:w-[50%] sm:w-[60%] w-[80%] bg-white rounded-md flex items-center justify-center flex-col space-y-2 px-5">
@@ -101,7 +100,7 @@ export const Navigation = () => {
   const openRegis = new Date(2022, 2, 14, 18, 0, 0);
   const closeRegis = new Date(2022, 2, 29, 23, 59, 59);
 
-  const isEnabled = true; //date >= openRegis && date <= closeRegis;
+  const isEnabled = date >= openRegis && date <= closeRegis;
 
   const [offsetY, setOffsetY] = useState(0);
   const [heightY, setHeightY] = useState(0);
@@ -161,9 +160,8 @@ export const Navigation = () => {
           </button>
 
           <div
-            className={`lg:hidden block absolute w-full h-full top-[6vh] ${
-              isOpen ? "" : "hidden"
-            }`}
+            className={`lg:hidden block absolute w-full h-full top-[6vh] ${isOpen ? "" : "hidden"
+              }`}
           >
             {links.map((link, index) => (
               <div key={link}>
@@ -194,11 +192,10 @@ export const Navigation = () => {
 
             <div className="w-full flex flex-col bg-[#9600FF]/70 lg:hidden">
               <button
-                className={`py-3 text-center w-[100%] from-[#F054F3] to-[#9600FF]  text-white font-pixel text-lg hover:text-xl cursor-pointer text-shadow transition-all duration-200 ease-linear ${
-                  isEnabled
-                    ? "cursor-pointer bg-gradient-to-b hover:bg-gradient-to-t"
-                    : "cursor-not-allowed bg bg-gray-500/80 "
-                }`}
+                className={`py-3 text-center w-[100%] from-[#F054F3] to-[#9600FF]  text-white font-pixel text-lg hover:text-xl cursor-pointer text-shadow transition-all duration-200 ease-linear ${isEnabled
+                  ? "cursor-pointer bg-gradient-to-b hover:bg-gradient-to-t"
+                  : "cursor-not-allowed bg bg-gray-500/80 "
+                  }`}
                 onClick={() => {
                   if (session) {
                     router.push("/registration");
@@ -213,8 +210,8 @@ export const Navigation = () => {
                   {isEnabled
                     ? "Register now"
                     : date <= closeRegis
-                    ? "registration is opening soon"
-                    : "registration closed"}
+                      ? "registration is opening soon"
+                      : "registration closed"}
                 </p>
               </button>
               {!session && (
@@ -287,15 +284,13 @@ export const Navigation = () => {
 
             <button
               disabled={!isEnabled}
-              className={`${
-                isFirstSection
-                  ? "opacity-0 pointer-events-none"
-                  : "opacity-100 pointer-events-auto"
-              } right-2 font-pixel relative text-white top-0 text-center from-[#F054F3] to-[#9600FF] px-4 py-1 mx-2 text-md border-2 border-[#B3E7F8] hover:shadow-[0_0px_15px_-2px_rgba(150,0,255,1)] hover:shadow-[#9600FF] transition-all duration-100 ease-linear rounded-lg   hover:tracking-widest ${
-                isEnabled
+              className={`${isFirstSection
+                ? "opacity-0 pointer-events-none"
+                : "opacity-100 pointer-events-auto"
+                } right-2 font-pixel relative text-white top-0 text-center from-[#F054F3] to-[#9600FF] px-4 py-1 mx-2 text-md border-2 border-[#B3E7F8] hover:shadow-[0_0px_15px_-2px_rgba(150,0,255,1)] hover:shadow-[#9600FF] transition-all duration-100 ease-linear rounded-lg   hover:tracking-widest ${isEnabled
                   ? "cursor-pointer bg-gradient-to-b hover:shadow-[0_0px_15px_-2px_rgba(150,0,255,1)] hover:shadow-[#9600FF]"
                   : "cursor-not-allowed bg bg-gray-500/30"
-              }`}
+                }`}
             >
               <button
                 type="button"
@@ -314,18 +309,17 @@ export const Navigation = () => {
                       {isEnabled
                         ? "Register now"
                         : date <= closeRegis
-                        ? "opening soon"
-                        : "registration closed"}
+                          ? "opening soon"
+                          : "registration closed"}
                     </p>
                     <div className="hidden group-hover:block fixed right-0 rounded-lg  pt-16 top-0 min-w-fit text-black p-5 ">
                       <div
-                        className={`py-2 px-6 rounded-lg bg-[#F054F0]/70 text-[#fff] shadow-lg tracking-widest   w-[250px] text-[1rem] leading-5 border-dashed border-2 border-[#E3E7EE] ${
-                          isFirstSection
-                            ? "hidden"
-                            : isEnabled
+                        className={`py-2 px-6 rounded-lg bg-[#F054F0]/70 text-[#fff] shadow-lg tracking-widest   w-[250px] text-[1rem] leading-5 border-dashed border-2 border-[#E3E7EE] ${isFirstSection
+                          ? "hidden"
+                          : isEnabled
                             ? "block"
                             : "hidden"
-                        }`}
+                          }`}
                       >
                         You have to sign up with your facebook account before
                         register Comcamp 33
@@ -338,8 +332,8 @@ export const Navigation = () => {
                     {isEnabled
                       ? "Register now"
                       : date <= closeRegis
-                      ? "Coming soon"
-                      : "registration closed"}
+                        ? "Coming soon"
+                        : "registration closed"}
                   </p>
                 )}
               </button>

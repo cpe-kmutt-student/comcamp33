@@ -1,6 +1,5 @@
 import mongoClientPromise from "../../libs/mongodb";
 import { getSession } from "next-auth/react";
-import { Double } from "mongodb";
 
 const handler = async (req, res) => {
   const session = await getSession({ req });
