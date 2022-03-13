@@ -293,14 +293,16 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
             <div className="w-full">
               <Form.Item
                 label={
-                  <label className="text-white md:text-lg mb-2">อีเมล</label>
+                  <label className="text-white font-sans md:text-lg mb-2">
+                    อีเมล
+                  </label>
                 }
                 name={["info", "email"]}
                 rules={[
                   { required: true, message: "กรุณากรอกอีเมล", type: "email" },
                 ]}
               >
-                <Input placeholder="อีเมล" />
+                <Input placeholder="อีเมล" className="md:text-lg" />
               </Form.Item>
             </div>
             <div className="w-full">
@@ -497,7 +499,7 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
                     <OptionAuto
                       key={index}
                       value={`${loc.district} > ${loc.amphoe} > ${loc.province} > ${loc.zipcode}`}
-                    >
+                      className="font-sans">
                       {`${loc.district} > ${loc.amphoe} > ${loc.province} > ${loc.zipcode}`}
                     </OptionAuto>
                   ))}
