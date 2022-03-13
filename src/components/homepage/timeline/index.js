@@ -33,7 +33,7 @@ const Timeline = () => {
     <div className="flex flex-col justify-center items-center relative w-full h-full text-center md:space-y-20 lg:space-y-20  sm:pt-20 md:mt-0 lg:pt-0 pt-5 md:pt-0">
       <div
         data-aos="fade-up"
-        className=" absolute right-[0] top-[-10px] hidden lg:block"
+        className=" absolute z-0 right-[0] top-[-10px] "
         style={{
           transform: `translate(${(offsetY - 3000) * 0.1}px, ${(offsetY - 2000) * 0.2
             }px)`,

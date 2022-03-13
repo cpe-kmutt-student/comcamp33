@@ -42,7 +42,7 @@ const Condition = () => {
         <div className="flex flex-col px-10 md:px-0 justify-center md:justify-start">
           <div
             data-aos="flip-right"
-            className="relative mx-auto w-56 h-80 md:w-[18rem] md:h-96"
+            className="relative z-0 mx-auto w-56 h-80 md:w-[18rem] md:h-96"
           >
             <Image
               src="/assets/condition/study.png"
@@ -54,7 +54,7 @@ const Condition = () => {
           </div>
           <div
             data-aos="fade-up"
-            className="flex justify-center text-sm md:text-xl"
+            className="flex z-10 justify-center text-sm md:text-xl"
           >
             <p className="text-white py-6  text-center">
               กำลังศึกษาอยู่ในระดับชั้นมัธยมศึกษาตอนปลายปีที่ 4 และ 5
@@ -72,7 +72,7 @@ const Condition = () => {
         <div className="flex flex-col px-10 md:px-0 text-white justify-center md:justify-start">
           <div
             data-aos="flip-right"
-            className="relative mx-auto w-56 h-80 md:w-[18rem] md:h-96"
+            className="relative z-0 mx-auto w-56 h-80 md:w-[18rem] md:h-96"
           >
             <Image
               src="/assets/condition/parent.png"
@@ -84,7 +84,7 @@ const Condition = () => {
           </div>
           <div
             data-aos="fade-up"
-            className="flex justify-center text-center text-sm md:text-xl"
+            className="flex z-10 justify-center text-center text-sm md:text-xl"
           >
             <p className="text-white py-6">
               <p>

@@ -81,7 +81,7 @@ export default function InterestForm({ data, setData, choose, prev, next }) {
 
   return (
     <>
-      <div className={choose != 4 ? "hidden" : ""}>
+      <div className={choose != 4 ? "hidden" : "w-full"}>
         <Form
           form={form}
           name="interest"
@@ -99,8 +99,8 @@ export default function InterestForm({ data, setData, choose, prev, next }) {
               ความสนใจ
             </h1>
           </div>
-          <div className="flex font-sans flex-wrap md:flex-nowrap flex-col md:flex-row justify-between gap-5">
-            <div className="flex flex-col font-sans mb-2 w-full">
+          <div className="flex flex-wrap md:flex-nowrap flex-col md:flex-row justify-between gap-5">
+            <div className="font-sans mb-2 w-full">
               <Form.Item
                 label={
                   <label className="text-white font-sans md:text-lg mb-2">
@@ -112,10 +112,13 @@ export default function InterestForm({ data, setData, choose, prev, next }) {
                   { required: true, message: "กรุณากรอกชื่อมหาวิทยาลัย" },
                 ]}
               >
-                <Input placeholder="มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าธนบุรี" />
+                <Input
+                  placeholder="มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าธนบุรี"
+                  className="font-sans"
+                />
               </Form.Item>
             </div>
-            <div className="flex flex-col font-sans md:text-lg mb-2 w-full">
+            <div className="font-sans md:text-lg mb-2 w-full">
               <Form.Item
                 label={
                   <label className="text-white font-sans md:text-lg mb-2">
@@ -125,10 +128,10 @@ export default function InterestForm({ data, setData, choose, prev, next }) {
                 name={["interest", "admission", 0, "department"]}
                 rules={[{ required: true, message: "กรุณากรอกคณะ" }]}
               >
-                <Input placeholder="วิศวกรรมศาสตร์" />
+                <Input placeholder="วิศวกรรมศาสตร์" className="font-sans" />
               </Form.Item>
             </div>
-            <div className="flex flex-col  mb-2 w-full">
+            <div className="font-sans mb-2 w-full">
               <Form.Item
                 label={
                   <label className="text-white font-sans md:text-lg mb-2">
@@ -138,13 +141,16 @@ export default function InterestForm({ data, setData, choose, prev, next }) {
                 name={["interest", "admission", 0, "faculty"]}
                 rules={[{ required: true, message: "กรุณากรอกภาควิชา" }]}
               >
-                <Input placeholder="วิศวกรรมคอมพิวเตอร์" />
+                <Input
+                  placeholder="วิศวกรรมคอมพิวเตอร์"
+                  className="font-sans"
+                />
               </Form.Item>
             </div>
           </div>
           <br />
           <div className="flex flex-wrap md:flex-nowrap flex-col md:flex-row justify-between gap-5">
-            <div className="flex font-sans flex-col  mb-2 w-full">
+            <div className="font-sans   mb-2 w-full">
               <Form.Item
                 label={
                   <label className="text-white font-sans md:text-lg mb-2">
@@ -156,7 +162,7 @@ export default function InterestForm({ data, setData, choose, prev, next }) {
                 <Input placeholder="มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าธนบุรี" />
               </Form.Item>
             </div>
-            <div className="flex font-sans flex-col mb-2 w-full">
+            <div className="font-sans mb-2 w-full">
               <Form.Item
                 label={
                   <label className="text-white font-sans md:text-lg mb-2">
@@ -165,10 +171,10 @@ export default function InterestForm({ data, setData, choose, prev, next }) {
                 }
                 name={["interest", "admission", 1, "department"]}
               >
-                <Input placeholder="วิศวกรรมศาสตร์" />
+                <Input placeholder="วิศวกรรมศาสตร์" className="font-sans" />
               </Form.Item>
             </div>
-            <div className="flex flex-col mb-2 w-full">
+            <div className="font-sans mb-2 w-full">
               <Form.Item
                 label={
                   <label className="text-white font-sans md:text-lg mb-2">
@@ -177,13 +183,16 @@ export default function InterestForm({ data, setData, choose, prev, next }) {
                 }
                 name={["interest", "admission", 1, "faculty"]}
               >
-                <Input placeholder="วิศวกรรมคอมพิวเตอร์" />
+                <Input
+                  placeholder="วิศวกรรมคอมพิวเตอร์"
+                  className="font-sans"
+                />
               </Form.Item>
             </div>
           </div>
           <br />
           <div className="flex font-sans flex-wrap md:flex-nowrap flex-col md:flex-row justify-between gap-5">
-            <div className="flex flex-col mb-2 w-full">
+            <div className="mb-2 w-full">
               <Form.Item
                 label={
                   <label className="text-white font-sans md:text-lg mb-2">
@@ -192,10 +201,13 @@ export default function InterestForm({ data, setData, choose, prev, next }) {
                 }
                 name={["interest", "admission", 2, "university"]}
               >
-                <Input placeholder="มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าธนบุรี" />
+                <Input
+                  placeholder="มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าธนบุรี"
+                  className="font-sans"
+                />
               </Form.Item>
             </div>
-            <div className="flex flex-col font-sans mb-2 w-full">
+            <div className="font-sans mb-2 w-full">
               <Form.Item
                 label={
                   <label className="text-white font-sans md:text-lg mb-2">
@@ -204,10 +216,10 @@ export default function InterestForm({ data, setData, choose, prev, next }) {
                 }
                 name={["interest", "admission", 2, "department"]}
               >
-                <Input placeholder="วิศวกรรมศาสตร์" />
+                <Input placeholder="วิศวกรรมศาสตร์" className="font-sans" />
               </Form.Item>
             </div>
-            <div className="flex font-sans flex-col mb-2 w-full">
+            <div className="font-sans mb-2 w-full">
               <Form.Item
                 label={
                   <label className="text-white font-sans md:text-lg mb-2">
@@ -216,7 +228,10 @@ export default function InterestForm({ data, setData, choose, prev, next }) {
                 }
                 name={["interest", "admission", 2, "faculty"]}
               >
-                <Input placeholder="วิศวกรรมคอมพิวเตอร์" />
+                <Input
+                  placeholder="วิศวกรรมคอมพิวเตอร์"
+                  className="font-sans"
+                />
               </Form.Item>
               {/* <label className="text-white mb-2">ภาควิชาลำดับที่สาม </label>
               <Input
@@ -246,29 +261,25 @@ export default function InterestForm({ data, setData, choose, prev, next }) {
           <div className="mt-2">
             <Form.Item name={["interest", "plan"]}>
               <Checkbox.Group>
-                <Checkbox value="หลักสูตรปกติ">
-                  <label className="flex font-sans md:text-lg items-center ml-5 text-white mb-2 w-fit">
-                    หลักสูตรปกติ
-                  </label>
-                </Checkbox>
+                <label className="flex font-sans md:text-lg items-center ml-5 text-white mb-2 w-fit gap-4 cursor-pointer">
+                  <Checkbox value="หลักสูตรปกติ" />
+                  หลักสูตรปกติ
+                </label>
                 <br />
-                <Checkbox value="หลักสูตรนานาชาติ">
-                  <label className="flex font-sans md:text-lg items-center ml-5 text-white mb-2 w-fit">
-                    หลักสูตรนานาชาติ
-                  </label>
-                </Checkbox>
+                <label className="flex font-sans md:text-lg items-center ml-5 text-white mb-2 w-fit gap-4 cursor-pointer">
+                  <Checkbox value="หลักสูตรนานาชาติ" />
+                  หลักสูตรนานาชาติ
+                </label>
                 <br />
-                <Checkbox value="หลักสูตรวิทยาศาสตร์ข้อมูลสุขภาพ">
-                  <label className="flex font-sans md:text-lg items-center ml-5 text-white mb-2 w-fit">
-                    หลักสูตรวิทยาศาสตร์ข้อมูลสุขภาพ
-                  </label>
-                </Checkbox>
+                <label className="flex font-sans md:text-lg items-center ml-5 text-white mb-2 w-fit gap-4 cursor-pointer">
+                  <Checkbox value="หลักสูตรวิทยาศาสตร์ข้อมูลสุขภาพ" />
+                  หลักสูตรวิทยาศาสตร์ข้อมูลสุขภาพ
+                </label>
                 <br />
-                <Checkbox value="หลักสูตร Residential College">
-                  <label className="flex font-sans md:text-lg items-center ml-5 text-white mb-2 w-fit">
-                    หลักสูตร Residential College
-                  </label>
-                </Checkbox>
+                <label className="flex font-sans md:text-lg items-center ml-5 text-white mb-2 w-fit gap-4 cursor-pointer">
+                  <Checkbox value="หลักสูตร Residential College" />
+                  หลักสูตร Residential College
+                </label>
               </Checkbox.Group>
             </Form.Item>
             {/* <label className="flex items-center ml-5 text-white mb-2 w-fit">
@@ -389,7 +400,7 @@ export default function InterestForm({ data, setData, choose, prev, next }) {
           </h2>
           <div className="mt-2 font-sans">
             <Form.Item name={["interest", "camp"]}>
-              <Input.TextArea className="resize-y" />
+              <Input.TextArea className="resize-y h-24 font-sans md:text-lg" />
             </Form.Item>
           </div>
           <div className="flex justify-between my-5 z-20">

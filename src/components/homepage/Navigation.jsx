@@ -26,11 +26,13 @@ export const ModalFacebook = ({
         isVisible ? "flex" : "hidden"
       }`}
     >
+
       <div className="h-fit py-10 lg:w-[40%] md:w-[50%] sm:w-[60%] w-[80%] bg-white rounded-md flex items-center justify-center flex-col space-y-2 px-5">
         <p className="text-xl pb-4 text-center">
-          ล็อคอินด้วยเฟสบุ๊คเพื่อสมัคร Comcamp#33
+          ล็อคอินด้วยเฟสบุ๊คเพื่อสมัคร Comcamp 33
         </p>
         <div className="flex lg:flex-row md:flex-row sm:flex-row flex-col space-y-5 items-center justify-center">
+
           <button
             className="relative text-white top-0 text-center  bg-gradient-to-b from-[#F054F3] to-[#9600FF] px-4 py-1 mx-2 text-lg border-2 border-[#B3E7F8] hover:shadow-[0_0px_15px_-2px_rgba(150,0,255,1)] hover:shadow-[#9600FF] transition-all duration-100 ease-linear rounded-lg   hover:tracking-widest font-sans"
             onClick={handleOk}
@@ -216,10 +218,10 @@ export const Navigation = () => {
                 </p>
               </button>
               {!session && (
-                <p className="p-3 text-center text-[#FFD467] cursor-default">
+                <p className="p-3 text-center font-pixel text-[#FFD467] cursor-default">
                   {`You have to sign up with your Facebook account before register
-                  Comcamp#33 (If you don't have facebook account, you must
-                  register one.)`}
+                  Comcamp 33 ( If you don't have facebook account, you must
+                  register one. )`}
                 </p>
               )}
 
@@ -315,9 +317,9 @@ export const Navigation = () => {
                         ? "opening soon"
                         : "registration closed"}
                     </p>
-                    <div className="hidden group-hover:block  fixed right-0 rounded-lg  pt-16 top-0 min-w-fit text-black p-5 ">
+                    <div className="hidden group-hover:block fixed right-0 rounded-lg  pt-16 top-0 min-w-fit text-black p-5 ">
                       <div
-                        className={`py-2 px-6 rounded-lg bg-[#F054F0]/70 text-[#fff] shadow-lg tracking-widest  w-[250px] text-[1rem] leading-5 border-dashed border-2 border-[#E3E7EE] ${
+                        className={`py-2 px-6 rounded-lg bg-[#F054F0]/70 text-[#fff] shadow-lg tracking-widest   w-[250px] text-[1rem] leading-5 border-dashed border-2 border-[#E3E7EE] ${
                           isFirstSection
                             ? "hidden"
                             : isEnabled
@@ -326,7 +328,7 @@ export const Navigation = () => {
                         }`}
                       >
                         You have to sign up with your facebook account before
-                        register Comcamp#33
+                        register Comcamp 33
                       </div>
                     </div>
                   </div>

@@ -26,54 +26,31 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
   const [filterData, setFilterData] = useState({});
 
   const onSearch = (type, value) => {
-    if (data?.tambol && data?.amphoe && data?.province && data?.postcode) {
-      setLocationForm(
-        locationForm?.filter((loc) =>
-          loc[type].toString().startsWith(value.toString())
-        )
-      );
-    } else {
-      setLocationForm(
-        location.filter((loc) =>
-          loc[type].toString().startsWith(value.toString())
-        )
-      );
-    }
-  };
-  const onSelect = (value, option, type) => {
-    console.log(value, option, type);
-    if (option.children.length == 8) {
-      setFilterData({
-        ...data.address,
-        tambol: option.children[0],
-        amphoe: option.children[2],
-        province: option.children[5],
-        postcode: option.children[7],
-      });
-    } else if (option.children.length == 5) {
-      setFilterData({
-        ...data.address,
-        amphoe: option.children[0],
-        province: option.children[2],
-        postcode: option.children[4],
-      });
-    } else if (option.children.length == 3) {
-      setFilterData({
-        ...data.address,
-        province: option.children[0],
-        postcode: option.children[2],
-      });
-    } else if (option.children.length == 1) {
-      setFilterData({ ...data.address, postcode: option.children[0] });
-    }
+    setLocationForm(
+      location.filter((loc) =>
+        loc[type].toString().startsWith(value.toString())
+      )
+    );
   };
 
-  useEffect(() => {
+  const onSelect = (value, option, type) => {
+    const select = locationForm[option.key];
+    form.setFieldsValue({
+      address: {
+        tambol: select.district,
+        amphoe: select.amphoe,
+        province: select.province,
+        postcode: select.zipcode.toString(),
+      },
+    });
+  };
+
+  /*   useEffect(() => {
     setData({
       ...data,
       address: filterData,
     });
-  }, [filterData]);
+  }, [filterData]); */
 
   const [form] = Form.useForm();
   // const handleChange = (e, type) => {
@@ -161,10 +138,16 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
                   placeholder="คำนำหน้า"
                   className="md:text-lg"
                   dropdownClassName="border-2  font-sans border-white text-gray-400 px-2 py-1 "
-                  defaultValue={data?.info ? data.info.prefix_th : null}
+                  onSelect={(_, option) => {
+                    form.setFieldsValue({
+                      info: {
+                        prefix_en: prefix_en[option.key],
+                      },
+                    });
+                  }}
                 >
-                  {prefix_th.map((item) => (
-                    <Option key={item.value} value={item.value}>
+                  {prefix_th.map((item, index) => (
+                    <Option key={index} value={item.value}>
                       {item.name}
                     </Option>
                   ))}
@@ -230,9 +213,16 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
                   placeholder="Name prefix"
                   className="md:text-lg"
                   dropdownClassName="border-2 border-white font-sans text-gray-400 px-2 py-1 "
+                  onSelect={(_, option) => {
+                    form.setFieldsValue({
+                      info: {
+                        prefix_th: prefix_th[option.key],
+                      },
+                    });
+                  }}
                 >
-                  {prefix_en.map((item) => (
-                    <Option key={item.value} value={item.value}>
+                  {prefix_en.map((item, index) => (
+                    <Option key={index} value={item.value}>
                       {item.name}
                     </Option>
                   ))}
@@ -302,14 +292,16 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
             <div className="w-full">
               <Form.Item
                 label={
-                  <label className="text-white md:text-lg mb-2">อีเมล</label>
+                  <label className="text-white font-sans md:text-lg mb-2">
+                    อีเมล
+                  </label>
                 }
                 name={["info", "email"]}
                 rules={[
                   { required: true, message: "กรุณากรอกอีเมล", type: "email" },
                 ]}
               >
-                <Input placeholder="อีเมล" />
+                <Input placeholder="อีเมล" className="md:text-lg" />
               </Form.Item>
             </div>
             <div className="w-full">
@@ -413,12 +405,10 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
                 >
                   {locationForm?.map((loc, index) => (
                     <OptionAuto
-                      key={loc.district + index.toString()}
-                      value={loc.district}
+                      key={index}
+                      value={`${loc.district} > ${loc.amphoe} > ${loc.province} > ${loc.zipcode}`}
                     >
-                      {loc.district} &gt;&gt; {loc.amphoe} &gt;&gt;{" "}
-                      {loc.province} &gt;&gt;
-                      {loc.zipcode}
+                      {`${loc.district} > ${loc.amphoe} > ${loc.province} > ${loc.zipcode}`}
                     </OptionAuto>
                   ))}
                 </AutoComplete>
@@ -445,16 +435,17 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
                 >
                   {locationForm?.map((loc, index) => (
                     <OptionAuto
-                      key={loc.amphoe + index.toString()}
-                      value={loc.amphoe}
+                      key={index}
+                      value={`${loc.district} > ${loc.amphoe} > ${loc.province} > ${loc.zipcode}`}
                     >
-                      {loc.amphoe} &gt;&gt; {loc.province} &gt;&gt;
-                      {loc.zipcode}
+                      {`${loc.district} > ${loc.amphoe} > ${loc.province} > ${loc.zipcode}`}
                     </OptionAuto>
                   ))}
                 </AutoComplete>
               </Form.Item>
             </div>
+          </div>
+          <div className="flex font-sans flex-wrap md:flex-nowrap flex-row justify-between gap-10">
             <div className="w-full">
               <Form.Item
                 label={
@@ -477,11 +468,10 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
                 >
                   {locationForm?.map((loc, index) => (
                     <OptionAuto
-                      key={loc.province + index.toString()}
-                      value={loc.province}
+                      key={index}
+                      value={`${loc.district} > ${loc.amphoe} > ${loc.province} > ${loc.zipcode}`}
                     >
-                      {loc.province} &gt;&gt;
-                      {loc.zipcode}
+                      {`${loc.district} > ${loc.amphoe} > ${loc.province} > ${loc.zipcode}`}
                     </OptionAuto>
                   ))}
                 </AutoComplete>
@@ -506,10 +496,11 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
                 >
                   {locationForm?.map((loc, index) => (
                     <OptionAuto
-                      key={loc.zipcode + index}
-                      value={loc.zipcode.toString()}
+                      key={index}
+                      value={`${loc.district} > ${loc.amphoe} > ${loc.province} > ${loc.zipcode}`}
+                      className="font-sans"
                     >
-                      {loc.zipcode}
+                      {`${loc.district} > ${loc.amphoe} > ${loc.province} > ${loc.zipcode}`}
                     </OptionAuto>
                   ))}
                 </AutoComplete>
