@@ -26,19 +26,21 @@ export const ModalFacebook = ({
         isVisible ? "flex" : "hidden"
       }`}
     >
-      <div className="h-fit py-10 w-[80%] md:w-[40%] bg-white rounded-md flex items-center justify-center flex-col space-y-2">
-        <p className=" md:text-xl font-sans mx-4 pb-4">
+
+      <div className="h-fit py-10 lg:w-[40%] md:w-[50%] sm:w-[60%] w-[80%] bg-white rounded-md flex items-center justify-center flex-col space-y-2 px-5">
+        <p className="text-xl pb-4 text-center">
           ล็อคอินด้วยเฟสบุ๊คเพื่อสมัคร Comcamp 33
         </p>
-        <div className="flex md:flex-row flex-col justify-center">
+        <div className="flex lg:flex-row md:flex-row sm:flex-row flex-col space-y-5 items-center justify-center">
+
           <button
-            className="right-2 relative text-white top-0 text-center  bg-gradient-to-b from-[#F054F3] to-[#9600FF] px-4 py-1 mx-2 text-lg border-2 border-[#B3E7F8] hover:shadow-[0_0px_15px_-2px_rgba(150,0,255,1)] hover:shadow-[#9600FF] transition-all duration-100 ease-linear rounded-lg   hover:tracking-widest font-sans"
+            className="relative text-white top-0 text-center  bg-gradient-to-b from-[#F054F3] to-[#9600FF] px-4 py-1 mx-2 text-lg border-2 border-[#B3E7F8] hover:shadow-[0_0px_15px_-2px_rgba(150,0,255,1)] hover:shadow-[#9600FF] transition-all duration-100 ease-linear rounded-lg   hover:tracking-widest font-sans"
             onClick={handleOk}
           >
             ดำเนินการต่อ
           </button>
           <button
-            className="right-2 relative top-0 text-center my-4 md:my-0  bg bg-gray-500/20 px-10 py-1 mx-2 text-lg border-2 border-[#B3E7F8] transition-all duration-100 ease-linear rounded-lg text-[#9600FF] hover:tracking-widest font-sans"
+            className="relative top-0 text-center bg bg-gray-500/20 px-10 py-1 mx-2 text-lg border-2 border-[#B3E7F8] transition-all duration-100 ease-linear rounded-lg hover:tracking-widest font-sans"
             onClick={handleCancel}
           >
             ยกเลิก
