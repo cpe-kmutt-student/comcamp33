@@ -15,6 +15,7 @@ export const BlobAnimation = ({ initx, inity, children, speed }) => {
     const ORIGSPEEDX = 10;
     const ORIGSPEEDY = 10;
     return (<motion.div
+        className="w-64 h-64"
         animate={{ x: x, y: y }}
         transition={{
             ease: "linear"
