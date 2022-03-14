@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
-
+import { BGAnimation } from "./BGAnimation";
 import { BiCalendar, BiLocationPlus } from "react-icons/bi";
 
 const About = () => {
@@ -16,6 +16,7 @@ const About = () => {
 
   return (
     <div className="flex flex-col justify-center items-center relative w-full h-full text-center px-6 md:px-[10vw] pt-[20vh] md:pt-[20vh] pb-[5vh] md:pb-[8vh] lg:pt-[25vh]">
+      <BGAnimation />
       <div className="absolute top-[-17px] right-0 w-full h-[25vh] z-20">
         <Image
           src="/assets/about/about_bg.png"
