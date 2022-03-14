@@ -158,8 +158,11 @@ export const Navigation = () => {
           </button>
 
           <div
-            className={`lg:hidden block absolute w-full h-full top-[6vh] ${isOpen ? "" : "hidden"
+            className={`lg:hidden block absolute w-screen h-screen top-[6vh] ${isOpen ? "" : "hidden"
               }`}
+            onClick={() => {
+              setIsOpen(!isOpen);
+            }}
           >
             {links.map((link, index) => (
               <div key={link}>
@@ -191,8 +194,8 @@ export const Navigation = () => {
             <div className="w-full flex flex-col bg-[#9600FF]/70 lg:hidden">
               <button
                 className={`py-3 text-center w-[100%] from-[#F054F3] to-[#9600FF]  text-white font-pixel text-lg hover:text-xl cursor-pointer text-shadow transition-all duration-200 ease-linear ${isEnabled
-                    ? "cursor-pointer bg-gradient-to-b hover:bg-gradient-to-t"
-                    : "cursor-not-allowed bg bg-gray-500/80 "
+                  ? "cursor-pointer bg-gradient-to-b hover:bg-gradient-to-t"
+                  : "cursor-not-allowed bg bg-gray-500/80 "
                   }`}
                 onClick={() => {
                   if (session) {
@@ -214,7 +217,7 @@ export const Navigation = () => {
               </button>
               {!session && (
                 <p className="p-3 text-center font-pixel text-[#FFD467] cursor-default">
-                  {`You have to sign up with your Facebook account before register
+                  {`You have to sign up with your Facebook account before registering
                   Comcamp 33 ( If you don't have facebook account, you must
                   register one. )`}
                 </p>
@@ -283,8 +286,8 @@ export const Navigation = () => {
             <button
               disabled={!isEnabled}
               className={`${isFirstSection
-                  ? "opacity-0 pointer-events-none"
-                  : "opacity-100 pointer-events-auto"
+                ? "opacity-0 pointer-events-none"
+                : "opacity-100 pointer-events-auto"
                 } right-2 font-pixel relative text-white top-0 text-center from-[#F054F3] to-[#9600FF] px-4 py-1 mx-2 text-md border-2 border-[#B3E7F8] hover:shadow-[0_0px_15px_-2px_rgba(150,0,255,1)] hover:shadow-[#9600FF] transition-all duration-100 ease-linear rounded-lg   hover:tracking-widest ${isEnabled
                   ? "cursor-pointer bg-gradient-to-b hover:shadow-[0_0px_15px_-2px_rgba(150,0,255,1)] hover:shadow-[#9600FF]"
                   : "cursor-not-allowed bg bg-gray-500/30"
@@ -313,14 +316,14 @@ export const Navigation = () => {
                     <div className="hidden group-hover:block fixed right-0 rounded-lg  pt-16 top-0 min-w-fit text-black p-5 ">
                       <div
                         className={`py-2 px-6 rounded-lg bg-[#F054F0]/70 text-[#fff] shadow-lg tracking-widest   w-[250px] text-[1rem] leading-5 border-dashed border-2 border-[#E3E7EE] ${isFirstSection
-                            ? "hidden"
-                            : isEnabled
-                              ? "block"
-                              : "hidden"
+                          ? "hidden"
+                          : isEnabled
+                            ? "block"
+                            : "hidden"
                           }`}
                       >
                         You have to sign up with your facebook account before
-                        register Comcamp 33
+                        registering Comcamp 33
                       </div>
                     </div>
                   </div>
