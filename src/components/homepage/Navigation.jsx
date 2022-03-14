@@ -159,9 +159,12 @@ export const Navigation = () => {
           </button>
 
           <div
-            className={`lg:hidden block absolute w-full h-full top-[6vh] ${
+            className={`lg:hidden block absolute w-screen h-screen top-[6vh] ${
               isOpen ? "" : "hidden"
             }`}
+            onClick={() => {
+              setIsOpen(!isOpen);
+            }}
           >
             {links.map((link, index) => (
               <div key={link}>
@@ -217,7 +220,7 @@ export const Navigation = () => {
               </button>
               {!session && (
                 <p className="p-3 text-center font-pixel text-[#FFD467] cursor-default">
-                  {`You have to sign up with your Facebook account before register
+                  {`You have to sign up with your Facebook account before registering
                   Comcamp 33 ( If you don't have facebook account, you must
                   register one. )`}
                 </p>
@@ -326,7 +329,7 @@ export const Navigation = () => {
                         }`}
                       >
                         You have to sign up with your facebook account before
-                        register Comcamp 33
+                        registering Comcamp 33
                       </div>
                     </div>
                   </div>
