@@ -12,25 +12,27 @@ export const BlobAnimation = ({ initx, inity, children, speed }) => {
     setY(inity ?? Math.random() * (window.innerHeight * 0.93 - 200));
   }, []);
 
-  const ORIGSPEEDX = 10;
-  const ORIGSPEEDY = 10;
-  return (
-    <motion.div
-      animate={{ x: x, y: y }}
-      transition={{
-        ease: "linear",
-        //duration: 0.001
-        // repeat: Infinity
-      }}
-      onAnimationComplete={() => {
-        setX(x + speedX);
-        setY(y + speedY);
-        if (x <= -50) {
-          setSpeedX(ORIGSPEEDX);
-        }
-        if (x >= window.innerWidth - 100) {
-          setSpeedX(-ORIGSPEEDX);
-        }
+
+    const ORIGSPEEDX = 10;
+    const ORIGSPEEDY = 10;
+    return (<motion.div
+        className="w-64 h-64"
+        animate={{ x: x, y: y }}
+        transition={{
+            ease: "linear"
+            //duration: 0.001
+            // repeat: Infinity
+        }}
+        onAnimationComplete={() => {
+            setX(x + speedX);
+            setY(y + speedY);
+            if (x <= -50) {
+                setSpeedX(ORIGSPEEDX);
+            }
+            if (x >= window.innerWidth - 100) {
+                setSpeedX(-ORIGSPEEDX);
+            }
+
 
         if (y <= 0) {
           setSpeedY(ORIGSPEEDY);
