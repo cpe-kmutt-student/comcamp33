@@ -16,8 +16,8 @@ const Timeline = () => {
   const currentDate = new Date();
   let period = 1;
 
-  const closeRegistrationDate = new Date(2022, 3, 2);
-  const announcementDate = new Date(2022, 3, 6);
+  const closeRegistrationDate = new Date(2022, 2, 29);
+  const announcementDate = new Date(2022, 3, 3);
   const openCampDate = new Date(2022, 3, 10);
   const closeCampDate = new Date(2022, 3, 16);
 
@@ -35,9 +35,8 @@ const Timeline = () => {
         data-aos="fade-up"
         className=" absolute z-0 right-[0] top-[-10px] "
         style={{
-          transform: `translate(${(offsetY - 3000) * 0.1}px, ${
-            (offsetY - 2000) * 0.2
-          }px)`,
+          transform: `translate(${(offsetY - 3000) * 0.1}px, ${(offsetY - 2000) * 0.2
+            }px)`,
         }}
       >
         <div className="relative w-[35vh] h-[25vh]">
