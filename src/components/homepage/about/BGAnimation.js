@@ -1,8 +1,5 @@
 import Image from "next/image"
 import { BlobAnimation } from "./BlobAnimation"
-import { BlueBlob } from "./Blobs/BlueBlob"
-import { PinkBlob } from "./Blobs/PinkBlob"
-import { PurpleBlob } from "./Blobs/PurpleBlob"
 
 export const BGAnimation = () => {
     return (
