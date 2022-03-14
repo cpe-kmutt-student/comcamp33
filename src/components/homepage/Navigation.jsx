@@ -30,7 +30,7 @@ export const ModalFacebook = ({
         <p className="text-xl pb-4 text-center">
           ล็อคอินด้วยเฟสบุ๊คเพื่อสมัคร Comcamp 33
         </p>
-        <div className="flex lg:flex-row md:flex-row sm:flex-row flex-col space-y-5 items-center justify-center">
+        <div className="flex lg:flex-row md:flex-row sm:flex-row flex-col space-y-5 sm:space-y-0 md:space-y-0 lg:space-y-0 items-center justify-center">
           <button
             className="relative text-white top-0 text-center  bg-gradient-to-b from-[#F054F3] to-[#9600FF] px-4 py-1 mx-2 text-lg border-2 border-[#B3E7F8] hover:shadow-[0_0px_15px_-2px_rgba(150,0,255,1)] hover:shadow-[#9600FF] transition-all duration-100 ease-linear rounded-lg   hover:tracking-widest font-sans"
             onClick={handleOk}
