@@ -35,8 +35,9 @@ const Timeline = () => {
         data-aos="fade-up"
         className=" absolute z-0 right-[0] top-[-10px] "
         style={{
-          transform: `translate(${(offsetY - 3000) * 0.1}px, ${(offsetY - 2000) * 0.2
-            }px)`,
+          transform: `translate(${(offsetY - 3000) * 0.1}px, ${
+            (offsetY - 2000) * 0.2
+          }px)`,
         }}
       >
         <div className="relative w-[35vh] h-[25vh]">

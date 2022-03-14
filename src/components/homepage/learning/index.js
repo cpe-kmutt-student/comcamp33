@@ -36,7 +36,7 @@ const Learning = () => {
           }px)`,
         }}
       >
-        <div className="relative w-[30vh] h-[15vh] lg:w-[40vh] lg:h-[20vh] lg:ml-[8vh] lg:mt-[4vh]">
+        <div className="relative z-0 w-[30vh] h-[15vh] lg:w-[40vh] lg:h-[20vh] lg:ml-[8vh] lg:mt-[4vh]">
           <Image
             className="animate-float"
             src="/assets/cassette.png"
