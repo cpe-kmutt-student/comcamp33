@@ -32,6 +32,15 @@ export default function QuestionsForm({
     setOpen(true);
   };
 
+  const back = async () => {
+    // setData({
+    //   ...data,
+    //   ...values
+    // });
+    // await saveData(values);
+    // prev();
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     saveData({
@@ -40,9 +49,13 @@ export default function QuestionsForm({
     // console.log(data);
   };
 
-  const onFinish = (values) => {
-    console.log("Success:", values);
-    saveData(values);
+  const onFinish = async (values) => {
+    // console.log("Success:", values);
+    setData({
+      ...data,
+      ...values
+    });
+    await saveData(values);
   };
 
   return (
@@ -54,7 +67,7 @@ export default function QuestionsForm({
               name="q1"
               rules={[
                 {
-                  required: true,
+                  required: false,
                   message: "อย่าลืมตอบคำถาม!",
                 },
               ]}
@@ -80,7 +93,6 @@ export default function QuestionsForm({
                   placeholder="คำถามข้อที่ 1 :"
                   value={data && data.answers ? data.answers.q1 : ""}
                   onChange={(e) => handleChange(e, "answers")}
-                  required={true}
                   className="h-36 font-sans md:text-lg text-gray-400 border-2 border-white px-2 py-1 outline-none bg-transparent focus:bg-white"
                 />
               </div>
@@ -93,7 +105,7 @@ export default function QuestionsForm({
               name="q2"
               rules={[
                 {
-                  required: true,
+                  required: false,
                   message: "อย่าลืมตอบคำถาม!",
                 },
               ]}
@@ -110,7 +122,6 @@ export default function QuestionsForm({
                   placeholder="คำถามข้อที่ 2 :"
                   value={data && data.answers ? data.answers.q2 : ""}
                   onChange={(e) => handleChange(e, "answers")}
-                  required={true}
                   className="h-36 font-sans md:text-lg text-gray-400 border-2 border-white px-2 py-1 outline-none bg-transparent focus:bg-white"
                 />
               </div>
@@ -123,7 +134,7 @@ export default function QuestionsForm({
               name="q3"
               rules={[
                 {
-                  required: true,
+                  required: false,
                   message: "อย่าลืมตอบคำถาม!",
                 },
               ]}
@@ -135,7 +146,7 @@ export default function QuestionsForm({
                 เมื่อถึงวันเดินทาง น้องก็ได้เข้าไปอยู่ในห้องโดยสารส่วนตัวที่จองไว้ 
                 ซึ่งเป็นห้องโดยสารว่าง ๆ ไม่มีสิ่งอำนวยความสะดวกใด ๆ ทั้งสิ้น 
                 มีเพียงหน้าต่างขนาดใหญ่ที่เอาไว้มองดูทิวทัศน์ระหว่างทางเพื่อแก้เบื่อเท่านั้น 
-                ในขณะที่เดินทาง ปรากฎว่ารถไฟขบวนที่น้องนั่งอยู่ถูกปล้น 
+                ในขณะที่เดินทาง ปรากฏว่ารถไฟขบวนที่น้องนั่งอยู่ถูกปล้น 
                 ผู้โดยสารทุกคนรวมถึงน้องถูกมัด ปิดตาและขังปิดตายอยู่ในห้องโดยสารของตนเอง 
                 ทำให้รถไฟทั้งขบวนเต็มไปด้วยความเงียบ 
                 มีเพียงเสียงล้อที่เคลื่อนที่กระแทกกับรางรถไฟเป็นจังหวะ 
@@ -159,7 +170,6 @@ export default function QuestionsForm({
                   placeholder="คำถามข้อที่ 3 :"
                   value={data && data.answers ? data.answers.q3 : ""}
                   onChange={(e) => handleChange(e, "answers")}
-                  required={true}
                   className="h-36 font-sans md:text-lg text-gray-400 border-2 border-white px-2 py-1 outline-none bg-transparent focus:bg-white"
                 />
               </div>
@@ -172,7 +182,7 @@ export default function QuestionsForm({
               name="q4"
               rules={[
                 {
-                  required: true,
+                  required: false,
                   message: "อย่าลืมตอบคำถาม!",
                 },
               ]}
@@ -195,7 +205,6 @@ export default function QuestionsForm({
                   placeholder="คำถามข้อที่ 4 :"
                   value={data && data.answers ? data.answers.q4 : ""}
                   onChange={(e) => handleChange(e, "answers")}
-                  required={true}
                   className="h-36 font-sans md:text-lg text-gray-400 border-2 border-white px-2 py-1  outline-none bg-transparent focus:bg-white"
                 />
               </div>
@@ -208,7 +217,7 @@ export default function QuestionsForm({
               name="q5"
               rules={[
                 {
-                  required: true,
+                  required: false,
                   message: "อย่าลืมตอบคำถาม!",
                 },
               ]}
@@ -224,7 +233,6 @@ export default function QuestionsForm({
                   placeholder="คำถามข้อที่ 5 :"
                   value={data && data.answers ? data.answers.q5 : ""}
                   onChange={(e) => handleChange(e, "answers")}
-                  required={true}
                   className="h-36 font-sans md:text-lg text-gray-400 border-2 border-white px-2 py-1 outline-none bg-transparent focus:bg-white"
                 />
               </div>
@@ -237,7 +245,7 @@ export default function QuestionsForm({
               name="q6"
               rules={[
                 {
-                  required: true,
+                  required: false,
                   message: "อย่าลืมตอบคำถาม!",
                 },
               ]}
@@ -253,7 +261,6 @@ export default function QuestionsForm({
                   placeholder="คำถามข้อที่ 6 :"
                   value={data && data.answers ? data.answers.q6 : ""}
                   onChange={(e) => handleChange(e, "answers")}
-                  required={true}
                   className="h-36 font-sans md:text-lg  text-gray-400 border-2 border-white px-2 py-1 outline-none bg-transparent focus:bg-white"
                 />
               </div>
@@ -265,7 +272,7 @@ export default function QuestionsForm({
               name="q7"
               rules={[
                 {
-                  required: true,
+                  required: false,
                   message: "อย่าลืมตอบคำถาม!",
                 },
               ]}
@@ -282,7 +289,6 @@ export default function QuestionsForm({
                   placeholder="คำถามข้อที่ 7 :"
                   value={data && data.answers ? data.answers.q7 : ""}
                   onChange={(e) => handleChange(e, "answers")}
-                  required={true}
                   className="h-36 font-sans md:text-lg text-gray-400 border-2 border-white px-2 py-1 outline-none bg-transparent focus:bg-white"
                 />
               </div>
@@ -294,7 +300,7 @@ export default function QuestionsForm({
               name="q8"
               rules={[
                 {
-                  required: true,
+                  required: false,
                   message: "อย่าลืมตอบคำถาม!",
                 },
               ]}
@@ -311,13 +317,12 @@ export default function QuestionsForm({
                   placeholder="คำถามข้อที่ 8 :"
                   value={data && data.answers ? data.answers.q8 : ""}
                   onChange={(e) => handleChange(e, "answers")}
-                  required={true}
                   className="h-36 font-sans md:text-lg text-gray-400 border-2 border-white px-2 py-1 outline-none bg-transparent focus:bg-white"
                 />
               </div>
             </Form.Item>
             <div className="flex font-pixel items-center justify-between my-5 z-20">
-              <button type="button" onClick={prev}>
+              <button type="button" onClick={back}>
                 <AiFillCaretLeft
                   size="4.5rem"
                   className="text-[#ec4899] opacity-60 translation-all ase-linear duration-200 hover:opacity-100"
@@ -335,6 +340,7 @@ export default function QuestionsForm({
                 />
               </button>
               <button style={{ display: "none" }} ref={submitBtn}></button>
+
 
               {/* 
                   <Button htmlType="submit">

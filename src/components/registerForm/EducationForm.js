@@ -98,18 +98,21 @@ export default function EducationForm({ data, setData, choose, prev, next }) {
     setOptions(!searchText ? [] : provices);
   };
 
-  const onFinish = (values) => {
-    console.log("Success:", values);
-    saveData(values);
+  const onFinish = async (values) => {
+    setData({
+      ...data,
+      ...values
+    });
+    await saveData(values);
     next();
   };
 
   const onFinishFailed = (errorInfo) => {
-    console.log("Failed:", errorInfo);
+    // console.log("Failed:", errorInfo);
   };
 
   useEffect(() => {
-    console.log("incoming ", data);
+    // console.log("incoming ", data);
     form.resetFields();
   }, [data]);
 

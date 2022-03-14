@@ -72,7 +72,7 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
   // };
 
   const onFinish = async (values) => {
-    console.log("Success:", values);
+    // console.log("Success:", values);
     try {
       const newValue = {
         ...values,
@@ -82,7 +82,11 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
           tel: values?.info?.tel.replaceAll("-", ""),
         },
       };
-      console.log("SuccessNew:", newValue);
+      //  console.log("SuccessNew:", newValue);
+      setData({
+        ...data,
+        ...values,
+      });
       await saveData(newValue);
       next();
     } catch {
@@ -95,12 +99,13 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
   };
 
   const onFinishFailed = (errorInfo) => {
-    console.log("Failed:", errorInfo);
+    // console.log("Failed:", errorInfo);
   };
 
   useEffect(() => {
-    console.log("incoming ", data);
+    // console.log("incoming ", data);
     form.resetFields();
+    // console.log(data.info.tel);
   }, [data]);
 
   return (
@@ -282,12 +287,11 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
                 name={["info", "tel"]}
                 rules={[
                   { required: true, message: "กรุณากรอกเบอร์โทรศัพท์" },
-                  { pattern: /^\d{3}-\d{3}-\d{4}$/, message: 'กรุณากรอกเบอร์โทรศัพท์' }
                 ]}
               >
                 <MaskedInput
                   className="md:text-lg"
-                  mask="111-111-1111"
+                  mask="1111111111"
                   name="tel"
                 />
               </Form.Item>

@@ -64,18 +64,22 @@ export default function InterestForm({ data, setData, choose, prev, next }) {
   //   // console.log(data);
   // };
 
-  const onFinish = (values) => {
-    console.log("Success:", values);
-    saveData(values);
+  const onFinish = async (values) => {
+    // console.log("Success:", values);
+    setData({
+      ...data,
+      ...values
+    });
+    await saveData(values);
     next();
   };
 
   const onFinishFailed = (errorInfo) => {
-    console.log("Failed:", errorInfo);
+    // console.log("Failed:", errorInfo);
   };
 
   useEffect(() => {
-    console.log("incoming ", data);
+    // console.log("incoming ", data);
     form.resetFields();
   }, [data]);
 

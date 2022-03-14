@@ -7,7 +7,7 @@ export const debounce = (func, timeout) => {
 };
 
 export const saveData = async (data) => {
-  console.log("saving", data);
+  // console.log("saving", data);
   const response = await fetch('/api/data', {
     method: 'POST',
     headers: {

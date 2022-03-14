@@ -27,6 +27,9 @@ export default function RegistrationPage() {
 
   const router = useRouter();
 
+  // Easter Egg
+  console.log('%c ⚠️ การเข้าถึงระบบคอมพิวเตอร์โดยมิชอบ มีโทษทางกฏหมายตาม พ.ร.บ. คอมพิวเตอร์ ', 'text-align: center; color: white; font-size: 1.5rem; background-color: red; border-radius: 0.5rem; padding: 0.25rem;');
+
   const nextForm = () => {
     if (chooseForm >= 1 && chooseForm < 6) setChooseForm(chooseForm + 1);
     else setError(true);
