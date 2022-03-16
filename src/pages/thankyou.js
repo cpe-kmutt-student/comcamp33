@@ -27,6 +27,7 @@ export default function thankyou() {
                 className="underline ease-linear duration-200 text-shadow hover:text-[#FFD467] "
                 href="https://kmutt.me/document"
                 target="_blank"
+                rel="noreferrer"
               >
                 kmutt.me/document
               </a>
