@@ -245,10 +245,10 @@ export default function PolicyForm({ data, setData, choose, error, next }) {
                   เพื่อกำกับดูแลคุ้มครองข้อมูลส่วนบุคคลของค่าย
                   และท่านสามารถติดต่อผู้ดูแลข้อมูลของโครงการ ได้ที่อีเมล
                   <Link
-                    href="mailto:comcamp.kmutt@gmail.com"
+                    href="mailto:comcamp33.kmutt@gmail.com"
                     className={styles.Link}
                   >
-                    {` comcamp.kmutt@gmail.com`}
+                    {` comcamp33.kmutt@gmail.com`}
                   </Link>
                 </li>
               </li>

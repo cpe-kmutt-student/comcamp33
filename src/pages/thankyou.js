@@ -22,7 +22,14 @@ export default function thankyou() {
           <h className="text-center leading-[7vh] lg:leading-[8vh] md:leading-[8vh] sm:leading-[8vh] px-2">
             Thank you <br /> for registration <br />{" "}
             <div className="font-sans py-4  md:text-2xl text-2xl">
-              อย่าลืมส่งใบขออนุญาตผู้ปกครองและเอกสารสำคัญมาที่มหาวิทยาลัยนะ!
+              อย่าลืมส่งใบขออนุญาตผู้ปกครองและเอกสารสำคัญมาที่{" "}
+              <a
+                className="underline ease-linear duration-200 text-shadow hover:text-[#FFD467] "
+                href="https://kmutt.me/document"
+                target="_blank"
+              >
+                kmutt.me/document
+              </a>
             </div>
           </h>
         </div>
