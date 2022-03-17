@@ -3,8 +3,8 @@ import imageQ1 from "@public/formBg/question1.png";
 import imageQ2 from "@public/formBg/question2.png";
 import { AiFillCaretLeft } from "react-icons/ai";
 import { saveData } from "@src/utils/clientUtils";
-import { Form, Input, Modal, Button } from 'antd';
-import { useEffect } from 'react';
+import { Form, Input, Modal, Button, Alert } from 'antd';
+import { useEffect, useState } from 'react';
 
 const questions = [
   'ถ้าวันหนึ่งน้องต้องย้อนกลับไปในยุค 80 - 90s ที่เป็นจุดเริ่มต้นของเทคโนโลยีได้ 1 วัน โดยสามารถเลือกอุปกรณ์หรือเทคโนโลยีในยุคปัจจุบันติดตัวไปได้ 1 ชิ้น น้องจะทำอะไรให้เกิดประโยชน์ที่สุด แล้วทำไมถึงเลือกอุปกรณ์ชิ้นนั้นไปด้วย และเมื่อกลับมายุคปัจจุบัน น้องสามารถนำอุปกรณ์ในช่วงยุค 80 - 90s กลับมาได้ 1 ชิ้น น้องจะนำอะไรกลับมาและเพราะเหตุใดน้องจึงเลือกอุปกรณ์ชิ้นนี้',
@@ -31,67 +31,100 @@ const questions = [
   'หากน้องได้มีโอกาสเข้ามาเป็นนักศึกษาคณะวิศวกรรมศาสตร์ ภาควิชาวิศวกรรมคอมพิวเตอร์ ที่มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าธนบุรี และน้องได้ร่วมกิจกรรมการจัดค่าย Comcamp 33 โดยน้องนั้นรับหน้าที่เป็น Admin page Facebook ของทางค่าย Comcamp 33 น้องจะมีวิธีการใช้คำพูดอย่างไร เพื่อให้น้องรุ่นต่อ ๆ ไปมีความชื่นชอบสนใจและอยากมาค่าย Comcamp 33 นี้'
 ];
 
+
 const QuestionsForm = ({ data, setData, choose, prev }) => {
   const [form] = Form.useForm();
+  const [isVisible, setIsVisible] = useState(false);
 
-  const onFinish = async (values) => {
+  const save = async (isConfirm) => {
+    const formData = form.getFieldsValue();
     setData({
       ...data,
-      ...values
+      ...formData,
+      ...(isConfirm && { complete: true })
     });
-    await saveData(values);
+    await saveData({
+      ...formData,
+      ...(isConfirm && { complete: true })
+    });
   };
 
+  const onClickPrevButton = async () => {
+    await save(false);
+    prev();
+  };
+
+  const onConfirm = async () => {
+    await save(true);
+  };
+
+  const onFinishFailed = ({ values, errorFields, outOfDate }) => {
+    Modal.error({
+      title: 'กรุณากรอกข้อมูลให้ครบถ้วน'
+    });
+  }
+
   return (
-    <div className="flex flex-col justify-center">
-      <h1 className="flex font-sans w-fit mx-auto text-xl md:text-3xl font-bold text-white bg-[#9600FF] px-4 py-3 my-6">
+    <div className="flex flex-col justify-center font-sans">
+      <Modal
+        visible={isVisible}
+        okText='Confirm'
+        cancelText='Cancel'
+        onOk={onConfirm}
+        onCancel={() => { setIsVisible(false); }}
+      >
+        <div className="flex flex-col text-center font-sans p-6">
+          <h1 className="font-semibold text-xl">ยืนยันการรับสมัครใช่หรือไม่</h1>
+          <p className="text-lg mb-0"><span className="text-red-600">คำเตือน</span> ไม่สามารถแก้ไขข้อมูลได้หลังการยืนยันข้อมูล</p>
+        </div>
+      </Modal>
+
+      <h1 className="flex w-fit mx-auto text-xl md:text-3xl font-bold text-white bg-[#9600FF] px-4 py-3 my-6">
         คำถาม
       </h1>
 
       <Form
         form={form}
-        onFinish={onFinish}
+        onFinish={() => { setIsVisible(true); }}
+        onFinishFailed={onFinishFailed}
         name="answers"
         layout="vertical"
         validateTrigger="onBlur"
         initialValues={data}
       >
-        <div className="">
-          {questions.map((question, index) => (
+        {questions.map((question, index) => (
+          <div key={index}>
+            <div className="md:text-[1.2rem] text-white bg-[#cf406e] px-5 py-3 my-5 whitespace-pre-wrap">
+              <span className="text-[#ff9394]">*</span> {index + 1}. {question}
+            </div>
+
             <Form.Item
-              label={<div className="font-sans md:text-[1.2rem] text-white bg-[#cf406e] px-5 py-3 my-5 whitespace-pre-wrap">
-              {index + 1}. {question}
-            </div>}
-              key={index}
               name={['answers', 'q' + (index + 1).toString()]}
-              rules={[{ required: true, message: 'อย่าลืมตอบคำถาม' }]}
+              rules={[{ required: true, whitespace: true, message: 'อย่าลืมตอบคำถาม' }]}
             >
               <Input.TextArea
                 placeholder={'คำตอบข้อที่ ' + (index + 1)}
-                className="h-36 font-sans md:text-lg text-gray-400 border-2 border-white px-2 py-1 outline-none bg-transparent focus:bg-white"
+                className="h-36 md:text-lg text-gray-400 border-2 border-white px-2 py-1 outline-none bg-transparent focus:bg-white"
               />
             </Form.Item>
-          ))}
-        </div>
+          </div>
+        ))}
 
         <div className="flex font-pixel items-center justify-between my-5 z-20">
           <button
             type="button"
-            onClick={async () => {
-              setData({
-                ...data,
-                ...form.getFieldsValue()
-              });
-              prev();
-            }}
+            onClick={onClickPrevButton}
           >
             <AiFillCaretLeft
               size="4.5rem"
-              className="text-[#ec4899] opacity-60 translation-all ase-linear duration-200 hover:opacity-100"
+              className="text-[#ec4899] opacity-60 translation-all duration-200 hover:opacity-100"
             />
           </button>
-          <Button htmlType="submit">
-
+          <Button
+            htmlType="submit"
+            className="flex justify-center items-center bg-gradient-to-b from-[#F054F3]/90 to-[#9600FF]/90 right-3 font-pixel text-md text-white px-3 py-2 rounded border-2 border-[#B3E7F8] hover:shadow-lg opacity-100 lg:opacity-80 tracking-widest hover:bg-gradient-to-t hover:opacity-100 outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+          >
+            Submit
           </Button>
         </div>
       </Form>

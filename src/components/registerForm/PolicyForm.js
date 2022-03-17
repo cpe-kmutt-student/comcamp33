@@ -3,6 +3,7 @@ import styles from "@styles/register/PolicyForm.module.css";
 import Link from "next/link";
 import { AiFillCaretRight } from "react-icons/ai";
 import { Checkbox } from "antd";
+import { saveData } from "@src/utils/clientUtils";
 
 export default function PolicyForm({ data, setData, choose, error, next }) {
   const nextBtn = useRef(null);
@@ -50,6 +51,7 @@ export default function PolicyForm({ data, setData, choose, error, next }) {
           next();
           const isVerify = check1 === true && check2 === true;
           setData({ ...data, verify: data?.verify || isVerify });
+          saveData({ verify: data?.verify || isVerify });
         }}
       >
         <div className="bg-[#9600FF] text-white  p-8 px-10 md:px-28 mb-8">
@@ -265,9 +267,8 @@ export default function PolicyForm({ data, setData, choose, error, next }) {
               </Checkbox>
             </label>
             <p
-              className={`text-[#FEFE2D] ${
-                error && (!value.box1 || !value.box2) ? "" : "hidden"
-              }`}
+              className={`text-[#FEFE2D] ${error && (!value.box1 || !value.box2) ? "" : "hidden"
+                }`}
             >
               กรุณาอ่านข้อมูลการสมัครให้ครบถ้วน
             </p>
@@ -278,9 +279,8 @@ export default function PolicyForm({ data, setData, choose, error, next }) {
           <button type="submit" ref={nextBtn}>
             <AiFillCaretRight
               size="4.5rem"
-              className={`text-[#ec4899] opacity-60 translation-all ase-linear duration-200 hover:opacity-100 ${
-                !check1 || !check2 ? "hidden" : ""
-              }`}
+              className={`text-[#ec4899] opacity-60 translation-all ase-linear duration-200 hover:opacity-100 ${!check1 || !check2 ? "hidden" : ""
+                }`}
             />
             <div
               className="z-40"
