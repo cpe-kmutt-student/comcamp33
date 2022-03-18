@@ -100,7 +100,7 @@ export default function EducationForm({ data, setData, choose, prev, next }) {
   const onFinish = async (values) => {
     setData({
       ...data,
-      ...values
+      ...values,
     });
     await saveData(values);
     next();
