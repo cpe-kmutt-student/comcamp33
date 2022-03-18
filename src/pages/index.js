@@ -1,7 +1,12 @@
 import Header from "../components/Header";
 import Link from "next/link";
+import { useEffect } from 'react';
 
 const IndexPage = () => {
+  useEffect(() => {
+    console.log('%c ⚠️ การเข้าถึงระบบคอมพิวเตอร์โดยมิชอบ มีโทษทางกฎหมายตาม พ.ร.บ. คอมพิวเตอร์ ', 'text-align: center; color: white; font-size: 1.5rem; background-color: red; border-radius: 0.5rem; padding: 0.25rem;');
+  }, []);
+
   return (
     <div>
       <Header />

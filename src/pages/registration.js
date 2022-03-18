@@ -16,10 +16,11 @@ import { getSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import moment from "moment";
 import "antd/dist/antd.css";
+import Spinner from '@components/Spinner';
 
 export default function RegistrationPage() {
-  const [chooseForm, setChooseForm] = useState(1); // 1
-  const [data, setData] = useState({});
+  const [chooseForm, setChooseForm] = useState(0); // 1
+  const [data, setData] = useState(null);
   const [error, setError] = useState(false);
 
   const [isNext, setIsNext] = useState(false);
@@ -28,7 +29,9 @@ export default function RegistrationPage() {
   const router = useRouter();
 
   // Easter Egg
-  console.log('%c ⚠️ การเข้าถึงระบบคอมพิวเตอร์โดยมิชอบ มีโทษทางกฏหมายตาม พ.ร.บ. คอมพิวเตอร์ ', 'text-align: center; color: white; font-size: 1.5rem; background-color: red; border-radius: 0.5rem; padding: 0.25rem;');
+  useEffect(() => {
+    console.log('%c ⚠️ การเข้าถึงระบบคอมพิวเตอร์โดยมิชอบ มีโทษทางกฎหมายตาม พ.ร.บ. คอมพิวเตอร์ ', 'text-align: center; color: white; font-size: 1.5rem; background-color: red; border-radius: 0.5rem; padding: 0.25rem;');
+  }, []);
 
   const nextForm = () => {
     if (chooseForm >= 1 && chooseForm < 6) setChooseForm(chooseForm + 1);
@@ -50,8 +53,8 @@ export default function RegistrationPage() {
             result.message?.info?.birthdate
           );
         }
-        setData(result.message);
       }
+      setData(result.message || { verify: false });
     };
     loadInitialData();
   }, []);
@@ -64,12 +67,17 @@ export default function RegistrationPage() {
   // }, [data.verify]);
 
   useEffect(() => {
+    if (!data) return;
+
     if (data.complete == true) {
       router.push("/thankyou");
     }
-    if (data && data.verify && !isNext) {
+
+    if (data.verify && !isNext) {
       setChooseForm(2);
       setIsNext(true);
+    } else if (!data.verify) {
+      setChooseForm(1);
     }
   }, [data]);
 
@@ -105,7 +113,15 @@ export default function RegistrationPage() {
       <h1 className="my-7 self-center m-2 text-white font-pixel text-4xl md:text-6xl">
         REGISTRATION
       </h1>
+
       <ProgressBar currentStep={chooseForm} />
+
+      {chooseForm == 0 && (
+        <div className="mt-24 mx-auto">
+          <Spinner className="w-12 h-12 text-white" />
+        </div>
+      )}
+
       <div className="container mx-auto p-6 md:p-16 flex justify-center all pt-0 pb-0 z-10">
         {chooseForm == 1 && (
           <PolicyForm

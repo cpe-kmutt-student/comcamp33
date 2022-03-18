@@ -97,7 +97,6 @@ export default function InterestForm({ data, setData, choose, prev, next }) {
           validateTrigger="onBlur"
           initialValues={data}
         >
-          {/* <form onSubmit={handleSubmit}> */}
           <div className="flex justify-center">
             <h1 className="flex w-fit justify-center font-sans text-xl md:text-3xl font-bold text-white bg-[#9600FF] px-4 py-3 my-8">
               ความสนใจ
@@ -237,24 +236,7 @@ export default function InterestForm({ data, setData, choose, prev, next }) {
                   className="font-sans"
                 />
               </Form.Item>
-              {/* <label className="text-white mb-2">ภาควิชาลำดับที่สาม </label>
-              <Input
-                type="text"
-                name="faculty"
-                placeholder="faculty"
-                onChange={(e) => {
-                  handleChangeAdmission(e);
-                }}
-                number="2"
-                value={
-                  (data &&
-                    data.interest &&
-                    data.interest.admission &&
-                    data.interest.admission[2] &&
-                    data.interest.admission[2].faculty) ||
-                  ""
-                }
-              /> */}
+
             </div>
           </div>
           <br />
@@ -437,7 +419,6 @@ export default function InterestForm({ data, setData, choose, prev, next }) {
               ></div>
             </button>
           </div>
-          {/* </form> */}
         </Form>
       </div>
     </>
