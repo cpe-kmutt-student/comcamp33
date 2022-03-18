@@ -45,31 +45,7 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
     });
   };
 
-  /*   useEffect(() => {
-    setData({
-      ...data,
-      address: filterData,
-    });
-  }, [filterData]); */
-
   const [form] = Form.useForm();
-  // const handleChange = (e, type) => {
-  //   setData({
-  //     ...data,
-  //     [type]: {
-  //       ...data[type],
-  //       [e.target.name]: e.target.value,
-  //     },
-  //   });
-  // };
-
-  // const handleSubmit = (e) => {
-  //   next();
-  //   e.preventDefault();
-  //   saveData({
-  //     ...data,
-  //   });
-  // };
 
   const onFinish = async (values) => {
     // console.log("Success:", values);

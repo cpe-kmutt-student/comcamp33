@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import styles from "@styles/components/registerForm/EducationForm.module.css";
 import { AiFillCaretLeft, AiFillCaretRight } from "react-icons/ai";
 import { saveData } from "@src/utils/clientUtils";
 import { Select, Form, Input, InputNumber, AutoComplete } from "antd";
@@ -193,19 +192,20 @@ export default function EducationForm({ data, setData, choose, prev, next }) {
               </Select>
             </Form.Item>
           </div>
-          <div className="flex flex-row gap-10 lg:w-[50%] w-[100%]">
-            <div className="flex flex-col w-full">
+          <div className="flex flex-row justify-between md:justify-start">
+            <div className="w-2/3 md:w-full">
               <Form.Item
                 label={
                   <label className="text-white font-sans md:text-lg mb-2">{`ระดับการศึกษา`}</label>
                 }
                 name={["education", "level"]}
                 rules={[{ required: true, message: "กรุณาเลือกระดับการศึกษา" }]}
+                className="flex flex-col"
               >
                 <Select
                   placeholder="ระดับการศึกษา"
                   className="font-sans md:text-lg"
-                  dropdownClassName="border-2 border-white font-sans  text-gray-400 px-2 py-1 "
+                  dropdownClassName="border-2 border-white font-sans text-gray-400 px-2 py-1 "
                 >
                   {level.map((item) => (
                     <Option
@@ -219,17 +219,18 @@ export default function EducationForm({ data, setData, choose, prev, next }) {
                 </Select>
               </Form.Item>
             </div>
-            <div>
+            <div className="ml-10">
               <Form.Item
                 label={
-                  <label className="text-white font-sans md:text-lg mb-2">{`เกรดเฉลี่ย`}</label>
+                  <label className="text-white font-sans md:text-lg mb-2">{`GPAX`}</label>
                 }
                 name={["education", "gpax"]}
                 rules={[{ required: true, message: "กรุณากรอกเกรดเฉลี่ย" }]}
+                className="flex flex-col w-full"
               >
                 <InputNumber
                   className="font-sans md:text-lg"
-                  placeholder="เกรดเฉลี่ย"
+                  placeholder="GPAX"
                   min="0"
                   max="4"
                   step="0.01"

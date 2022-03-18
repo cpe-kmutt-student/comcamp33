@@ -4,6 +4,7 @@ import imageQ2 from "@public/formBg/question2.png";
 import { AiFillCaretLeft } from "react-icons/ai";
 import { saveData } from "@src/utils/clientUtils";
 import { Form, Input, Modal, Button, Alert } from 'antd';
+import AutoSave from "@components/AutoSave";
 import { useEffect, useState } from 'react';
 
 const questions = [
@@ -35,6 +36,13 @@ const questions = [
 const QuestionsForm = ({ data, setData, choose, prev }) => {
   const [form] = Form.useForm();
   const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      saveData(form.getFieldsValue());
+    }, 1000 * 10);
+    return () => clearInterval(interval);
+  }, []);
 
   const save = async (isConfirm) => {
     const formData = form.getFieldsValue();
