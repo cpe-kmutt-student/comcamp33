@@ -101,7 +101,7 @@ export default function EducationForm({ data, setData, choose, prev, next }) {
   const onFinish = async (values) => {
     setData({
       ...data,
-      ...values
+      ...values,
     });
     await saveData(values);
     next();
@@ -222,7 +222,7 @@ export default function EducationForm({ data, setData, choose, prev, next }) {
             <div>
               <Form.Item
                 label={
-                  <label className="text-white font-sans md:text-lg mb-2">{`เกรดเฉลี่ย`}</label>
+                  <label className="text-white font-sans md:text-lg mb-2">{`GPAX`}</label>
                 }
                 name={["education", "gpax"]}
                 rules={[{ required: true, message: "กรุณากรอกเกรดเฉลี่ย" }]}
