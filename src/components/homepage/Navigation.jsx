@@ -98,7 +98,7 @@ export const Navigation = () => {
   const openRegis = new Date(2022, 2, 14, 18, 0, 0);
   const closeRegis = new Date(2022, 2, 29, 23, 59, 59);
 
-  const isEnabled = true; // date >= openRegis && date <= closeRegis;
+  const isEnabled = date >= openRegis && date <= closeRegis;
 
   const [offsetY, setOffsetY] = useState(0);
   const [heightY, setHeightY] = useState(0);
