@@ -66,11 +66,6 @@ export default function InterestForm({ data, setData, choose, prev, next }) {
 
   const onFinish = async (values) => {
     // console.log("Success:", values);
-    setData({
-      ...data,
-      ...values
-    });
-    await saveData(values);
     next();
   };
 
@@ -111,9 +106,6 @@ export default function InterestForm({ data, setData, choose, prev, next }) {
                   </label>
                 }
                 name={["interest", "admission", 0, "university"]}
-                rules={[
-                  { required: true, message: "กรุณากรอกชื่อมหาวิทยาลัย" },
-                ]}
               >
                 <Input
                   placeholder="มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าธนบุรี"
@@ -129,7 +121,6 @@ export default function InterestForm({ data, setData, choose, prev, next }) {
                   </label>
                 }
                 name={["interest", "admission", 0, "department"]}
-                rules={[{ required: true, message: "กรุณากรอกคณะ" }]}
               >
                 <Input placeholder="วิศวกรรมศาสตร์" className="font-sans" />
               </Form.Item>
@@ -142,7 +133,6 @@ export default function InterestForm({ data, setData, choose, prev, next }) {
                   </label>
                 }
                 name={["interest", "admission", 0, "faculty"]}
-                rules={[{ required: true, message: "กรุณากรอกภาควิชา" }]}
               >
                 <Input
                   placeholder="วิศวกรรมคอมพิวเตอร์"

@@ -19,8 +19,8 @@ import "antd/dist/antd.css";
 import Spinner from '@components/Spinner';
 
 export default function RegistrationPage() {
-  const [chooseForm, setChooseForm] = useState(0); // 1
-  const [data, setData] = useState(null);
+  const [chooseForm, setChooseForm] = useState(1); // 1
+  const [data, setData] = useState("");
   const [error, setError] = useState(false);
 
   const [isNext, setIsNext] = useState(false);
@@ -44,20 +44,20 @@ export default function RegistrationPage() {
     }
   };
 
-  useEffect(() => {
-    const loadInitialData = async () => {
-      const result = await loadData();
-      if (result.message) {
-        if (result.message.info?.birthdate) {
-          result.message.info.birthdate = moment(
-            result.message?.info?.birthdate
-          );
-        }
-      }
-      setData(result.message || { verify: false });
-    };
-    loadInitialData();
-  }, []);
+  // useEffect(() => {
+  //   const loadInitialData = async () => {
+  //     const result = await loadData();
+  //     if (result.message) {
+  //       if (result.message.info?.birthdate) {
+  //         result.message.info.birthdate = moment(
+  //           result.message?.info?.birthdate
+  //         );
+  //       }
+  //     }
+  //     setData(result.message || { verify: false });
+  //   };
+  //   loadInitialData();
+  // }, []);
 
   // {data && data.verify == true ? setChooseForm(2) : ""}
   // useEffect(() => {
@@ -66,20 +66,20 @@ export default function RegistrationPage() {
   //   }
   // }, [data.verify]);
 
-  useEffect(() => {
-    if (!data) return;
+  // useEffect(() => {
+  //   if (!data) return;
 
-    if (data.complete == true) {
-      router.push("/thankyou");
-    }
+  //   if (data.complete == true) {
+  //     router.push("/thankyou");
+  //   }
 
-    if (data.verify && !isNext) {
-      setChooseForm(2);
-      setIsNext(true);
-    } else if (!data.verify) {
-      setChooseForm(1);
-    }
-  }, [data]);
+  //   if (data.verify && !isNext) {
+  //     setChooseForm(2);
+  //     setIsNext(true);
+  //   } else if (!data.verify) {
+  //     setChooseForm(1);
+  //   }
+  // }, [data]);
 
   return (
     <div className="relative flex flex-col bg-[#11033E] min-h-screen overflow-x-hidden">
@@ -208,16 +208,16 @@ export default function RegistrationPage() {
   );
 }
 
-export const getServerSideProps = async (context) => {
-  const session = await getSession(context);
+// export const getServerSideProps = async (context) => {
+//   const session = await getSession(context);
 
-  if (session) return { props: {} };
+//   if (session) return { props: {} };
 
-  return {
-    redirect: {
-      permanent: false,
-      destination: "/home",
-    },
-    props: {},
-  };
-};
+//   return {
+//     redirect: {
+//       permanent: false,
+//       destination: "/home",
+//     },
+//     props: {},
+//   };
+// };

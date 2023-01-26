@@ -118,13 +118,6 @@ const QuestionsForm = ({ data, setData, choose, prev }) => {
 
             <Form.Item
               name={["answers", "q" + (index + 1).toString()]}
-              rules={[
-                {
-                  required: true,
-                  whitespace: true,
-                  message: "อย่าลืมตอบคำถาม",
-                },
-              ]}
             >
               <Input.TextArea
                 placeholder={"คำตอบข้อที่ " + (index + 1)}

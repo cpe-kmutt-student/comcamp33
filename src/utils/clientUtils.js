@@ -17,7 +17,7 @@ export const saveData = async (data) => {
   });
 
   if (![200, 201].includes(response.status)) {
-    throw new Error("response not ok");
+    throw  Error;
   }
 
   return response.json();

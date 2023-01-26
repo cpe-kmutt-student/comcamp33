@@ -48,22 +48,7 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
   const [form] = Form.useForm();
 
   const onFinish = async (values) => {
-    // console.log("Success:", values);
     try {
-      const newValue = {
-        ...values,
-        info: {
-          ...values.info,
-          birthdate: moment(values?.info?.birthdate),
-          tel: values?.info?.tel.replaceAll("-", ""),
-        },
-      };
-      //  console.log("SuccessNew:", newValue);
-      setData({
-        ...data,
-        ...values,
-      });
-      await saveData(newValue);
       next();
     } catch {
       notification.error({
@@ -113,7 +98,6 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
                   <label className="text-white md:text-lg mb-2">คำนำหน้า</label>
                 }
                 name={["info", "prefix_th"]}
-                rules={[{ required: true, message: "กรุณาเลือก!" }]}
               >
                 <Select
                   placeholder="คำนำหน้า"
@@ -143,7 +127,6 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
                   </label>
                 }
                 name={["info", "name_th"]}
-                rules={[{ required: true, message: "กรุณากรอกชื่อ" }]}
               >
                 <Input placeholder="ชื่อ (ภาษาไทย)" className="md:text-lg" />
               </Form.Item>
@@ -156,7 +139,6 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
                   </label>
                 }
                 name={["info", "surname_th"]}
-                rules={[{ required: true, message: "กรุณากรอกนามสกุล" }]}
               >
                 <Input placeholder="นามสกุล (ภาษาไทย)" className="md:text-lg" />
               </Form.Item>
@@ -169,7 +151,6 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
                   </label>
                 }
                 name={["info", "nickname_th"]}
-                rules={[{ required: true, message: "กรุณากรอกชื่อเล่น" }]}
               >
                 <Input
                   placeholder="ชื่อเล่น (ภาษาไทย)"
@@ -188,7 +169,6 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
                   </label>
                 }
                 name={["info", "prefix_en"]}
-                rules={[{ required: true, message: "กรุณาเลือก" }]}
               >
                 <Select
                   placeholder="Name prefix"
@@ -218,7 +198,6 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
                   </label>
                 }
                 name={["info", "name_en"]}
-                rules={[{ required: true, message: "กรุณากรอกชื่อ" }]}
               >
                 <Input placeholder="ชื่อ (ภาษาอังกฤษ)" className="md:text-lg" />
               </Form.Item>
@@ -231,7 +210,6 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
                   </label>
                 }
                 name={["info", "surname_en"]}
-                rules={[{ required: true, message: "กรุณากรอกนามสกุล" }]}
               >
                 <Input
                   placeholder="นามสกุล (ภาษาอังกฤษ)"
@@ -245,7 +223,6 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
                   <label className="text-white md:text-lg mb-2">วันเกิด</label>
                 }
                 name={["info", "birthdate"]}
-                rules={[{ required: true, message: "กรุณากรอกวันเกิด" }]}
               >
                 <DatePicker className="w-full " />
               </Form.Item>
@@ -261,9 +238,6 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
                   </label>
                 }
                 name={["info", "tel"]}
-                rules={[
-                  { required: true, message: "กรุณากรอกเบอร์โทรศัพท์" },
-                ]}
               >
                 <MaskedInput
                   className="md:text-lg"
@@ -280,9 +254,6 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
                   </label>
                 }
                 name={["info", "email"]}
-                rules={[
-                  { required: true, message: "กรุณากรอกอีเมล", type: "email" },
-                ]}
               >
                 <Input placeholder="อีเมล" className="md:text-lg" />
               </Form.Item>
@@ -295,7 +266,6 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
                   </label>
                 }
                 name={["info", "shirt"]}
-                rules={[{ required: true, message: "กรุณาเลือกขนาดเสื้อ" }]}
               >
                 <Select
                   placeholder="ระบุขนาดเสื้อ"
@@ -325,7 +295,6 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
                   <label className="text-white font-sans md:text-lg mb-2">{`เลขที่บ้าน`}</label>
                 }
                 name={["address", "no"]}
-                rules={[{ required: true, message: "กรุณากรอกบ้านเลขที่" }]}
               >
                 <Input
                   placeholder="บ้านเลขที่"
@@ -378,7 +347,6 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
                   <label className="text-white md:text-lg mb-2">{`ตำบล/แขวง`}</label>
                 }
                 name={["address", "tambol"]}
-                rules={[{ required: true, message: "ระบุตำบล" }]}
               >
                 <AutoComplete
                   onSearch={(txt) => onSearch("district", txt)}
@@ -403,7 +371,6 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
                   <label className="text-white md:text-lg mb-2">{`อำเภอ/เขต`}</label>
                 }
                 name={["address", "amphoe"]}
-                rules={[{ required: true, message: "ระบุอำเภอ" }]}
               >
                 <AutoComplete
                   className="md:text-lg"
@@ -435,7 +402,6 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
                   <label className="text-white md:text-lg mb-2">{`จังหวัด`}</label>
                 }
                 name={["address", "province"]}
-                rules={[{ required: true, message: "ระบุจังหวัด" }]}
               >
                 <AutoComplete
                   className="md:text-lg"
@@ -466,10 +432,6 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
                   <label className="text-white md:text-lg mb-2">{`ไปรษณีย์`}</label>
                 }
                 name={["address", "postcode"]}
-                rules={[
-                  { len: 5, message: "รหัสไปรษณีย์ต้องมี 5 อักษร" },
-                  { required: true, message: "กรุณาระบุรหัสไปรษณีย์" },
-                ]}
               >
                 <AutoComplete
                   className="md:text-lg"
@@ -503,7 +465,6 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
                 }
                 // name="parent.prefix_th"
                 name={["parent", "prefix_th"]}
-                rules={[{ required: true, message: "กรุณาเลือก!" }]}
               >
                 <Select
                   placeholder="คำนำหน้า"
@@ -527,7 +488,6 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
                   </label>
                 }
                 name={["parent", "name"]}
-                rules={[{ required: true, message: "กรุณากรอกชื่อผู้ปกครอง!" }]}
               >
                 <Input placeholder="ชื่อผู้ปกครอง" className="md:text-lg" />
               </Form.Item>
@@ -541,7 +501,6 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
                     </label>
                   }
                   name={["parent", "surname"]}
-                  rules={[{ required: true, message: "กรุณากรอกนามสกุล!" }]}
                 >
                   <Input
                     placeholder="นามสกุลผู้ปกครอง"
@@ -558,7 +517,6 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
                   </label>
                 }
                 name={["parent", "relation"]}
-                rules={[{ required: true, message: "กรุณากรอกความสัมพันธ์!" }]}
               >
                 <Input placeholder="ความสัมพันธ์" className="md:text-lg" />
               </Form.Item>
@@ -571,9 +529,6 @@ export default function InfoForm({ data, setData, choose, next, prev }) {
               onClick={(e) => {
                 prev();
                 e.preventDefault();
-                saveData({
-                  ...data,
-                });
               }}
             >
               <AiFillCaretLeft

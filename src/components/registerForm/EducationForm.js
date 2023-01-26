@@ -98,11 +98,6 @@ export default function EducationForm({ data, setData, choose, prev, next }) {
   };
 
   const onFinish = async (values) => {
-    setData({
-      ...data,
-      ...values,
-    });
-    await saveData(values);
     next();
   };
 
@@ -140,7 +135,6 @@ export default function EducationForm({ data, setData, choose, prev, next }) {
                 <label className="text-white font-sans md:text-lg mb-2">{`ชื่อสถานศึกษา`}</label>
               }
               name={["education", "name"]}
-              rules={[{ required: true, message: "กรุณากรอกชื่อโรงเรียน" }]}
             >
               <Input placeholder="โรงเรียน" className="font-sans md:text-lg" />
             </Form.Item>
@@ -151,7 +145,6 @@ export default function EducationForm({ data, setData, choose, prev, next }) {
                 <label className="text-white font-sans md:text-lg mb-2">{`จังหวัด`}</label>
               }
               name={["education", "province"]}
-              rules={[{ required: true, message: "กรุณากรอกจังหวัด" }]}
             >
               <AutoComplete
                 options={provices}
@@ -173,7 +166,6 @@ export default function EducationForm({ data, setData, choose, prev, next }) {
                 <label className="text-white font-sans md:text-lg mb-2">{`แผนการเรียน`}</label>
               }
               name={["education", "program"]}
-              rules={[{ required: true, message: "กรุณาเลือกแผนการเรียน" }]}
             >
               <Select
                 placeholder="แผนการเรียน"
@@ -199,7 +191,6 @@ export default function EducationForm({ data, setData, choose, prev, next }) {
                   <label className="text-white font-sans md:text-lg mb-2">{`ระดับการศึกษา`}</label>
                 }
                 name={["education", "level"]}
-                rules={[{ required: true, message: "กรุณาเลือกระดับการศึกษา" }]}
                 className="flex flex-col"
               >
                 <Select
@@ -225,7 +216,6 @@ export default function EducationForm({ data, setData, choose, prev, next }) {
                   <label className="text-white font-sans md:text-lg mb-2">{`GPAX`}</label>
                 }
                 name={["education", "gpax"]}
-                rules={[{ required: true, message: "กรุณากรอกเกรดเฉลี่ย" }]}
                 className="flex flex-col w-full"
               >
                 <InputNumber
